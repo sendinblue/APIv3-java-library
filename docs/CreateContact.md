@@ -1,0 +1,16 @@
+
+# CreateContact
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**email** | **String** | Email address of the user. Mandatory if &#x60;attributes.sms&#x60; is not passed |  [optional]
+**attributes** | **Object** | Values of the attributes to fill. The attributes must exist in you contact database |  [optional]
+**emailBlacklisted** | **Boolean** | Blacklist the contact for emails (emailBlacklisted &#x3D; true) |  [optional]
+**smsBlacklisted** | **Boolean** | Blacklist the contact for SMS (smsBlacklisted &#x3D; true) |  [optional]
+**listIds** | **List&lt;Long&gt;** | Ids of the lists to add the contact to |  [optional]
+**updateEnabled** | **Boolean** | Facilitate to update existing contact in same request (updateEnabled &#x3D; true) |  [optional]
+**smtpBlacklistSender** | **List&lt;String&gt;** | SMTP forbidden sender for contact. Use only for email Contact ( only available if updateEnabled &#x3D; true ) |  [optional]
+
+
+
