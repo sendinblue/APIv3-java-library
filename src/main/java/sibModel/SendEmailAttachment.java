@@ -40,10 +40,10 @@ public class SendEmailAttachment {
   }
 
    /**
-   * Base64 encoded chunk data of the attachment generated on the fly
+   * Byte array of the attachment generated on the fly ( Encoded to base64 chunk data at our end )
    * @return content
   **/
-  @ApiModelProperty(example = "b3JkZXIucGRm", value = "Base64 encoded chunk data of the attachment generated on the fly")
+  @ApiModelProperty(example = "b3JkZXIucGRm", value = "Byte array of the attachment generated on the fly ( Encoded to base64 chunk data at our end )")
   public byte[] getContent() {
     return content;
   }
