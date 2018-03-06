@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -13,21 +13,14 @@
 
 package sendinblue;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
+import com.google.gson.*;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.TypeSelector;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
-
-import sibModel.*;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -35,21 +28,22 @@ import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
-import java.util.HashMap;
 
-public class JSON {
+public class Json {
     private Gson gson;
     private boolean isLenientOnJson = false;
     private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+    private ByteArrayToBase64TypeAdapter byteArrayToBase64TypeAdapter = new ByteArrayToBase64TypeAdapter();
     private SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
     private OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+                ;
         return fireBuilder.createGsonBuilder();
     }
 
@@ -69,13 +63,16 @@ public class JSON {
         return clazz;
     }
 
-    public JSON() {
+
+
+    public Json() {
         gson = createGson()
-            .registerTypeAdapter(Date.class, dateTypeAdapter)
-            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-            .create();
+                .registerTypeAdapter(Date.class, dateTypeAdapter)
+                .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
+                .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
+                .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+                .registerTypeHierarchyAdapter(byte[].class, byteArrayToBase64TypeAdapter)
+                .create();
     }
 
     /**
@@ -91,33 +88,33 @@ public class JSON {
      * Set Gson.
      *
      * @param gson Gson
-     * @return JSON
+     * @return Json
      */
-    public JSON setGson(Gson gson) {
+    public Json setGson(Gson gson) {
         this.gson = gson;
         return this;
     }
 
-    public JSON setLenientOnJson(boolean lenientOnJson) {
+    public Json setLenientOnJson(boolean lenientOnJson) {
         isLenientOnJson = lenientOnJson;
         return this;
     }
 
     /**
-     * Serialize the given Java object into JSON string.
+     * Serialize the given Java object into Json string.
      *
      * @param obj Object
-     * @return String representation of the JSON
+     * @return String representation of the Json
      */
     public String serialize(Object obj) {
         return gson.toJson(obj);
     }
 
     /**
-     * Deserialize the given JSON string to Java object.
+     * Deserialize the given Json string to Java object.
      *
      * @param <T>        Type
-     * @param body       The JSON string
+     * @param body       The Json string
      * @param returnType The type to deserialize into
      * @return The deserialized Java object
      */
@@ -133,7 +130,7 @@ public class JSON {
                 return gson.fromJson(body, returnType);
             }
         } catch (JsonParseException e) {
-            // Fallback processing when failed to parse JSON form response body:
+            // Fallback processing when failed to parse Json form response body:
             // return the response body string directly for the String return type;
             if (returnType.equals(String.class))
                 return (T) body;
@@ -226,15 +223,39 @@ public class JSON {
         }
     }
 
-    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+    public Json setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
         offsetDateTimeTypeAdapter.setFormat(dateFormat);
         return this;
     }
 
-    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
+    public Json setLocalDateFormat(DateTimeFormatter dateFormat) {
         localDateTypeAdapter.setFormat(dateFormat);
         return this;
     }
+
+    /*
+    public static class ByteArrayToBase64TypeAdapter extends TypeAdapter<byte[]> {
+        @Override
+        public void write(JsonWriter jsonWriter, byte[] bytes) throws IOException {
+            jsonWriter.value(Base64.getEncoder().withoutPadding().encodeToString(bytes));
+        }
+        @Override
+        public byte[] read(JsonReader jsonReader) throws IOException {
+            return Base64.getDecoder().decode(jsonReader.nextString());
+        }
+    }*/
+
+
+    public static class ByteArrayToBase64TypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
+        public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            return Base64.getDecoder().decode(json.getAsString());
+        }
+
+        public JsonElement serialize(byte[] src, Type typeOfSrc, JsonSerializationContext context) {
+            return new JsonPrimitive(Base64.getEncoder().encodeToString(src));
+        }
+    }
+
 
     /**
      * Gson TypeAdapter for java.sql.Date type
@@ -349,12 +370,12 @@ public class JSON {
         }
     }
 
-    public JSON setDateFormat(DateFormat dateFormat) {
+    public Json setDateFormat(DateFormat dateFormat) {
         dateTypeAdapter.setFormat(dateFormat);
         return this;
     }
 
-    public JSON setSqlDateFormat(DateFormat dateFormat) {
+    public Json setSqlDateFormat(DateFormat dateFormat) {
         sqlDateTypeAdapter.setFormat(dateFormat);
         return this;
     }
