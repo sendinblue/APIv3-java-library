@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **sender** | **String** | Sender of the SMS Campaign | 
 **createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**recipients** | **Object** |  | 
+**statistics** | **Object** |  | 
 
 
 <a name="StatusEnum"></a>

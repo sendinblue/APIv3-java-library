@@ -14,7 +14,7 @@
 package sibApi;
 
 import sendinblue.ApiException;
-import sibModel.AddRemoveContactToList;
+import sibModel.AddContactToList;
 import sibModel.CreateList;
 import sibModel.CreateModel;
 import sibModel.ErrorModel;
@@ -24,6 +24,7 @@ import sibModel.GetFolderLists;
 import sibModel.GetLists;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
+import sibModel.RemoveContactFromList;
 import sibModel.UpdateList;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -53,7 +54,7 @@ public class ListsApiTest {
     @Test
     public void addContactToListTest() throws ApiException {
         Long listId = null;
-        AddRemoveContactToList contactEmails = null;
+        AddContactToList contactEmails = null;
         PostContactInfo response = api.addContactToList(listId, contactEmails);
 
         // TODO: test validations
@@ -170,10 +171,10 @@ public class ListsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void removeContactToListTest() throws ApiException {
+    public void removeContactFromListTest() throws ApiException {
         Long listId = null;
-        AddRemoveContactToList contactEmails = null;
-        PostContactInfo response = api.removeContactToList(listId, contactEmails);
+        RemoveContactFromList contactEmails = null;
+        PostContactInfo response = api.removeContactFromList(listId, contactEmails);
 
         // TODO: test validations
     }

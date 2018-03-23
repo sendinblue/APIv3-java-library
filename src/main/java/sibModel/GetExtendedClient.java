@@ -28,7 +28,7 @@ import sibModel.GetExtendedClientAddress;
 /**
  * GetExtendedClient
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class GetExtendedClient {
   @SerializedName("email")
   private String email = null;

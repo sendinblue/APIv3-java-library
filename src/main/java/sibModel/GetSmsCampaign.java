@@ -28,7 +28,7 @@ import sibModel.GetSmsCampaignOverview;
 /**
  * GetSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class GetSmsCampaign {
   @SerializedName("id")
   private Long id = null;
@@ -111,6 +111,12 @@ public class GetSmsCampaign {
 
   @SerializedName("modifiedAt")
   private OffsetDateTime modifiedAt = null;
+
+  @SerializedName("recipients")
+  private Object recipients = null;
+
+  @SerializedName("statistics")
+  private Object statistics = null;
 
   public GetSmsCampaign id(Long id) {
     this.id = id;
@@ -274,6 +280,42 @@ public class GetSmsCampaign {
     this.modifiedAt = modifiedAt;
   }
 
+  public GetSmsCampaign recipients(Object recipients) {
+    this.recipients = recipients;
+    return this;
+  }
+
+   /**
+   * Get recipients
+   * @return recipients
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Object getRecipients() {
+    return recipients;
+  }
+
+  public void setRecipients(Object recipients) {
+    this.recipients = recipients;
+  }
+
+  public GetSmsCampaign statistics(Object statistics) {
+    this.statistics = statistics;
+    return this;
+  }
+
+   /**
+   * Get statistics
+   * @return statistics
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Object getStatistics() {
+    return statistics;
+  }
+
+  public void setStatistics(Object statistics) {
+    this.statistics = statistics;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -292,12 +334,14 @@ public class GetSmsCampaign {
     ObjectUtils.equals(this.testSent, getSmsCampaign.testSent) &&
     ObjectUtils.equals(this.sender, getSmsCampaign.sender) &&
     ObjectUtils.equals(this.createdAt, getSmsCampaign.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getSmsCampaign.modifiedAt);
+    ObjectUtils.equals(this.modifiedAt, getSmsCampaign.modifiedAt) &&
+    ObjectUtils.equals(this.recipients, getSmsCampaign.recipients) &&
+    ObjectUtils.equals(this.statistics, getSmsCampaign.statistics);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, testSent, sender, createdAt, modifiedAt);
+    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, testSent, sender, createdAt, modifiedAt, recipients, statistics);
   }
 
 
@@ -315,6 +359,8 @@ public class GetSmsCampaign {
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

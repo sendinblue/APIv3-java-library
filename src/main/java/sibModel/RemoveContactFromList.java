@@ -26,19 +26,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * AddRemoveContactToList
+ * RemoveContactFromList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
-public class AddRemoveContactToList {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
+public class RemoveContactFromList {
   @SerializedName("emails")
   private List<String> emails = null;
 
-  public AddRemoveContactToList emails(List<String> emails) {
+  @SerializedName("all")
+  private Boolean all = null;
+
+  public RemoveContactFromList emails(List<String> emails) {
     this.emails = emails;
     return this;
   }
 
-  public AddRemoveContactToList addEmailsItem(String emailsItem) {
+  public RemoveContactFromList addEmailsItem(String emailsItem) {
     if (this.emails == null) {
       this.emails = new ArrayList<String>();
     }
@@ -47,16 +50,34 @@ public class AddRemoveContactToList {
   }
 
    /**
-   * Emails to add or remove from a list
+   * Required if &#39;all&#39; is false. Emails to remove from a list
    * @return emails
   **/
-  @ApiModelProperty(value = "Emails to add or remove from a list")
+  @ApiModelProperty(value = "Required if 'all' is false. Emails to remove from a list")
   public List<String> getEmails() {
     return emails;
   }
 
   public void setEmails(List<String> emails) {
     this.emails = emails;
+  }
+
+  public RemoveContactFromList all(Boolean all) {
+    this.all = all;
+    return this;
+  }
+
+   /**
+   * Required if &#39;emails&#39; is empty. Remove all existing contacts from a list
+   * @return all
+  **/
+  @ApiModelProperty(example = "false", value = "Required if 'emails' is empty. Remove all existing contacts from a list")
+  public Boolean isAll() {
+    return all;
+  }
+
+  public void setAll(Boolean all) {
+    this.all = all;
   }
 
 
@@ -68,22 +89,24 @@ public class AddRemoveContactToList {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    AddRemoveContactToList addRemoveContactToList = (AddRemoveContactToList) o;
-    return ObjectUtils.equals(this.emails, addRemoveContactToList.emails);
+    RemoveContactFromList removeContactFromList = (RemoveContactFromList) o;
+    return ObjectUtils.equals(this.emails, removeContactFromList.emails) &&
+    ObjectUtils.equals(this.all, removeContactFromList.all);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emails);
+    return ObjectUtils.hashCodeMulti(emails, all);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AddRemoveContactToList {\n");
+    sb.append("class RemoveContactFromList {\n");
     
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    all: ").append(toIndentedString(all)).append("\n");
     sb.append("}");
     return sb.toString();
   }
