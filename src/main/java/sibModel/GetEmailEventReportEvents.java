@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetEmailEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class GetEmailEventReportEvents {
   @SerializedName("email")
   private String email = null;
@@ -241,7 +241,7 @@ public class GetEmailEventReportEvents {
    * Tag of the email which generated the event
    * @return tag
   **/
-  @ApiModelProperty(example = "OrderConfirmation", required = true, value = "Tag of the email which generated the event")
+  @ApiModelProperty(example = "OrderConfirmation", value = "Tag of the email which generated the event")
   public String getTag() {
     return tag;
   }
@@ -295,7 +295,7 @@ public class GetEmailEventReportEvents {
    * Sender email from which the emails are sent
    * @return from
   **/
-  @ApiModelProperty(example = "john@example.com", required = true, value = "Sender email from which the emails are sent")
+  @ApiModelProperty(example = "john@example.com", value = "Sender email from which the emails are sent")
   public String getFrom() {
     return from;
   }

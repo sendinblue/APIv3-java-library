@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**getFolderLists**](ListsApi.md#getFolderLists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
 [**getList**](ListsApi.md#getList) | **GET** /contacts/lists/{listId} | Get the details of a list
 [**getLists**](ListsApi.md#getLists) | **GET** /contacts/lists | Get all the lists
-[**removeContactToList**](ListsApi.md#removeContactToList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+[**removeContactFromList**](ListsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 [**updateList**](ListsApi.md#updateList) | **PUT** /contacts/lists/{listId} | Update a list
 
 
@@ -40,7 +40,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-AddRemoveContactToList contactEmails = new AddRemoveContactToList(); // AddRemoveContactToList | Emails addresses of the contacts
+AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses of the contacts
 try {
     PostContactInfo result = apiInstance.addContactToList(listId, contactEmails);
     System.out.println(result);
@@ -55,7 +55,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails addresses of the contacts |
+ **contactEmails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts |
 
 ### Return type
 
@@ -399,9 +399,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="removeContactToList"></a>
-# **removeContactToList**
-> PostContactInfo removeContactToList(listId, contactEmails)
+<a name="removeContactFromList"></a>
+# **removeContactFromList**
+> PostContactInfo removeContactFromList(listId, contactEmails)
 
 Remove existing contacts from a list
 
@@ -424,12 +424,12 @@ apiKey.setApiKey("YOUR API KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-AddRemoveContactToList contactEmails = new AddRemoveContactToList(); // AddRemoveContactToList | Emails adresses of the contact
+RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails adresses of the contact
 try {
-    PostContactInfo result = apiInstance.removeContactToList(listId, contactEmails);
+    PostContactInfo result = apiInstance.removeContactFromList(listId, contactEmails);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ListsApi#removeContactToList");
+    System.err.println("Exception when calling ListsApi#removeContactFromList");
     e.printStackTrace();
 }
 ```
@@ -439,7 +439,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**AddRemoveContactToList**](AddRemoveContactToList.md)| Emails adresses of the contact |
+ **contactEmails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact |
 
 ### Return type
 

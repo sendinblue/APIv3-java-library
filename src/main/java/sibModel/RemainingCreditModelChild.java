@@ -27,7 +27,7 @@ import java.io.IOException;
  * Credits remaining for child account
  */
 @ApiModel(description = "Credits remaining for child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class RemainingCreditModelChild {
   @SerializedName("sms")
   private Long sms = null;

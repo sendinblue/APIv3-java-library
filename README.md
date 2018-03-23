@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sendinblue</groupId>
     <artifactId>sib-api-v3-sdk</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:1.0.1"
+compile "com.sendinblue:sib-api-v3-sdk:2.0.0"
 ```
 
 ### Others
@@ -45,7 +45,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/sib-api-v3-sdk-1.0.1.jar
+* target/sib-api-v3-sdk-2.0.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -116,7 +116,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**getList**](docs/ContactsApi.md#getList) | **GET** /contacts/lists/{listId} | Get the details of a list
 *ContactsApi* | [**getLists**](docs/ContactsApi.md#getLists) | **GET** /contacts/lists | Get all the lists
 *ContactsApi* | [**importContacts**](docs/ContactsApi.md#importContacts) | **POST** /contacts/import | Import contacts
-*ContactsApi* | [**removeContactToList**](docs/ContactsApi.md#removeContactToList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*ContactsApi* | [**removeContactFromList**](docs/ContactsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 *ContactsApi* | [**requestContactExport**](docs/ContactsApi.md#requestContactExport) | **POST** /contacts/export | Export contacts
 *ContactsApi* | [**updateAttribute**](docs/ContactsApi.md#updateAttribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
 *ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PUT** /contacts/{email} | Updates a contact
@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
 *ListsApi* | [**getFolderLists**](docs/ListsApi.md#getFolderLists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
 *ListsApi* | [**getList**](docs/ListsApi.md#getList) | **GET** /contacts/lists/{listId} | Get the details of a list
 *ListsApi* | [**getLists**](docs/ListsApi.md#getLists) | **GET** /contacts/lists | Get all the lists
-*ListsApi* | [**removeContactToList**](docs/ListsApi.md#removeContactToList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+*ListsApi* | [**removeContactFromList**](docs/ListsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
 *ListsApi* | [**updateList**](docs/ListsApi.md#updateList) | **PUT** /contacts/lists/{listId} | Update a list
 *ProcessApi* | [**getProcess**](docs/ProcessApi.md#getProcess) | **GET** /processes/{processId} | Return the informations for a process
 *ProcessApi* | [**getProcesses**](docs/ProcessApi.md#getProcesses) | **GET** /processes | Return all the processes for your account
@@ -199,8 +199,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AddContactToList](docs/AddContactToList.md)
  - [AddCredits](docs/AddCredits.md)
- - [AddRemoveContactToList](docs/AddRemoveContactToList.md)
  - [CreateAttribute](docs/CreateAttribute.md)
  - [CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [CreateChild](docs/CreateChild.md)
@@ -304,6 +304,7 @@ Class | Method | HTTP request | Description
  - [RemainingCreditModel](docs/RemainingCreditModel.md)
  - [RemainingCreditModelChild](docs/RemainingCreditModelChild.md)
  - [RemainingCreditModelReseller](docs/RemainingCreditModelReseller.md)
+ - [RemoveContactFromList](docs/RemoveContactFromList.md)
  - [RemoveCredits](docs/RemoveCredits.md)
  - [RequestContactExport](docs/RequestContactExport.md)
  - [RequestContactImport](docs/RequestContactImport.md)

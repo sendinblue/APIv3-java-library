@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class GetEmailCampaign {
   @SerializedName("id")
   private Long id = null;
@@ -192,6 +192,12 @@ public class GetEmailCampaign {
 
   @SerializedName("recurring")
   private Boolean recurring = null;
+
+  @SerializedName("recipients")
+  private Object recipients = null;
+
+  @SerializedName("statistics")
+  private Object statistics = null;
 
   public GetEmailCampaign id(Long id) {
     this.id = id;
@@ -553,6 +559,42 @@ public class GetEmailCampaign {
     this.recurring = recurring;
   }
 
+  public GetEmailCampaign recipients(Object recipients) {
+    this.recipients = recipients;
+    return this;
+  }
+
+   /**
+   * Get recipients
+   * @return recipients
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Object getRecipients() {
+    return recipients;
+  }
+
+  public void setRecipients(Object recipients) {
+    this.recipients = recipients;
+  }
+
+  public GetEmailCampaign statistics(Object statistics) {
+    this.statistics = statistics;
+    return this;
+  }
+
+   /**
+   * Get statistics
+   * @return statistics
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Object getStatistics() {
+    return statistics;
+  }
+
+  public void setStatistics(Object statistics) {
+    this.statistics = statistics;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -582,12 +624,14 @@ public class GetEmailCampaign {
     ObjectUtils.equals(this.modifiedAt, getEmailCampaign.modifiedAt) &&
     ObjectUtils.equals(this.inlineImageActivation, getEmailCampaign.inlineImageActivation) &&
     ObjectUtils.equals(this.mirrorActive, getEmailCampaign.mirrorActive) &&
-    ObjectUtils.equals(this.recurring, getEmailCampaign.recurring);
+    ObjectUtils.equals(this.recurring, getEmailCampaign.recurring) &&
+    ObjectUtils.equals(this.recipients, getEmailCampaign.recipients) &&
+    ObjectUtils.equals(this.statistics, getEmailCampaign.statistics);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, recipients, statistics);
   }
 
 
@@ -616,6 +660,8 @@ public class GetEmailCampaign {
     sb.append("    inlineImageActivation: ").append(toIndentedString(inlineImageActivation)).append("\n");
     sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AddCredits
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class AddCredits {
   @SerializedName("sms")
   private Long sms = null;
@@ -40,10 +40,10 @@ public class AddCredits {
   }
 
    /**
-   * SMS credits to be added to the child account
+   * Required if email credits are empty. SMS credits to be added to the child account
    * @return sms
   **/
-  @ApiModelProperty(example = "450", value = "SMS credits to be added to the child account")
+  @ApiModelProperty(example = "450", value = "Required if email credits are empty. SMS credits to be added to the child account")
   public Long getSms() {
     return sms;
   }
@@ -58,10 +58,10 @@ public class AddCredits {
   }
 
    /**
-   * Email credits to be added to the child account
+   * Required if sms credits are empty. Email credits to be added to the child account
    * @return email
   **/
-  @ApiModelProperty(example = "1200", value = "Email credits to be added to the child account")
+  @ApiModelProperty(example = "1200", value = "Required if sms credits are empty. Email credits to be added to the child account")
   public Long getEmail() {
     return email;
   }

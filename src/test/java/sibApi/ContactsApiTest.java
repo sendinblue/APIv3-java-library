@@ -14,7 +14,7 @@
 package sibApi;
 
 import sendinblue.ApiException;
-import sibModel.AddRemoveContactToList;
+import sibModel.AddContactToList;
 import sibModel.CreateAttribute;
 import sibModel.CreateContact;
 import sibModel.CreateList;
@@ -33,6 +33,7 @@ import sibModel.GetFolders;
 import sibModel.GetLists;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
+import sibModel.RemoveContactFromList;
 import sibModel.RequestContactExport;
 import sibModel.RequestContactImport;
 import sibModel.UpdateAttribute;
@@ -54,7 +55,7 @@ public class ContactsApiTest {
 
     private final ContactsApi api = new ContactsApi();
 
-    
+
     /**
      * Add existing contacts to a list
      *
@@ -66,7 +67,7 @@ public class ContactsApiTest {
     @Test
     public void addContactToListTest() throws ApiException {
         Long listId = null;
-        AddRemoveContactToList contactEmails = null;
+        AddContactToList contactEmails = null;
         PostContactInfo response = api.addContactToList(listId, contactEmails);
 
         // TODO: test validations
@@ -380,10 +381,10 @@ public class ContactsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void removeContactToListTest() throws ApiException {
+    public void removeContactFromListTest() throws ApiException {
         Long listId = null;
-        AddRemoveContactToList contactEmails = null;
-        PostContactInfo response = api.removeContactToList(listId, contactEmails);
+        RemoveContactFromList contactEmails = null;
+        PostContactInfo response = api.removeContactFromList(listId, contactEmails);
 
         // TODO: test validations
     }

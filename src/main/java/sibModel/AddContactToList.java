@@ -22,53 +22,41 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Sender from which emails are sent. Mandatory if &#39;templateId&#39; is not passed
+ * AddContactToList
  */
-@ApiModel(description = "Sender from which emails are sent. Mandatory if 'templateId' is not passed")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
-public class SendSmtpEmailSender {
-  @SerializedName("name")
-  private String name = null;
+public class AddContactToList {
+  @SerializedName("emails")
+  private List<String> emails = null;
 
-  @SerializedName("email")
-  private String email = null;
+  public AddContactToList emails(List<String> emails) {
+    this.emails = emails;
+    return this;
+  }
 
-  public SendSmtpEmailSender name(String name) {
-    this.name = name;
+  public AddContactToList addEmailsItem(String emailsItem) {
+    if (this.emails == null) {
+      this.emails = new ArrayList<String>();
+    }
+    this.emails.add(emailsItem);
     return this;
   }
 
    /**
-   * Sender Name from which the emails are sent
-   * @return name
+   * Emails to add to a list
+   * @return emails
   **/
-  @ApiModelProperty(example = "Mary from MyShop", value = "Sender Name from which the emails are sent")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "Emails to add to a list")
+  public List<String> getEmails() {
+    return emails;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SendSmtpEmailSender email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Sender Email from which the emails are sent
-   * @return email
-  **/
-  @ApiModelProperty(example = "no-reply@myshop.com", required = true, value = "Sender Email from which the emails are sent")
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
+  public void setEmails(List<String> emails) {
+    this.emails = emails;
   }
 
 
@@ -80,24 +68,22 @@ public class SendSmtpEmailSender {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    SendSmtpEmailSender sendSmtpEmailSender = (SendSmtpEmailSender) o;
-    return ObjectUtils.equals(this.name, sendSmtpEmailSender.name) &&
-    ObjectUtils.equals(this.email, sendSmtpEmailSender.email);
+    AddContactToList addContactToList = (AddContactToList) o;
+    return ObjectUtils.equals(this.emails, addContactToList.emails);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(name, email);
+    return ObjectUtils.hashCodeMulti(emails);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendSmtpEmailSender {\n");
+    sb.append("class AddContactToList {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

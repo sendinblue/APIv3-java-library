@@ -36,7 +36,7 @@ import sibModel.SendSmtpEmailTo;
 /**
  * SendSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-02-15T11:12:00.535+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
 public class SendSmtpEmail {
   @SerializedName("sender")
   private SendSmtpEmailSender sender = null;
@@ -83,7 +83,7 @@ public class SendSmtpEmail {
    * Get sender
    * @return sender
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public SendSmtpEmailSender getSender() {
     return sender;
   }
@@ -173,10 +173,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * HTML body of the message ( Ignored if templateId is passed )
+   * HTML body of the message ( Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed )
    * @return htmlContent
   **/
-  @ApiModelProperty(example = "Please confirm your email address by clicking on the link below", required = true, value = "HTML body of the message ( Ignored if templateId is passed )")
+  @ApiModelProperty(example = "Please confirm your email address by clicking on the link below", value = "HTML body of the message ( Mandatory if 'templateId' is not passed, ignored if 'templateId' is passed )")
   public String getHtmlContent() {
     return htmlContent;
   }
@@ -191,10 +191,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Plain Text body of the message ( Ignored if templateId is passed )
+   * Plain Text body of the message ( Ignored if &#39;templateId&#39; is passed )
    * @return textContent
   **/
-  @ApiModelProperty(example = "Please confirm your email address by clicking on the link https://text.domain.com", value = "Plain Text body of the message ( Ignored if templateId is passed )")
+  @ApiModelProperty(example = "Please confirm your email address by clicking on the link https://text.domain.com", value = "Plain Text body of the message ( Ignored if 'templateId' is passed )")
   public String getTextContent() {
     return textContent;
   }
@@ -209,10 +209,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Subject of the message
+   * Subject of the message. Mandatory if &#39;templateId&#39; is not passed
    * @return subject
   **/
-  @ApiModelProperty(example = "Login Email confirmation", required = true, value = "Subject of the message")
+  @ApiModelProperty(example = "Login Email confirmation", value = "Subject of the message. Mandatory if 'templateId' is not passed")
   public String getSubject() {
     return subject;
   }
@@ -253,10 +253,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps
+   * Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if &#39;templateId&#39; is passed )
    * @return attachment
   **/
-  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps")
+  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if 'templateId' is passed )")
   public List<SendSmtpEmailAttachment> getAttachment() {
     return attachment;
   }

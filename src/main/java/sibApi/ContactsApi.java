@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import sibModel.AddRemoveContactToList;
+import sibModel.AddContactToList;
 import sibModel.CreateAttribute;
 import sibModel.CreateContact;
 import sibModel.CreateList;
@@ -46,6 +46,7 @@ import sibModel.GetFolders;
 import sibModel.GetLists;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
+import sibModel.RemoveContactFromList;
 import sibModel.RequestContactExport;
 import sibModel.RequestContactImport;
 import sibModel.UpdateAttribute;
@@ -86,7 +87,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addContactToListCall(Long listId, AddRemoveContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addContactToListCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactEmails;
 
         // create path and map variables
@@ -129,7 +130,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addContactToListValidateBeforeCall(Long listId, AddRemoveContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addContactToListValidateBeforeCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -155,7 +156,7 @@ public class ContactsApi {
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PostContactInfo addContactToList(Long listId, AddRemoveContactToList contactEmails) throws ApiException {
+    public PostContactInfo addContactToList(Long listId, AddContactToList contactEmails) throws ApiException {
         ApiResponse<PostContactInfo> resp = addContactToListWithHttpInfo(listId, contactEmails);
         return resp.getData();
     }
@@ -168,7 +169,7 @@ public class ContactsApi {
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PostContactInfo> addContactToListWithHttpInfo(Long listId, AddRemoveContactToList contactEmails) throws ApiException {
+    public ApiResponse<PostContactInfo> addContactToListWithHttpInfo(Long listId, AddContactToList contactEmails) throws ApiException {
         com.squareup.okhttp.Call call = addContactToListValidateBeforeCall(listId, contactEmails, null, null);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -183,7 +184,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addContactToListAsync(Long listId, AddRemoveContactToList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
+    public com.squareup.okhttp.Call addContactToListAsync(Long listId, AddContactToList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2475,7 +2476,7 @@ public class ContactsApi {
         return call;
     }
     /**
-     * Build call for removeContactToList
+     * Build call for removeContactFromList
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
      * @param progressListener Progress listener
@@ -2483,7 +2484,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeContactToListCall(Long listId, AddRemoveContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call removeContactFromListCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactEmails;
 
         // create path and map variables
@@ -2526,20 +2527,20 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeContactToListValidateBeforeCall(Long listId, AddRemoveContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call removeContactFromListValidateBeforeCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
-            throw new ApiException("Missing the required parameter 'listId' when calling removeContactToList(Async)");
+            throw new ApiException("Missing the required parameter 'listId' when calling removeContactFromList(Async)");
         }
         
         // verify the required parameter 'contactEmails' is set
         if (contactEmails == null) {
-            throw new ApiException("Missing the required parameter 'contactEmails' when calling removeContactToList(Async)");
+            throw new ApiException("Missing the required parameter 'contactEmails' when calling removeContactFromList(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = removeContactToListCall(listId, contactEmails, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeContactFromListCall(listId, contactEmails, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2552,8 +2553,8 @@ public class ContactsApi {
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PostContactInfo removeContactToList(Long listId, AddRemoveContactToList contactEmails) throws ApiException {
-        ApiResponse<PostContactInfo> resp = removeContactToListWithHttpInfo(listId, contactEmails);
+    public PostContactInfo removeContactFromList(Long listId, RemoveContactFromList contactEmails) throws ApiException {
+        ApiResponse<PostContactInfo> resp = removeContactFromListWithHttpInfo(listId, contactEmails);
         return resp.getData();
     }
 
@@ -2565,8 +2566,8 @@ public class ContactsApi {
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PostContactInfo> removeContactToListWithHttpInfo(Long listId, AddRemoveContactToList contactEmails) throws ApiException {
-        com.squareup.okhttp.Call call = removeContactToListValidateBeforeCall(listId, contactEmails, null, null);
+    public ApiResponse<PostContactInfo> removeContactFromListWithHttpInfo(Long listId, RemoveContactFromList contactEmails) throws ApiException {
+        com.squareup.okhttp.Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, null, null);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2580,7 +2581,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeContactToListAsync(Long listId, AddRemoveContactToList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeContactFromListAsync(Long listId, RemoveContactFromList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2601,7 +2602,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeContactToListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -13,7 +13,10 @@
 
 package sibApi;
 
+import sendinblue.ApiClient;
 import sendinblue.ApiException;
+import sendinblue.Configuration;
+import sendinblue.auth.ApiKeyAuth;
 import sibModel.GetAccount;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -29,9 +32,10 @@ import java.util.Map;
 @Ignore
 public class AccountApiTest {
 
+    private static String SIB_API_KEY = "your-api-v3-key";
+    private static String KEY_NAME = "api-key";
     private final AccountApi api = new AccountApi();
 
-    
     /**
      * Get your account informations, plans and credits details
      *
@@ -42,6 +46,15 @@ public class AccountApiTest {
      */
     @Test
     public void getAccountTest() throws ApiException {
+
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        // Configure API key authorization: api-key
+        ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+        apiKey.setApiKey(SIB_API_KEY);
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api-key.setApiKeyPrefix("Token");
+
         GetAccount response = api.getAccount();
 
         // TODO: test validations
