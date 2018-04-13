@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetAccountPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
 public class GetAccountPlan {
   /**
    * Displays the plan type of the user
@@ -88,12 +88,10 @@ public class GetAccountPlan {
   private TypeEnum type = null;
 
   /**
-   * This is the type of the credit, \&quot;User Limit\&quot; or \&quot;Send Limit\&quot; are two possible types of credit of a user. \&quot;User Limit\&quot; implies the total number of subscribers you can add to your account, and \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
    */
   @JsonAdapter(CreditsTypeEnum.Adapter.class)
   public enum CreditsTypeEnum {
-    USERLIMIT("userLimit"),
-    
     SENDLIMIT("sendLimit");
 
     private String value;
@@ -146,6 +144,9 @@ public class GetAccountPlan {
   @SerializedName("endDate")
   private LocalDate endDate = null;
 
+  @SerializedName("userLimit")
+  private Integer userLimit = null;
+
   public GetAccountPlan type(TypeEnum type) {
     this.type = type;
     return this;
@@ -170,10 +171,10 @@ public class GetAccountPlan {
   }
 
    /**
-   * This is the type of the credit, \&quot;User Limit\&quot; or \&quot;Send Limit\&quot; are two possible types of credit of a user. \&quot;User Limit\&quot; implies the total number of subscribers you can add to your account, and \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
    * @return creditsType
   **/
-  @ApiModelProperty(example = "sendLimit", required = true, value = "This is the type of the credit, \"User Limit\" or \"Send Limit\" are two possible types of credit of a user. \"User Limit\" implies the total number of subscribers you can add to your account, and \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.")
+  @ApiModelProperty(example = "sendLimit", required = true, value = "This is the type of the credit, \"Send Limit\" is one of the possible types of credit of a user. \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.")
   public CreditsTypeEnum getCreditsType() {
     return creditsType;
   }
@@ -188,10 +189,10 @@ public class GetAccountPlan {
   }
 
    /**
-   * Remaining credits of the user. This can either be \&quot;User Limit\&quot; or \&quot;Send Limit\&quot; depending on the plan.
+   * Remaining credits of the user
    * @return credits
   **/
-  @ApiModelProperty(example = "8755.0", required = true, value = "Remaining credits of the user. This can either be \"User Limit\" or \"Send Limit\" depending on the plan.")
+  @ApiModelProperty(example = "8755.0", required = true, value = "Remaining credits of the user")
   public Float getCredits() {
     return credits;
   }
@@ -236,6 +237,24 @@ public class GetAccountPlan {
     this.endDate = endDate;
   }
 
+  public GetAccountPlan userLimit(Integer userLimit) {
+    this.userLimit = userLimit;
+    return this;
+  }
+
+   /**
+   * Only in case of reseller account. It implies the total number of child accounts you can add to your account.
+   * @return userLimit
+  **/
+  @ApiModelProperty(example = "10", value = "Only in case of reseller account. It implies the total number of child accounts you can add to your account.")
+  public Integer getUserLimit() {
+    return userLimit;
+  }
+
+  public void setUserLimit(Integer userLimit) {
+    this.userLimit = userLimit;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -250,12 +269,13 @@ public class GetAccountPlan {
     ObjectUtils.equals(this.creditsType, getAccountPlan.creditsType) &&
     ObjectUtils.equals(this.credits, getAccountPlan.credits) &&
     ObjectUtils.equals(this.startDate, getAccountPlan.startDate) &&
-    ObjectUtils.equals(this.endDate, getAccountPlan.endDate);
+    ObjectUtils.equals(this.endDate, getAccountPlan.endDate) &&
+    ObjectUtils.equals(this.userLimit, getAccountPlan.userLimit);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(type, creditsType, credits, startDate, endDate);
+    return ObjectUtils.hashCodeMulti(type, creditsType, credits, startDate, endDate, userLimit);
   }
 
 
@@ -269,6 +289,7 @@ public class GetAccountPlan {
     sb.append("    credits: ").append(toIndentedString(credits)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    userLimit: ").append(toIndentedString(userLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

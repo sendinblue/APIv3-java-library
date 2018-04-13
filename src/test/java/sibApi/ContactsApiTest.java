@@ -157,6 +157,22 @@ public class ContactsApiTest {
     }
     
     /**
+     * Deletes a contact
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteContactTest() throws ApiException {
+        String email = null;
+        api.deleteContact(email);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete a folder (and all its lists)
      *
      * 

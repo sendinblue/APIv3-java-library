@@ -33,7 +33,7 @@ import sibModel.GetExtendedContactDetailsStatisticsUnsubscriptions;
  * Campaign statistics of the contact
  */
 @ApiModel(description = "Campaign statistics of the contact")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-03-23T10:53:13.078+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
 public class GetExtendedContactDetailsStatistics {
   @SerializedName("messagesSent")
   private List<GetExtendedContactDetailsStatisticsMessagesSent> messagesSent = null;
