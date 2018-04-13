@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sendinblue</groupId>
     <artifactId>sib-api-v3-sdk</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:2.0.0"
+compile "com.sendinblue:sib-api-v3-sdk:2.0.1"
 ```
 
 ### Others
@@ -45,7 +45,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/sib-api-v3-sdk-2.0.0.jar
+* target/sib-api-v3-sdk-2.0.1.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**createFolder**](docs/ContactsApi.md#createFolder) | **POST** /contacts/folders | Create a folder
 *ContactsApi* | [**createList**](docs/ContactsApi.md#createList) | **POST** /contacts/lists | Create a list
 *ContactsApi* | [**deleteAttribute**](docs/ContactsApi.md#deleteAttribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
+*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /contacts/{email} | Deletes a contact
 *ContactsApi* | [**deleteFolder**](docs/ContactsApi.md#deleteFolder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 *ContactsApi* | [**deleteList**](docs/ContactsApi.md#deleteList) | **DELETE** /contacts/lists/{listId} | Delete a list
 *ContactsApi* | [**getAttributes**](docs/ContactsApi.md#getAttributes) | **GET** /contacts/attributes | Lists all attributes
