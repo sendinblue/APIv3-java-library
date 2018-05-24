@@ -29,7 +29,7 @@ import sibModel.UpdateAttributeEnumeration;
 /**
  * UpdateAttribute
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class UpdateAttribute {
   @SerializedName("value")
   private String value = null;
@@ -43,10 +43,10 @@ public class UpdateAttribute {
   }
 
    /**
-   * Value of the attribute. Use only if the attribute&#39;s category is calculated or global
+   * Value of the attribute to update. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;
    * @return value
   **/
-  @ApiModelProperty(example = "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]", value = "Value of the attribute. Use only if the attribute's category is calculated or global")
+  @ApiModelProperty(example = "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]", value = "Value of the attribute to update. Use only if the attribute's category is 'calculated' or 'global'")
   public String getValue() {
     return value;
   }
@@ -69,10 +69,10 @@ public class UpdateAttribute {
   }
 
    /**
-   * Values that the attribute can take. Use only if the attribute&#39;s category is category
+   * List of the values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{&#39;value&#39;:1, &#39;label&#39;:&#39;male&#39;}, {&#39;value&#39;:2, &#39;label&#39;:&#39;female&#39;}]
    * @return enumeration
   **/
-  @ApiModelProperty(value = "Values that the attribute can take. Use only if the attribute's category is category")
+  @ApiModelProperty(value = "List of the values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{'value':1, 'label':'male'}, {'value':2, 'label':'female'}]")
   public List<UpdateAttributeEnumeration> getEnumeration() {
     return enumeration;
   }

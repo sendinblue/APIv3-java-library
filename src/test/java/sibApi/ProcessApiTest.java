@@ -33,7 +33,6 @@ public class ProcessApiTest {
 
     private final ProcessApi api = new ProcessApi();
 
-    
     /**
      * Return the informations for a process
      *

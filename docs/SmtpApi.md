@@ -486,6 +486,8 @@ Name | Type | Description  | Notes
 
 Send a template
 
+This endpoint is deprecated. Prefer v3/smtp/email instead.
+
 ### Example
 ```java
 // Import classes:

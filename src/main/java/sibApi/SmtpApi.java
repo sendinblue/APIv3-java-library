@@ -1145,7 +1145,9 @@ public class SmtpApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call sendTemplateCall(Long templateId, SendEmail sendEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendEmail;
 
@@ -1188,6 +1190,7 @@ public class SmtpApi {
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call sendTemplateValidateBeforeCall(Long templateId, SendEmail sendEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -1209,12 +1212,14 @@ public class SmtpApi {
 
     /**
      * Send a template
-     * 
+     * This endpoint is deprecated. Prefer v3/smtp/email instead.
      * @param templateId Id of the template (required)
      * @param sendEmail  (required)
      * @return SendTemplateEmail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public SendTemplateEmail sendTemplate(Long templateId, SendEmail sendEmail) throws ApiException {
         ApiResponse<SendTemplateEmail> resp = sendTemplateWithHttpInfo(templateId, sendEmail);
         return resp.getData();
@@ -1222,12 +1227,14 @@ public class SmtpApi {
 
     /**
      * Send a template
-     * 
+     * This endpoint is deprecated. Prefer v3/smtp/email instead.
      * @param templateId Id of the template (required)
      * @param sendEmail  (required)
      * @return ApiResponse&lt;SendTemplateEmail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<SendTemplateEmail> sendTemplateWithHttpInfo(Long templateId, SendEmail sendEmail) throws ApiException {
         com.squareup.okhttp.Call call = sendTemplateValidateBeforeCall(templateId, sendEmail, null, null);
         Type localVarReturnType = new TypeToken<SendTemplateEmail>(){}.getType();
@@ -1236,13 +1243,15 @@ public class SmtpApi {
 
     /**
      * Send a template (asynchronously)
-     * 
+     * This endpoint is deprecated. Prefer v3/smtp/email instead.
      * @param templateId Id of the template (required)
      * @param sendEmail  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @deprecated
      */
+    @Deprecated
     public com.squareup.okhttp.Call sendTemplateAsync(Long templateId, SendEmail sendEmail, final ApiCallback<SendTemplateEmail> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;

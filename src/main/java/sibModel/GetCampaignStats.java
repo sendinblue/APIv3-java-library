@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class GetCampaignStats {
   @SerializedName("listId")
   private Long listId = null;
@@ -70,10 +70,10 @@ public class GetCampaignStats {
   }
 
    /**
-   * List Id of email campaign (only in case of get email campaign(s))
+   * List Id of email campaign (only in case of get email campaign(s)(not for global stats))
    * @return listId
   **/
-  @ApiModelProperty(example = "2", value = "List Id of email campaign (only in case of get email campaign(s))")
+  @ApiModelProperty(example = "2", value = "List Id of email campaign (only in case of get email campaign(s)(not for global stats))")
   public Long getListId() {
     return listId;
   }
@@ -106,10 +106,10 @@ public class GetCampaignStats {
   }
 
    /**
-   * Number of clicks for the campaign
+   * Number of total clicks for the campaign
    * @return clickers
   **/
-  @ApiModelProperty(example = "2665", required = true, value = "Number of clicks for the campaign")
+  @ApiModelProperty(example = "2665", required = true, value = "Number of total clicks for the campaign")
   public Long getClickers() {
     return clickers;
   }
@@ -271,7 +271,7 @@ public class GetCampaignStats {
    * Number of deferred emails for the campaign
    * @return deferred
   **/
-  @ApiModelProperty(example = "30", required = true, value = "Number of deferred emails for the campaign")
+  @ApiModelProperty(example = "30", value = "Number of deferred emails for the campaign")
   public Long getDeferred() {
     return deferred;
   }

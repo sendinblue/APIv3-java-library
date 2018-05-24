@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * CreateSmsCampaignRecipients
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class CreateSmsCampaignRecipients {
   @SerializedName("listIds")
   private List<Long> listIds = new ArrayList<Long>();

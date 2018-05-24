@@ -53,7 +53,7 @@ public class AccountApiTest {
         ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
         apiKey.setApiKey(SIB_API_KEY);
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api-key.setApiKeyPrefix("Token");
+        //apiKey.setApiKeyPrefix("Token");
 
         GetAccount response = api.getAccount();
 

@@ -26,9 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateEmailCampaignRecipients
+ * List ids to include/exclude from campaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@ApiModel(description = "List ids to include/exclude from campaign")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class UpdateEmailCampaignRecipients {
   @SerializedName("exclusionListIds")
   private List<Long> exclusionListIds = null;

@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Email on which transactional mail recipients will be able to reply to
+ * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {&#39;email&#39;:&#39;ann6533@example.com&#39;, &#39;name&#39;:&#39;Ann&#39;}.
  */
-@ApiModel(description = "Email on which transactional mail recipients will be able to reply to")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@ApiModel(description = "Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {'email':'ann6533@example.com', 'name':'Ann'}.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendSmtpEmailReplyTo {
   @SerializedName("email")
   private String email = null;

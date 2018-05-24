@@ -23,17 +23,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * UpdateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class UpdateContact {
   @SerializedName("attributes")
-  private Map<String, String> attributes = null;
+  private Object attributes = null;
 
   @SerializedName("emailBlacklisted")
   private Boolean emailBlacklisted = null;
@@ -50,29 +48,21 @@ public class UpdateContact {
   @SerializedName("smtpBlacklistSender")
   private List<String> smtpBlacklistSender = null;
 
-  public UpdateContact attributes(Map<String, String> attributes) {
+  public UpdateContact attributes(Object attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public UpdateContact putAttributesItem(String key, String attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<String, String>();
-    }
-    this.attributes.put(key, attributesItem);
-    return this;
-  }
-
    /**
-   * Get attributes
+   * Pass the set of attributes to be updated. These attributes must be present in your account. For eg. {&#39;FNAME&#39;:&#39;Ellie&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getAttributes() {
+  @ApiModelProperty(example = "{\"FNAME\":\"Ellie\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes to be updated. These attributes must be present in your account. For eg. {'FNAME':'Ellie', 'LNAME':'Roger'}")
+  public Object getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(Map<String, String> attributes) {
+  public void setAttributes(Object attributes) {
     this.attributes = attributes;
   }
 
@@ -82,10 +72,10 @@ public class UpdateContact {
   }
 
    /**
-   * Blacklist the contact for emails (emailBlacklisted &#x3D; true)
+   * Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted &#x3D; true)
    * @return emailBlacklisted
   **/
-  @ApiModelProperty(example = "false", value = "Blacklist the contact for emails (emailBlacklisted = true)")
+  @ApiModelProperty(example = "false", value = "Set/unset this field to blacklist/allow the contact for emails (emailBlacklisted = true)")
   public Boolean isEmailBlacklisted() {
     return emailBlacklisted;
   }
@@ -100,10 +90,10 @@ public class UpdateContact {
   }
 
    /**
-   * Blacklist the contact for SMS (smsBlacklisted &#x3D; true)
+   * Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted &#x3D; true)
    * @return smsBlacklisted
   **/
-  @ApiModelProperty(example = "true", value = "Blacklist the contact for SMS (smsBlacklisted = true)")
+  @ApiModelProperty(example = "true", value = "Set/unset this field to blacklist/allow the contact for SMS (smsBlacklisted = true)")
   public Boolean isSmsBlacklisted() {
     return smsBlacklisted;
   }

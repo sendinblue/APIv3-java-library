@@ -31,7 +31,7 @@ import sibModel.GetChildInfoApiKeysV3;
  * API Keys associated to child account
  */
 @ApiModel(description = "API Keys associated to child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class GetChildInfoApiKeys {
   @SerializedName("v2")
   private List<GetChildInfoApiKeysV2> v2 = new ArrayList<GetChildInfoApiKeysV2>();

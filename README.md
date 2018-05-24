@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.sendinblue</groupId>
     <artifactId>sib-api-v3-sdk</artifactId>
-    <version>2.0.1</version>
+    <version>3.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:2.0.1"
+compile "com.sendinblue:sib-api-v3-sdk:3.0.0"
 ```
 
 ### Others
@@ -45,7 +45,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/sib-api-v3-sdk-2.0.1.jar
+* target/sib-api-v3-sdk-3.0.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -256,7 +256,6 @@ Class | Method | HTTP request | Description
  - [GetEmailEventReportEvents](docs/GetEmailEventReportEvents.md)
  - [GetExtendedCampaignOverviewSender](docs/GetExtendedCampaignOverviewSender.md)
  - [GetExtendedCampaignStats](docs/GetExtendedCampaignStats.md)
- - [GetExtendedCampaignStatsLinksStats](docs/GetExtendedCampaignStatsLinksStats.md)
  - [GetExtendedClientAddress](docs/GetExtendedClientAddress.md)
  - [GetExtendedContactDetailsStatistics](docs/GetExtendedContactDetailsStatistics.md)
  - [GetExtendedContactDetailsStatisticsClicked](docs/GetExtendedContactDetailsStatisticsClicked.md)

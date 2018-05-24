@@ -198,7 +198,7 @@ public class SmtpApiTest {
     /**
      * Send a template
      *
-     * 
+     * This endpoint is deprecated. Prefer v3/smtp/email instead.
      *
      * @throws ApiException
      *          if the Api call fails

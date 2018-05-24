@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetAccountPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class GetAccountPlan {
   /**
    * Displays the plan type of the user
@@ -35,8 +35,6 @@ public class GetAccountPlan {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     PAYASYOUGO("payAsYouGo"),
-    
-    UNLIMITED("unlimited"),
     
     FREE("free"),
     
@@ -207,10 +205,10 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will start (only available for \&quot;subscription\&quot;, \&quot;unlimited\&quot; and \&quot;reseller\&quot; plan type)
+   * Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
    * @return startDate
   **/
-  @ApiModelProperty(example = "2016-12-31", value = "Date of the period from which the plan will start (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)")
+  @ApiModelProperty(example = "2016-12-31", value = "Date of the period from which the plan will start (only available for \"subscription\" and \"reseller\" plan type)")
   public LocalDate getStartDate() {
     return startDate;
   }
@@ -225,10 +223,10 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will end (only available for \&quot;subscription\&quot;, \&quot;unlimited\&quot; and \&quot;reseller\&quot; plan type)
+   * Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
    * @return endDate
   **/
-  @ApiModelProperty(example = "2017-01-31", value = "Date of the period from which the plan will end (only available for \"subscription\", \"unlimited\" and \"reseller\" plan type)")
+  @ApiModelProperty(example = "2017-01-31", value = "Date of the period from which the plan will end (only available for \"subscription\" and \"reseller\" plan type)")
   public LocalDate getEndDate() {
     return endDate;
   }

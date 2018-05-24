@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * RequestContactExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class RequestContactExport {
   @SerializedName("exportAttributes")
   private List<String> exportAttributes = null;
@@ -53,10 +53,10 @@ public class RequestContactExport {
   }
 
    /**
-   * Name of attributes to export. These attributes must be in your contact database
+   * List of all the attributes that you want to export. These attributes must be present in your contact database. For example, [&#39;fname&#39;, &#39;lname&#39;, &#39;email&#39;].
    * @return exportAttributes
   **/
-  @ApiModelProperty(value = "Name of attributes to export. These attributes must be in your contact database")
+  @ApiModelProperty(value = "List of all the attributes that you want to export. These attributes must be present in your contact database. For example, ['fname', 'lname', 'email'].")
   public List<String> getExportAttributes() {
     return exportAttributes;
   }
@@ -71,10 +71,10 @@ public class RequestContactExport {
   }
 
    /**
-   * Filter to apply to the export
+   * Set the filter for the contacts to be exported. For example, {&#39;blacklisted&#39;:true} will export all the blacklisted contacts.
    * @return contactFilter
   **/
-  @ApiModelProperty(example = "\"blacklisted:true,listid.id:32\"", required = true, value = "Filter to apply to the export")
+  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", required = true, value = "Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts.")
   public Object getContactFilter() {
     return contactFilter;
   }

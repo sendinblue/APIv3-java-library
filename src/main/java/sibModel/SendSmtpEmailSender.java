@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Sender from which emails are sent. Mandatory if &#39;templateId&#39; is not passed
+ * Mandatory if &#39;templateId&#39; is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {&#39;name&#39;:&#39;Mary from MyShop&#39;, &#39;email&#39;:&#39;no-reply@myshop.com&#39;}
  */
-@ApiModel(description = "Sender from which emails are sent. Mandatory if 'templateId' is not passed")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@ApiModel(description = "Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {'name':'Mary from MyShop', 'email':'no-reply@myshop.com'}")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendSmtpEmailSender {
   @SerializedName("name")
   private String name = null;
@@ -41,10 +41,10 @@ public class SendSmtpEmailSender {
   }
 
    /**
-   * Sender Name from which the emails are sent
+   * Name of the sender from which the emails will be sent
    * @return name
   **/
-  @ApiModelProperty(example = "Mary from MyShop", value = "Sender Name from which the emails are sent")
+  @ApiModelProperty(example = "Mary from MyShop", value = "Name of the sender from which the emails will be sent")
   public String getName() {
     return name;
   }
@@ -59,10 +59,10 @@ public class SendSmtpEmailSender {
   }
 
    /**
-   * Sender Email from which the emails are sent
+   * Email of the sender from which the emails will be sent
    * @return email
   **/
-  @ApiModelProperty(example = "no-reply@myshop.com", required = true, value = "Sender Email from which the emails are sent")
+  @ApiModelProperty(example = "no-reply@myshop.com", required = true, value = "Email of the sender from which the emails will be sent")
   public String getEmail() {
     return email;
   }

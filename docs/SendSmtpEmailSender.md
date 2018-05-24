@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Sender Name from which the emails are sent |  [optional]
-**email** | **String** | Sender Email from which the emails are sent | 
+**name** | **String** | Name of the sender from which the emails will be sent |  [optional]
+**email** | **String** | Email of the sender from which the emails will be sent | 
 
 
 

@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateSmtpTemplateSender
+ * Sender details including email and/or name. For example {&#39;name&#39;:&#39;xyz&#39; , &#39;email&#39;:&#39;example@abc.com&#39;}
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@ApiModel(description = "Sender details including email and/or name. For example {'name':'xyz' , 'email':'example@abc.com'}")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class UpdateSmtpTemplateSender {
   @SerializedName("name")
   private String name = null;

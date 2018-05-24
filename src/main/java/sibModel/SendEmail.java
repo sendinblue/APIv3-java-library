@@ -23,15 +23,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import sibModel.SendEmailAttachment;
 
 /**
  * SendEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendEmail {
   @SerializedName("emailTo")
   private List<String> emailTo = new ArrayList<String>();
@@ -52,10 +50,13 @@ public class SendEmail {
   private List<SendEmailAttachment> attachment = null;
 
   @SerializedName("headers")
-  private Map<String, String> headers = null;
+  private Object headers = null;
 
   @SerializedName("attributes")
-  private Map<String, String> attributes = null;
+  private Object attributes = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
 
   public SendEmail emailTo(List<String> emailTo) {
     this.emailTo = emailTo;
@@ -68,10 +69,10 @@ public class SendEmail {
   }
 
    /**
-   * Email addresses of the recipients
+   * List of the email addresses of the recipients. For example, [&#39;abc@example.com&#39;, &#39;asd@example.com&#39;].
    * @return emailTo
   **/
-  @ApiModelProperty(required = true, value = "Email addresses of the recipients")
+  @ApiModelProperty(required = true, value = "List of the email addresses of the recipients. For example, ['abc@example.com', 'asd@example.com'].")
   public List<String> getEmailTo() {
     return emailTo;
   }
@@ -94,10 +95,10 @@ public class SendEmail {
   }
 
    /**
-   * Email addresses of the recipients in bcc
+   * List of the email addresses of the recipients in bcc
    * @return emailBcc
   **/
-  @ApiModelProperty(value = "Email addresses of the recipients in bcc")
+  @ApiModelProperty(value = "List of the email addresses of the recipients in bcc")
   public List<String> getEmailBcc() {
     return emailBcc;
   }
@@ -120,10 +121,10 @@ public class SendEmail {
   }
 
    /**
-   * Email addresses of the recipients in cc
+   * List of the email addresses of the recipients in cc
    * @return emailCc
   **/
-  @ApiModelProperty(value = "Email addresses of the recipients in cc")
+  @ApiModelProperty(value = "List of the email addresses of the recipients in cc")
   public List<String> getEmailCc() {
     return emailCc;
   }
@@ -138,10 +139,10 @@ public class SendEmail {
   }
 
    /**
-   * Email on which campaign recipients will be able to reply to
+   * Email address which shall be used by campaign recipients to reply back
    * @return replyTo
   **/
-  @ApiModelProperty(example = "support@myshop.com", value = "Email on which campaign recipients will be able to reply to")
+  @ApiModelProperty(example = "support@myshop.com", value = "Email address which shall be used by campaign recipients to reply back")
   public String getReplyTo() {
     return replyTo;
   }
@@ -182,10 +183,10 @@ public class SendEmail {
   }
 
    /**
-   * Pass the byte array of the attachment. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps
+   * Pass the list of content ( byte array which is encoded to base64 chunk data at our end ) and name of the attachment. For example, [{&#39;content&#39;:&#39;byte array content 1&#39;, &#39;name&#39;:&#39;attcahment1&#39;}, {&#39;content&#39;:&#39;byte array content 2&#39;, &#39;name&#39;:&#39;attcahment2&#39;}].
    * @return attachment
   **/
-  @ApiModelProperty(value = "Pass the byte array of the attachment. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps")
+  @ApiModelProperty(value = "Pass the list of content ( byte array which is encoded to base64 chunk data at our end ) and name of the attachment. For example, [{'content':'byte array content 1', 'name':'attcahment1'}, {'content':'byte array content 2', 'name':'attcahment2'}].")
   public List<SendEmailAttachment> getAttachment() {
     return attachment;
   }
@@ -194,56 +195,66 @@ public class SendEmail {
     this.attachment = attachment;
   }
 
-  public SendEmail headers(Map<String, String> headers) {
+  public SendEmail headers(Object headers) {
     this.headers = headers;
     return this;
   }
 
-  public SendEmail putHeadersItem(String key, String headersItem) {
-    if (this.headers == null) {
-      this.headers = new HashMap<String, String>();
-    }
-    this.headers.put(key, headersItem);
-    return this;
-  }
-
    /**
-   * Get headers
+   * Pass the set of headers that shall be sent along the mail headers in the original email. &#39;X-Mailin-IP&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {&#39;Content-Type&#39;:&#39;text/html&#39;, &#39;charset&#39;:&#39;iso-8859-1&#39;, &#39;X-Mailin-IP&#39;:&#39;1.2.3.4&#39;}
    * @return headers
   **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getHeaders() {
+  @ApiModelProperty(example = "{\"Content-Type\":\"text/html\",\"charset\":\"iso-8859-1\",\"X-Mailin-IP\":\"1.2.3.4\"}", value = "Pass the set of headers that shall be sent along the mail headers in the original email. 'X-Mailin-IP' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {'Content-Type':'text/html', 'charset':'iso-8859-1', 'X-Mailin-IP':'1.2.3.4'}")
+  public Object getHeaders() {
     return headers;
   }
 
-  public void setHeaders(Map<String, String> headers) {
+  public void setHeaders(Object headers) {
     this.headers = headers;
   }
 
-  public SendEmail attributes(Map<String, String> attributes) {
+  public SendEmail attributes(Object attributes) {
     this.attributes = attributes;
-    return this;
-  }
-
-  public SendEmail putAttributesItem(String key, String attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<String, String>();
-    }
-    this.attributes.put(key, attributesItem);
     return this;
   }
 
    /**
-   * Get attributes
+   * Pass the set of attributes to customize the template. For example, {&#39;FNAME&#39;:&#39;Joe&#39;, &#39;LNAME&#39;:&#39;Doe&#39;}
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getAttributes() {
+  @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the template. For example, {'FNAME':'Joe', 'LNAME':'Doe'}")
+  public Object getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(Map<String, String> attributes) {
+  public void setAttributes(Object attributes) {
     this.attributes = attributes;
+  }
+
+  public SendEmail tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SendEmail addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tag your emails to find them more easily
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tag your emails to find them more easily")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -263,12 +274,13 @@ public class SendEmail {
     ObjectUtils.equals(this.attachmentUrl, sendEmail.attachmentUrl) &&
     ObjectUtils.equals(this.attachment, sendEmail.attachment) &&
     ObjectUtils.equals(this.headers, sendEmail.headers) &&
-    ObjectUtils.equals(this.attributes, sendEmail.attributes);
+    ObjectUtils.equals(this.attributes, sendEmail.attributes) &&
+    ObjectUtils.equals(this.tags, sendEmail.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emailTo, emailBcc, emailCc, replyTo, attachmentUrl, attachment, headers, attributes);
+    return ObjectUtils.hashCodeMulti(emailTo, emailBcc, emailCc, replyTo, attachmentUrl, attachment, headers, attributes, tags);
   }
 
 
@@ -285,6 +297,7 @@ public class SendEmail {
     sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

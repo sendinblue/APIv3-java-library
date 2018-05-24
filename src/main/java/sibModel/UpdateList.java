@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UpdateList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class UpdateList {
   @SerializedName("name")
   private String name = null;
@@ -40,10 +40,10 @@ public class UpdateList {
   }
 
    /**
-   * Name of the list. Only one parameter can be update at once
+   * Name of the list. Either of the two parameters (name, folderId) can be updated at a time.
    * @return name
   **/
-  @ApiModelProperty(example = "Magento Customer - ES", value = "Name of the list. Only one parameter can be update at once")
+  @ApiModelProperty(example = "Magento Customer - ES", value = "Name of the list. Either of the two parameters (name, folderId) can be updated at a time.")
   public String getName() {
     return name;
   }
@@ -58,10 +58,10 @@ public class UpdateList {
   }
 
    /**
-   * Id of the folder in which to move the list. Only one parameter can updated at once
+   * Id of the folder in which the list is to be moved. Either of the two parameters (name, folderId) can be updated at a time.
    * @return folderId
   **/
-  @ApiModelProperty(example = "2", value = "Id of the folder in which to move the list. Only one parameter can updated at once")
+  @ApiModelProperty(example = "2", value = "Id of the folder in which the list is to be moved. Either of the two parameters (name, folderId) can be updated at a time.")
   public Long getFolderId() {
     return folderId;
   }

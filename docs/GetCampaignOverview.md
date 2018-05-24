@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **subject** | **String** | Subject of the campaign | 
 **type** | [**TypeEnum**](#TypeEnum) | Type of campaign | 
 **status** | [**StatusEnum**](#StatusEnum) | Status of the campaign | 
-**scheduledAt** | [**OffsetDateTime**](OffsetDateTime.md) | UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ) |  [optional]
+**scheduledAt** | [**OffsetDateTime**] | UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ) |  [optional]
 
 
 <a name="TypeEnum"></a>

@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * DeleteHardbounces
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class DeleteHardbounces {
   @SerializedName("startDate")
   private LocalDate startDate = null;
@@ -44,10 +44,10 @@ public class DeleteHardbounces {
   }
 
    /**
-   * Starting date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be lower than equal to endDate
+   * Starting date (YYYY-MM-DD) of the time period for deletion. The hardbounces occurred after this date will be deleted. Must be less than or equal to the endDate
    * @return startDate
   **/
-  @ApiModelProperty(example = "2016-12-31", value = "Starting date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be lower than equal to endDate")
+  @ApiModelProperty(example = "2016-12-31", value = "Starting date (YYYY-MM-DD) of the time period for deletion. The hardbounces occurred after this date will be deleted. Must be less than or equal to the endDate")
   public LocalDate getStartDate() {
     return startDate;
   }
@@ -62,10 +62,10 @@ public class DeleteHardbounces {
   }
 
    /**
-   * Ending date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be greater than equal to startDate
+   * Ending date (YYYY-MM-DD) of the time period for deletion. The hardbounces until this date will be deleted. Must be greater than or equal to the startDate
    * @return endDate
   **/
-  @ApiModelProperty(example = "2017-01-31", value = "Ending date (YYYY-MM-DD) of the period from which the hardbounces will be deleted. Must be greater than equal to startDate")
+  @ApiModelProperty(example = "2017-01-31", value = "Ending date (YYYY-MM-DD) of the time period for deletion. The hardbounces until this date will be deleted. Must be greater than or equal to the startDate")
   public LocalDate getEndDate() {
     return endDate;
   }
