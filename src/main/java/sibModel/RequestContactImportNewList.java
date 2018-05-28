@@ -24,9 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * RequestContactImportNewList
+ * To create a new list and import the contacts into it, pass the listName and an optional folderId.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@ApiModel(description = "To create a new list and import the contacts into it, pass the listName and an optional folderId.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class RequestContactImportNewList {
   @SerializedName("listName")
   private String listName = null;
@@ -58,10 +59,10 @@ public class RequestContactImportNewList {
   }
 
    /**
-   * Folder id will be used with listName to make newly created list’s desired parent (Mandatory if listName is not empty).
+   * Id of the folder where this new list shall be created (Mandatory if listName is not empty).
    * @return folderId
   **/
-  @ApiModelProperty(example = "2", value = "Folder id will be used with listName to make newly created list’s desired parent (Mandatory if listName is not empty).")
+  @ApiModelProperty(example = "2", value = "Id of the folder where this new list shall be created (Mandatory if listName is not empty).")
   public Long getFolderId() {
     return folderId;
   }

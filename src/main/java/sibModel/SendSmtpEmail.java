@@ -23,9 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import sibModel.SendSmtpEmailAttachment;
 import sibModel.SendSmtpEmailBcc;
 import sibModel.SendSmtpEmailCc;
@@ -36,7 +34,7 @@ import sibModel.SendSmtpEmailTo;
 /**
  * SendSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendSmtpEmail {
   @SerializedName("sender")
   private SendSmtpEmailSender sender = null;
@@ -66,13 +64,16 @@ public class SendSmtpEmail {
   private List<SendSmtpEmailAttachment> attachment = null;
 
   @SerializedName("headers")
-  private Map<String, String> headers = null;
+  private Object headers = null;
 
   @SerializedName("templateId")
   private Long templateId = null;
 
   @SerializedName("params")
-  private Map<String, String> params = null;
+  private Object params = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
 
   public SendSmtpEmail sender(SendSmtpEmailSender sender) {
     this.sender = sender;
@@ -103,10 +104,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Email addresses and names of the recipients
+   * List of email addresses and names (optional) of the recipients. For example, [{&#39;name&#39;:&#39;Jimmy&#39;, &#39;email&#39;:&#39;jimmy98@example.com&#39;}, {&#39;name&#39;:&#39;Joe&#39;, &#39;email&#39;:&#39;joe@example.com&#39;}]
    * @return to
   **/
-  @ApiModelProperty(required = true, value = "Email addresses and names of the recipients")
+  @ApiModelProperty(required = true, value = "List of email addresses and names (optional) of the recipients. For example, [{'name':'Jimmy', 'email':'jimmy98@example.com'}, {'name':'Joe', 'email':'joe@example.com'}]")
   public List<SendSmtpEmailTo> getTo() {
     return to;
   }
@@ -129,10 +130,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Email addresses and names of the recipients in bcc
+   * List of email addresses and names (optional) of the recipients in bcc
    * @return bcc
   **/
-  @ApiModelProperty(value = "Email addresses and names of the recipients in bcc")
+  @ApiModelProperty(value = "List of email addresses and names (optional) of the recipients in bcc")
   public List<SendSmtpEmailBcc> getBcc() {
     return bcc;
   }
@@ -155,10 +156,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Email addresses and names of the recipients in cc
+   * List of email addresses and names (optional) of the recipients in cc
    * @return cc
   **/
-  @ApiModelProperty(value = "Email addresses and names of the recipients in cc")
+  @ApiModelProperty(value = "List of email addresses and names (optional) of the recipients in cc")
   public List<SendSmtpEmailCc> getCc() {
     return cc;
   }
@@ -176,7 +177,7 @@ public class SendSmtpEmail {
    * HTML body of the message ( Mandatory if &#39;templateId&#39; is not passed, ignored if &#39;templateId&#39; is passed )
    * @return htmlContent
   **/
-  @ApiModelProperty(example = "Please confirm your email address by clicking on the link below", value = "HTML body of the message ( Mandatory if 'templateId' is not passed, ignored if 'templateId' is passed )")
+  @ApiModelProperty(example = "<!DOCTYPE html> <html> <body> <h1>Confirm you email</h1> <p>Please confirm your email address by clicking on the link below</p> </body> </html>", value = "HTML body of the message ( Mandatory if 'templateId' is not passed, ignored if 'templateId' is passed )")
   public String getHtmlContent() {
     return htmlContent;
   }
@@ -253,10 +254,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if &#39;templateId&#39; is passed )
+   * Pass the absolute URL (no local file) or the byte array of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, [{&#39;url&#39;:&#39;https://attachment.domain.com/myAttachmentFromUrl.jpg&#39;, &#39;name&#39;:&#39;My attachment 1&#39;}, {&#39;content&#39;:&#39;byte array exmaple content&#39;, &#39;name&#39;:&#39;My attachment 2&#39;}]. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if &#39;templateId&#39; is passed )
    * @return attachment
   **/
-  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the byte array of the attachment. Name can be used in both cases to define the attachment name. It is mandatory in case of content. Extension allowed: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if 'templateId' is passed )")
+  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the byte array of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, [{'url':'https://attachment.domain.com/myAttachmentFromUrl.jpg', 'name':'My attachment 1'}, {'content':'byte array exmaple content', 'name':'My attachment 2'}]. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub and eps ( Ignored if 'templateId' is passed )")
   public List<SendSmtpEmailAttachment> getAttachment() {
     return attachment;
   }
@@ -265,29 +266,21 @@ public class SendSmtpEmail {
     this.attachment = attachment;
   }
 
-  public SendSmtpEmail headers(Map<String, String> headers) {
+  public SendSmtpEmail headers(Object headers) {
     this.headers = headers;
     return this;
   }
 
-  public SendSmtpEmail putHeadersItem(String key, String headersItem) {
-    if (this.headers == null) {
-      this.headers = new HashMap<String, String>();
-    }
-    this.headers.put(key, headersItem);
-    return this;
-  }
-
    /**
-   * Get headers
+   * Pass the set of headers that shall be sent along the mail headers in the original email. &#39;X-Mailin-IP&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {&#39;Content-Type&#39;:&#39;text/html&#39;, &#39;charset&#39;:&#39;iso-8859-1&#39;, &#39;X-Mailin-IP&#39;:&#39;1.2.3.4&#39;}
    * @return headers
   **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getHeaders() {
+  @ApiModelProperty(example = "{\"Content-Type\":\"text/html\",\"charset\":\"iso-8859-1\",\"X-Mailin-IP\":\"1.2.3.4\"}", value = "Pass the set of headers that shall be sent along the mail headers in the original email. 'X-Mailin-IP' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. For example, {'Content-Type':'text/html', 'charset':'iso-8859-1', 'X-Mailin-IP':'1.2.3.4'}")
+  public Object getHeaders() {
     return headers;
   }
 
-  public void setHeaders(Map<String, String> headers) {
+  public void setHeaders(Object headers) {
     this.headers = headers;
   }
 
@@ -309,30 +302,48 @@ public class SendSmtpEmail {
     this.templateId = templateId;
   }
 
-  public SendSmtpEmail params(Map<String, String> params) {
+  public SendSmtpEmail params(Object params) {
     this.params = params;
-    return this;
-  }
-
-  public SendSmtpEmail putParamsItem(String key, String paramsItem) {
-    if (this.params == null) {
-      this.params = new HashMap<String, String>();
-    }
-    this.params.put(key, paramsItem);
     return this;
   }
 
    /**
-   * Get params
+   * Pass the set of attributes to customize the template. For example, {&#39;FNAME&#39;:&#39;Joe&#39;, &#39;LNAME&#39;:&#39;Doe&#39;}.
    * @return params
   **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getParams() {
+  @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the template. For example, {'FNAME':'Joe', 'LNAME':'Doe'}.")
+  public Object getParams() {
     return params;
   }
 
-  public void setParams(Map<String, String> params) {
+  public void setParams(Object params) {
     this.params = params;
+  }
+
+  public SendSmtpEmail tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public SendSmtpEmail addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tag your emails to find them more easily
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tag your emails to find them more easily")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -356,12 +367,13 @@ public class SendSmtpEmail {
     ObjectUtils.equals(this.attachment, sendSmtpEmail.attachment) &&
     ObjectUtils.equals(this.headers, sendSmtpEmail.headers) &&
     ObjectUtils.equals(this.templateId, sendSmtpEmail.templateId) &&
-    ObjectUtils.equals(this.params, sendSmtpEmail.params);
+    ObjectUtils.equals(this.params, sendSmtpEmail.params) &&
+    ObjectUtils.equals(this.tags, sendSmtpEmail.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params);
+    return ObjectUtils.hashCodeMulti(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params, tags);
   }
 
 
@@ -382,6 +394,7 @@ public class SendSmtpEmail {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

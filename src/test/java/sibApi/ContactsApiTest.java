@@ -55,7 +55,6 @@ public class ContactsApiTest {
 
     private final ContactsApi api = new ContactsApi();
 
-
     /**
      * Add existing contacts to a list
      *

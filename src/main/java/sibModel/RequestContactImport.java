@@ -29,7 +29,7 @@ import sibModel.RequestContactImportNewList;
 /**
  * RequestContactImport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class RequestContactImport {
   @SerializedName("fileUrl")
   private String fileUrl = null;
@@ -46,16 +46,25 @@ public class RequestContactImport {
   @SerializedName("newList")
   private RequestContactImportNewList newList = null;
 
+  @SerializedName("emailBlacklist")
+  private Boolean emailBlacklist = false;
+
+  @SerializedName("smsBlacklist")
+  private Boolean smsBlacklist = false;
+
+  @SerializedName("updateExistingContacts")
+  private Boolean updateExistingContacts = true;
+
   public RequestContactImport fileUrl(String fileUrl) {
     this.fileUrl = fileUrl;
     return this;
   }
 
    /**
-   * Mandatory if fileBody not defined. URL of the file to be imported (no local file). Possible file types: .txt, .csv
+   * Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv
    * @return fileUrl
   **/
-  @ApiModelProperty(example = "https://importfile.domain.com", value = "Mandatory if fileBody not defined. URL of the file to be imported (no local file). Possible file types: .txt, .csv")
+  @ApiModelProperty(example = "https://importfile.domain.com", value = "Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv")
   public String getFileUrl() {
     return fileUrl;
   }
@@ -96,10 +105,10 @@ public class RequestContactImport {
   }
 
    /**
-   * Manadatory if newList is not defined. Ids of the lists in which to add the contacts
+   * Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7].
    * @return listIds
   **/
-  @ApiModelProperty(value = "Manadatory if newList is not defined. Ids of the lists in which to add the contacts")
+  @ApiModelProperty(value = "Mandatory if newList is not defined. Ids of the lists in which the contacts shall be imported. For example, [2, 4, 7].")
   public List<Long> getListIds() {
     return listIds;
   }
@@ -144,6 +153,60 @@ public class RequestContactImport {
     this.newList = newList;
   }
 
+  public RequestContactImport emailBlacklist(Boolean emailBlacklist) {
+    this.emailBlacklist = emailBlacklist;
+    return this;
+  }
+
+   /**
+   * To blacklist all the contacts for email
+   * @return emailBlacklist
+  **/
+  @ApiModelProperty(example = "false", value = "To blacklist all the contacts for email")
+  public Boolean isEmailBlacklist() {
+    return emailBlacklist;
+  }
+
+  public void setEmailBlacklist(Boolean emailBlacklist) {
+    this.emailBlacklist = emailBlacklist;
+  }
+
+  public RequestContactImport smsBlacklist(Boolean smsBlacklist) {
+    this.smsBlacklist = smsBlacklist;
+    return this;
+  }
+
+   /**
+   * To blacklist all the contacts for sms
+   * @return smsBlacklist
+  **/
+  @ApiModelProperty(example = "false", value = "To blacklist all the contacts for sms")
+  public Boolean isSmsBlacklist() {
+    return smsBlacklist;
+  }
+
+  public void setSmsBlacklist(Boolean smsBlacklist) {
+    this.smsBlacklist = smsBlacklist;
+  }
+
+  public RequestContactImport updateExistingContacts(Boolean updateExistingContacts) {
+    this.updateExistingContacts = updateExistingContacts;
+    return this;
+  }
+
+   /**
+   * To facilitate the choice to update the existing contacts
+   * @return updateExistingContacts
+  **/
+  @ApiModelProperty(example = "true", value = "To facilitate the choice to update the existing contacts")
+  public Boolean isUpdateExistingContacts() {
+    return updateExistingContacts;
+  }
+
+  public void setUpdateExistingContacts(Boolean updateExistingContacts) {
+    this.updateExistingContacts = updateExistingContacts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,12 +221,15 @@ public class RequestContactImport {
     ObjectUtils.equals(this.fileBody, requestContactImport.fileBody) &&
     ObjectUtils.equals(this.listIds, requestContactImport.listIds) &&
     ObjectUtils.equals(this.notifyUrl, requestContactImport.notifyUrl) &&
-    ObjectUtils.equals(this.newList, requestContactImport.newList);
+    ObjectUtils.equals(this.newList, requestContactImport.newList) &&
+    ObjectUtils.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
+    ObjectUtils.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
+    ObjectUtils.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, listIds, notifyUrl, newList);
+    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts);
   }
 
 
@@ -177,6 +243,9 @@ public class RequestContactImport {
     sb.append("    listIds: ").append(toIndentedString(listIds)).append("\n");
     sb.append("    notifyUrl: ").append(toIndentedString(notifyUrl)).append("\n");
     sb.append("    newList: ").append(toIndentedString(newList)).append("\n");
+    sb.append("    emailBlacklist: ").append(toIndentedString(emailBlacklist)).append("\n");
+    sb.append("    smsBlacklist: ").append(toIndentedString(smsBlacklist)).append("\n");
+    sb.append("    updateExistingContacts: ").append(toIndentedString(updateExistingContacts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

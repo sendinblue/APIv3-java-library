@@ -29,7 +29,7 @@ import sibModel.CreateAttributeEnumeration;
 /**
  * CreateAttribute
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class CreateAttribute {
   @SerializedName("value")
   private String value = null;
@@ -38,7 +38,7 @@ public class CreateAttribute {
   private List<CreateAttributeEnumeration> enumeration = null;
 
   /**
-   * Type of the attribute. Use only if the attribute&#39;s category is normal, category or transactional ( type &#39;id&#39; only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; only available if the category is &#39;category&#39; attribute )
+   * Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -99,10 +99,10 @@ public class CreateAttribute {
   }
 
    /**
-   * Value of the attribute. Use only if the attribute&#39;s category is calculated or global
+   * Value of the attribute. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;
    * @return value
   **/
-  @ApiModelProperty(example = "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]", value = "Value of the attribute. Use only if the attribute's category is calculated or global")
+  @ApiModelProperty(example = "COUNT[BLACKLISTED,BLACKLISTED,<,NOW()]", value = "Value of the attribute. Use only if the attribute's category is 'calculated' or 'global'")
   public String getValue() {
     return value;
   }
@@ -125,10 +125,10 @@ public class CreateAttribute {
   }
 
    /**
-   * Values that the attribute can take. Use only if the attribute&#39;s category is category
+   * List of values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{&#39;value&#39;:1, &#39;label&#39;:&#39;male&#39;}, {&#39;value&#39;:2, &#39;label&#39;:&#39;female&#39;}]
    * @return enumeration
   **/
-  @ApiModelProperty(value = "Values that the attribute can take. Use only if the attribute's category is category")
+  @ApiModelProperty(value = "List of values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{'value':1, 'label':'male'}, {'value':2, 'label':'female'}]")
   public List<CreateAttributeEnumeration> getEnumeration() {
     return enumeration;
   }
@@ -143,10 +143,10 @@ public class CreateAttribute {
   }
 
    /**
-   * Type of the attribute. Use only if the attribute&#39;s category is normal, category or transactional ( type &#39;id&#39; only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; only available if the category is &#39;category&#39; attribute )
+   * Type of the attribute. Use only if the attribute&#39;s category is &#39;normal&#39;, &#39;category&#39; or &#39;transactional&#39; ( type &#39;id&#39; is only available if the category is &#39;transactional&#39; attribute &amp; type &#39;category&#39; is only available if the category is &#39;category&#39; attribute )
    * @return type
   **/
-  @ApiModelProperty(example = "text", value = "Type of the attribute. Use only if the attribute's category is normal, category or transactional ( type 'id' only available if the category is 'transactional' attribute & type 'category' only available if the category is 'category' attribute )")
+  @ApiModelProperty(example = "text", value = "Type of the attribute. Use only if the attribute's category is 'normal', 'category' or 'transactional' ( type 'id' is only available if the category is 'transactional' attribute & type 'category' is only available if the category is 'category' attribute )")
   public TypeEnum getType() {
     return type;
   }

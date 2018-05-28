@@ -4,10 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**campaignStats** | **List&lt;Object&gt;** |  | 
+**globalStats** | **Object** | Overall statistics of the campaign | 
+**campaignStats** | **List&lt;Object&gt;** | List-wise statistics of the campaign. | 
 **mirrorClick** | **Long** | Number of clicks on mirror link | 
 **remaining** | **Long** | Number of remaning emails to send | 
-**linksStats** | [**Map&lt;String, GetExtendedCampaignStatsLinksStats&gt;**](GetExtendedCampaignStatsLinksStats.md) |  | 
+**linksStats** | **Object** | Statistics about the number of clicks for the links | 
 **statsByDomain** | [**GetStatsByDomain**](GetStatsByDomain.md) |  | 
 
 

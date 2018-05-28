@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SendSmtpEmailAttachment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendSmtpEmailAttachment {
   @SerializedName("url")
   private String url = null;
@@ -82,7 +82,7 @@ public class SendSmtpEmailAttachment {
    * Required for content. Name of the attachment
    * @return name
   **/
-  @ApiModelProperty(example = "myAttachment.png", value = "Required for content. Name of the attachment")
+  @ApiModelProperty(example = "myAttachment.png", value = "Required if content is passed. Name of the attachment")
   public String getName() {
     return name;
   }

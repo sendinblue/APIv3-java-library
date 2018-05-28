@@ -23,17 +23,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import sibModel.GetExtendedCampaignStatsLinksStats;
 import sibModel.GetStatsByDomain;
 
 /**
  * GetExtendedCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class GetExtendedCampaignStats {
+  @SerializedName("globalStats")
+  private Object globalStats = null;
+
   @SerializedName("campaignStats")
   private List<Object> campaignStats = new ArrayList<Object>();
 
@@ -44,10 +44,28 @@ public class GetExtendedCampaignStats {
   private Long remaining = null;
 
   @SerializedName("linksStats")
-  private Map<String, GetExtendedCampaignStatsLinksStats> linksStats = new HashMap<String, GetExtendedCampaignStatsLinksStats>();
+  private Object linksStats = null;
 
   @SerializedName("statsByDomain")
   private GetStatsByDomain statsByDomain = null;
+
+  public GetExtendedCampaignStats globalStats(Object globalStats) {
+    this.globalStats = globalStats;
+    return this;
+  }
+
+   /**
+   * Overall statistics of the campaign
+   * @return globalStats
+  **/
+  @ApiModelProperty(required = true, value = "Overall statistics of the campaign")
+  public Object getGlobalStats() {
+    return globalStats;
+  }
+
+  public void setGlobalStats(Object globalStats) {
+    this.globalStats = globalStats;
+  }
 
   public GetExtendedCampaignStats campaignStats(List<Object> campaignStats) {
     this.campaignStats = campaignStats;
@@ -60,10 +78,10 @@ public class GetExtendedCampaignStats {
   }
 
    /**
-   * Get campaignStats
+   * List-wise statistics of the campaign.
    * @return campaignStats
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "List-wise statistics of the campaign.")
   public List<Object> getCampaignStats() {
     return campaignStats;
   }
@@ -108,26 +126,21 @@ public class GetExtendedCampaignStats {
     this.remaining = remaining;
   }
 
-  public GetExtendedCampaignStats linksStats(Map<String, GetExtendedCampaignStatsLinksStats> linksStats) {
+  public GetExtendedCampaignStats linksStats(Object linksStats) {
     this.linksStats = linksStats;
     return this;
   }
 
-  public GetExtendedCampaignStats putLinksStatsItem(String key, GetExtendedCampaignStatsLinksStats linksStatsItem) {
-    this.linksStats.put(key, linksStatsItem);
-    return this;
-  }
-
    /**
-   * Get linksStats
+   * Statistics about the number of clicks for the links
    * @return linksStats
   **/
-  @ApiModelProperty(required = true, value = "")
-  public Map<String, GetExtendedCampaignStatsLinksStats> getLinksStats() {
+  @ApiModelProperty(example = "{\"example.abc.com\":7,\"example.domain.com\":10}", required = true, value = "Statistics about the number of clicks for the links")
+  public Object getLinksStats() {
     return linksStats;
   }
 
-  public void setLinksStats(Map<String, GetExtendedCampaignStatsLinksStats> linksStats) {
+  public void setLinksStats(Object linksStats) {
     this.linksStats = linksStats;
   }
 
@@ -159,7 +172,8 @@ public class GetExtendedCampaignStats {
     return false;
   }
     GetExtendedCampaignStats getExtendedCampaignStats = (GetExtendedCampaignStats) o;
-    return ObjectUtils.equals(this.campaignStats, getExtendedCampaignStats.campaignStats) &&
+    return ObjectUtils.equals(this.globalStats, getExtendedCampaignStats.globalStats) &&
+    ObjectUtils.equals(this.campaignStats, getExtendedCampaignStats.campaignStats) &&
     ObjectUtils.equals(this.mirrorClick, getExtendedCampaignStats.mirrorClick) &&
     ObjectUtils.equals(this.remaining, getExtendedCampaignStats.remaining) &&
     ObjectUtils.equals(this.linksStats, getExtendedCampaignStats.linksStats) &&
@@ -168,7 +182,7 @@ public class GetExtendedCampaignStats {
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(campaignStats, mirrorClick, remaining, linksStats, statsByDomain);
+    return ObjectUtils.hashCodeMulti(globalStats, campaignStats, mirrorClick, remaining, linksStats, statsByDomain);
   }
 
 
@@ -177,6 +191,7 @@ public class GetExtendedCampaignStats {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExtendedCampaignStats {\n");
     
+    sb.append("    globalStats: ").append(toIndentedString(globalStats)).append("\n");
     sb.append("    campaignStats: ").append(toIndentedString(campaignStats)).append("\n");
     sb.append("    mirrorClick: ").append(toIndentedString(mirrorClick)).append("\n");
     sb.append("    remaining: ").append(toIndentedString(remaining)).append("\n");

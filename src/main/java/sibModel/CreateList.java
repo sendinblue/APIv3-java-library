@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CreateList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class CreateList {
   @SerializedName("name")
   private String name = null;
@@ -58,10 +58,10 @@ public class CreateList {
   }
 
    /**
-   * Id of the folder in which to create the list
+   * Id of the parent folder in which this list is to be created
    * @return folderId
   **/
-  @ApiModelProperty(example = "2", required = true, value = "Id of the folder in which to create the list")
+  @ApiModelProperty(example = "2", required = true, value = "Id of the parent folder in which this list is to be created")
   public Long getFolderId() {
     return folderId;
   }

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * CreateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class CreateContact {
   @SerializedName("email")
   private String email = null;
@@ -57,10 +57,10 @@ public class CreateContact {
   }
 
    /**
-   * Email address of the user. Mandatory if &#x60;attributes.sms&#x60; is not passed
+   * Email address of the user. Mandatory if \&quot;sms\&quot; field is not passed in \&quot;attributes\&quot; parameter&#39;
    * @return email
   **/
-  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if `attributes.sms` is not passed")
+  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"sms\" field is not passed in \"attributes\" parameter'")
   public String getEmail() {
     return email;
   }
@@ -75,10 +75,10 @@ public class CreateContact {
   }
 
    /**
-   * Values of the attributes to fill. The attributes must exist in you contact database
+   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}
    * @return attributes
   **/
-  @ApiModelProperty(example = "\"FNAME:Elly, LNAME:Roger\"", value = "Values of the attributes to fill. The attributes must exist in you contact database")
+  @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {'FNAME':'Elly', 'LNAME':'Roger'}")
   public Object getAttributes() {
     return attributes;
   }
@@ -93,10 +93,10 @@ public class CreateContact {
   }
 
    /**
-   * Blacklist the contact for emails (emailBlacklisted &#x3D; true)
+   * Set this field to blacklist the contact for emails (emailBlacklisted &#x3D; true)
    * @return emailBlacklisted
   **/
-  @ApiModelProperty(example = "false", value = "Blacklist the contact for emails (emailBlacklisted = true)")
+  @ApiModelProperty(example = "false", value = "Set this field to blacklist the contact for emails (emailBlacklisted = true)")
   public Boolean isEmailBlacklisted() {
     return emailBlacklisted;
   }
@@ -111,10 +111,10 @@ public class CreateContact {
   }
 
    /**
-   * Blacklist the contact for SMS (smsBlacklisted &#x3D; true)
+   * Set this field to blacklist the contact for SMS (smsBlacklisted &#x3D; true)
    * @return smsBlacklisted
   **/
-  @ApiModelProperty(example = "false", value = "Blacklist the contact for SMS (smsBlacklisted = true)")
+  @ApiModelProperty(example = "false", value = "Set this field to blacklist the contact for SMS (smsBlacklisted = true)")
   public Boolean isSmsBlacklisted() {
     return smsBlacklisted;
   }
@@ -155,10 +155,10 @@ public class CreateContact {
   }
 
    /**
-   * Facilitate to update existing contact in same request (updateEnabled &#x3D; true)
+   * Facilitate to update the existing contact in the same request (updateEnabled &#x3D; true)
    * @return updateEnabled
   **/
-  @ApiModelProperty(example = "false", value = "Facilitate to update existing contact in same request (updateEnabled = true)")
+  @ApiModelProperty(example = "false", value = "Facilitate to update the existing contact in the same request (updateEnabled = true)")
   public Boolean isUpdateEnabled() {
     return updateEnabled;
   }

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * SendTestEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class SendTestEmail {
   @SerializedName("emailTo")
   private List<String> emailTo = null;
@@ -47,10 +47,10 @@ public class SendTestEmail {
   }
 
    /**
-   * If empty the test email will be sent to your entire test list. Use this field to send it to specific addresses in your list.
+   * List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list.
    * @return emailTo
   **/
-  @ApiModelProperty(value = "If empty the test email will be sent to your entire test list. Use this field to send it to specific addresses in your list.")
+  @ApiModelProperty(value = "List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list.")
   public List<String> getEmailTo() {
     return emailTo;
   }

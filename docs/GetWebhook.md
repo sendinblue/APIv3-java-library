@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the webhook | 
 **events** | **List&lt;String&gt;** |  | 
 **type** | [**TypeEnum**](#TypeEnum) | Type of webhook (marketing or transac) | 
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
-**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Last modification UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**createdAt** | [**OffsetDateTime**] | Creation UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**modifiedAt** | [**OffsetDateTime**] | Last modification UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 
 
 <a name="TypeEnum"></a>

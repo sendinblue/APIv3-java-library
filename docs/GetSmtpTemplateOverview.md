@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **toField** | **String** | Customisation of the \&quot;to\&quot; field for the template | 
 **tag** | **String** | Tag of the template | 
 **htmlContent** | **String** | HTML content of the template | 
-**createdAt** | [**OffsetDateTime**](OffsetDateTime.md) | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
-**modifiedAt** | [**OffsetDateTime**](OffsetDateTime.md) | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**createdAt** | [**OffsetDateTime**] | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**modifiedAt** | [**OffsetDateTime**] | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 
 
 

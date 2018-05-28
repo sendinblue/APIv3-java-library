@@ -23,9 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.GetContactDetails;
 import sibModel.GetExtendedContactDetailsStatistics;
@@ -33,7 +31,7 @@ import sibModel.GetExtendedContactDetailsStatistics;
 /**
  * GetExtendedContactDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-13T14:27:50.128+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
 public class GetExtendedContactDetails {
   @SerializedName("email")
   private String email = null;
@@ -57,7 +55,7 @@ public class GetExtendedContactDetails {
   private List<Long> listUnsubscribed = null;
 
   @SerializedName("attributes")
-  private Map<String, String> attributes = new HashMap<String, String>();
+  private Object attributes = null;
 
   @SerializedName("statistics")
   private GetExtendedContactDetailsStatistics statistics = null;
@@ -201,26 +199,21 @@ public class GetExtendedContactDetails {
     this.listUnsubscribed = listUnsubscribed;
   }
 
-  public GetExtendedContactDetails attributes(Map<String, String> attributes) {
+  public GetExtendedContactDetails attributes(Object attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public GetExtendedContactDetails putAttributesItem(String key, String attributesItem) {
-    this.attributes.put(key, attributesItem);
-    return this;
-  }
-
    /**
-   * Get attributes
+   * Set of attributes of the contact
    * @return attributes
   **/
-  @ApiModelProperty(required = true, value = "")
-  public Map<String, String> getAttributes() {
+  @ApiModelProperty(example = "{\"name\":\"Joe\",\"email\":\"joe@example.com\"}", required = true, value = "Set of attributes of the contact")
+  public Object getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(Map<String, String> attributes) {
+  public void setAttributes(Object attributes) {
     this.attributes = attributes;
   }
 
