@@ -193,6 +193,9 @@ public class GetExtendedCampaignOverview {
   @SerializedName("recurring")
   private Boolean recurring = null;
 
+  @SerializedName("sentDate")
+  private OffsetDateTime sentDate = null;
+
   public GetExtendedCampaignOverview id(Long id) {
     this.id = id;
     return this;
@@ -553,6 +556,24 @@ public class GetExtendedCampaignOverview {
     this.recurring = recurring;
   }
 
+  public GetExtendedCampaignOverview sentDate(OffsetDateTime sentDate) {
+    this.sentDate = sentDate;
+    return this;
+  }
+
+   /**
+   * Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if &#39;status&#39; of the campaign is &#39;sent&#39;
+   * @return sentDate
+  **/
+  @ApiModelProperty(example = "2018-12-01T16:30:00Z", value = "Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'")
+  public OffsetDateTime getSentDate() {
+    return sentDate;
+  }
+
+  public void setSentDate(OffsetDateTime sentDate) {
+    this.sentDate = sentDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -582,12 +603,13 @@ public class GetExtendedCampaignOverview {
     ObjectUtils.equals(this.modifiedAt, getExtendedCampaignOverview.modifiedAt) &&
     ObjectUtils.equals(this.inlineImageActivation, getExtendedCampaignOverview.inlineImageActivation) &&
     ObjectUtils.equals(this.mirrorActive, getExtendedCampaignOverview.mirrorActive) &&
-    ObjectUtils.equals(this.recurring, getExtendedCampaignOverview.recurring);
+    ObjectUtils.equals(this.recurring, getExtendedCampaignOverview.recurring) &&
+    ObjectUtils.equals(this.sentDate, getExtendedCampaignOverview.sentDate);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate);
   }
 
 
@@ -616,6 +638,7 @@ public class GetExtendedCampaignOverview {
     sb.append("    inlineImageActivation: ").append(toIndentedString(inlineImageActivation)).append("\n");
     sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -193,6 +193,9 @@ public class GetEmailCampaign {
   @SerializedName("recurring")
   private Boolean recurring = null;
 
+  @SerializedName("sentDate")
+  private OffsetDateTime sentDate = null;
+
   @SerializedName("recipients")
   private Object recipients = null;
 
@@ -559,6 +562,24 @@ public class GetEmailCampaign {
     this.recurring = recurring;
   }
 
+  public GetEmailCampaign sentDate(OffsetDateTime sentDate) {
+    this.sentDate = sentDate;
+    return this;
+  }
+
+   /**
+   * Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if &#39;status&#39; of the campaign is &#39;sent&#39;
+   * @return sentDate
+  **/
+  @ApiModelProperty(example = "2018-12-01T16:30:00Z", value = "Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'")
+  public OffsetDateTime getSentDate() {
+    return sentDate;
+  }
+
+  public void setSentDate(OffsetDateTime sentDate) {
+    this.sentDate = sentDate;
+  }
+
   public GetEmailCampaign recipients(Object recipients) {
     this.recipients = recipients;
     return this;
@@ -625,13 +646,14 @@ public class GetEmailCampaign {
     ObjectUtils.equals(this.inlineImageActivation, getEmailCampaign.inlineImageActivation) &&
     ObjectUtils.equals(this.mirrorActive, getEmailCampaign.mirrorActive) &&
     ObjectUtils.equals(this.recurring, getEmailCampaign.recurring) &&
+    ObjectUtils.equals(this.sentDate, getEmailCampaign.sentDate) &&
     ObjectUtils.equals(this.recipients, getEmailCampaign.recipients) &&
     ObjectUtils.equals(this.statistics, getEmailCampaign.statistics);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, recipients, statistics);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, recipients, statistics);
   }
 
 
@@ -660,6 +682,7 @@ public class GetEmailCampaign {
     sb.append("    inlineImageActivation: ").append(toIndentedString(inlineImageActivation)).append("\n");
     sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
