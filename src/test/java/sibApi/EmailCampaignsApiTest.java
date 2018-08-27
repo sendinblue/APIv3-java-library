@@ -21,6 +21,7 @@ import sibModel.EmailExportRecipients;
 import sibModel.ErrorModel;
 import sibModel.GetEmailCampaign;
 import sibModel.GetEmailCampaigns;
+import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendFailed;
 import sibModel.SendReport;
 import sibModel.SendTestEmail;
@@ -120,9 +121,11 @@ public class EmailCampaignsApiTest {
     public void getEmailCampaignsTest() throws ApiException {
         String type = null;
         String status = null;
+        OffsetDateTime startDate = null;;
+        OffsetDateTime endDate = null;
         Long limit = null;
         Long offset = null;
-        GetEmailCampaigns response = api.getEmailCampaigns(type, status, limit, offset);
+        GetEmailCampaigns response = api.getEmailCampaigns(type, status, startDate, endDate, limit, offset);
 
         // TODO: test validations
     }

@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 <a name="getEmailCampaigns"></a>
 # **getEmailCampaigns**
-> GetEmailCampaigns getEmailCampaigns(type, status, limit, offset)
+> GetEmailCampaigns getEmailCampaigns(type, status, startDate, endDate, limit, offset)
 
 Return all your created campaigns
 
@@ -255,10 +255,12 @@ apiKey.setApiKey("YOUR API KEY");
 EmailCampaignsApi apiInstance = new EmailCampaignsApi();
 String type = "type_example"; // String | Filter on the type of the campaigns
 String status = "status_example"; // String | Filter on the status of the campaign
+OffsetDateTime startDate = new DateTime(); // DateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime endDate = new DateTime(); // DateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document in the page
 try {
-    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, limit, offset);
+    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, startDate, endDate, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EmailCampaignsApi#getEmailCampaigns");
@@ -272,6 +274,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| Filter on the type of the campaigns | [optional] [enum: classic, trigger]
  **status** | **String**| Filter on the status of the campaign | [optional] [enum: suspended, archive, sent, queued, draft, inProcess]
+ **startDate** | **OffsetDateTime**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
+ **endDate** | **OffsetDateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
  **limit** | **Long**| Number of documents per page | [optional] [default to 500]
  **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
 
