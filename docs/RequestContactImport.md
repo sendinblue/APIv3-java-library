@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **emailBlacklist** | **Boolean** | To blacklist all the contacts for email |  [optional]
 **smsBlacklist** | **Boolean** | To blacklist all the contacts for sms |  [optional]
 **updateExistingContacts** | **Boolean** | To facilitate the choice to update the existing contacts |  [optional]
+**emptyContactsAttributes** | **Boolean** | To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true ) |  [optional]
 
 
 

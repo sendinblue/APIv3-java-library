@@ -54,6 +54,9 @@ public class RequestContactImport {
 
   @SerializedName("updateExistingContacts")
   private Boolean updateExistingContacts = true;
+  
+  @SerializedName("emptyContactsAttributes")
+  private Boolean emptyContactsAttributes = false;
 
   public RequestContactImport fileUrl(String fileUrl) {
     this.fileUrl = fileUrl;
@@ -206,8 +209,26 @@ public class RequestContactImport {
   public void setUpdateExistingContacts(Boolean updateExistingContacts) {
     this.updateExistingContacts = updateExistingContacts;
   }
+  
+  public RequestContactImport emptyContactsAttributes(Boolean emptyContactsAttributes) {
+    this.emptyContactsAttributes = emptyContactsAttributes;
+    return this;
+  }
+   
+   /**
+   * To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )
+   * @return emptyContactsAttributes
+  **/
+  @ApiModelProperty(example = "false", value = "To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )")
+  public Boolean isEmptyContactsAttributes() {
+    return emptyContactsAttributes;
+  }
 
-
+  public void setEmptyContactsAttributes(Boolean emptyContactsAttributes) {
+    this.emptyContactsAttributes = emptyContactsAttributes;
+  }
+  
+  
   @Override
   public boolean equals(java.lang.Object o) {
   if (this == o) {
