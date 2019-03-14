@@ -216,10 +216,10 @@ public class RequestContactImport {
   }
    
    /**
-   * To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )
+   * To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )
    * @return emptyContactsAttributes
   **/
-  @ApiModelProperty(example = "false", value = "To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, & emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )")
+  @ApiModelProperty(example = "false", value = "To facilitate the choice to erase any attribute of the existing contacts with empty value. emptyContactsAttributes = true means the empty fields in your import will erase any attribute that currently contain data in SendinBlue, emptyContactsAttributes = false means the empty fields will not affect your existing data ( only available if updateExistingContacts set to true )")
   public Boolean isEmptyContactsAttributes() {
     return emptyContactsAttributes;
   }
