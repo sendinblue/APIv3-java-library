@@ -245,12 +245,13 @@ public class RequestContactImport {
     ObjectUtils.equals(this.newList, requestContactImport.newList) &&
     ObjectUtils.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
     ObjectUtils.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
-    ObjectUtils.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts);
+    ObjectUtils.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts) &&
+    ObjectUtils.equals(this.emptyContactsAttributes, requestContactImport.emptyContactsAttributes);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts);
+    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts,emptyContactsAttributes);
   }
 
 
@@ -267,6 +268,7 @@ public class RequestContactImport {
     sb.append("    emailBlacklist: ").append(toIndentedString(emailBlacklist)).append("\n");
     sb.append("    smsBlacklist: ").append(toIndentedString(smsBlacklist)).append("\n");
     sb.append("    updateExistingContacts: ").append(toIndentedString(updateExistingContacts)).append("\n");
+    sb.append("    emptyContactsAttributes: ").append(toIndentedString(emptyContactsAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
