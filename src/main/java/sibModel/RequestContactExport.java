@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -24,17 +24,21 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import sibModel.RequestContactExportCustomContactFilter;
 
 /**
  * RequestContactExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class RequestContactExport {
   @SerializedName("exportAttributes")
   private List<String> exportAttributes = null;
 
   @SerializedName("contactFilter")
   private Object contactFilter = null;
+
+  @SerializedName("customContactFilter")
+  private RequestContactExportCustomContactFilter customContactFilter = null;
 
   @SerializedName("notifyUrl")
   private String notifyUrl = null;
@@ -71,16 +75,34 @@ public class RequestContactExport {
   }
 
    /**
-   * Set the filter for the contacts to be exported. For example, {&#39;blacklisted&#39;:true} will export all the blacklisted contacts.
+   * This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {&#39;blacklisted&#39;:true} will export all the blacklisted contacts. 
    * @return contactFilter
   **/
-  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", required = true, value = "Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts.")
+  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", value = "This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts. ")
   public Object getContactFilter() {
     return contactFilter;
   }
 
   public void setContactFilter(Object contactFilter) {
     this.contactFilter = contactFilter;
+  }
+
+  public RequestContactExport customContactFilter(RequestContactExportCustomContactFilter customContactFilter) {
+    this.customContactFilter = customContactFilter;
+    return this;
+  }
+
+   /**
+   * Get customContactFilter
+   * @return customContactFilter
+  **/
+  @ApiModelProperty(value = "")
+  public RequestContactExportCustomContactFilter getCustomContactFilter() {
+    return customContactFilter;
+  }
+
+  public void setCustomContactFilter(RequestContactExportCustomContactFilter customContactFilter) {
+    this.customContactFilter = customContactFilter;
   }
 
   public RequestContactExport notifyUrl(String notifyUrl) {
@@ -113,12 +135,13 @@ public class RequestContactExport {
     RequestContactExport requestContactExport = (RequestContactExport) o;
     return ObjectUtils.equals(this.exportAttributes, requestContactExport.exportAttributes) &&
     ObjectUtils.equals(this.contactFilter, requestContactExport.contactFilter) &&
+    ObjectUtils.equals(this.customContactFilter, requestContactExport.customContactFilter) &&
     ObjectUtils.equals(this.notifyUrl, requestContactExport.notifyUrl);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(exportAttributes, contactFilter, notifyUrl);
+    return ObjectUtils.hashCodeMulti(exportAttributes, contactFilter, customContactFilter, notifyUrl);
   }
 
 
@@ -129,6 +152,7 @@ public class RequestContactExport {
     
     sb.append("    exportAttributes: ").append(toIndentedString(exportAttributes)).append("\n");
     sb.append("    contactFilter: ").append(toIndentedString(contactFilter)).append("\n");
+    sb.append("    customContactFilter: ").append(toIndentedString(customContactFilter)).append("\n");
     sb.append("    notifyUrl: ").append(toIndentedString(notifyUrl)).append("\n");
     sb.append("}");
     return sb.toString();

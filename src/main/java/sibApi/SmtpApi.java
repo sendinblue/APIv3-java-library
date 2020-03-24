@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -37,6 +37,9 @@ import sibModel.GetEmailEventReport;
 import sibModel.GetReports;
 import sibModel.GetSmtpTemplateOverview;
 import sibModel.GetSmtpTemplates;
+import sibModel.GetTransacBlockedContacts;
+import sibModel.GetTransacEmailContent;
+import sibModel.GetTransacEmailsList;
 import org.threeten.bp.LocalDate;
 import sibModel.PostSendFailed;
 import sibModel.SendEmail;
@@ -72,7 +75,7 @@ public class SmtpApi {
 
     /**
      * Build call for createSmtpTemplate
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -115,7 +118,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -134,9 +137,9 @@ public class SmtpApi {
     }
 
     /**
-     * Create an smtp template
+     * Create a transactional email template
      * 
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @return CreateModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -146,9 +149,9 @@ public class SmtpApi {
     }
 
     /**
-     * Create an smtp template
+     * Create a transactional email template
      * 
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @return ApiResponse&lt;CreateModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -159,9 +162,9 @@ public class SmtpApi {
     }
 
     /**
-     * Create an smtp template (asynchronously)
+     * Create a transactional email template (asynchronously)
      * 
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -237,7 +240,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -351,7 +354,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -370,7 +373,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive smtp template
+     * Delete an inactive transactional email template
      * 
      * @param templateId id of the template (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -380,7 +383,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive smtp template
+     * Delete an inactive transactional email template
      * 
      * @param templateId id of the template (required)
      * @return ApiResponse&lt;Void&gt;
@@ -392,7 +395,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive smtp template (asynchronously)
+     * Delete an inactive transactional email template (asynchronously)
      * 
      * @param templateId id of the template (required)
      * @param callback The callback to be executed when the API call finishes
@@ -435,7 +438,7 @@ public class SmtpApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAggregatedSmtpReportCall(LocalDate startDate, LocalDate endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAggregatedSmtpReportCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -480,12 +483,12 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAggregatedSmtpReportValidateBeforeCall(LocalDate startDate, LocalDate endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAggregatedSmtpReportValidateBeforeCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getAggregatedSmtpReportCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
@@ -494,7 +497,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get your SMTP activity aggregated over a period of time
+     * Get your transactional email activity aggregated over a period of time
      * 
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
@@ -503,13 +506,13 @@ public class SmtpApi {
      * @return GetAggregatedReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetAggregatedReport getAggregatedSmtpReport(LocalDate startDate, LocalDate endDate, Integer days, String tag) throws ApiException {
+    public GetAggregatedReport getAggregatedSmtpReport(String startDate, String endDate, Integer days, String tag) throws ApiException {
         ApiResponse<GetAggregatedReport> resp = getAggregatedSmtpReportWithHttpInfo(startDate, endDate, days, tag);
         return resp.getData();
     }
 
     /**
-     * Get your SMTP activity aggregated over a period of time
+     * Get your transactional email activity aggregated over a period of time
      * 
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
@@ -518,14 +521,14 @@ public class SmtpApi {
      * @return ApiResponse&lt;GetAggregatedReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetAggregatedReport> getAggregatedSmtpReportWithHttpInfo(LocalDate startDate, LocalDate endDate, Integer days, String tag) throws ApiException {
+    public ApiResponse<GetAggregatedReport> getAggregatedSmtpReportWithHttpInfo(String startDate, String endDate, Integer days, String tag) throws ApiException {
         com.squareup.okhttp.Call call = getAggregatedSmtpReportValidateBeforeCall(startDate, endDate, days, tag, null, null);
         Type localVarReturnType = new TypeToken<GetAggregatedReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get your SMTP activity aggregated over a period of time (asynchronously)
+     * Get your transactional email activity aggregated over a period of time (asynchronously)
      * 
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
@@ -535,7 +538,7 @@ public class SmtpApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAggregatedSmtpReportAsync(LocalDate startDate, LocalDate endDate, Integer days, String tag, final ApiCallback<GetAggregatedReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAggregatedSmtpReportAsync(String startDate, String endDate, Integer days, String tag, final ApiCallback<GetAggregatedReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -578,7 +581,7 @@ public class SmtpApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -635,12 +638,12 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getEmailEventReportCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, progressListener, progressRequestListener);
@@ -649,7 +652,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get all your SMTP activity (unaggregated events)
+     * Get all your transactional email activity (unaggregated events)
      * 
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
@@ -664,13 +667,13 @@ public class SmtpApi {
      * @return GetEmailEventReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
+    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
         ApiResponse<GetEmailEventReport> resp = getEmailEventReportWithHttpInfo(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId);
         return resp.getData();
     }
 
     /**
-     * Get all your SMTP activity (unaggregated events)
+     * Get all your transactional email activity (unaggregated events)
      * 
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
@@ -685,14 +688,14 @@ public class SmtpApi {
      * @return ApiResponse&lt;GetEmailEventReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
+    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
         com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, null, null);
         Type localVarReturnType = new TypeToken<GetEmailEventReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get all your SMTP activity (unaggregated events) (asynchronously)
+     * Get all your transactional email activity (unaggregated events) (asynchronously)
      * 
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
@@ -708,7 +711,7 @@ public class SmtpApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -736,7 +739,7 @@ public class SmtpApi {
     }
     /**
      * Build call for getSmtpReport
-     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param limit Number of documents returned per page (optional, default to 10)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
@@ -747,7 +750,7 @@ public class SmtpApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -796,12 +799,12 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getSmtpReportCall(limit, offset, startDate, endDate, days, tag, progressListener, progressRequestListener);
@@ -810,9 +813,9 @@ public class SmtpApi {
     }
 
     /**
-     * Get your SMTP activity aggregated per day
+     * Get your transactional email activity aggregated per day
      * 
-     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param limit Number of documents returned per page (optional, default to 10)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
@@ -821,15 +824,15 @@ public class SmtpApi {
      * @return GetReports
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetReports getSmtpReport(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String tag) throws ApiException {
+    public GetReports getSmtpReport(Long limit, Long offset, String startDate, String endDate, Integer days, String tag) throws ApiException {
         ApiResponse<GetReports> resp = getSmtpReportWithHttpInfo(limit, offset, startDate, endDate, days, tag);
         return resp.getData();
     }
 
     /**
-     * Get your SMTP activity aggregated per day
+     * Get your transactional email activity aggregated per day
      * 
-     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param limit Number of documents returned per page (optional, default to 10)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
@@ -838,16 +841,16 @@ public class SmtpApi {
      * @return ApiResponse&lt;GetReports&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String tag) throws ApiException {
+    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String tag) throws ApiException {
         com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, null, null);
         Type localVarReturnType = new TypeToken<GetReports>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get your SMTP activity aggregated per day (asynchronously)
+     * Get your transactional email activity aggregated per day (asynchronously)
      * 
-     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param limit Number of documents returned per page (optional, default to 10)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
@@ -857,7 +860,7 @@ public class SmtpApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, LocalDate startDate, LocalDate endDate, Integer days, String tag, final ApiCallback<GetReports> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ApiCallback<GetReports> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -929,7 +932,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1059,7 +1062,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1073,7 +1076,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of SMTP templates
+     * Get the list of transactional email templates
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1087,7 +1090,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of SMTP templates
+     * Get the list of transactional email templates
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1102,7 +1105,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of SMTP templates (asynchronously)
+     * Get the list of transactional email templates (asynchronously)
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1134,6 +1137,415 @@ public class SmtpApi {
 
         com.squareup.okhttp.Call call = getSmtpTemplatesValidateBeforeCall(templateStatus, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmtpTemplates>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransacBlockedContacts
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param offset Index of the first document on the page (optional, default to 0)
+     * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTransacBlockedContactsCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/blockedContacts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (senders != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "senders", senders));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTransacBlockedContactsValidateBeforeCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTransacBlockedContactsCall(startDate, endDate, limit, offset, senders, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the list of blocked or unsubscribed transactional contacts
+     * 
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param offset Index of the first document on the page (optional, default to 0)
+     * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @return GetTransacBlockedContacts
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetTransacBlockedContacts getTransacBlockedContacts(String startDate, String endDate, Long limit, Long offset, List<String> senders) throws ApiException {
+        ApiResponse<GetTransacBlockedContacts> resp = getTransacBlockedContactsWithHttpInfo(startDate, endDate, limit, offset, senders);
+        return resp.getData();
+    }
+
+    /**
+     * Get the list of blocked or unsubscribed transactional contacts
+     * 
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param offset Index of the first document on the page (optional, default to 0)
+     * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @return ApiResponse&lt;GetTransacBlockedContacts&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetTransacBlockedContacts> getTransacBlockedContactsWithHttpInfo(String startDate, String endDate, Long limit, Long offset, List<String> senders) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, null, null);
+        Type localVarReturnType = new TypeToken<GetTransacBlockedContacts>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the list of blocked or unsubscribed transactional contacts (asynchronously)
+     * 
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts (optional)
+     * @param limit Number of documents returned per page (optional, default to 50)
+     * @param offset Index of the first document on the page (optional, default to 0)
+     * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTransacBlockedContactsAsync(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ApiCallback<GetTransacBlockedContacts> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetTransacBlockedContacts>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransacEmailContent
+     * @param uuid Unique id of the transactional email that has been sent to a particular contact (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTransacEmailContentCall(String uuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/emails/{uuid}"
+            .replaceAll("\\{" + "uuid" + "\\}", apiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTransacEmailContentValidateBeforeCall(String uuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling getTransacEmailContent(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTransacEmailContentCall(uuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the personalized content of a sent transactional email
+     * 
+     * @param uuid Unique id of the transactional email that has been sent to a particular contact (required)
+     * @return GetTransacEmailContent
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetTransacEmailContent getTransacEmailContent(String uuid) throws ApiException {
+        ApiResponse<GetTransacEmailContent> resp = getTransacEmailContentWithHttpInfo(uuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get the personalized content of a sent transactional email
+     * 
+     * @param uuid Unique id of the transactional email that has been sent to a particular contact (required)
+     * @return ApiResponse&lt;GetTransacEmailContent&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetTransacEmailContent> getTransacEmailContentWithHttpInfo(String uuid) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacEmailContentValidateBeforeCall(uuid, null, null);
+        Type localVarReturnType = new TypeToken<GetTransacEmailContent>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the personalized content of a sent transactional email (asynchronously)
+     * 
+     * @param uuid Unique id of the transactional email that has been sent to a particular contact (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTransacEmailContentAsync(String uuid, final ApiCallback<GetTransacEmailContent> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTransacEmailContentValidateBeforeCall(uuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetTransacEmailContent>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransacEmailsList
+     * @param email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)
+     * @param templateId Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)
+     * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/emails";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (email != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+        if (templateId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("templateId", templateId));
+        if (messageId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("messageId", messageId));
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the list of transactional emails on the basis of allowed filters
+     * This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+     * @param email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)
+     * @param templateId Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)
+     * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @return GetTransacEmailsList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, String startDate, LocalDate endDate) throws ApiException {
+        ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate);
+        return resp.getData();
+    }
+
+    /**
+     * Get the list of transactional emails on the basis of allowed filters
+     * This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+     * @param email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)
+     * @param templateId Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)
+     * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @return ApiResponse&lt;GetTransacEmailsList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, String startDate, LocalDate endDate) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, null, null);
+        Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the list of transactional emails on the basis of allowed filters (asynchronously)
+     * This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+     * @param email Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. (optional)
+     * @param templateId Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. (optional)
+     * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -1186,7 +1598,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1325,7 +1737,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1451,7 +1863,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1529,9 +1941,247 @@ public class SmtpApi {
         return call;
     }
     /**
+     * Build call for smtpBlockedContactsEmailDelete
+     * @param email contact email (urlencoded) to unblock. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call smtpBlockedContactsEmailDeleteCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/blockedContacts/{email}"
+            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call smtpBlockedContactsEmailDeleteValidateBeforeCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'email' is set
+        if (email == null) {
+            throw new ApiException("Missing the required parameter 'email' when calling smtpBlockedContactsEmailDelete(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = smtpBlockedContactsEmailDeleteCall(email, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Unblock or resubscribe a transactional contact
+     * 
+     * @param email contact email (urlencoded) to unblock. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void smtpBlockedContactsEmailDelete(String email) throws ApiException {
+        smtpBlockedContactsEmailDeleteWithHttpInfo(email);
+    }
+
+    /**
+     * Unblock or resubscribe a transactional contact
+     * 
+     * @param email contact email (urlencoded) to unblock. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> smtpBlockedContactsEmailDeleteWithHttpInfo(String email) throws ApiException {
+        com.squareup.okhttp.Call call = smtpBlockedContactsEmailDeleteValidateBeforeCall(email, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Unblock or resubscribe a transactional contact (asynchronously)
+     * 
+     * @param email contact email (urlencoded) to unblock. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call smtpBlockedContactsEmailDeleteAsync(String email, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = smtpBlockedContactsEmailDeleteValidateBeforeCall(email, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for smtpLogMessageIdDelete
+     * @param messageId MessageId of the transactional log to delete (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call smtpLogMessageIdDeleteCall(String messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/log/{messageId}"
+            .replaceAll("\\{" + "messageId" + "\\}", apiClient.escapeString(messageId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call smtpLogMessageIdDeleteValidateBeforeCall(String messageId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'messageId' is set
+        if (messageId == null) {
+            throw new ApiException("Missing the required parameter 'messageId' when calling smtpLogMessageIdDelete(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = smtpLogMessageIdDeleteCall(messageId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete an SMTP transactional log
+     * 
+     * @param messageId MessageId of the transactional log to delete (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void smtpLogMessageIdDelete(String messageId) throws ApiException {
+        smtpLogMessageIdDeleteWithHttpInfo(messageId);
+    }
+
+    /**
+     * Delete an SMTP transactional log
+     * 
+     * @param messageId MessageId of the transactional log to delete (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> smtpLogMessageIdDeleteWithHttpInfo(String messageId) throws ApiException {
+        com.squareup.okhttp.Call call = smtpLogMessageIdDeleteValidateBeforeCall(messageId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete an SMTP transactional log (asynchronously)
+     * 
+     * @param messageId MessageId of the transactional log to delete (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call smtpLogMessageIdDeleteAsync(String messageId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = smtpLogMessageIdDeleteValidateBeforeCall(messageId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for updateSmtpTemplate
      * @param templateId id of the template (required)
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1575,7 +2225,7 @@ public class SmtpApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1599,10 +2249,10 @@ public class SmtpApi {
     }
 
     /**
-     * Updates an smtp templates
+     * Updates a transactional email templates
      * 
      * @param templateId id of the template (required)
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void updateSmtpTemplate(Long templateId, UpdateSmtpTemplate smtpTemplate) throws ApiException {
@@ -1610,10 +2260,10 @@ public class SmtpApi {
     }
 
     /**
-     * Updates an smtp templates
+     * Updates a transactional email templates
      * 
      * @param templateId id of the template (required)
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1623,10 +2273,10 @@ public class SmtpApi {
     }
 
     /**
-     * Updates an smtp templates (asynchronously)
+     * Updates a transactional email templates (asynchronously)
      * 
      * @param templateId id of the template (required)
-     * @param smtpTemplate values to update in smtp template (required)
+     * @param smtpTemplate values to update in transactional email template (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

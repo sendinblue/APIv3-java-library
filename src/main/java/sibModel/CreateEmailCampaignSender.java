@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -24,16 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Sender details including email and name (optional). For example {&#39;name&#39;:&#39;xyz&#39; , &#39;email&#39;:&#39;example@abc.com&#39;}
+ * Sender details including id or email and name (optional). Only one of either Sender&#39;s email or Sender&#39;s ID shall be passed in one request at a time. For example &#x60;{\&quot;name\&quot;:\&quot;xyz\&quot;, \&quot;email\&quot;:\&quot;example@abc.com\&quot;}&#x60; , &#x60;{\&quot;name\&quot;:\&quot;xyz\&quot;, \&quot;id\&quot;:123}&#x60;
  */
-@ApiModel(description = "Sender details including email and name (optional). For example {'name':'xyz' , 'email':'example@abc.com'}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@ApiModel(description = "Sender details including id or email and name (optional). Only one of either Sender's email or Sender's ID shall be passed in one request at a time. For example `{\"name\":\"xyz\", \"email\":\"example@abc.com\"}` , `{\"name\":\"xyz\", \"id\":123}`")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class CreateEmailCampaignSender {
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("email")
   private String email = null;
+
+  @SerializedName("id")
+  private Long id = null;
 
   public CreateEmailCampaignSender name(String name) {
     this.name = name;
@@ -71,6 +74,24 @@ public class CreateEmailCampaignSender {
     this.email = email;
   }
 
+  public CreateEmailCampaignSender id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Select the sender for the campaign on the basis of sender id. In order to select a sender with specific pool of IP’s, dedicated ip users shall pass id (instead of email).
+   * @return id
+  **/
+  @ApiModelProperty(example = "3", value = "Select the sender for the campaign on the basis of sender id. In order to select a sender with specific pool of IP’s, dedicated ip users shall pass id (instead of email).")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +103,13 @@ public class CreateEmailCampaignSender {
   }
     CreateEmailCampaignSender createEmailCampaignSender = (CreateEmailCampaignSender) o;
     return ObjectUtils.equals(this.name, createEmailCampaignSender.name) &&
-    ObjectUtils.equals(this.email, createEmailCampaignSender.email);
+    ObjectUtils.equals(this.email, createEmailCampaignSender.email) &&
+    ObjectUtils.equals(this.id, createEmailCampaignSender.id);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(name, email);
+    return ObjectUtils.hashCodeMulti(name, email, id);
   }
 
 
@@ -98,6 +120,7 @@ public class CreateEmailCampaignSender {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

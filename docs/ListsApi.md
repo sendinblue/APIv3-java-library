@@ -38,6 +38,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
 AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses of the contacts
@@ -63,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -93,6 +99,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 CreateList createList = new CreateList(); // CreateList | Values to create a list
 try {
@@ -116,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -146,6 +158,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
 try {
@@ -168,7 +186,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -197,6 +215,12 @@ ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
@@ -227,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -257,6 +281,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
@@ -284,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -314,6 +344,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
 try {
@@ -337,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -367,6 +403,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
@@ -392,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -422,6 +464,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
 RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails adresses of the contact
@@ -447,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -477,6 +525,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
 UpdateList updateList = new UpdateList(); // UpdateList | Values to update a list
@@ -501,7 +555,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

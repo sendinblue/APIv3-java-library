@@ -4,25 +4,30 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSmtpTemplate**](SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an smtp template
+[**createSmtpTemplate**](SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create a transactional email template
 [**deleteHardbounces**](SmtpApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-[**deleteSmtpTemplate**](SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive smtp template
-[**getAggregatedSmtpReport**](SmtpApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your SMTP activity aggregated over a period of time
-[**getEmailEventReport**](SmtpApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your SMTP activity (unaggregated events)
-[**getSmtpReport**](SmtpApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your SMTP activity aggregated per day
+[**deleteSmtpTemplate**](SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive transactional email template
+[**getAggregatedSmtpReport**](SmtpApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**getEmailEventReport**](SmtpApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+[**getSmtpReport**](SmtpApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**getSmtpTemplate**](SmtpApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template informations
-[**getSmtpTemplates**](SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of SMTP templates
+[**getSmtpTemplates**](SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of transactional email templates
+[**getTransacBlockedContacts**](SmtpApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
+[**getTransacEmailContent**](SmtpApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+[**getTransacEmailsList**](SmtpApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
 [**sendTemplate**](SmtpApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
 [**sendTestTemplate**](SmtpApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**sendTransacEmail**](SmtpApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
-[**updateSmtpTemplate**](SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Updates an smtp templates
+[**smtpBlockedContactsEmailDelete**](SmtpApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+[**smtpLogMessageIdDelete**](SmtpApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
+[**updateSmtpTemplate**](SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
 
 
 <a name="createSmtpTemplate"></a>
 # **createSmtpTemplate**
 > CreateModel createSmtpTemplate(smtpTemplate)
 
-Create an smtp template
+Create a transactional email template
 
 ### Example
 ```java
@@ -41,8 +46,14 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
-CreateSmtpTemplate smtpTemplate = new CreateSmtpTemplate(); // CreateSmtpTemplate | values to update in smtp template
+CreateSmtpTemplate smtpTemplate = new CreateSmtpTemplate(); // CreateSmtpTemplate | values to update in transactional email template
 try {
     CreateModel result = apiInstance.createSmtpTemplate(smtpTemplate);
     System.out.println(result);
@@ -56,7 +67,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **smtpTemplate** | [**CreateSmtpTemplate**](CreateSmtpTemplate.md)| values to update in smtp template |
+ **smtpTemplate** | [**CreateSmtpTemplate**](CreateSmtpTemplate.md)| values to update in transactional email template |
 
 ### Return type
 
@@ -64,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -96,6 +107,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 DeleteHardbounces deleteHardbounces = new DeleteHardbounces(); // DeleteHardbounces | values to delete hardbounces
 try {
@@ -118,7 +135,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -129,7 +146,7 @@ null (empty response body)
 # **deleteSmtpTemplate**
 > deleteSmtpTemplate(templateId)
 
-Delete an inactive smtp template
+Delete an inactive transactional email template
 
 ### Example
 ```java
@@ -147,6 +164,12 @@ ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
 
 SmtpApi apiInstance = new SmtpApi();
 Long templateId = 789L; // Long | id of the template
@@ -170,7 +193,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -181,7 +204,7 @@ null (empty response body)
 # **getAggregatedSmtpReport**
 > GetAggregatedReport getAggregatedSmtpReport(startDate, endDate, days, tag)
 
-Get your SMTP activity aggregated over a period of time
+Get your transactional email activity aggregated over a period of time
 
 ### Example
 ```java
@@ -200,9 +223,15 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Tag of the emails
 try {
@@ -218,8 +247,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Tag of the emails | [optional]
 
@@ -229,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -240,7 +269,7 @@ Name | Type | Description  | Notes
 # **getEmailEventReport**
 > GetEmailEventReport getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId)
 
-Get all your SMTP activity (unaggregated events)
+Get all your transactional email activity (unaggregated events)
 
 ### Example
 ```java
@@ -259,11 +288,17 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 Long limit = 50L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String email = "email_example"; // String | Filter the report for a specific email addresses
 String event = "event_example"; // String | Filter the report for a specific event type
@@ -285,11 +320,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 50]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **email** | **String**| Filter the report for a specific email addresses | [optional]
- **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked]
+ **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed]
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional]
  **messageId** | **String**| Filter on a specific message id | [optional]
  **templateId** | **Long**| Filter on a specific template id | [optional]
@@ -300,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -311,7 +346,7 @@ Name | Type | Description  | Notes
 # **getSmtpReport**
 > GetReports getSmtpReport(limit, offset, startDate, endDate, days, tag)
 
-Get your SMTP activity aggregated per day
+Get your transactional email activity aggregated per day
 
 ### Example
 ```java
@@ -330,11 +365,17 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
-Long limit = 50L; // Long | Number of documents returned per page
+Long limit = 10L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document on the page
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Tag of the emails
 try {
@@ -350,10 +391,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
+ **limit** | **Long**| Number of documents returned per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Tag of the emails | [optional]
 
@@ -363,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -393,6 +434,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 Long templateId = 789L; // Long | id of the template
 try {
@@ -416,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -427,7 +474,7 @@ Name | Type | Description  | Notes
 # **getSmtpTemplates**
 > GetSmtpTemplates getSmtpTemplates(templateStatus, limit, offset)
 
-Get the list of SMTP templates
+Get the list of transactional email templates
 
 ### Example
 ```java
@@ -445,6 +492,12 @@ ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
 
 SmtpApi apiInstance = new SmtpApi();
 Boolean templateStatus = true; // Boolean | Filter on the status of the template. Active = true, inactive = false
@@ -473,7 +526,202 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getTransacBlockedContacts"></a>
+# **getTransacBlockedContacts**
+> GetTransacBlockedContacts getTransacBlockedContacts(startDate, endDate, limit, offset, senders)
+
+Get the list of blocked or unsubscribed transactional contacts
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.SmtpApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+SmtpApi apiInstance = new SmtpApi();
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts
+Long limit = 50L; // Long | Number of documents returned per page
+Long offset = 0L; // Long | Index of the first document on the page
+List<String> senders = Arrays.asList("senders_example"); // List<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+try {
+    GetTransacBlockedContacts result = apiInstance.getTransacBlockedContacts(startDate, endDate, limit, offset, senders);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SmtpApi#getTransacBlockedContacts");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts | [optional]
+ **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
+ **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
+ **senders** | [**List&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional]
+
+### Return type
+
+[**GetTransacBlockedContacts**](GetTransacBlockedContacts.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getTransacEmailContent"></a>
+# **getTransacEmailContent**
+> GetTransacEmailContent getTransacEmailContent(uuid)
+
+Get the personalized content of a sent transactional email
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.SmtpApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api-key.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partner-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
+
+SmtpApi apiInstance = new SmtpApi();
+String uuid = "uuid_example"; // String | Unique id of the transactional email that has been sent to a particular contact
+try {
+    GetTransacEmailContent result = apiInstance.getTransacEmailContent(uuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SmtpApi#getTransacEmailContent");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **String**| Unique id of the transactional email that has been sent to a particular contact |
+
+### Return type
+
+[**GetTransacEmailContent**](GetTransacEmailContent.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getTransacEmailsList"></a>
+# **getTransacEmailsList**
+> GetTransacEmailsList getTransacEmailsList(email, templateId, messageId, startDate, endDate)
+
+Get the list of transactional emails on the basis of allowed filters
+
+This endpoint will show the list of emails for past 30 days by default. To retrieve emails before that time, please pass startDate and endDate in query filters.
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.SmtpApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api-key.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partner-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
+
+SmtpApi apiInstance = new SmtpApi();
+String email = "email_example"; // String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
+Long templateId = 789L; // Long | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
+String messageId = "messageId_example"; // String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+try {
+    GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SmtpApi#getTransacEmailsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. | [optional]
+ **templateId** | **Long**| Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. | [optional]
+ **messageId** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+
+### Return type
+
+[**GetTransacEmailsList**](GetTransacEmailsList.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -505,6 +753,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 Long templateId = 789L; // Long | Id of the template
 SendEmail sendEmail = new SendEmail(); // SendEmail | 
@@ -530,7 +784,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -560,6 +814,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 Long templateId = 789L; // Long | Id of the template
 SendTestEmail sendTestEmail = new SendTestEmail(); // SendTestEmail | 
@@ -584,7 +844,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -614,6 +874,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 SendSmtpEmail sendSmtpEmail = new SendSmtpEmail(); // SendSmtpEmail | Values to send a transactional email
 try {
@@ -637,18 +903,18 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updateSmtpTemplate"></a>
-# **updateSmtpTemplate**
-> updateSmtpTemplate(templateId, smtpTemplate)
+<a name="smtpBlockedContactsEmailDelete"></a>
+# **smtpBlockedContactsEmailDelete**
+> smtpBlockedContactsEmailDelete(email)
 
-Updates an smtp templates
+Unblock or resubscribe a transactional contact
 
 ### Example
 ```java
@@ -667,9 +933,131 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+SmtpApi apiInstance = new SmtpApi();
+String email = "email_example"; // String | contact email (urlencoded) to unblock.
+try {
+    apiInstance.smtpBlockedContactsEmailDelete(email);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SmtpApi#smtpBlockedContactsEmailDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| contact email (urlencoded) to unblock. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="smtpLogMessageIdDelete"></a>
+# **smtpLogMessageIdDelete**
+> smtpLogMessageIdDelete(messageId)
+
+Delete an SMTP transactional log
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.SmtpApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api-key.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partner-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
+
+SmtpApi apiInstance = new SmtpApi();
+String messageId = "messageId_example"; // String | MessageId of the transactional log to delete
+try {
+    apiInstance.smtpLogMessageIdDelete(messageId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SmtpApi#smtpLogMessageIdDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageId** | **String**| MessageId of the transactional log to delete |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateSmtpTemplate"></a>
+# **updateSmtpTemplate**
+> updateSmtpTemplate(templateId, smtpTemplate)
+
+Updates a transactional email templates
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.SmtpApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmtpApi apiInstance = new SmtpApi();
 Long templateId = 789L; // Long | id of the template
-UpdateSmtpTemplate smtpTemplate = new UpdateSmtpTemplate(); // UpdateSmtpTemplate | values to update in smtp template
+UpdateSmtpTemplate smtpTemplate = new UpdateSmtpTemplate(); // UpdateSmtpTemplate | values to update in transactional email template
 try {
     apiInstance.updateSmtpTemplate(templateId, smtpTemplate);
 } catch (ApiException e) {
@@ -683,7 +1071,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **Long**| id of the template |
- **smtpTemplate** | [**UpdateSmtpTemplate**](UpdateSmtpTemplate.md)| values to update in smtp template |
+ **smtpTemplate** | [**UpdateSmtpTemplate**](UpdateSmtpTemplate.md)| values to update in transactional email template |
 
 ### Return type
 
@@ -691,7 +1079,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

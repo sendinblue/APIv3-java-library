@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phoneNumbers** | **List&lt;String&gt;** | Mobile number with the country code to send test SMS. The mobile number defined here must belong to one of your contacts in SendinBlue account and must not be blacklisted |  [optional]
+**phoneNumber** | **String** | Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted |  [optional]
 
 
 

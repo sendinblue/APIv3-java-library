@@ -26,6 +26,8 @@ OPENED | &quot;opened&quot;
 UNIQUEOPENED | &quot;uniqueOpened&quot;
 UNSUBSCRIBED | &quot;unsubscribed&quot;
 LISTADDITION | &quot;listAddition&quot;
+CONTACTUPDATED | &quot;contactUpdated&quot;
+CONTACTDELETED | &quot;contactDeleted&quot;
 
 
 

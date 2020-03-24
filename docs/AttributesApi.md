@@ -31,7 +31,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerkey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute
@@ -59,7 +65,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -87,7 +93,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerkey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute
@@ -113,7 +125,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -141,7 +153,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
+//apikey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerkey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 try {
@@ -162,7 +180,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -192,6 +210,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partner-key.setApiKeyPrefix("Token");
+
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute
 String attributeName = "attributeName_example"; // String | Name of the existing attribute
@@ -218,7 +242,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

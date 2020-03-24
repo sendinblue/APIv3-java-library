@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -32,6 +32,7 @@ import sibModel.CreateAttribute;
 import sibModel.CreateContact;
 import sibModel.CreateList;
 import sibModel.CreateModel;
+import sibModel.CreateUpdateContactModel;
 import sibModel.CreateUpdateFolder;
 import sibModel.CreatedProcessId;
 import sibModel.ErrorModel;
@@ -125,7 +126,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -259,7 +260,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -393,7 +394,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -415,11 +416,11 @@ public class ContactsApi {
      * Create a contact
      * 
      * @param createContact Values to create a contact (required)
-     * @return CreateModel
+     * @return CreateUpdateContactModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateModel createContact(CreateContact createContact) throws ApiException {
-        ApiResponse<CreateModel> resp = createContactWithHttpInfo(createContact);
+    public CreateUpdateContactModel createContact(CreateContact createContact) throws ApiException {
+        ApiResponse<CreateUpdateContactModel> resp = createContactWithHttpInfo(createContact);
         return resp.getData();
     }
 
@@ -427,12 +428,12 @@ public class ContactsApi {
      * Create a contact
      * 
      * @param createContact Values to create a contact (required)
-     * @return ApiResponse&lt;CreateModel&gt;
+     * @return ApiResponse&lt;CreateUpdateContactModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateModel> createContactWithHttpInfo(CreateContact createContact) throws ApiException {
+    public ApiResponse<CreateUpdateContactModel> createContactWithHttpInfo(CreateContact createContact) throws ApiException {
         com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContact, null, null);
-        Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateUpdateContactModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -444,7 +445,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createContactAsync(CreateContact createContact, final ApiCallback<CreateModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call createContactAsync(CreateContact createContact, final ApiCallback<CreateUpdateContactModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -466,7 +467,7 @@ public class ContactsApi {
         }
 
         com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContact, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateUpdateContactModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -515,7 +516,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -637,7 +638,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -762,7 +763,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -889,7 +890,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1008,7 +1009,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1127,7 +1128,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1244,7 +1245,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1315,7 +1316,7 @@ public class ContactsApi {
     }
     /**
      * Build call for getContactInfo
-     * @param email Email (urlencoded) of the contact (required)
+     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1359,7 +1360,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1380,7 +1381,7 @@ public class ContactsApi {
     /**
      * Retrieves contact informations
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @return GetExtendedContactDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1392,7 +1393,7 @@ public class ContactsApi {
     /**
      * Retrieves contact informations
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @return ApiResponse&lt;GetExtendedContactDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1405,7 +1406,7 @@ public class ContactsApi {
     /**
      * Retrieves contact informations (asynchronously)
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1482,7 +1483,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1612,7 +1613,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1745,7 +1746,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1877,7 +1878,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2006,7 +2007,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2139,7 +2140,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2270,7 +2271,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2397,7 +2398,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2517,7 +2518,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2641,7 +2642,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2771,7 +2772,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2897,7 +2898,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3033,7 +3034,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3161,7 +3162,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3289,7 +3290,7 @@ public class ContactsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

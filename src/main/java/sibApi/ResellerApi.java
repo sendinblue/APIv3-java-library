@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -27,16 +27,22 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import sibModel.AddChildDomain;
 import sibModel.AddCredits;
 import sibModel.CreateChild;
 import sibModel.CreateReseller;
 import sibModel.ErrorModel;
+import sibModel.GetChildAccountCreationStatus;
+import sibModel.GetChildDomains;
 import sibModel.GetChildInfo;
 import sibModel.GetChildrenList;
+import sibModel.GetSsoToken;
 import sibModel.ManageIp;
 import sibModel.RemainingCreditModel;
 import sibModel.RemoveCredits;
 import sibModel.UpdateChild;
+import sibModel.UpdateChildAccountStatus;
+import sibModel.UpdateChildDomain;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -110,7 +116,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -242,7 +248,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -324,6 +330,134 @@ public class ResellerApi {
         return call;
     }
     /**
+     * Build call for createChildDomain
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param addChildDomain Sender domain to add for a specific child account. This will not be displayed to the parent account. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createChildDomainCall(String childAuthKey, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addChildDomain;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/domains"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createChildDomainValidateBeforeCall(String childAuthKey, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling createChildDomain(Async)");
+        }
+        
+        // verify the required parameter 'addChildDomain' is set
+        if (addChildDomain == null) {
+            throw new ApiException("Missing the required parameter 'addChildDomain' when calling createChildDomain(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createChildDomainCall(childAuthKey, addChildDomain, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Creates a domain for a child account
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param addChildDomain Sender domain to add for a specific child account. This will not be displayed to the parent account. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void createChildDomain(String childAuthKey, AddChildDomain addChildDomain) throws ApiException {
+        createChildDomainWithHttpInfo(childAuthKey, addChildDomain);
+    }
+
+    /**
+     * Creates a domain for a child account
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param addChildDomain Sender domain to add for a specific child account. This will not be displayed to the parent account. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> createChildDomainWithHttpInfo(String childAuthKey, AddChildDomain addChildDomain) throws ApiException {
+        com.squareup.okhttp.Call call = createChildDomainValidateBeforeCall(childAuthKey, addChildDomain, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Creates a domain for a child account (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param addChildDomain Sender domain to add for a specific child account. This will not be displayed to the parent account. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createChildDomainAsync(String childAuthKey, AddChildDomain addChildDomain, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createChildDomainValidateBeforeCall(childAuthKey, addChildDomain, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for createResellerChild
      * @param resellerChild reseller child to add (optional)
      * @param progressListener Progress listener
@@ -368,7 +502,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -441,6 +575,135 @@ public class ResellerApi {
         return call;
     }
     /**
+     * Build call for deleteChildDomain
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be deleted (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteChildDomainCall(String childAuthKey, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/domains/{domainName}"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()))
+            .replaceAll("\\{" + "domainName" + "\\}", apiClient.escapeString(domainName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteChildDomainValidateBeforeCall(String childAuthKey, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling deleteChildDomain(Async)");
+        }
+        
+        // verify the required parameter 'domainName' is set
+        if (domainName == null) {
+            throw new ApiException("Missing the required parameter 'domainName' when calling deleteChildDomain(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteChildDomainCall(childAuthKey, domainName, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be deleted (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteChildDomain(String childAuthKey, String domainName) throws ApiException {
+        deleteChildDomainWithHttpInfo(childAuthKey, domainName);
+    }
+
+    /**
+     * Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be deleted (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteChildDomainWithHttpInfo(String childAuthKey, String domainName) throws ApiException {
+        com.squareup.okhttp.Call call = deleteChildDomainValidateBeforeCall(childAuthKey, domainName, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be deleted (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteChildDomainAsync(String childAuthKey, String domainName, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteChildDomainValidateBeforeCall(childAuthKey, domainName, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for deleteResellerChild
      * @param childAuthKey auth key of reseller&#39;s child (required)
      * @param progressListener Progress listener
@@ -486,7 +749,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -606,7 +869,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -688,6 +951,252 @@ public class ResellerApi {
         return call;
     }
     /**
+     * Build call for getChildAccountCreationStatus
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChildAccountCreationStatusCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/accountCreationStatus"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChildAccountCreationStatusValidateBeforeCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling getChildAccountCreationStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChildAccountCreationStatusCall(childAuthKey, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return GetChildAccountCreationStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetChildAccountCreationStatus getChildAccountCreationStatus(String childAuthKey) throws ApiException {
+        ApiResponse<GetChildAccountCreationStatus> resp = getChildAccountCreationStatusWithHttpInfo(childAuthKey);
+        return resp.getData();
+    }
+
+    /**
+     * Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return ApiResponse&lt;GetChildAccountCreationStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetChildAccountCreationStatus> getChildAccountCreationStatusWithHttpInfo(String childAuthKey) throws ApiException {
+        com.squareup.okhttp.Call call = getChildAccountCreationStatusValidateBeforeCall(childAuthKey, null, null);
+        Type localVarReturnType = new TypeToken<GetChildAccountCreationStatus>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChildAccountCreationStatusAsync(String childAuthKey, final ApiCallback<GetChildAccountCreationStatus> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChildAccountCreationStatusValidateBeforeCall(childAuthKey, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetChildAccountCreationStatus>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getChildDomains
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getChildDomainsCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/domains"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getChildDomainsValidateBeforeCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling getChildDomains(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getChildDomainsCall(childAuthKey, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets all the sender domains of a specific child account
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return GetChildDomains
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetChildDomains getChildDomains(String childAuthKey) throws ApiException {
+        ApiResponse<GetChildDomains> resp = getChildDomainsWithHttpInfo(childAuthKey);
+        return resp.getData();
+    }
+
+    /**
+     * Gets all the sender domains of a specific child account
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return ApiResponse&lt;GetChildDomains&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetChildDomains> getChildDomainsWithHttpInfo(String childAuthKey) throws ApiException {
+        com.squareup.okhttp.Call call = getChildDomainsValidateBeforeCall(childAuthKey, null, null);
+        Type localVarReturnType = new TypeToken<GetChildDomains>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets all the sender domains of a specific child account (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getChildDomainsAsync(String childAuthKey, final ApiCallback<GetChildDomains> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getChildDomainsValidateBeforeCall(childAuthKey, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetChildDomains>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getChildInfo
      * @param childAuthKey auth key of reseller&#39;s child (required)
      * @param progressListener Progress listener
@@ -733,7 +1242,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -812,16 +1321,143 @@ public class ResellerApi {
     }
     /**
      * Build call for getResellerChilds
+     * @param limit Number of documents for child accounts information per page (optional, default to 10)
+     * @param offset Index of the first document in the page (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getResellerChildsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getResellerChildsCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/reseller/children";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getResellerChildsValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getResellerChildsCall(limit, offset, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Gets the list of all reseller&#39;s children accounts
+     * 
+     * @param limit Number of documents for child accounts information per page (optional, default to 10)
+     * @param offset Index of the first document in the page (optional, default to 0)
+     * @return GetChildrenList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetChildrenList getResellerChilds(Long limit, Long offset) throws ApiException {
+        ApiResponse<GetChildrenList> resp = getResellerChildsWithHttpInfo(limit, offset);
+        return resp.getData();
+    }
+
+    /**
+     * Gets the list of all reseller&#39;s children accounts
+     * 
+     * @param limit Number of documents for child accounts information per page (optional, default to 10)
+     * @param offset Index of the first document in the page (optional, default to 0)
+     * @return ApiResponse&lt;GetChildrenList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetChildrenList> getResellerChildsWithHttpInfo(Long limit, Long offset) throws ApiException {
+        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(limit, offset, null, null);
+        Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets the list of all reseller&#39;s children accounts (asynchronously)
+     * 
+     * @param limit Number of documents for child accounts information per page (optional, default to 10)
+     * @param offset Index of the first document in the page (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getResellerChildsAsync(Long limit, Long offset, final ApiCallback<GetChildrenList> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getSsoToken
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSsoTokenCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/auth"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -854,50 +1490,58 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getResellerChildsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSsoTokenValidateBeforeCall(String childAuthKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling getSsoToken(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = getResellerChildsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSsoTokenCall(childAuthKey, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Gets the list of all reseller&#39;s children accounts
-     * 
-     * @return GetChildrenList
+     * Get session token to access Sendinblue (SSO)
+     * It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return GetSsoToken
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetChildrenList getResellerChilds() throws ApiException {
-        ApiResponse<GetChildrenList> resp = getResellerChildsWithHttpInfo();
+    public GetSsoToken getSsoToken(String childAuthKey) throws ApiException {
+        ApiResponse<GetSsoToken> resp = getSsoTokenWithHttpInfo(childAuthKey);
         return resp.getData();
     }
 
     /**
-     * Gets the list of all reseller&#39;s children accounts
-     * 
-     * @return ApiResponse&lt;GetChildrenList&gt;
+     * Get session token to access Sendinblue (SSO)
+     * It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @return ApiResponse&lt;GetSsoToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetChildrenList> getResellerChildsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
+    public ApiResponse<GetSsoToken> getSsoTokenWithHttpInfo(String childAuthKey) throws ApiException {
+        com.squareup.okhttp.Call call = getSsoTokenValidateBeforeCall(childAuthKey, null, null);
+        Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Gets the list of all reseller&#39;s children accounts (asynchronously)
-     * 
+     * Get session token to access Sendinblue (SSO) (asynchronously)
+     * It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
+     * @param childAuthKey auth key of reseller&#39;s child (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getResellerChildsAsync(final ApiCallback<GetChildrenList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSsoTokenAsync(String childAuthKey, final ApiCallback<GetSsoToken> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -918,8 +1562,8 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
+        com.squareup.okhttp.Call call = getSsoTokenValidateBeforeCall(childAuthKey, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -970,7 +1614,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1056,6 +1700,272 @@ public class ResellerApi {
         return call;
     }
     /**
+     * Build call for updateChildAccountStatus
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param updateChildAccountStatus values to update in child account status (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateChildAccountStatusCall(String childAuthKey, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = updateChildAccountStatus;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/accountStatus"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateChildAccountStatusValidateBeforeCall(String childAuthKey, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling updateChildAccountStatus(Async)");
+        }
+        
+        // verify the required parameter 'updateChildAccountStatus' is set
+        if (updateChildAccountStatus == null) {
+            throw new ApiException("Missing the required parameter 'updateChildAccountStatus' when calling updateChildAccountStatus(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateChildAccountStatusCall(childAuthKey, updateChildAccountStatus, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param updateChildAccountStatus values to update in child account status (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateChildAccountStatus(String childAuthKey, UpdateChildAccountStatus updateChildAccountStatus) throws ApiException {
+        updateChildAccountStatusWithHttpInfo(childAuthKey, updateChildAccountStatus);
+    }
+
+    /**
+     * Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param updateChildAccountStatus values to update in child account status (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateChildAccountStatusWithHttpInfo(String childAuthKey, UpdateChildAccountStatus updateChildAccountStatus) throws ApiException {
+        com.squareup.okhttp.Call call = updateChildAccountStatusValidateBeforeCall(childAuthKey, updateChildAccountStatus, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Updates infos of reseller&#39;s child account status based on the childAuthKey supplied (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param updateChildAccountStatus values to update in child account status (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateChildAccountStatusAsync(String childAuthKey, UpdateChildAccountStatus updateChildAccountStatus, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateChildAccountStatusValidateBeforeCall(childAuthKey, updateChildAccountStatus, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for updateChildDomain
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be updated (required)
+     * @param updateChildDomain value to update for sender domain (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateChildDomainCall(String childAuthKey, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = updateChildDomain;
+
+        // create path and map variables
+        String localVarPath = "/reseller/children/{childAuthKey}/domains/{domainName}"
+            .replaceAll("\\{" + "childAuthKey" + "\\}", apiClient.escapeString(childAuthKey.toString()))
+            .replaceAll("\\{" + "domainName" + "\\}", apiClient.escapeString(domainName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateChildDomainValidateBeforeCall(String childAuthKey, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'childAuthKey' is set
+        if (childAuthKey == null) {
+            throw new ApiException("Missing the required parameter 'childAuthKey' when calling updateChildDomain(Async)");
+        }
+        
+        // verify the required parameter 'domainName' is set
+        if (domainName == null) {
+            throw new ApiException("Missing the required parameter 'domainName' when calling updateChildDomain(Async)");
+        }
+        
+        // verify the required parameter 'updateChildDomain' is set
+        if (updateChildDomain == null) {
+            throw new ApiException("Missing the required parameter 'updateChildDomain' when calling updateChildDomain(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateChildDomainCall(childAuthKey, domainName, updateChildDomain, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be updated (required)
+     * @param updateChildDomain value to update for sender domain (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateChildDomain(String childAuthKey, String domainName, UpdateChildDomain updateChildDomain) throws ApiException {
+        updateChildDomainWithHttpInfo(childAuthKey, domainName, updateChildDomain);
+    }
+
+    /**
+     * Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be updated (required)
+     * @param updateChildDomain value to update for sender domain (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateChildDomainWithHttpInfo(String childAuthKey, String domainName, UpdateChildDomain updateChildDomain) throws ApiException {
+        com.squareup.okhttp.Call call = updateChildDomainValidateBeforeCall(childAuthKey, domainName, updateChildDomain, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed (asynchronously)
+     * 
+     * @param childAuthKey auth key of reseller&#39;s child (required)
+     * @param domainName Pass the existing domain that needs to be updated (required)
+     * @param updateChildDomain value to update for sender domain (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateChildDomainAsync(String childAuthKey, String domainName, UpdateChildDomain updateChildDomain, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateChildDomainValidateBeforeCall(childAuthKey, domainName, updateChildDomain, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for updateResellerChild
      * @param childAuthKey auth key of reseller&#39;s child (required)
      * @param resellerChild values to update in child profile (required)
@@ -1102,7 +2012,7 @@ public class ResellerApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

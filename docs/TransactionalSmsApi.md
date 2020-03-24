@@ -33,10 +33,16 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
 Long limit = 50L; // Long | Number of documents per page
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
 Long offset = 0L; // Long | Index of the first document of the page
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String phoneNumber = "phoneNumber_example"; // String | Filter the report for a specific phone number
@@ -56,8 +62,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [optional] [default to 50]
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **phoneNumber** | **String**| Filter the report for a specific phone number | [optional]
@@ -70,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -100,9 +106,15 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with startDate and endDate
 String tag = "tag_example"; // String | Filter on a tag
 try {
@@ -118,8 +130,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with startDate and endDate | [optional]
  **tag** | **String**| Filter on a tag | [optional]
 
@@ -129,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -159,9 +171,15 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
-LocalDate startDate = new LocalDate(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Filter on a tag
 try {
@@ -177,8 +195,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Filter on a tag | [optional]
 
@@ -188,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -218,6 +236,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
 SendTransacSms sendTransacSms = new SendTransacSms(); // SendTransacSms | Values to send a transactional SMS
 try {
@@ -241,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

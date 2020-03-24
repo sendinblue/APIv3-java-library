@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -31,7 +31,7 @@ import sibModel.GetExtendedContactDetailsStatistics;
 /**
  * GetExtendedContactDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class GetExtendedContactDetails {
   @SerializedName("email")
   private String email = null;
@@ -44,6 +44,9 @@ public class GetExtendedContactDetails {
 
   @SerializedName("smsBlacklisted")
   private Boolean smsBlacklisted = null;
+
+  @SerializedName("createdAt")
+  private OffsetDateTime createdAt = null;
 
   @SerializedName("modifiedAt")
   private OffsetDateTime modifiedAt = null;
@@ -130,6 +133,24 @@ public class GetExtendedContactDetails {
 
   public void setSmsBlacklisted(Boolean smsBlacklisted) {
     this.smsBlacklisted = smsBlacklisted;
+  }
+
+  public GetExtendedContactDetails createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
+   * @return createdAt
+  **/
+  @ApiModelProperty(example = "2017-05-12T12:30:00Z", required = true, value = "Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)")
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   public GetExtendedContactDetails modifiedAt(OffsetDateTime modifiedAt) {
@@ -249,6 +270,7 @@ public class GetExtendedContactDetails {
     ObjectUtils.equals(this.id, getExtendedContactDetails.id) &&
     ObjectUtils.equals(this.emailBlacklisted, getExtendedContactDetails.emailBlacklisted) &&
     ObjectUtils.equals(this.smsBlacklisted, getExtendedContactDetails.smsBlacklisted) &&
+    ObjectUtils.equals(this.createdAt, getExtendedContactDetails.createdAt) &&
     ObjectUtils.equals(this.modifiedAt, getExtendedContactDetails.modifiedAt) &&
     ObjectUtils.equals(this.listIds, getExtendedContactDetails.listIds) &&
     ObjectUtils.equals(this.listUnsubscribed, getExtendedContactDetails.listUnsubscribed) &&
@@ -258,7 +280,7 @@ public class GetExtendedContactDetails {
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, id, emailBlacklisted, smsBlacklisted, modifiedAt, listIds, listUnsubscribed, attributes, statistics);
+    return ObjectUtils.hashCodeMulti(email, id, emailBlacklisted, smsBlacklisted, createdAt, modifiedAt, listIds, listUnsubscribed, attributes, statistics);
   }
 
 
@@ -271,6 +293,7 @@ public class GetExtendedContactDetails {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    emailBlacklisted: ").append(toIndentedString(emailBlacklisted)).append("\n");
     sb.append("    smsBlacklisted: ").append(toIndentedString(smsBlacklisted)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    listIds: ").append(toIndentedString(listIds)).append("\n");
     sb.append("    listUnsubscribed: ").append(toIndentedString(listUnsubscribed)).append("\n");

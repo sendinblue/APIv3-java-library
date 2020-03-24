@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -33,6 +33,7 @@ import sibModel.CreatedProcessId;
 import sibModel.ErrorModel;
 import sibModel.GetSmsCampaign;
 import sibModel.GetSmsCampaigns;
+import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendSmsTestFailed;
 import sibModel.RequestSmsRecipientExport;
 import sibModel.SendReport;
@@ -110,7 +111,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -233,7 +234,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -309,14 +310,13 @@ public class SmsCampaignsApi {
     /**
      * Build call for getSmsCampaign
      * @param campaignId id of the SMS campaign (required)
-     * @param getSmsCampaign Values to update an SMS Campaign (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignCall(Long campaignId, GetSmsCampaign getSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = getSmsCampaign;
+    public com.squareup.okhttp.Call getSmsCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/smsCampaigns/{campaignId}"
@@ -353,25 +353,20 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsCampaignValidateBeforeCall(Long campaignId, GetSmsCampaign getSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling getSmsCampaign(Async)");
         }
         
-        // verify the required parameter 'getSmsCampaign' is set
-        if (getSmsCampaign == null) {
-            throw new ApiException("Missing the required parameter 'getSmsCampaign' when calling getSmsCampaign(Async)");
-        }
-        
 
-        com.squareup.okhttp.Call call = getSmsCampaignCall(campaignId, getSmsCampaign, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsCampaignCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -380,12 +375,11 @@ public class SmsCampaignsApi {
      * Get an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
-     * @param getSmsCampaign Values to update an SMS Campaign (required)
      * @return GetSmsCampaign
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsCampaign getSmsCampaign(Long campaignId, GetSmsCampaign getSmsCampaign) throws ApiException {
-        ApiResponse<GetSmsCampaign> resp = getSmsCampaignWithHttpInfo(campaignId, getSmsCampaign);
+    public GetSmsCampaign getSmsCampaign(Long campaignId) throws ApiException {
+        ApiResponse<GetSmsCampaign> resp = getSmsCampaignWithHttpInfo(campaignId);
         return resp.getData();
     }
 
@@ -393,12 +387,11 @@ public class SmsCampaignsApi {
      * Get an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
-     * @param getSmsCampaign Values to update an SMS Campaign (required)
      * @return ApiResponse&lt;GetSmsCampaign&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsCampaign> getSmsCampaignWithHttpInfo(Long campaignId, GetSmsCampaign getSmsCampaign) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, getSmsCampaign, null, null);
+    public ApiResponse<GetSmsCampaign> getSmsCampaignWithHttpInfo(Long campaignId) throws ApiException {
+        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, null, null);
         Type localVarReturnType = new TypeToken<GetSmsCampaign>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -407,12 +400,11 @@ public class SmsCampaignsApi {
      * Get an SMS campaign (asynchronously)
      * 
      * @param campaignId id of the SMS campaign (required)
-     * @param getSmsCampaign Values to update an SMS Campaign (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignAsync(Long campaignId, GetSmsCampaign getSmsCampaign, final ApiCallback<GetSmsCampaign> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsCampaignAsync(Long campaignId, final ApiCallback<GetSmsCampaign> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -433,7 +425,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, getSmsCampaign, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsCampaign>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -441,6 +433,8 @@ public class SmsCampaignsApi {
     /**
      * Build call for getSmsCampaigns
      * @param status Status of campaign. (optional)
+     * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
+     * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @param progressListener Progress listener
@@ -448,7 +442,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsCall(String status, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmsCampaignsCall(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -458,6 +452,10 @@ public class SmsCampaignsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (status != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
@@ -491,15 +489,15 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsCampaignsValidateBeforeCall(String status, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsCampaignsValidateBeforeCall(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getSmsCampaignsCall(status, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsCampaignsCall(status, startDate, endDate, limit, offset, progressListener, progressRequestListener);
         return call;
 
     }
@@ -508,13 +506,15 @@ public class SmsCampaignsApi {
      * Returns the informations for all your created SMS campaigns
      * 
      * @param status Status of campaign. (optional)
+     * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
+     * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @return GetSmsCampaigns
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsCampaigns getSmsCampaigns(String status, Long limit, Long offset) throws ApiException {
-        ApiResponse<GetSmsCampaigns> resp = getSmsCampaignsWithHttpInfo(status, limit, offset);
+    public GetSmsCampaigns getSmsCampaigns(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset) throws ApiException {
+        ApiResponse<GetSmsCampaigns> resp = getSmsCampaignsWithHttpInfo(status, startDate, endDate, limit, offset);
         return resp.getData();
     }
 
@@ -522,13 +522,15 @@ public class SmsCampaignsApi {
      * Returns the informations for all your created SMS campaigns
      * 
      * @param status Status of campaign. (optional)
+     * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
+     * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @return ApiResponse&lt;GetSmsCampaigns&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsCampaigns> getSmsCampaignsWithHttpInfo(String status, Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, limit, offset, null, null);
+    public ApiResponse<GetSmsCampaigns> getSmsCampaignsWithHttpInfo(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset) throws ApiException {
+        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, null, null);
         Type localVarReturnType = new TypeToken<GetSmsCampaigns>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -537,13 +539,15 @@ public class SmsCampaignsApi {
      * Returns the informations for all your created SMS campaigns (asynchronously)
      * 
      * @param status Status of campaign. (optional)
+     * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
+     * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsAsync(String status, Long limit, Long offset, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsCampaignsAsync(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -564,7 +568,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsCampaigns>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -616,7 +620,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -742,7 +746,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -862,7 +866,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -946,14 +950,14 @@ public class SmsCampaignsApi {
     /**
      * Build call for sendTestSms
      * @param campaignId Id of the SMS campaign (required)
-     * @param sendTestSms Mobile number to which send the test (required)
+     * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendTestSmsCall(Long campaignId, SendTestSms sendTestSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = sendTestSms;
+    public com.squareup.okhttp.Call sendTestSmsCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = phoneNumber;
 
         // create path and map variables
         String localVarPath = "/smsCampaigns/{campaignId}/sendTest"
@@ -990,25 +994,25 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendTestSmsValidateBeforeCall(Long campaignId, SendTestSms sendTestSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call sendTestSmsValidateBeforeCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling sendTestSms(Async)");
         }
         
-        // verify the required parameter 'sendTestSms' is set
-        if (sendTestSms == null) {
-            throw new ApiException("Missing the required parameter 'sendTestSms' when calling sendTestSms(Async)");
+        // verify the required parameter 'phoneNumber' is set
+        if (phoneNumber == null) {
+            throw new ApiException("Missing the required parameter 'phoneNumber' when calling sendTestSms(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = sendTestSmsCall(campaignId, sendTestSms, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = sendTestSmsCall(campaignId, phoneNumber, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1017,23 +1021,23 @@ public class SmsCampaignsApi {
      * Send an SMS
      * 
      * @param campaignId Id of the SMS campaign (required)
-     * @param sendTestSms Mobile number to which send the test (required)
+     * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void sendTestSms(Long campaignId, SendTestSms sendTestSms) throws ApiException {
-        sendTestSmsWithHttpInfo(campaignId, sendTestSms);
+    public void sendTestSms(Long campaignId, SendTestSms phoneNumber) throws ApiException {
+        sendTestSmsWithHttpInfo(campaignId, phoneNumber);
     }
 
     /**
      * Send an SMS
      * 
      * @param campaignId Id of the SMS campaign (required)
-     * @param sendTestSms Mobile number to which send the test (required)
+     * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> sendTestSmsWithHttpInfo(Long campaignId, SendTestSms sendTestSms) throws ApiException {
-        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, sendTestSms, null, null);
+    public ApiResponse<Void> sendTestSmsWithHttpInfo(Long campaignId, SendTestSms phoneNumber) throws ApiException {
+        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, null, null);
         return apiClient.execute(call);
     }
 
@@ -1041,12 +1045,12 @@ public class SmsCampaignsApi {
      * Send an SMS (asynchronously)
      * 
      * @param campaignId Id of the SMS campaign (required)
-     * @param sendTestSms Mobile number to which send the test (required)
+     * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendTestSmsAsync(Long campaignId, SendTestSms sendTestSms, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call sendTestSmsAsync(Long campaignId, SendTestSms phoneNumber, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1067,7 +1071,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, sendTestSms, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1118,7 +1122,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1246,7 +1250,7 @@ public class SmsCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 

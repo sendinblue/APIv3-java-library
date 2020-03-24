@@ -30,6 +30,7 @@ TEXT | &quot;text&quot;
 DATE | &quot;date&quot;
 FLOAT | &quot;float&quot;
 ID | &quot;id&quot;
+BOOLEAN | &quot;boolean&quot;
 
 
 

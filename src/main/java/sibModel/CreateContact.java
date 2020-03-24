@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * CreateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class CreateContact {
   @SerializedName("email")
   private String email = null;
@@ -57,10 +57,10 @@ public class CreateContact {
   }
 
    /**
-   * Email address of the user. Mandatory if \&quot;sms\&quot; field is not passed in \&quot;attributes\&quot; parameter&#39;
+   * Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {&#39;SMS&#39;:&#39;+91xxxxxxxxxx&#39;} or {&#39;SMS&#39;:&#39;0091xxxxxxxxxx&#39;}
    * @return email
   **/
-  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"sms\" field is not passed in \"attributes\" parameter'")
+  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in \"SMS\" field should be passed with proper country code. For example {'SMS':'+91xxxxxxxxxx'} or {'SMS':'0091xxxxxxxxxx'}")
   public String getEmail() {
     return email;
   }
@@ -181,10 +181,10 @@ public class CreateContact {
   }
 
    /**
-   * SMTP forbidden sender for contact. Use only for email Contact ( only available if updateEnabled &#x3D; true )
+   * transactional email forbidden sender for contact. Use only for email Contact ( only available if updateEnabled &#x3D; true )
    * @return smtpBlacklistSender
   **/
-  @ApiModelProperty(value = "SMTP forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )")
+  @ApiModelProperty(value = "transactional email forbidden sender for contact. Use only for email Contact ( only available if updateEnabled = true )")
   public List<String> getSmtpBlacklistSender() {
     return smtpBlacklistSender;
   }

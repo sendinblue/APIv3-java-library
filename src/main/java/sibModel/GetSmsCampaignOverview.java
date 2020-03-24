@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetSmsCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class GetSmsCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -50,7 +50,7 @@ public class GetSmsCampaignOverview {
     
     SUSPENDED("suspended"),
     
-    IN_PROCESS("in_process");
+    INPROCESS("inProcess");
 
     private String value;
 
@@ -98,9 +98,6 @@ public class GetSmsCampaignOverview {
 
   @SerializedName("scheduledAt")
   private OffsetDateTime scheduledAt = null;
-
-  @SerializedName("testSent")
-  private Boolean testSent = null;
 
   @SerializedName("sender")
   private String sender = null;
@@ -201,24 +198,6 @@ public class GetSmsCampaignOverview {
     this.scheduledAt = scheduledAt;
   }
 
-  public GetSmsCampaignOverview testSent(Boolean testSent) {
-    this.testSent = testSent;
-    return this;
-  }
-
-   /**
-   * Retrieved the status of test SMS sending. (true&#x3D;Test SMS has been sent  false&#x3D;Test SMS has not been sent)
-   * @return testSent
-  **/
-  @ApiModelProperty(example = "false", required = true, value = "Retrieved the status of test SMS sending. (true=Test SMS has been sent  false=Test SMS has not been sent)")
-  public Boolean isTestSent() {
-    return testSent;
-  }
-
-  public void setTestSent(Boolean testSent) {
-    this.testSent = testSent;
-  }
-
   public GetSmsCampaignOverview sender(String sender) {
     this.sender = sender;
     return this;
@@ -288,7 +267,6 @@ public class GetSmsCampaignOverview {
     ObjectUtils.equals(this.status, getSmsCampaignOverview.status) &&
     ObjectUtils.equals(this.content, getSmsCampaignOverview.content) &&
     ObjectUtils.equals(this.scheduledAt, getSmsCampaignOverview.scheduledAt) &&
-    ObjectUtils.equals(this.testSent, getSmsCampaignOverview.testSent) &&
     ObjectUtils.equals(this.sender, getSmsCampaignOverview.sender) &&
     ObjectUtils.equals(this.createdAt, getSmsCampaignOverview.createdAt) &&
     ObjectUtils.equals(this.modifiedAt, getSmsCampaignOverview.modifiedAt);
@@ -296,7 +274,7 @@ public class GetSmsCampaignOverview {
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, testSent, sender, createdAt, modifiedAt);
+    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, sender, createdAt, modifiedAt);
   }
 
 
@@ -310,7 +288,6 @@ public class GetSmsCampaignOverview {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
-    sb.append("    testSent: ").append(toIndentedString(testSent)).append("\n");
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");

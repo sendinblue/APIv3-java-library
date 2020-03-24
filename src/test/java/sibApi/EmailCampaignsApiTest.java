@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -14,6 +14,7 @@
 package sibApi;
 
 import sendinblue.ApiException;
+import sibModel.AbTestCampaignResult;
 import sibModel.CreateEmailCampaign;
 import sibModel.CreateModel;
 import sibModel.CreatedProcessId;
@@ -21,6 +22,7 @@ import sibModel.EmailExportRecipients;
 import sibModel.ErrorModel;
 import sibModel.GetEmailCampaign;
 import sibModel.GetEmailCampaigns;
+import sibModel.GetSharedTemplateUrl;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendFailed;
 import sibModel.SendReport;
@@ -94,6 +96,22 @@ public class EmailCampaignsApiTest {
     }
     
     /**
+     * Get A/B test email campaign result
+     *
+     * Obtain winning version of an A/B test email campaign
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAbTestCampaignResultTest() throws ApiException {
+        Long campaignId = null;
+        AbTestCampaignResult response = api.getAbTestCampaignResult(campaignId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get campaign informations
      *
      * 
@@ -121,7 +139,7 @@ public class EmailCampaignsApiTest {
     public void getEmailCampaignsTest() throws ApiException {
         String type = null;
         String status = null;
-        OffsetDateTime startDate = null;;
+        OffsetDateTime startDate = null;
         OffsetDateTime endDate = null;
         Long limit = null;
         Long offset = null;
@@ -131,7 +149,23 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Send an email campaign id of the campaign immediately
+     * Get a shared template url
+     *
+     * Get a unique URL to share &amp; import an email template from one Sendinblue account to another.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSharedTemplateUrlTest() throws ApiException {
+        Long campaignId = null;
+        GetSharedTemplateUrl response = api.getSharedTemplateUrl(campaignId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Send an email campaign immediately, based on campaignId
      *
      * 
      *

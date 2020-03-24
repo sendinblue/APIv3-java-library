@@ -31,6 +31,7 @@ CLICKS | &quot;clicks&quot;
 INVALID | &quot;invalid&quot;
 DEFERRED | &quot;deferred&quot;
 BLOCKED | &quot;blocked&quot;
+UNSUBSCRIBED | &quot;unsubscribed&quot;
 
 
 

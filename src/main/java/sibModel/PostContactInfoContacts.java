@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -28,13 +28,16 @@ import java.util.List;
 /**
  * PostContactInfoContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class PostContactInfoContacts {
   @SerializedName("success")
-  private List<String> success = new ArrayList<String>();
+  private List<String> success = null;
 
   @SerializedName("failure")
   private List<String> failure = null;
+
+  @SerializedName("total")
+  private Long total = null;
 
   public PostContactInfoContacts success(List<String> success) {
     this.success = success;
@@ -42,6 +45,9 @@ public class PostContactInfoContacts {
   }
 
   public PostContactInfoContacts addSuccessItem(String successItem) {
+    if (this.success == null) {
+      this.success = new ArrayList<String>();
+    }
     this.success.add(successItem);
     return this;
   }
@@ -50,7 +56,7 @@ public class PostContactInfoContacts {
    * Get success
    * @return success
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<String> getSuccess() {
     return success;
   }
@@ -85,6 +91,24 @@ public class PostContactInfoContacts {
     this.failure = failure;
   }
 
+  public PostContactInfoContacts total(Long total) {
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * Displays the count of total number of contacts removed from list when user opts for \&quot;all\&quot; option.
+   * @return total
+  **/
+  @ApiModelProperty(example = "27", value = "Displays the count of total number of contacts removed from list when user opts for \"all\" option.")
+  public Long getTotal() {
+    return total;
+  }
+
+  public void setTotal(Long total) {
+    this.total = total;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +120,13 @@ public class PostContactInfoContacts {
   }
     PostContactInfoContacts postContactInfoContacts = (PostContactInfoContacts) o;
     return ObjectUtils.equals(this.success, postContactInfoContacts.success) &&
-    ObjectUtils.equals(this.failure, postContactInfoContacts.failure);
+    ObjectUtils.equals(this.failure, postContactInfoContacts.failure) &&
+    ObjectUtils.equals(this.total, postContactInfoContacts.total);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(success, failure);
+    return ObjectUtils.hashCodeMulti(success, failure, total);
   }
 
 
@@ -112,6 +137,7 @@ public class PostContactInfoContacts {
     
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }

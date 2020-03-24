@@ -39,6 +39,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 CreateSmsCampaign createSmsCampaign = new CreateSmsCampaign(); // CreateSmsCampaign | Values to create an SMS Campaign
 try {
@@ -62,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -92,6 +98,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the SMS campaign
 try {
@@ -114,7 +126,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -123,7 +135,7 @@ null (empty response body)
 
 <a name="getSmsCampaign"></a>
 # **getSmsCampaign**
-> GetSmsCampaign getSmsCampaign(campaignId, getSmsCampaign)
+> GetSmsCampaign getSmsCampaign(campaignId)
 
 Get an SMS campaign
 
@@ -144,11 +156,16 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the SMS campaign
-GetSmsCampaign getSmsCampaign = new GetSmsCampaign(); // GetSmsCampaign | Values to update an SMS Campaign
 try {
-    GetSmsCampaign result = apiInstance.getSmsCampaign(campaignId, getSmsCampaign);
+    GetSmsCampaign result = apiInstance.getSmsCampaign(campaignId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SmsCampaignsApi#getSmsCampaign");
@@ -161,7 +178,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Long**| id of the SMS campaign |
- **getSmsCampaign** | [**GetSmsCampaign**](GetSmsCampaign.md)| Values to update an SMS Campaign |
 
 ### Return type
 
@@ -169,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -199,12 +215,20 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 String status = "status_example"; // String | Status of campaign.
+OffsetDateTime startDate = new OffsetDateTime(); // OffsetDateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime endDate = new OffsetDateTime(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
 try {
-    GetSmsCampaigns result = apiInstance.getSmsCampaigns(status, limit, offset);
+    GetSmsCampaigns result = apiInstance.getSmsCampaigns(status, startDate, endDate, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SmsCampaignsApi#getSmsCampaigns");
@@ -216,7 +240,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| Status of campaign. | [optional] [enum: suspended, archived, sent, queued, draft, inProcess]
+ **status** | **String**| Status of campaign. | [optional] [enum: suspended, archive, sent, queued, draft, inProcess]
+ **startDate** | **OffsetDateTime**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
+ **endDate** | **OffsetDateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 500]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
 
@@ -226,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -258,6 +284,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the campaign
 RequestSmsRecipientExport recipientExport = new RequestSmsRecipientExport(); // RequestSmsRecipientExport | Values to send for a recipient export request
@@ -283,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -313,6 +345,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the campaign
 try {
@@ -335,7 +373,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -367,6 +405,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the campaign
 SendReport sendReport = new SendReport(); // SendReport | Values for send a report
@@ -391,7 +435,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -400,7 +444,7 @@ null (empty response body)
 
 <a name="sendTestSms"></a>
 # **sendTestSms**
-> sendTestSms(campaignId, sendTestSms)
+> sendTestSms(campaignId, phoneNumber)
 
 Send an SMS
 
@@ -421,11 +465,17 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | Id of the SMS campaign
-SendTestSms sendTestSms = new SendTestSms(); // SendTestSms | Mobile number to which send the test
+SendTestSms phoneNumber = new SendTestSms(); // SendTestSms | Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
 try {
-    apiInstance.sendTestSms(campaignId, sendTestSms);
+    apiInstance.sendTestSms(campaignId, phoneNumber);
 } catch (ApiException e) {
     System.err.println("Exception when calling SmsCampaignsApi#sendTestSms");
     e.printStackTrace();
@@ -437,7 +487,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Long**| Id of the SMS campaign |
- **sendTestSms** | [**SendTestSms**](SendTestSms.md)| Mobile number to which send the test |
+ **phoneNumber** | [**SendTestSms**](SendTestSms.md)| Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted |
 
 ### Return type
 
@@ -445,7 +495,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -475,6 +525,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the SMS campaign
 UpdateSmsCampaign updateSmsCampaign = new UpdateSmsCampaign(); // UpdateSmsCampaign | Values to update an SMS Campaign
@@ -499,7 +555,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -529,6 +585,12 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 Long campaignId = 789L; // Long | id of the campaign
 UpdateCampaignStatus status = new UpdateCampaignStatus(); // UpdateCampaignStatus | Status of the campaign.
@@ -553,7 +615,7 @@ null (empty response body)
 
 ### Authorization
 
-[api-key](../README.md#api-key)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

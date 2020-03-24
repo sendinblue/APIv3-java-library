@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**StatusEnum**](#StatusEnum) |  |  [optional]
+**status** | [**StatusEnum**](#StatusEnum) | Note:- replicateTemplate status will be available only for template type campaigns. |  [optional]
 
 
 <a name="StatusEnum"></a>

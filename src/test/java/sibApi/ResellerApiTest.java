@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -14,16 +14,22 @@
 package sibApi;
 
 import sendinblue.ApiException;
+import sibModel.AddChildDomain;
 import sibModel.AddCredits;
 import sibModel.CreateChild;
 import sibModel.CreateReseller;
 import sibModel.ErrorModel;
+import sibModel.GetChildAccountCreationStatus;
+import sibModel.GetChildDomains;
 import sibModel.GetChildInfo;
 import sibModel.GetChildrenList;
+import sibModel.GetSsoToken;
 import sibModel.ManageIp;
 import sibModel.RemainingCreditModel;
 import sibModel.RemoveCredits;
 import sibModel.UpdateChild;
+import sibModel.UpdateChildAccountStatus;
+import sibModel.UpdateChildDomain;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -76,6 +82,23 @@ public class ResellerApiTest {
     }
     
     /**
+     * Creates a domain for a child account
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createChildDomainTest() throws ApiException {
+        String childAuthKey = null;
+        AddChildDomain addChildDomain = null;
+        api.createChildDomain(childAuthKey, addChildDomain);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Creates a reseller child
      *
      * 
@@ -87,6 +110,23 @@ public class ResellerApiTest {
     public void createResellerChildTest() throws ApiException {
         CreateChild resellerChild = null;
         CreateReseller response = api.createResellerChild(resellerChild);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteChildDomainTest() throws ApiException {
+        String childAuthKey = null;
+        String domainName = null;
+        api.deleteChildDomain(childAuthKey, domainName);
 
         // TODO: test validations
     }
@@ -125,6 +165,38 @@ public class ResellerApiTest {
     }
     
     /**
+     * Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getChildAccountCreationStatusTest() throws ApiException {
+        String childAuthKey = null;
+        GetChildAccountCreationStatus response = api.getChildAccountCreationStatus(childAuthKey);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets all the sender domains of a specific child account
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getChildDomainsTest() throws ApiException {
+        String childAuthKey = null;
+        GetChildDomains response = api.getChildDomains(childAuthKey);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Gets the info about a specific child account
      *
      * 
@@ -150,7 +222,25 @@ public class ResellerApiTest {
      */
     @Test
     public void getResellerChildsTest() throws ApiException {
-        GetChildrenList response = api.getResellerChilds();
+        Long limit = null;
+        Long offset = null;
+        GetChildrenList response = api.getResellerChilds(limit, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get session token to access Sendinblue (SSO)
+     *
+     * It returns a session [token] which will remain valid for a short period of time. A child account will be able to access a white-labeled section by using the following url pattern &#x3D;&gt; https:/email.mydomain.com/login/sso?token&#x3D;[token]
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSsoTokenTest() throws ApiException {
+        String childAuthKey = null;
+        GetSsoToken response = api.getSsoToken(childAuthKey);
 
         // TODO: test validations
     }
@@ -168,6 +258,41 @@ public class ResellerApiTest {
         String childAuthKey = null;
         RemoveCredits removeCredits = null;
         RemainingCreditModel response = api.removeCredits(childAuthKey, removeCredits);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateChildAccountStatusTest() throws ApiException {
+        String childAuthKey = null;
+        UpdateChildAccountStatus updateChildAccountStatus = null;
+        api.updateChildAccountStatus(childAuthKey, updateChildAccountStatus);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateChildDomainTest() throws ApiException {
+        String childAuthKey = null;
+        String domainName = null;
+        UpdateChildDomain updateChildDomain = null;
+        api.updateChildDomain(childAuthKey, domainName, updateChildDomain);
 
         // TODO: test validations
     }

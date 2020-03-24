@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetExtendedCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class GetExtendedCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -151,6 +151,27 @@ public class GetExtendedCampaignOverview {
   @SerializedName("scheduledAt")
   private OffsetDateTime scheduledAt = null;
 
+  @SerializedName("abTesting")
+  private Boolean abTesting = null;
+
+  @SerializedName("subjectA")
+  private String subjectA = null;
+
+  @SerializedName("subjectB")
+  private String subjectB = null;
+
+  @SerializedName("splitRule")
+  private Integer splitRule = null;
+
+  @SerializedName("winnerCriteria")
+  private String winnerCriteria = null;
+
+  @SerializedName("winnerDelay")
+  private Integer winnerDelay = null;
+
+  @SerializedName("sendAtBestTime")
+  private Boolean sendAtBestTime = null;
+
   @SerializedName("testSent")
   private Boolean testSent = null;
 
@@ -238,10 +259,10 @@ public class GetExtendedCampaignOverview {
   }
 
    /**
-   * Subject of the campaign
+   * Subject of the campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;false&#x60;
    * @return subject
   **/
-  @ApiModelProperty(example = "20% OFF for 2017 Summer Sales", required = true, value = "Subject of the campaign")
+  @ApiModelProperty(example = "20% OFF for 2017 Summer Sales", value = "Subject of the campaign. Only available if `abTesting` flag of the campaign is `false`")
   public String getSubject() {
     return subject;
   }
@@ -302,6 +323,132 @@ public class GetExtendedCampaignOverview {
 
   public void setScheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
+  }
+
+  public GetExtendedCampaignOverview abTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+    return this;
+  }
+
+   /**
+   * Status of A/B Test for the campaign. abTesting &#x3D; false means it is disabled, &amp; abTesting &#x3D; true means it is enabled.
+   * @return abTesting
+  **/
+  @ApiModelProperty(example = "true", value = "Status of A/B Test for the campaign. abTesting = false means it is disabled, & abTesting = true means it is enabled.")
+  public Boolean isAbTesting() {
+    return abTesting;
+  }
+
+  public void setAbTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+  }
+
+  public GetExtendedCampaignOverview subjectA(String subjectA) {
+    this.subjectA = subjectA;
+    return this;
+  }
+
+   /**
+   * Subject A of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectA
+  **/
+  @ApiModelProperty(example = "Discover the New Collection!", value = "Subject A of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectA() {
+    return subjectA;
+  }
+
+  public void setSubjectA(String subjectA) {
+    this.subjectA = subjectA;
+  }
+
+  public GetExtendedCampaignOverview subjectB(String subjectB) {
+    this.subjectB = subjectB;
+    return this;
+  }
+
+   /**
+   * Subject B of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectB
+  **/
+  @ApiModelProperty(example = "Want to discover the New Collection?", value = "Subject B of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectB() {
+    return subjectB;
+  }
+
+  public void setSubjectB(String subjectB) {
+    this.subjectB = subjectB;
+  }
+
+  public GetExtendedCampaignOverview splitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+    return this;
+  }
+
+   /**
+   * The size of your ab-test groups. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return splitRule
+  **/
+  @ApiModelProperty(example = "25", value = "The size of your ab-test groups. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getSplitRule() {
+    return splitRule;
+  }
+
+  public void setSplitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+  }
+
+  public GetExtendedCampaignOverview winnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+    return this;
+  }
+
+   /**
+   * Criteria for the winning version. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerCriteria
+  **/
+  @ApiModelProperty(example = "open", value = "Criteria for the winning version. Only available if `abTesting` flag of the campaign is `true`")
+  public String getWinnerCriteria() {
+    return winnerCriteria;
+  }
+
+  public void setWinnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+  }
+
+  public GetExtendedCampaignOverview winnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+    return this;
+  }
+
+   /**
+   * The duration of the test in hours at the end of which the winning version will be sent. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerDelay
+  **/
+  @ApiModelProperty(example = "50", value = "The duration of the test in hours at the end of which the winning version will be sent. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getWinnerDelay() {
+    return winnerDelay;
+  }
+
+  public void setWinnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+  }
+
+  public GetExtendedCampaignOverview sendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+    return this;
+  }
+
+   /**
+   * It is true if you have chosen to send your campaign at best time, otherwise it is false
+   * @return sendAtBestTime
+  **/
+  @ApiModelProperty(example = "true", value = "It is true if you have chosen to send your campaign at best time, otherwise it is false")
+  public Boolean isSendAtBestTime() {
+    return sendAtBestTime;
+  }
+
+  public void setSendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
   }
 
   public GetExtendedCampaignOverview testSent(Boolean testSent) {
@@ -590,6 +737,13 @@ public class GetExtendedCampaignOverview {
     ObjectUtils.equals(this.type, getExtendedCampaignOverview.type) &&
     ObjectUtils.equals(this.status, getExtendedCampaignOverview.status) &&
     ObjectUtils.equals(this.scheduledAt, getExtendedCampaignOverview.scheduledAt) &&
+    ObjectUtils.equals(this.abTesting, getExtendedCampaignOverview.abTesting) &&
+    ObjectUtils.equals(this.subjectA, getExtendedCampaignOverview.subjectA) &&
+    ObjectUtils.equals(this.subjectB, getExtendedCampaignOverview.subjectB) &&
+    ObjectUtils.equals(this.splitRule, getExtendedCampaignOverview.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, getExtendedCampaignOverview.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, getExtendedCampaignOverview.winnerDelay) &&
+    ObjectUtils.equals(this.sendAtBestTime, getExtendedCampaignOverview.sendAtBestTime) &&
     ObjectUtils.equals(this.testSent, getExtendedCampaignOverview.testSent) &&
     ObjectUtils.equals(this.header, getExtendedCampaignOverview.header) &&
     ObjectUtils.equals(this.footer, getExtendedCampaignOverview.footer) &&
@@ -609,7 +763,7 @@ public class GetExtendedCampaignOverview {
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate);
   }
 
 
@@ -624,6 +778,13 @@ public class GetExtendedCampaignOverview {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
+    sb.append("    abTesting: ").append(toIndentedString(abTesting)).append("\n");
+    sb.append("    subjectA: ").append(toIndentedString(subjectA)).append("\n");
+    sb.append("    subjectB: ").append(toIndentedString(subjectB)).append("\n");
+    sb.append("    splitRule: ").append(toIndentedString(splitRule)).append("\n");
+    sb.append("    winnerCriteria: ").append(toIndentedString(winnerCriteria)).append("\n");
+    sb.append("    winnerDelay: ").append(toIndentedString(winnerDelay)).append("\n");
+    sb.append("    sendAtBestTime: ").append(toIndentedString(sendAtBestTime)).append("\n");
     sb.append("    testSent: ").append(toIndentedString(testSent)).append("\n");
     sb.append("    header: ").append(toIndentedString(header)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");

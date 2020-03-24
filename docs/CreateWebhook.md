@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **String** | URL of the webhook | 
 **description** | **String** | Description of the webhook |  [optional]
-**events** | [**List&lt;EventsEnum&gt;**](#List&lt;EventsEnum&gt;) | Events triggering the webhook. Possible values for Transactional type webhook – request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition &amp; delivered |  [optional]
+**events** | [**List&lt;EventsEnum&gt;**](#List&lt;EventsEnum&gt;) | Events triggering the webhook. Possible values for Transactional type webhook – request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition &amp; delivered | 
 **type** | [**TypeEnum**](#TypeEnum) | Type of the webhook |  [optional]
 
 
@@ -27,6 +27,8 @@ OPENED | &quot;opened&quot;
 UNIQUEOPENED | &quot;uniqueOpened&quot;
 UNSUBSCRIBED | &quot;unsubscribed&quot;
 LISTADDITION | &quot;listAddition&quot;
+CONTACTUPDATED | &quot;contactUpdated&quot;
+CONTACTDELETED | &quot;contactDeleted&quot;
 
 
 <a name="TypeEnum"></a>

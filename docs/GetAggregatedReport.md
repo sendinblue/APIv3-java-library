@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **spamReports** | **Long** | Number of complaint (spam report) for the timeframe | 
 **blocked** | **Long** | Number of blocked contact emails for the timeframe | 
 **invalid** | **Long** | Number of invalid emails for the timeframe | 
+**unsubscribed** | **Long** | Number of unsubscribed emails for the timeframe | 
 
 
 

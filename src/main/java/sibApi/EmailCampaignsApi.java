@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import sibModel.AbTestCampaignResult;
 import sibModel.CreateEmailCampaign;
 import sibModel.CreateModel;
 import sibModel.CreatedProcessId;
@@ -34,6 +35,7 @@ import sibModel.EmailExportRecipients;
 import sibModel.ErrorModel;
 import sibModel.GetEmailCampaign;
 import sibModel.GetEmailCampaigns;
+import sibModel.GetSharedTemplateUrl;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendFailed;
 import sibModel.SendReport;
@@ -111,7 +113,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -234,7 +236,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -354,7 +356,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -435,6 +437,129 @@ public class EmailCampaignsApi {
         return call;
     }
     /**
+     * Build call for getAbTestCampaignResult
+     * @param campaignId Id of the A/B test campaign (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getAbTestCampaignResultCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/emailCampaigns/{campaignId}/abTestCampaignResult"
+            .replaceAll("\\{" + "campaignId" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAbTestCampaignResultValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling getAbTestCampaignResult(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getAbTestCampaignResultCall(campaignId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get A/B test email campaign result
+     * Obtain winning version of an A/B test email campaign
+     * @param campaignId Id of the A/B test campaign (required)
+     * @return AbTestCampaignResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AbTestCampaignResult getAbTestCampaignResult(Long campaignId) throws ApiException {
+        ApiResponse<AbTestCampaignResult> resp = getAbTestCampaignResultWithHttpInfo(campaignId);
+        return resp.getData();
+    }
+
+    /**
+     * Get A/B test email campaign result
+     * Obtain winning version of an A/B test email campaign
+     * @param campaignId Id of the A/B test campaign (required)
+     * @return ApiResponse&lt;AbTestCampaignResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AbTestCampaignResult> getAbTestCampaignResultWithHttpInfo(Long campaignId) throws ApiException {
+        com.squareup.okhttp.Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, null, null);
+        Type localVarReturnType = new TypeToken<AbTestCampaignResult>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get A/B test email campaign result (asynchronously)
+     * Obtain winning version of an A/B test email campaign
+     * @param campaignId Id of the A/B test campaign (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAbTestCampaignResultAsync(Long campaignId, final ApiCallback<AbTestCampaignResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AbTestCampaignResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getEmailCampaign
      * @param campaignId Id of the campaign (required)
      * @param progressListener Progress listener
@@ -480,7 +605,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -619,7 +744,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -707,6 +832,129 @@ public class EmailCampaignsApi {
         return call;
     }
     /**
+     * Build call for getSharedTemplateUrl
+     * @param campaignId Id of the campaign or template (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getSharedTemplateUrlCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/emailCampaigns/{campaignId}/sharedUrl"
+            .replaceAll("\\{" + "campaignId" + "\\}", apiClient.escapeString(campaignId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getSharedTemplateUrlValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling getSharedTemplateUrl(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getSharedTemplateUrlCall(campaignId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get a shared template url
+     * Get a unique URL to share &amp; import an email template from one Sendinblue account to another.
+     * @param campaignId Id of the campaign or template (required)
+     * @return GetSharedTemplateUrl
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetSharedTemplateUrl getSharedTemplateUrl(Long campaignId) throws ApiException {
+        ApiResponse<GetSharedTemplateUrl> resp = getSharedTemplateUrlWithHttpInfo(campaignId);
+        return resp.getData();
+    }
+
+    /**
+     * Get a shared template url
+     * Get a unique URL to share &amp; import an email template from one Sendinblue account to another.
+     * @param campaignId Id of the campaign or template (required)
+     * @return ApiResponse&lt;GetSharedTemplateUrl&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetSharedTemplateUrl> getSharedTemplateUrlWithHttpInfo(Long campaignId) throws ApiException {
+        com.squareup.okhttp.Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, null, null);
+        Type localVarReturnType = new TypeToken<GetSharedTemplateUrl>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get a shared template url (asynchronously)
+     * Get a unique URL to share &amp; import an email template from one Sendinblue account to another.
+     * @param campaignId Id of the campaign or template (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getSharedTemplateUrlAsync(Long campaignId, final ApiCallback<GetSharedTemplateUrl> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetSharedTemplateUrl>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for sendEmailCampaignNow
      * @param campaignId Id of the campaign (required)
      * @param progressListener Progress listener
@@ -752,7 +1000,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -771,7 +1019,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send an email campaign id of the campaign immediately
+     * Send an email campaign immediately, based on campaignId
      * 
      * @param campaignId Id of the campaign (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -781,7 +1029,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send an email campaign id of the campaign immediately
+     * Send an email campaign immediately, based on campaignId
      * 
      * @param campaignId Id of the campaign (required)
      * @return ApiResponse&lt;Void&gt;
@@ -793,7 +1041,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send an email campaign id of the campaign immediately (asynchronously)
+     * Send an email campaign immediately, based on campaignId (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
      * @param callback The callback to be executed when the API call finishes
@@ -872,7 +1120,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1000,7 +1248,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1128,7 +1376,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1256,7 +1504,7 @@ public class EmailCampaignsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "api-key" };
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
