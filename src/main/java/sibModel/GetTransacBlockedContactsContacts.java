@@ -23,6 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
 import sibModel.GetTransacBlockedContactsReason;
 
 /**
@@ -40,7 +41,7 @@ public class GetTransacBlockedContactsContacts {
   private GetTransacBlockedContactsReason reason = null;
 
   @SerializedName("blockedAt")
-  private LocalDate blockedAt = null;
+  private OffsetDateTime blockedAt = null;
 
   public GetTransacBlockedContactsContacts email(String email) {
     this.email = email;
@@ -96,7 +97,7 @@ public class GetTransacBlockedContactsContacts {
     this.reason = reason;
   }
 
-  public GetTransacBlockedContactsContacts blockedAt(LocalDate blockedAt) {
+  public GetTransacBlockedContactsContacts blockedAt(OffsetDateTime blockedAt) {
     this.blockedAt = blockedAt;
     return this;
   }
@@ -106,11 +107,11 @@ public class GetTransacBlockedContactsContacts {
    * @return blockedAt
   **/
   @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "Date when the contact was blocked or unsubscribed on")
-  public LocalDate getBlockedAt() {
+  public OffsetDateTime getBlockedAt() {
     return blockedAt;
   }
 
-  public void setBlockedAt(LocalDate blockedAt) {
+  public void setBlockedAt(OffsetDateTime blockedAt) {
     this.blockedAt = blockedAt;
   }
 
