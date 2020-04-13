@@ -57,7 +57,7 @@ public class CreateContact {
   }
 
    /**
-   * Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {&#39;SMS&#39;:&#39;+91xxxxxxxxxx&#39;} or {&#39;SMS&#39;:&#39;0091xxxxxxxxxx&#39;}
+   * Email address of the user. Mandatory if &#39;SMS&#39; field is not passed in &#39;attributes&#39; parameter. Mobile Number in &#39;SMS&#39; field should be passed with proper country code. For example {&quot;SMS&quot;:&quot;+91xxxxxxxxxx&quot;} or {&quot;SMS&quot;:&quot;0091xxxxxxxxxx&quot;}
    * @return email
   **/
   @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in \"SMS\" field should be passed with proper country code. For example {'SMS':'+91xxxxxxxxxx'} or {'SMS':'0091xxxxxxxxxx'}")
@@ -75,7 +75,7 @@ public class CreateContact {
   }
 
    /**
-   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {&#39;FNAME&#39;:&#39;Elly&#39;, &#39;LNAME&#39;:&#39;Roger&#39;}
+   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {&quot;FNAME&quot;:&quot;Elly&quot;, &quot;LNAME&quot;:&quot;Roger&quot;}
    * @return attributes
   **/
   @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {'FNAME':'Elly', 'LNAME':'Roger'}")
