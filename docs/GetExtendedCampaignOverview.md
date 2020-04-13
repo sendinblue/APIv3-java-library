@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **header** | **String** | Header of the campaign | 
 **footer** | **String** | Footer of the campaign | 
 **sender** | [**GetExtendedCampaignOverviewSender**](GetExtendedCampaignOverviewSender.md) |  | 
-**replyTo** | **String** | Email defined as the \&quot;Reply to\&quot; of the campaign | 
-**toField** | **String** | Customisation of the \&quot;to\&quot; field of the campaign | 
+**replyTo** | **String** | Email defined as the &#39;Reply to&#39; of the campaign | 
+**toField** | **String** | Customisation of the &#39;to&#39; field of the campaign | 
 **htmlContent** | **String** | HTML content of the campaign | 
 **shareLink** | **String** | Link to share the campaign on social medias |  [optional]
 **tag** | **String** | Tag of the campaign | 

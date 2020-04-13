@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the attribute | 
 **category** | [**CategoryEnum**](#CategoryEnum) | Category of the attribute | 
 **type** | [**TypeEnum**](#TypeEnum) | Type of the attribute |  [optional]
-**enumeration** | [**List&lt;GetAttributesEnumeration&gt;**](GetAttributesEnumeration.md) | Parameter only available for \&quot;category\&quot; type attributes. |  [optional]
+**enumeration** | [**List&lt;GetAttributesEnumeration&gt;**](GetAttributesEnumeration.md) | Parameter only available for &#39;category&#39; type attributes. |  [optional]
 **calculatedValue** | **String** | Calculated value formula |  [optional]
 
 
