@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.sendinblue'
-version = '3.0.1'
+version = '4.0.0'
 
 buildscript {
     repositories {

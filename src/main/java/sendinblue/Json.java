@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -10,27 +10,26 @@
  * Do not edit the class manually.
  */
 
+        package sendinblue;
 
-package sendinblue;
+        import com.google.gson.*;
+        import com.google.gson.internal.bind.util.ISO8601Utils;
+        import com.google.gson.stream.JsonReader;
+        import com.google.gson.stream.JsonWriter;
+        import io.gsonfire.GsonFireBuilder;
+        import org.threeten.bp.LocalDate;
+        import org.threeten.bp.OffsetDateTime;
+        import org.threeten.bp.format.DateTimeFormatter;
 
-import com.google.gson.*;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.gsonfire.GsonFireBuilder;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
-
-import java.io.IOException;
-import java.io.StringReader;
-import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.ParsePosition;
-import java.util.Base64;
-import java.util.Date;
-import java.util.Map;
+        import java.io.IOException;
+        import java.io.StringReader;
+        import java.lang.reflect.Type;
+        import java.text.DateFormat;
+        import java.text.ParseException;
+        import java.text.ParsePosition;
+        import java.util.Base64;
+        import java.util.Date;
+        import java.util.Map;
 
 public class Json {
     private Gson gson;

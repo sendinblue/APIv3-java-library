@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SendTransacSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class SendTransacSms {
   @SerializedName("sender")
   private String sender = null;
@@ -38,7 +38,7 @@ public class SendTransacSms {
   private String content = null;
 
   /**
-   * Type of the SMS
+   * Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -135,10 +135,10 @@ public class SendTransacSms {
   }
 
    /**
-   * Content of the message. If more than 160 characters long, multiple text messages will be sent
+   * Content of the message. If more than 160 characters long, will be sent as multiple text messages
    * @return content
   **/
-  @ApiModelProperty(example = "Enter this code:CCJJG8 to validate your account", required = true, value = "Content of the message. If more than 160 characters long, multiple text messages will be sent")
+  @ApiModelProperty(example = "Enter this code:CCJJG8 to validate your account", required = true, value = "Content of the message. If more than 160 characters long, will be sent as multiple text messages")
   public String getContent() {
     return content;
   }
@@ -153,10 +153,10 @@ public class SendTransacSms {
   }
 
    /**
-   * Type of the SMS
+   * Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc.
    * @return type
   **/
-  @ApiModelProperty(example = "marketing", value = "Type of the SMS")
+  @ApiModelProperty(example = "marketing", value = "Type of the SMS. Marketing SMS messages are those sent typically with marketing content. Transactional SMS messages are sent to individuals and are triggered in response to some action, such as a sign-up, purchase, etc.")
   public TypeEnum getType() {
     return type;
   }

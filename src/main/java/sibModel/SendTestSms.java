@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -22,41 +22,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * SendTestSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class SendTestSms {
-  @SerializedName("phoneNumbers")
-  private List<String> phoneNumbers = null;
+  @SerializedName("phoneNumber")
+  private String phoneNumber = null;
 
-  public SendTestSms phoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
-    return this;
-  }
-
-  public SendTestSms addPhoneNumbersItem(String phoneNumbersItem) {
-    if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<String>();
-    }
-    this.phoneNumbers.add(phoneNumbersItem);
+  public SendTestSms phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
    /**
-   * Mobile number with the country code to send test SMS. The mobile number defined here must belong to one of your contacts in SendinBlue account and must not be blacklisted
-   * @return phoneNumbers
+   * Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted
+   * @return phoneNumber
   **/
-  @ApiModelProperty(value = "Mobile number with the country code to send test SMS. The mobile number defined here must belong to one of your contacts in SendinBlue account and must not be blacklisted")
-  public List<String> getPhoneNumbers() {
-    return phoneNumbers;
+  @ApiModelProperty(example = "33689965433", value = "Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted")
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setPhoneNumbers(List<String> phoneNumbers) {
-    this.phoneNumbers = phoneNumbers;
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
 
@@ -69,12 +59,12 @@ public class SendTestSms {
     return false;
   }
     SendTestSms sendTestSms = (SendTestSms) o;
-    return ObjectUtils.equals(this.phoneNumbers, sendTestSms.phoneNumbers);
+    return ObjectUtils.equals(this.phoneNumber, sendTestSms.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(phoneNumbers);
+    return ObjectUtils.hashCodeMulti(phoneNumber);
   }
 
 
@@ -83,7 +73,7 @@ public class SendTestSms {
     StringBuilder sb = new StringBuilder();
     sb.append("class SendTestSms {\n");
     
-    sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }

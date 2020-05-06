@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subject** | **String** | Subject of the email message |  [optional]
-**to** | **List&lt;String&gt;** | Email addresses of the recipients |  [optional]
+**subject** | **String** | Subject of the email message | 
+**to** | **List&lt;String&gt;** | Email addresses of the recipients | 
 **contentType** | [**ContentTypeEnum**](#ContentTypeEnum) | Type of the message body |  [optional]
 **bcc** | **List&lt;String&gt;** | Email addresses of the recipients in bcc |  [optional]
 **cc** | **List&lt;String&gt;** | Email addresses of the recipients in cc |  [optional]
-**body** | **String** | Body of the email message |  [optional]
+**body** | **String** | Body of the email message | 
 
 
 <a name="ContentTypeEnum"></a>

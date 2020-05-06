@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -29,7 +29,7 @@ import sibModel.UpdateEmailCampaignSender;
 /**
  * UpdateEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class UpdateEmailCampaign {
   @SerializedName("tag")
   private String tag = null;
@@ -81,6 +81,86 @@ public class UpdateEmailCampaign {
 
   @SerializedName("utmCampaign")
   private String utmCampaign = null;
+
+  @SerializedName("params")
+  private Object params = null;
+
+  @SerializedName("sendAtBestTime")
+  private Boolean sendAtBestTime = null;
+
+  @SerializedName("abTesting")
+  private Boolean abTesting = false;
+
+  @SerializedName("subjectA")
+  private String subjectA = null;
+
+  @SerializedName("subjectB")
+  private String subjectB = null;
+
+  @SerializedName("splitRule")
+  private Long splitRule = null;
+
+  /**
+   * Choose the metrics that will determinate the winning version. Considered if &#39;splitRule&#39; &gt;&#x3D; 1 and &lt; 50. If splitRule &#x3D; 50, &#39;winnerCriteria&#39; is ignored if passed or alreday exist in record
+   */
+  @JsonAdapter(WinnerCriteriaEnum.Adapter.class)
+  public enum WinnerCriteriaEnum {
+    OPEN("open"),
+    
+    CLICK("click");
+
+    private String value;
+
+    WinnerCriteriaEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static WinnerCriteriaEnum fromValue(String text) {
+      for (WinnerCriteriaEnum b : WinnerCriteriaEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<WinnerCriteriaEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WinnerCriteriaEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public WinnerCriteriaEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return WinnerCriteriaEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("winnerCriteria")
+  private WinnerCriteriaEnum winnerCriteria = null;
+
+  @SerializedName("winnerDelay")
+  private Long winnerDelay = null;
+
+  @SerializedName("ipWarmupEnable")
+  private Boolean ipWarmupEnable = false;
+
+  @SerializedName("initialQuota")
+  private Long initialQuota = null;
+
+  @SerializedName("increaseRate")
+  private Long increaseRate = null;
 
   public UpdateEmailCampaign tag(String tag) {
     this.tag = tag;
@@ -178,10 +258,10 @@ public class UpdateEmailCampaign {
   }
 
    /**
-   * UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+   * UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).
    * @return scheduledAt
   **/
-  @ApiModelProperty(example = "2017-06-01T12:30:00+02:00", value = "UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.")
+  @ApiModelProperty(example = "2017-06-01T12:30:00+02:00", value = "UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).")
   public OffsetDateTime getScheduledAt() {
     return scheduledAt;
   }
@@ -232,10 +312,10 @@ public class UpdateEmailCampaign {
   }
 
    /**
-   * This is to personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. To use the contact attributes here, these must already exist in SendinBlue account
+   * To personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. These contact attributes must already exist in your SendinBlue account. If input parameter &#39;params&#39; used please use {{contact.FNAME}} {{contact.LNAME}} for personalization
    * @return toField
   **/
-  @ApiModelProperty(example = "{FNAME} {LNAME}", value = "This is to personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. To use the contact attributes here, these must already exist in SendinBlue account")
+  @ApiModelProperty(example = "{FNAME} {LNAME}", value = "To personalize the «To» Field. If you want to include the first name and last name of your recipient, add {FNAME} {LNAME}. These contact attributes must already exist in your SendinBlue account. If input parameter 'params' used please use {{contact.FNAME}} {{contact.LNAME}} for personalization")
   public String getToField() {
     return toField;
   }
@@ -388,6 +468,210 @@ public class UpdateEmailCampaign {
     this.utmCampaign = utmCampaign;
   }
 
+  public UpdateEmailCampaign params(Object params) {
+    this.params = params;
+    return this;
+  }
+
+   /**
+   * Pass the set of attributes to customize the type &#39;classic&#39; campaign. For example, {&#39;FNAME&#39;:&#39;Joe&#39;, &#39;LNAME&#39;:&#39;Doe&#39;}. The &#39;params&#39; field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of &#39;subject&#39;, &#39;htmlContent/htmlUrl&#39;, &#39;sender.name&#39; &amp; &#39;toField&#39;
+   * @return params
+  **/
+  @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the type 'classic' campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. The 'params' field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'")
+  public Object getParams() {
+    return params;
+  }
+
+  public void setParams(Object params) {
+    this.params = params;
+  }
+
+  public UpdateEmailCampaign sendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+    return this;
+  }
+
+   /**
+   * Set this to true if you want to send your campaign at best time. Note:- if true, warmup ip will be disabled.
+   * @return sendAtBestTime
+  **/
+  @ApiModelProperty(example = "true", value = "Set this to true if you want to send your campaign at best time. Note:- if true, warmup ip will be disabled.")
+  public Boolean isSendAtBestTime() {
+    return sendAtBestTime;
+  }
+
+  public void setSendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+  }
+
+  public UpdateEmailCampaign abTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+    return this;
+  }
+
+   /**
+   * Status of A/B Test. abTesting &#x3D; false means it is disabled, &amp; abTesting &#x3D; true means it is enabled. &#39;subjectA&#39;, &#39;subjectB&#39;, &#39;splitRule&#39;, &#39;winnerCriteria&#39; &amp; &#39;winnerDelay&#39; will be considered if abTesting is set to true. &#39;subject&#39; if passed is ignored.  Can be set to true only if &#39;sendAtBestTime&#39; is &#39;false&#39;. You will be able to set up two subject lines for your campaign and send them to a random sample of your total recipients. Half of the test group will receive version A, and the other half will receive version B
+   * @return abTesting
+  **/
+  @ApiModelProperty(example = "true", value = "Status of A/B Test. abTesting = false means it is disabled, & abTesting = true means it is enabled. 'subjectA', 'subjectB', 'splitRule', 'winnerCriteria' & 'winnerDelay' will be considered if abTesting is set to true. 'subject' if passed is ignored.  Can be set to true only if 'sendAtBestTime' is 'false'. You will be able to set up two subject lines for your campaign and send them to a random sample of your total recipients. Half of the test group will receive version A, and the other half will receive version B")
+  public Boolean isAbTesting() {
+    return abTesting;
+  }
+
+  public void setAbTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+  }
+
+  public UpdateEmailCampaign subjectA(String subjectA) {
+    this.subjectA = subjectA;
+    return this;
+  }
+
+   /**
+   * Subject A of the campaign. Considered if abTesting &#x3D; true. subjectA &amp; subjectB should have unique value
+   * @return subjectA
+  **/
+  @ApiModelProperty(example = "Discover the New Collection!", value = "Subject A of the campaign. Considered if abTesting = true. subjectA & subjectB should have unique value")
+  public String getSubjectA() {
+    return subjectA;
+  }
+
+  public void setSubjectA(String subjectA) {
+    this.subjectA = subjectA;
+  }
+
+  public UpdateEmailCampaign subjectB(String subjectB) {
+    this.subjectB = subjectB;
+    return this;
+  }
+
+   /**
+   * Subject B of the campaign. Considered if abTesting &#x3D; true. subjectA &amp; subjectB should have unique value
+   * @return subjectB
+  **/
+  @ApiModelProperty(example = "Want to discover the New Collection?", value = "Subject B of the campaign. Considered if abTesting = true. subjectA & subjectB should have unique value")
+  public String getSubjectB() {
+    return subjectB;
+  }
+
+  public void setSubjectB(String subjectB) {
+    this.subjectB = subjectB;
+  }
+
+  public UpdateEmailCampaign splitRule(Long splitRule) {
+    this.splitRule = splitRule;
+    return this;
+  }
+
+   /**
+   * Add the size of your test groups. Considered if abTesting &#x3D; true. We&#39;ll send version A and B to a random sample of recipients, and then the winning version to everyone else
+   * minimum: 1
+   * maximum: 50
+   * @return splitRule
+  **/
+  @ApiModelProperty(example = "50", value = "Add the size of your test groups. Considered if abTesting = true. We'll send version A and B to a random sample of recipients, and then the winning version to everyone else")
+  public Long getSplitRule() {
+    return splitRule;
+  }
+
+  public void setSplitRule(Long splitRule) {
+    this.splitRule = splitRule;
+  }
+
+  public UpdateEmailCampaign winnerCriteria(WinnerCriteriaEnum winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+    return this;
+  }
+
+   /**
+   * Choose the metrics that will determinate the winning version. Considered if &#39;splitRule&#39; &gt;&#x3D; 1 and &lt; 50. If splitRule &#x3D; 50, &#39;winnerCriteria&#39; is ignored if passed or alreday exist in record
+   * @return winnerCriteria
+  **/
+  @ApiModelProperty(example = "open", value = "Choose the metrics that will determinate the winning version. Considered if 'splitRule' >= 1 and < 50. If splitRule = 50, 'winnerCriteria' is ignored if passed or alreday exist in record")
+  public WinnerCriteriaEnum getWinnerCriteria() {
+    return winnerCriteria;
+  }
+
+  public void setWinnerCriteria(WinnerCriteriaEnum winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+  }
+
+  public UpdateEmailCampaign winnerDelay(Long winnerDelay) {
+    this.winnerDelay = winnerDelay;
+    return this;
+  }
+
+   /**
+   * Choose the duration of the test in hours. Maximum is 7 days, pass 24*7 &#x3D; 168 hours. The winning version will be sent at the end of the test. Considered if &#39;splitRule&#39; &gt;&#x3D; 1 and &lt; 50. If splitRule &#x3D; 50, &#39;winnerDelay&#39; is ignored if passed or alreday exist in record
+   * minimum: 1
+   * maximum: 168
+   * @return winnerDelay
+  **/
+  @ApiModelProperty(example = "50", value = "Choose the duration of the test in hours. Maximum is 7 days, pass 24*7 = 168 hours. The winning version will be sent at the end of the test. Considered if 'splitRule' >= 1 and < 50. If splitRule = 50, 'winnerDelay' is ignored if passed or alreday exist in record")
+  public Long getWinnerDelay() {
+    return winnerDelay;
+  }
+
+  public void setWinnerDelay(Long winnerDelay) {
+    this.winnerDelay = winnerDelay;
+  }
+
+  public UpdateEmailCampaign ipWarmupEnable(Boolean ipWarmupEnable) {
+    this.ipWarmupEnable = ipWarmupEnable;
+    return this;
+  }
+
+   /**
+   * Available for dedicated ip clients. Set this to true if you wish to warm up your ip.
+   * @return ipWarmupEnable
+  **/
+  @ApiModelProperty(example = "true", value = "Available for dedicated ip clients. Set this to true if you wish to warm up your ip.")
+  public Boolean isIpWarmupEnable() {
+    return ipWarmupEnable;
+  }
+
+  public void setIpWarmupEnable(Boolean ipWarmupEnable) {
+    this.ipWarmupEnable = ipWarmupEnable;
+  }
+
+  public UpdateEmailCampaign initialQuota(Long initialQuota) {
+    this.initialQuota = initialQuota;
+    return this;
+  }
+
+   /**
+   * Set an initial quota greater than 1 for warming up your ip. We recommend you set a value of 3000.
+   * @return initialQuota
+  **/
+  @ApiModelProperty(example = "3000", value = "Set an initial quota greater than 1 for warming up your ip. We recommend you set a value of 3000.")
+  public Long getInitialQuota() {
+    return initialQuota;
+  }
+
+  public void setInitialQuota(Long initialQuota) {
+    this.initialQuota = initialQuota;
+  }
+
+  public UpdateEmailCampaign increaseRate(Long increaseRate) {
+    this.increaseRate = increaseRate;
+    return this;
+  }
+
+   /**
+   * Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%.
+   * minimum: 0
+   * maximum: 100
+   * @return increaseRate
+  **/
+  @ApiModelProperty(example = "70", value = "Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%.")
+  public Long getIncreaseRate() {
+    return increaseRate;
+  }
+
+  public void setIncreaseRate(Long increaseRate) {
+    this.increaseRate = increaseRate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -414,12 +698,23 @@ public class UpdateEmailCampaign {
     ObjectUtils.equals(this.recurring, updateEmailCampaign.recurring) &&
     ObjectUtils.equals(this.footer, updateEmailCampaign.footer) &&
     ObjectUtils.equals(this.header, updateEmailCampaign.header) &&
-    ObjectUtils.equals(this.utmCampaign, updateEmailCampaign.utmCampaign);
+    ObjectUtils.equals(this.utmCampaign, updateEmailCampaign.utmCampaign) &&
+    ObjectUtils.equals(this.params, updateEmailCampaign.params) &&
+    ObjectUtils.equals(this.sendAtBestTime, updateEmailCampaign.sendAtBestTime) &&
+    ObjectUtils.equals(this.abTesting, updateEmailCampaign.abTesting) &&
+    ObjectUtils.equals(this.subjectA, updateEmailCampaign.subjectA) &&
+    ObjectUtils.equals(this.subjectB, updateEmailCampaign.subjectB) &&
+    ObjectUtils.equals(this.splitRule, updateEmailCampaign.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, updateEmailCampaign.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, updateEmailCampaign.winnerDelay) &&
+    ObjectUtils.equals(this.ipWarmupEnable, updateEmailCampaign.ipWarmupEnable) &&
+    ObjectUtils.equals(this.initialQuota, updateEmailCampaign.initialQuota) &&
+    ObjectUtils.equals(this.increaseRate, updateEmailCampaign.increaseRate);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(tag, sender, name, htmlContent, htmlUrl, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, recurring, footer, header, utmCampaign);
+    return ObjectUtils.hashCodeMulti(tag, sender, name, htmlContent, htmlUrl, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, recurring, footer, header, utmCampaign, params, sendAtBestTime, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, ipWarmupEnable, initialQuota, increaseRate);
   }
 
 
@@ -445,6 +740,17 @@ public class UpdateEmailCampaign {
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    header: ").append(toIndentedString(header)).append("\n");
     sb.append("    utmCampaign: ").append(toIndentedString(utmCampaign)).append("\n");
+    sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    sendAtBestTime: ").append(toIndentedString(sendAtBestTime)).append("\n");
+    sb.append("    abTesting: ").append(toIndentedString(abTesting)).append("\n");
+    sb.append("    subjectA: ").append(toIndentedString(subjectA)).append("\n");
+    sb.append("    subjectB: ").append(toIndentedString(subjectB)).append("\n");
+    sb.append("    splitRule: ").append(toIndentedString(splitRule)).append("\n");
+    sb.append("    winnerCriteria: ").append(toIndentedString(winnerCriteria)).append("\n");
+    sb.append("    winnerDelay: ").append(toIndentedString(winnerDelay)).append("\n");
+    sb.append("    ipWarmupEnable: ").append(toIndentedString(ipWarmupEnable)).append("\n");
+    sb.append("    initialQuota: ").append(toIndentedString(initialQuota)).append("\n");
+    sb.append("    increaseRate: ").append(toIndentedString(increaseRate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

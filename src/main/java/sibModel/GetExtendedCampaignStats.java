@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -24,12 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import sibModel.GetStatsByBrowser;
+import sibModel.GetStatsByDevice;
 import sibModel.GetStatsByDomain;
 
 /**
  * GetExtendedCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class GetExtendedCampaignStats {
   @SerializedName("globalStats")
   private Object globalStats = null;
@@ -48,6 +50,12 @@ public class GetExtendedCampaignStats {
 
   @SerializedName("statsByDomain")
   private GetStatsByDomain statsByDomain = null;
+
+  @SerializedName("statsByDevice")
+  private GetStatsByDevice statsByDevice = null;
+
+  @SerializedName("statsByBrowser")
+  private GetStatsByBrowser statsByBrowser = null;
 
   public GetExtendedCampaignStats globalStats(Object globalStats) {
     this.globalStats = globalStats;
@@ -162,6 +170,42 @@ public class GetExtendedCampaignStats {
     this.statsByDomain = statsByDomain;
   }
 
+  public GetExtendedCampaignStats statsByDevice(GetStatsByDevice statsByDevice) {
+    this.statsByDevice = statsByDevice;
+    return this;
+  }
+
+   /**
+   * Statistics about the campaign on the basis of various devices
+   * @return statsByDevice
+  **/
+  @ApiModelProperty(required = true, value = "Statistics about the campaign on the basis of various devices")
+  public GetStatsByDevice getStatsByDevice() {
+    return statsByDevice;
+  }
+
+  public void setStatsByDevice(GetStatsByDevice statsByDevice) {
+    this.statsByDevice = statsByDevice;
+  }
+
+  public GetExtendedCampaignStats statsByBrowser(GetStatsByBrowser statsByBrowser) {
+    this.statsByBrowser = statsByBrowser;
+    return this;
+  }
+
+   /**
+   * Statistics about the campaign on the basis of various browsers
+   * @return statsByBrowser
+  **/
+  @ApiModelProperty(required = true, value = "Statistics about the campaign on the basis of various browsers")
+  public GetStatsByBrowser getStatsByBrowser() {
+    return statsByBrowser;
+  }
+
+  public void setStatsByBrowser(GetStatsByBrowser statsByBrowser) {
+    this.statsByBrowser = statsByBrowser;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,12 +221,14 @@ public class GetExtendedCampaignStats {
     ObjectUtils.equals(this.mirrorClick, getExtendedCampaignStats.mirrorClick) &&
     ObjectUtils.equals(this.remaining, getExtendedCampaignStats.remaining) &&
     ObjectUtils.equals(this.linksStats, getExtendedCampaignStats.linksStats) &&
-    ObjectUtils.equals(this.statsByDomain, getExtendedCampaignStats.statsByDomain);
+    ObjectUtils.equals(this.statsByDomain, getExtendedCampaignStats.statsByDomain) &&
+    ObjectUtils.equals(this.statsByDevice, getExtendedCampaignStats.statsByDevice) &&
+    ObjectUtils.equals(this.statsByBrowser, getExtendedCampaignStats.statsByBrowser);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(globalStats, campaignStats, mirrorClick, remaining, linksStats, statsByDomain);
+    return ObjectUtils.hashCodeMulti(globalStats, campaignStats, mirrorClick, remaining, linksStats, statsByDomain, statsByDevice, statsByBrowser);
   }
 
 
@@ -197,6 +243,8 @@ public class GetExtendedCampaignStats {
     sb.append("    remaining: ").append(toIndentedString(remaining)).append("\n");
     sb.append("    linksStats: ").append(toIndentedString(linksStats)).append("\n");
     sb.append("    statsByDomain: ").append(toIndentedString(statsByDomain)).append("\n");
+    sb.append("    statsByDevice: ").append(toIndentedString(statsByDevice)).append("\n");
+    sb.append("    statsByBrowser: ").append(toIndentedString(statsByBrowser)).append("\n");
     sb.append("}");
     return sb.toString();
   }

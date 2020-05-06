@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -27,15 +27,15 @@ import java.io.IOException;
  * Credits remaining for child account
  */
 @ApiModel(description = "Credits remaining for child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class RemainingCreditModelChild {
   @SerializedName("sms")
-  private Long sms = null;
+  private Double sms = null;
 
   @SerializedName("email")
-  private Long email = null;
+  private Double email = null;
 
-  public RemainingCreditModelChild sms(Long sms) {
+  public RemainingCreditModelChild sms(Double sms) {
     this.sms = sms;
     return this;
   }
@@ -45,15 +45,15 @@ public class RemainingCreditModelChild {
    * @return sms
   **/
   @ApiModelProperty(example = "500", required = true, value = "SMS Credits remaining for child account")
-  public Long getSms() {
+  public Double getSms() {
     return sms;
   }
 
-  public void setSms(Long sms) {
+  public void setSms(Double sms) {
     this.sms = sms;
   }
 
-  public RemainingCreditModelChild email(Long email) {
+  public RemainingCreditModelChild email(Double email) {
     this.email = email;
     return this;
   }
@@ -63,11 +63,11 @@ public class RemainingCreditModelChild {
    * @return email
   **/
   @ApiModelProperty(example = "2000", required = true, value = "Email Credits remaining for child account")
-  public Long getEmail() {
+  public Double getEmail() {
     return email;
   }
 
-  public void setEmail(Long email) {
+  public void setEmail(Long Double) {
     this.email = email;
   }
 

@@ -1,6 +1,6 @@
 /*
  * SendinBlue API
- * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  | 
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -25,10 +25,10 @@ import java.io.IOException;
 import sibModel.GetAccountRelayData;
 
 /**
- * Information about your SMTP account
+ * Information about your transactional email account
  */
-@ApiModel(description = "Information about your SMTP account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-24T12:07:09.251+05:30")
+@ApiModel(description = "Information about your transactional email account")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
 public class GetAccountRelay {
   @SerializedName("enabled")
   private Boolean enabled = null;
@@ -42,10 +42,10 @@ public class GetAccountRelay {
   }
 
    /**
-   * Status of your SMTP Account (true&#x3D;Enabled, false&#x3D;Disabled)
+   * Status of your transactional email Account (true&#x3D;Enabled, false&#x3D;Disabled)
    * @return enabled
   **/
-  @ApiModelProperty(example = "true", required = true, value = "Status of your SMTP Account (true=Enabled, false=Disabled)")
+  @ApiModelProperty(example = "true", required = true, value = "Status of your transactional email Account (true=Enabled, false=Disabled)")
   public Boolean isEnabled() {
     return enabled;
   }
