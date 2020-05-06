@@ -17,3 +17,4 @@ script:
   # - gradle test
   # uncomment below to test using sbt 
   # - sbt test
+dist: trusty
