@@ -17,6 +17,7 @@ import sendinblue.ApiException;
 import sibModel.AddContactToList;
 import sibModel.CreateAttribute;
 import sibModel.CreateContact;
+import sibModel.CreateDoiContact;
 import sibModel.CreateList;
 import sibModel.CreateModel;
 import sibModel.CreateUpdateContactModel;
@@ -32,6 +33,7 @@ import sibModel.GetFolder;
 import sibModel.GetFolderLists;
 import sibModel.GetFolders;
 import sibModel.GetLists;
+import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
 import sibModel.RemoveContactFromList;
@@ -75,7 +77,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Creates contact attribute
+     * Create contact attribute
      *
      * 
      *
@@ -104,6 +106,22 @@ public class ContactsApiTest {
     public void createContactTest() throws ApiException {
         CreateContact createContact = null;
         CreateUpdateContactModel response = api.createContact(createContact);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create Contact via DOI (Double-Opt-In) Flow
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDoiContactTest() throws ApiException {
+        CreateDoiContact createDoiContact = null;
+        api.createDoiContact(createDoiContact);
 
         // TODO: test validations
     }
@@ -141,7 +159,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Deletes an attribute
+     * Delete an attribute
      *
      * 
      *
@@ -158,7 +176,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Deletes a contact
+     * Delete a contact
      *
      * 
      *
@@ -206,7 +224,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Lists all attributes
+     * List all attributes
      *
      * 
      *
@@ -221,7 +239,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Retrieves contact informations
+     * Get a contact&#39;s details
      *
      * 
      *
@@ -237,7 +255,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Get the campaigns statistics for a contact
+     * Get email campaigns&#39; statistics for a contact
      *
      * 
      *
@@ -247,7 +265,9 @@ public class ContactsApiTest {
     @Test
     public void getContactStatsTest() throws ApiException {
         String email = null;
-        GetContactCampaignStats response = api.getContactStats(email);
+        LocalDate startDate = null;
+        LocalDate endDate = null;
+        GetContactCampaignStats response = api.getContactStats(email, startDate, endDate);
 
         // TODO: test validations
     }
@@ -271,7 +291,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      *
      * 
      *
@@ -290,7 +310,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      *
      * 
      *
@@ -306,7 +326,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      *
      * 
      *
@@ -324,7 +344,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Get all the folders
+     * Get all folders
      *
      * 
      *
@@ -341,7 +361,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      *
      * 
      *
@@ -390,7 +410,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      *
      * 
      *
@@ -423,7 +443,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Updates contact attribute
+     * Update contact attribute
      *
      * 
      *
@@ -441,7 +461,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Updates a contact
+     * Update a contact
      *
      * 
      *
@@ -458,7 +478,7 @@ public class ContactsApiTest {
     }
     
     /**
-     * Update a contact folder
+     * Update a folder
      *
      * 
      *

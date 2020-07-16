@@ -52,7 +52,7 @@ public class SmtpApiTest {
 
     
     /**
-     * Create a transactional email template
+     * Create an email template
      *
      * 
      *
@@ -84,7 +84,7 @@ public class SmtpApiTest {
     }
     
     /**
-     * Delete an inactive transactional email template
+     * Delete an inactive email template
      *
      * 
      *
@@ -165,7 +165,7 @@ public class SmtpApiTest {
     }
     
     /**
-     * Returns the template informations
+     * Returns the template information
      *
      * 
      *
@@ -181,7 +181,7 @@ public class SmtpApiTest {
     }
     
     /**
-     * Get the list of transactional email templates
+     * Get the list of email templates
      *
      * 
      *
@@ -247,7 +247,7 @@ public class SmtpApiTest {
         String email = null;
         Long templateId = null;
         String messageId = null;
-        String startDate = null;
+        LocalDate startDate = null;
         LocalDate endDate = null;
         GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
 
@@ -337,7 +337,7 @@ public class SmtpApiTest {
     }
     
     /**
-     * Updates a transactional email templates
+     * Update an email template
      *
      * 
      *

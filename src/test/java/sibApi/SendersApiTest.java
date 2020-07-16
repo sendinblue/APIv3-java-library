@@ -71,7 +71,7 @@ public class SendersApiTest {
     }
     
     /**
-     * Return all the dedicated IPs for your account
+     * Get all the dedicated IPs for your account
      *
      * 
      *
@@ -86,7 +86,7 @@ public class SendersApiTest {
     }
     
     /**
-     * Return all the dedicated IPs for a sender
+     * Get all the dedicated IPs for a sender
      *
      * 
      *

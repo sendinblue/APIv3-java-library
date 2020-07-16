@@ -36,7 +36,7 @@ public class AttributesApiTest {
 
     
     /**
-     * Creates contact attribute
+     * Create contact attribute
      *
      * 
      *
@@ -54,7 +54,7 @@ public class AttributesApiTest {
     }
     
     /**
-     * Deletes an attribute
+     * Delete an attribute
      *
      * 
      *
@@ -71,7 +71,7 @@ public class AttributesApiTest {
     }
     
     /**
-     * Lists all attributes
+     * List all attributes
      *
      * 
      *
@@ -86,7 +86,7 @@ public class AttributesApiTest {
     }
     
     /**
-     * Updates contact attribute
+     * Update contact attribute
      *
      * 
      *

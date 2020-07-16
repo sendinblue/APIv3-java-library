@@ -29,6 +29,7 @@ import sibModel.SendReport;
 import sibModel.SendTestEmail;
 import sibModel.UpdateCampaignStatus;
 import sibModel.UpdateEmailCampaign;
+import sibModel.UploadImageToGallery;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -79,7 +80,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Export the recipients of a campaign
+     * Export the recipients of an email campaign
      *
      * 
      *
@@ -96,7 +97,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Get A/B test email campaign result
+     * Get an A/B test email campaign results
      *
      * Obtain winning version of an A/B test email campaign
      *
@@ -112,7 +113,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Get campaign informations
+     * Get an email campaign report
      *
      * 
      *
@@ -128,7 +129,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Return all your created campaigns
+     * Return all your created email campaigns
      *
      * 
      *
@@ -181,7 +182,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Send the report of a campaigns
+     * Send the report of a campaign
      *
      * A PDF will be sent to the specified email addresses
      *
@@ -215,7 +216,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Update a campaign status
+     * Update an email campaign status
      *
      * 
      *
@@ -232,7 +233,7 @@ public class EmailCampaignsApiTest {
     }
     
     /**
-     * Update a campaign
+     * Update an email campaign
      *
      * 
      *
@@ -244,6 +245,22 @@ public class EmailCampaignsApiTest {
         Long campaignId = null;
         UpdateEmailCampaign emailCampaign = null;
         api.updateEmailCampaign(campaignId, emailCampaign);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Upload an image to your account&#39;s image gallery
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void uploadImageToGalleryTest() throws ApiException {
+        UploadImageToGallery uploadImage = null;
+        api.uploadImageToGallery(uploadImage);
 
         // TODO: test validations
     }
