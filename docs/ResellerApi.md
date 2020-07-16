@@ -4,27 +4,27 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCredits**](ResellerApi.md#addCredits) | **POST** /reseller/children/{childAuthKey}/credits/add | Add Email and/or SMS credits to a specific child account
-[**associateIpToChild**](ResellerApi.md#associateIpToChild) | **POST** /reseller/children/{childAuthKey}/ips/associate | Associate a dedicated IP to the child
-[**createChildDomain**](ResellerApi.md#createChildDomain) | **POST** /reseller/children/{childAuthKey}/domains | Creates a domain for a child account
+[**addCredits**](ResellerApi.md#addCredits) | **POST** /reseller/children/{childIdentifier}/credits/add | Add Email and/or SMS credits to a specific child account
+[**associateIpToChild**](ResellerApi.md#associateIpToChild) | **POST** /reseller/children/{childIdentifier}/ips/associate | Associate a dedicated IP to the child
+[**createChildDomain**](ResellerApi.md#createChildDomain) | **POST** /reseller/children/{childIdentifier}/domains | Create a domain for a child account
 [**createResellerChild**](ResellerApi.md#createResellerChild) | **POST** /reseller/children | Creates a reseller child
-[**deleteChildDomain**](ResellerApi.md#deleteChildDomain) | **DELETE** /reseller/children/{childAuthKey}/domains/{domainName} | Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
-[**deleteResellerChild**](ResellerApi.md#deleteResellerChild) | **DELETE** /reseller/children/{childAuthKey} | Deletes a single reseller child based on the childAuthKey supplied
-[**dissociateIpFromChild**](ResellerApi.md#dissociateIpFromChild) | **POST** /reseller/children/{childAuthKey}/ips/dissociate | Dissociate a dedicated IP to the child
-[**getChildAccountCreationStatus**](ResellerApi.md#getChildAccountCreationStatus) | **GET** /reseller/children/{childAuthKey}/accountCreationStatus | Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
-[**getChildDomains**](ResellerApi.md#getChildDomains) | **GET** /reseller/children/{childAuthKey}/domains | Gets all the sender domains of a specific child account
-[**getChildInfo**](ResellerApi.md#getChildInfo) | **GET** /reseller/children/{childAuthKey} | Gets the info about a specific child account
-[**getResellerChilds**](ResellerApi.md#getResellerChilds) | **GET** /reseller/children | Gets the list of all reseller&#39;s children accounts
-[**getSsoToken**](ResellerApi.md#getSsoToken) | **GET** /reseller/children/{childAuthKey}/auth | Get session token to access Sendinblue (SSO)
-[**removeCredits**](ResellerApi.md#removeCredits) | **POST** /reseller/children/{childAuthKey}/credits/remove | Remove Email and/or SMS credits from a specific child account
-[**updateChildAccountStatus**](ResellerApi.md#updateChildAccountStatus) | **PUT** /reseller/children/{childAuthKey}/accountStatus | Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
-[**updateChildDomain**](ResellerApi.md#updateChildDomain) | **PUT** /reseller/children/{childAuthKey}/domains/{domainName} | Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
-[**updateResellerChild**](ResellerApi.md#updateResellerChild) | **PUT** /reseller/children/{childAuthKey} | Updates infos of reseller&#39;s child based on the childAuthKey supplied
+[**deleteChildDomain**](ResellerApi.md#deleteChildDomain) | **DELETE** /reseller/children/{childIdentifier}/domains/{domainName} | Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
+[**deleteResellerChild**](ResellerApi.md#deleteResellerChild) | **DELETE** /reseller/children/{childIdentifier} | Delete a single reseller child based on the child identifier supplied
+[**dissociateIpFromChild**](ResellerApi.md#dissociateIpFromChild) | **POST** /reseller/children/{childIdentifier}/ips/dissociate | Dissociate a dedicated IP to the child
+[**getChildAccountCreationStatus**](ResellerApi.md#getChildAccountCreationStatus) | **GET** /reseller/children/{childIdentifier}/accountCreationStatus | Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
+[**getChildDomains**](ResellerApi.md#getChildDomains) | **GET** /reseller/children/{childIdentifier}/domains | Get all sender domains for a specific child account
+[**getChildInfo**](ResellerApi.md#getChildInfo) | **GET** /reseller/children/{childIdentifier} | Get a child account&#39;s details
+[**getResellerChilds**](ResellerApi.md#getResellerChilds) | **GET** /reseller/children | Get the list of all children accounts
+[**getSsoToken**](ResellerApi.md#getSsoToken) | **GET** /reseller/children/{childIdentifier}/auth | Get session token to access Sendinblue (SSO)
+[**removeCredits**](ResellerApi.md#removeCredits) | **POST** /reseller/children/{childIdentifier}/credits/remove | Remove Email and/or SMS credits from a specific child account
+[**updateChildAccountStatus**](ResellerApi.md#updateChildAccountStatus) | **PUT** /reseller/children/{childIdentifier}/accountStatus | Update info of reseller&#39;s child account status based on the childIdentifier supplied
+[**updateChildDomain**](ResellerApi.md#updateChildDomain) | **PUT** /reseller/children/{childIdentifier}/domains/{domainName} | Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
+[**updateResellerChild**](ResellerApi.md#updateResellerChild) | **PUT** /reseller/children/{childIdentifier} | Update info of reseller&#39;s child based on the child identifier supplied
 
 
 <a name="addCredits"></a>
 # **addCredits**
-> RemainingCreditModel addCredits(childAuthKey, addCredits)
+> RemainingCreditModel addCredits(childIdentifier, addCredits)
 
 Add Email and/or SMS credits to a specific child account
 
@@ -52,10 +52,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 AddCredits addCredits = new AddCredits(); // AddCredits | Values to post to add credit to a specific child account
 try {
-    RemainingCreditModel result = apiInstance.addCredits(childAuthKey, addCredits);
+    RemainingCreditModel result = apiInstance.addCredits(childIdentifier, addCredits);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#addCredits");
@@ -67,7 +67,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **addCredits** | [**AddCredits**](AddCredits.md)| Values to post to add credit to a specific child account |
 
 ### Return type
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 <a name="associateIpToChild"></a>
 # **associateIpToChild**
-> associateIpToChild(childAuthKey, ip)
+> associateIpToChild(childIdentifier, ip)
 
 Associate a dedicated IP to the child
 
@@ -113,10 +113,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 ManageIp ip = new ManageIp(); // ManageIp | IP to associate
 try {
-    apiInstance.associateIpToChild(childAuthKey, ip);
+    apiInstance.associateIpToChild(childIdentifier, ip);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#associateIpToChild");
     e.printStackTrace();
@@ -127,7 +127,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **ip** | [**ManageIp**](ManageIp.md)| IP to associate |
 
 ### Return type
@@ -145,9 +145,9 @@ null (empty response body)
 
 <a name="createChildDomain"></a>
 # **createChildDomain**
-> createChildDomain(childAuthKey, addChildDomain)
+> createChildDomain(childIdentifier, addChildDomain)
 
-Creates a domain for a child account
+Create a domain for a child account
 
 ### Example
 ```java
@@ -173,10 +173,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 AddChildDomain addChildDomain = new AddChildDomain(); // AddChildDomain | Sender domain to add for a specific child account. This will not be displayed to the parent account.
 try {
-    apiInstance.createChildDomain(childAuthKey, addChildDomain);
+    apiInstance.createChildDomain(childIdentifier, addChildDomain);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#createChildDomain");
     e.printStackTrace();
@@ -187,7 +187,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **addChildDomain** | [**AddChildDomain**](AddChildDomain.md)| Sender domain to add for a specific child account. This will not be displayed to the parent account. |
 
 ### Return type
@@ -264,9 +264,9 @@ Name | Type | Description  | Notes
 
 <a name="deleteChildDomain"></a>
 # **deleteChildDomain**
-> deleteChildDomain(childAuthKey, domainName)
+> deleteChildDomain(childIdentifier, domainName)
 
-Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
 
 ### Example
 ```java
@@ -292,10 +292,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 String domainName = "domainName_example"; // String | Pass the existing domain that needs to be deleted
 try {
-    apiInstance.deleteChildDomain(childAuthKey, domainName);
+    apiInstance.deleteChildDomain(childIdentifier, domainName);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#deleteChildDomain");
     e.printStackTrace();
@@ -306,7 +306,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **domainName** | **String**| Pass the existing domain that needs to be deleted |
 
 ### Return type
@@ -324,9 +324,9 @@ null (empty response body)
 
 <a name="deleteResellerChild"></a>
 # **deleteResellerChild**
-> deleteResellerChild(childAuthKey)
+> deleteResellerChild(childIdentifier)
 
-Deletes a single reseller child based on the childAuthKey supplied
+Delete a single reseller child based on the child identifier supplied
 
 ### Example
 ```java
@@ -352,9 +352,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or child id of reseller's child
 try {
-    apiInstance.deleteResellerChild(childAuthKey);
+    apiInstance.deleteResellerChild(childIdentifier);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#deleteResellerChild");
     e.printStackTrace();
@@ -365,7 +365,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or child id of reseller&#39;s child |
 
 ### Return type
 
@@ -382,7 +382,7 @@ null (empty response body)
 
 <a name="dissociateIpFromChild"></a>
 # **dissociateIpFromChild**
-> dissociateIpFromChild(childAuthKey, ip)
+> dissociateIpFromChild(childIdentifier, ip)
 
 Dissociate a dedicated IP to the child
 
@@ -410,10 +410,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 ManageIp ip = new ManageIp(); // ManageIp | IP to dissociate
 try {
-    apiInstance.dissociateIpFromChild(childAuthKey, ip);
+    apiInstance.dissociateIpFromChild(childIdentifier, ip);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#dissociateIpFromChild");
     e.printStackTrace();
@@ -424,7 +424,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **ip** | [**ManageIp**](ManageIp.md)| IP to dissociate |
 
 ### Return type
@@ -442,9 +442,9 @@ null (empty response body)
 
 <a name="getChildAccountCreationStatus"></a>
 # **getChildAccountCreationStatus**
-> GetChildAccountCreationStatus getChildAccountCreationStatus(childAuthKey)
+> GetChildAccountCreationStatus getChildAccountCreationStatus(childIdentifier)
 
-Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
 
 ### Example
 ```java
@@ -470,9 +470,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 try {
-    GetChildAccountCreationStatus result = apiInstance.getChildAccountCreationStatus(childAuthKey);
+    GetChildAccountCreationStatus result = apiInstance.getChildAccountCreationStatus(childIdentifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#getChildAccountCreationStatus");
@@ -484,7 +484,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
 
 ### Return type
 
@@ -501,9 +501,9 @@ Name | Type | Description  | Notes
 
 <a name="getChildDomains"></a>
 # **getChildDomains**
-> GetChildDomains getChildDomains(childAuthKey)
+> GetChildDomains getChildDomains(childIdentifier)
 
-Gets all the sender domains of a specific child account
+Get all sender domains for a specific child account
 
 ### Example
 ```java
@@ -529,9 +529,9 @@ partner-key.setApiKey("YOUR API KEY");
 //partner-key.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 try {
-    GetChildDomains result = apiInstance.getChildDomains(childAuthKey);
+    GetChildDomains result = apiInstance.getChildDomains(childIdentifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#getChildDomains");
@@ -543,7 +543,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
 
 ### Return type
 
@@ -560,9 +560,9 @@ Name | Type | Description  | Notes
 
 <a name="getChildInfo"></a>
 # **getChildInfo**
-> GetChildInfo getChildInfo(childAuthKey)
+> GetChildInfo getChildInfo(childIdentifier)
 
-Gets the info about a specific child account
+Get a child account&#39;s details
 
 ### Example
 ```java
@@ -588,9 +588,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 try {
-    GetChildInfo result = apiInstance.getChildInfo(childAuthKey);
+    GetChildInfo result = apiInstance.getChildInfo(childIdentifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#getChildInfo");
@@ -602,7 +602,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
 
 ### Return type
 
@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 # **getResellerChilds**
 > GetChildrenList getResellerChilds(limit, offset)
 
-Gets the list of all reseller&#39;s children accounts
+Get the list of all children accounts
 
 ### Example
 ```java
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 <a name="getSsoToken"></a>
 # **getSsoToken**
-> GetSsoToken getSsoToken(childAuthKey)
+> GetSsoToken getSsoToken(childIdentifier)
 
 Get session token to access Sendinblue (SSO)
 
@@ -710,9 +710,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 try {
-    GetSsoToken result = apiInstance.getSsoToken(childAuthKey);
+    GetSsoToken result = apiInstance.getSsoToken(childIdentifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#getSsoToken");
@@ -724,7 +724,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
 
 ### Return type
 
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 <a name="removeCredits"></a>
 # **removeCredits**
-> RemainingCreditModel removeCredits(childAuthKey, removeCredits)
+> RemainingCreditModel removeCredits(childIdentifier, removeCredits)
 
 Remove Email and/or SMS credits from a specific child account
 
@@ -769,10 +769,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 RemoveCredits removeCredits = new RemoveCredits(); // RemoveCredits | Values to post to remove email or SMS credits from a specific child account
 try {
-    RemainingCreditModel result = apiInstance.removeCredits(childAuthKey, removeCredits);
+    RemainingCreditModel result = apiInstance.removeCredits(childIdentifier, removeCredits);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#removeCredits");
@@ -784,7 +784,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **removeCredits** | [**RemoveCredits**](RemoveCredits.md)| Values to post to remove email or SMS credits from a specific child account |
 
 ### Return type
@@ -802,9 +802,9 @@ Name | Type | Description  | Notes
 
 <a name="updateChildAccountStatus"></a>
 # **updateChildAccountStatus**
-> updateChildAccountStatus(childAuthKey, updateChildAccountStatus)
+> updateChildAccountStatus(childIdentifier, updateChildAccountStatus)
 
-Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+Update info of reseller&#39;s child account status based on the childIdentifier supplied
 
 ### Example
 ```java
@@ -830,10 +830,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 UpdateChildAccountStatus updateChildAccountStatus = new UpdateChildAccountStatus(); // UpdateChildAccountStatus | values to update in child account status
 try {
-    apiInstance.updateChildAccountStatus(childAuthKey, updateChildAccountStatus);
+    apiInstance.updateChildAccountStatus(childIdentifier, updateChildAccountStatus);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#updateChildAccountStatus");
     e.printStackTrace();
@@ -844,7 +844,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **updateChildAccountStatus** | [**UpdateChildAccountStatus**](UpdateChildAccountStatus.md)| values to update in child account status |
 
 ### Return type
@@ -862,9 +862,9 @@ null (empty response body)
 
 <a name="updateChildDomain"></a>
 # **updateChildDomain**
-> updateChildDomain(childAuthKey, domainName, updateChildDomain)
+> updateChildDomain(childIdentifier, domainName, updateChildDomain)
 
-Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
 
 ### Example
 ```java
@@ -890,11 +890,11 @@ partner-key.setApiKey("YOUR API KEY");
 //partner-key.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 String domainName = "domainName_example"; // String | Pass the existing domain that needs to be updated
 UpdateChildDomain updateChildDomain = new UpdateChildDomain(); // UpdateChildDomain | value to update for sender domain
 try {
-    apiInstance.updateChildDomain(childAuthKey, domainName, updateChildDomain);
+    apiInstance.updateChildDomain(childIdentifier, domainName, updateChildDomain);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#updateChildDomain");
     e.printStackTrace();
@@ -905,7 +905,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **domainName** | **String**| Pass the existing domain that needs to be updated |
  **updateChildDomain** | [**UpdateChildDomain**](UpdateChildDomain.md)| value to update for sender domain |
 
@@ -924,9 +924,9 @@ null (empty response body)
 
 <a name="updateResellerChild"></a>
 # **updateResellerChild**
-> updateResellerChild(childAuthKey, resellerChild)
+> updateResellerChild(childIdentifier, resellerChild)
 
-Updates infos of reseller&#39;s child based on the childAuthKey supplied
+Update info of reseller&#39;s child based on the child identifier supplied
 
 ### Example
 ```java
@@ -952,10 +952,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
-String childAuthKey = "childAuthKey_example"; // String | auth key of reseller's child
+String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
 UpdateChild resellerChild = new UpdateChild(); // UpdateChild | values to update in child profile
 try {
-    apiInstance.updateResellerChild(childAuthKey, resellerChild);
+    apiInstance.updateResellerChild(childIdentifier, resellerChild);
 } catch (ApiException e) {
     System.err.println("Exception when calling ResellerApi#updateResellerChild");
     e.printStackTrace();
@@ -966,7 +966,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **childAuthKey** | **String**| auth key of reseller&#39;s child |
+ **childIdentifier** | **String**| Either auth key or id of reseller&#39;s child |
  **resellerChild** | [**UpdateChild**](UpdateChild.md)| values to update in child profile |
 
 ### Return type

@@ -6,16 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createEmailCampaign**](EmailCampaignsApi.md#createEmailCampaign) | **POST** /emailCampaigns | Create an email campaign
 [**deleteEmailCampaign**](EmailCampaignsApi.md#deleteEmailCampaign) | **DELETE** /emailCampaigns/{campaignId} | Delete an email campaign
-[**emailExportRecipients**](EmailCampaignsApi.md#emailExportRecipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of a campaign
-[**getAbTestCampaignResult**](EmailCampaignsApi.md#getAbTestCampaignResult) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get A/B test email campaign result
-[**getEmailCampaign**](EmailCampaignsApi.md#getEmailCampaign) | **GET** /emailCampaigns/{campaignId} | Get campaign informations
-[**getEmailCampaigns**](EmailCampaignsApi.md#getEmailCampaigns) | **GET** /emailCampaigns | Return all your created campaigns
+[**emailExportRecipients**](EmailCampaignsApi.md#emailExportRecipients) | **POST** /emailCampaigns/{campaignId}/exportRecipients | Export the recipients of an email campaign
+[**getAbTestCampaignResult**](EmailCampaignsApi.md#getAbTestCampaignResult) | **GET** /emailCampaigns/{campaignId}/abTestCampaignResult | Get an A/B test email campaign results
+[**getEmailCampaign**](EmailCampaignsApi.md#getEmailCampaign) | **GET** /emailCampaigns/{campaignId} | Get an email campaign report
+[**getEmailCampaigns**](EmailCampaignsApi.md#getEmailCampaigns) | **GET** /emailCampaigns | Return all your created email campaigns
 [**getSharedTemplateUrl**](EmailCampaignsApi.md#getSharedTemplateUrl) | **GET** /emailCampaigns/{campaignId}/sharedUrl | Get a shared template url
 [**sendEmailCampaignNow**](EmailCampaignsApi.md#sendEmailCampaignNow) | **POST** /emailCampaigns/{campaignId}/sendNow | Send an email campaign immediately, based on campaignId
-[**sendReport**](EmailCampaignsApi.md#sendReport) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaigns
+[**sendReport**](EmailCampaignsApi.md#sendReport) | **POST** /emailCampaigns/{campaignId}/sendReport | Send the report of a campaign
 [**sendTestEmail**](EmailCampaignsApi.md#sendTestEmail) | **POST** /emailCampaigns/{campaignId}/sendTest | Send an email campaign to your test list
-[**updateCampaignStatus**](EmailCampaignsApi.md#updateCampaignStatus) | **PUT** /emailCampaigns/{campaignId}/status | Update a campaign status
-[**updateEmailCampaign**](EmailCampaignsApi.md#updateEmailCampaign) | **PUT** /emailCampaigns/{campaignId} | Update a campaign
+[**updateCampaignStatus**](EmailCampaignsApi.md#updateCampaignStatus) | **PUT** /emailCampaigns/{campaignId}/status | Update an email campaign status
+[**updateEmailCampaign**](EmailCampaignsApi.md#updateEmailCampaign) | **PUT** /emailCampaigns/{campaignId} | Update an email campaign
+[**uploadImageToGallery**](EmailCampaignsApi.md#uploadImageToGallery) | **POST** /emailCampaigns/images | Upload an image to your account&#39;s image gallery
 
 
 <a name="createEmailCampaign"></a>
@@ -139,7 +140,7 @@ null (empty response body)
 # **emailExportRecipients**
 > CreatedProcessId emailExportRecipients(campaignId, recipientExport)
 
-Export the recipients of a campaign
+Export the recipients of an email campaign
 
 ### Example
 ```java
@@ -200,7 +201,7 @@ Name | Type | Description  | Notes
 # **getAbTestCampaignResult**
 > AbTestCampaignResult getAbTestCampaignResult(campaignId)
 
-Get A/B test email campaign result
+Get an A/B test email campaign results
 
 Obtain winning version of an A/B test email campaign
 
@@ -261,7 +262,7 @@ Name | Type | Description  | Notes
 # **getEmailCampaign**
 > GetEmailCampaign getEmailCampaign(campaignId)
 
-Get campaign informations
+Get an email campaign report
 
 ### Example
 ```java
@@ -320,7 +321,7 @@ Name | Type | Description  | Notes
 # **getEmailCampaigns**
 > GetEmailCampaigns getEmailCampaigns(type, status, startDate, endDate, limit, offset)
 
-Return all your created campaigns
+Return all your created email campaigns
 
 ### Example
 ```java
@@ -348,8 +349,8 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 EmailCampaignsApi apiInstance = new EmailCampaignsApi();
 String type = "type_example"; // String | Filter on the type of the campaigns
 String status = "status_example"; // String | Filter on the status of the campaign
-OffsetDateTime startDate = new DateTime(); // DateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
-OffsetDateTime endDate = new DateTime(); // DateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document in the page
 try {
@@ -508,7 +509,7 @@ null (empty response body)
 # **sendReport**
 > sendReport(campaignId, sendReport)
 
-Send the report of a campaigns
+Send the report of a campaign
 
 A PDF will be sent to the specified email addresses
 
@@ -630,7 +631,7 @@ null (empty response body)
 # **updateCampaignStatus**
 > updateCampaignStatus(campaignId, status)
 
-Update a campaign status
+Update an email campaign status
 
 ### Example
 ```java
@@ -690,7 +691,7 @@ null (empty response body)
 # **updateEmailCampaign**
 > updateEmailCampaign(campaignId, emailCampaign)
 
-Update a campaign
+Update an email campaign
 
 ### Example
 ```java
@@ -732,6 +733,64 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Long**| Id of the campaign |
  **emailCampaign** | [**UpdateEmailCampaign**](UpdateEmailCampaign.md)| Values to update a campaign |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="uploadImageToGallery"></a>
+# **uploadImageToGallery**
+> uploadImageToGallery(uploadImage)
+
+Upload an image to your account&#39;s image gallery
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.EmailCampaignsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+EmailCampaignsApi apiInstance = new EmailCampaignsApi();
+UploadImageToGallery uploadImage = new UploadImageToGallery(); // UploadImageToGallery | Parameters to upload an image
+try {
+    apiInstance.uploadImageToGallery(uploadImage);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EmailCampaignsApi#uploadImageToGallery");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uploadImage** | [**UploadImageToGallery**](UploadImageToGallery.md)| Parameters to upload an image |
 
 ### Return type
 
