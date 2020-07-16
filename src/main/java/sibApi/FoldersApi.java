@@ -365,7 +365,7 @@ public class FoldersApi {
     }
 
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      * 
      * @param folderId id of the folder (required)
      * @return GetFolder
@@ -377,7 +377,7 @@ public class FoldersApi {
     }
 
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      * 
      * @param folderId id of the folder (required)
      * @return ApiResponse&lt;GetFolder&gt;
@@ -390,7 +390,7 @@ public class FoldersApi {
     }
 
     /**
-     * Returns folder details (asynchronously)
+     * Returns a folder&#39;s details (asynchronously)
      * 
      * @param folderId id of the folder (required)
      * @param callback The callback to be executed when the API call finishes
@@ -494,7 +494,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -508,7 +508,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -523,7 +523,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get the lists in a folder (asynchronously)
+     * Get lists in a folder (asynchronously)
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -632,7 +632,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get all the folders
+     * Get all folders
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -645,7 +645,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get all the folders
+     * Get all folders
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -659,7 +659,7 @@ public class FoldersApi {
     }
 
     /**
-     * Get all the folders (asynchronously)
+     * Get all folders (asynchronously)
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -764,7 +764,7 @@ public class FoldersApi {
     }
 
     /**
-     * Update a contact folder
+     * Update a folder
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)
@@ -775,7 +775,7 @@ public class FoldersApi {
     }
 
     /**
-     * Update a contact folder
+     * Update a folder
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)
@@ -788,7 +788,7 @@ public class FoldersApi {
     }
 
     /**
-     * Update a contact folder (asynchronously)
+     * Update a folder (asynchronously)
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)

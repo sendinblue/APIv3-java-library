@@ -137,7 +137,7 @@ public class SmtpApi {
     }
 
     /**
-     * Create a transactional email template
+     * Create an email template
      * 
      * @param smtpTemplate values to update in transactional email template (required)
      * @return CreateModel
@@ -149,7 +149,7 @@ public class SmtpApi {
     }
 
     /**
-     * Create a transactional email template
+     * Create an email template
      * 
      * @param smtpTemplate values to update in transactional email template (required)
      * @return ApiResponse&lt;CreateModel&gt;
@@ -162,7 +162,7 @@ public class SmtpApi {
     }
 
     /**
-     * Create a transactional email template (asynchronously)
+     * Create an email template (asynchronously)
      * 
      * @param smtpTemplate values to update in transactional email template (required)
      * @param callback The callback to be executed when the API call finishes
@@ -373,7 +373,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive transactional email template
+     * Delete an inactive email template
      * 
      * @param templateId id of the template (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -383,7 +383,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive transactional email template
+     * Delete an inactive email template
      * 
      * @param templateId id of the template (required)
      * @return ApiResponse&lt;Void&gt;
@@ -395,7 +395,7 @@ public class SmtpApi {
     }
 
     /**
-     * Delete an inactive transactional email template (asynchronously)
+     * Delete an inactive email template (asynchronously)
      * 
      * @param templateId id of the template (required)
      * @param callback The callback to be executed when the API call finishes
@@ -951,7 +951,7 @@ public class SmtpApi {
     }
 
     /**
-     * Returns the template informations
+     * Returns the template information
      * 
      * @param templateId id of the template (required)
      * @return GetSmtpTemplateOverview
@@ -963,7 +963,7 @@ public class SmtpApi {
     }
 
     /**
-     * Returns the template informations
+     * Returns the template information
      * 
      * @param templateId id of the template (required)
      * @return ApiResponse&lt;GetSmtpTemplateOverview&gt;
@@ -976,7 +976,7 @@ public class SmtpApi {
     }
 
     /**
-     * Returns the template informations (asynchronously)
+     * Returns the template information (asynchronously)
      * 
      * @param templateId id of the template (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1076,7 +1076,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of transactional email templates
+     * Get the list of email templates
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1090,7 +1090,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of transactional email templates
+     * Get the list of email templates
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1105,7 +1105,7 @@ public class SmtpApi {
     }
 
     /**
-     * Get the list of transactional email templates (asynchronously)
+     * Get the list of email templates (asynchronously)
      * 
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
@@ -1418,7 +1418,7 @@ public class SmtpApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1470,7 +1470,7 @@ public class SmtpApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, progressListener, progressRequestListener);
@@ -1489,7 +1489,7 @@ public class SmtpApi {
      * @return GetTransacEmailsList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, String startDate, LocalDate endDate) throws ApiException {
+    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate) throws ApiException {
         ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate);
         return resp.getData();
     }
@@ -1505,7 +1505,7 @@ public class SmtpApi {
      * @return ApiResponse&lt;GetTransacEmailsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, String startDate, LocalDate endDate) throws ApiException {
+    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate) throws ApiException {
         com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1523,7 +1523,7 @@ public class SmtpApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, String startDate, LocalDate endDate, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2249,7 +2249,7 @@ public class SmtpApi {
     }
 
     /**
-     * Updates a transactional email templates
+     * Update an email template
      * 
      * @param templateId id of the template (required)
      * @param smtpTemplate values to update in transactional email template (required)
@@ -2260,7 +2260,7 @@ public class SmtpApi {
     }
 
     /**
-     * Updates a transactional email templates
+     * Update an email template
      * 
      * @param templateId id of the template (required)
      * @param smtpTemplate values to update in transactional email template (required)
@@ -2273,7 +2273,7 @@ public class SmtpApi {
     }
 
     /**
-     * Updates a transactional email templates (asynchronously)
+     * Update an email template (asynchronously)
      * 
      * @param templateId id of the template (required)
      * @param smtpTemplate values to update in transactional email template (required)

@@ -30,6 +30,7 @@ import java.io.IOException;
 import sibModel.AddContactToList;
 import sibModel.CreateAttribute;
 import sibModel.CreateContact;
+import sibModel.CreateDoiContact;
 import sibModel.CreateList;
 import sibModel.CreateModel;
 import sibModel.CreateUpdateContactModel;
@@ -45,6 +46,7 @@ import sibModel.GetFolder;
 import sibModel.GetFolderLists;
 import sibModel.GetFolders;
 import sibModel.GetLists;
+import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
 import sibModel.RemoveContactFromList;
@@ -289,7 +291,7 @@ public class ContactsApi {
     }
 
     /**
-     * Creates contact attribute
+     * Create contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -301,7 +303,7 @@ public class ContactsApi {
     }
 
     /**
-     * Creates contact attribute
+     * Create contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -315,7 +317,7 @@ public class ContactsApi {
     }
 
     /**
-     * Creates contact attribute (asynchronously)
+     * Create contact attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -469,6 +471,124 @@ public class ContactsApi {
         com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContact, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateUpdateContactModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createDoiContact
+     * @param createDoiContact Values to create the Double opt-in (DOI) contact (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call createDoiContactCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = createDoiContact;
+
+        // create path and map variables
+        String localVarPath = "/contacts/doubleOptinConfirmation";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createDoiContactValidateBeforeCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'createDoiContact' is set
+        if (createDoiContact == null) {
+            throw new ApiException("Missing the required parameter 'createDoiContact' when calling createDoiContact(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = createDoiContactCall(createDoiContact, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create Contact via DOI (Double-Opt-In) Flow
+     * 
+     * @param createDoiContact Values to create the Double opt-in (DOI) contact (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void createDoiContact(CreateDoiContact createDoiContact) throws ApiException {
+        createDoiContactWithHttpInfo(createDoiContact);
+    }
+
+    /**
+     * Create Contact via DOI (Double-Opt-In) Flow
+     * 
+     * @param createDoiContact Values to create the Double opt-in (DOI) contact (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> createDoiContactWithHttpInfo(CreateDoiContact createDoiContact) throws ApiException {
+        com.squareup.okhttp.Call call = createDoiContactValidateBeforeCall(createDoiContact, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Create Contact via DOI (Double-Opt-In) Flow (asynchronously)
+     * 
+     * @param createDoiContact Values to create the Double opt-in (DOI) contact (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createDoiContactAsync(CreateDoiContact createDoiContact, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createDoiContactValidateBeforeCall(createDoiContact, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -787,7 +907,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes an attribute
+     * Delete an attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -798,7 +918,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes an attribute
+     * Delete an attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -811,7 +931,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes an attribute (asynchronously)
+     * Delete an attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -909,7 +1029,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes a contact
+     * Delete a contact
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -919,7 +1039,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes a contact
+     * Delete a contact
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @return ApiResponse&lt;Void&gt;
@@ -931,7 +1051,7 @@ public class ContactsApi {
     }
 
     /**
-     * Deletes a contact (asynchronously)
+     * Delete a contact (asynchronously)
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1259,7 +1379,7 @@ public class ContactsApi {
     }
 
     /**
-     * Lists all attributes
+     * List all attributes
      * 
      * @return GetAttributes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1270,7 +1390,7 @@ public class ContactsApi {
     }
 
     /**
-     * Lists all attributes
+     * List all attributes
      * 
      * @return ApiResponse&lt;GetAttributes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1282,7 +1402,7 @@ public class ContactsApi {
     }
 
     /**
-     * Lists all attributes (asynchronously)
+     * List all attributes (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1379,7 +1499,7 @@ public class ContactsApi {
     }
 
     /**
-     * Retrieves contact informations
+     * Get a contact&#39;s details
      * 
      * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @return GetExtendedContactDetails
@@ -1391,7 +1511,7 @@ public class ContactsApi {
     }
 
     /**
-     * Retrieves contact informations
+     * Get a contact&#39;s details
      * 
      * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @return ApiResponse&lt;GetExtendedContactDetails&gt;
@@ -1404,7 +1524,7 @@ public class ContactsApi {
     }
 
     /**
-     * Retrieves contact informations (asynchronously)
+     * Get a contact&#39;s details (asynchronously)
      * 
      * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1440,12 +1560,14 @@ public class ContactsApi {
     /**
      * Build call for getContactStats
      * @param email Email address (urlencoded) of the contact (required)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsCall(String email, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1454,6 +1576,10 @@ public class ContactsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1488,7 +1614,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String email, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'email' is set
         if (email == null) {
@@ -1496,45 +1622,51 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactStatsCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactStatsCall(email, startDate, endDate, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Get the campaigns statistics for a contact
+     * Get email campaigns&#39; statistics for a contact
      * 
      * @param email Email address (urlencoded) of the contact (required)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @return GetContactCampaignStats
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContactCampaignStats getContactStats(String email) throws ApiException {
-        ApiResponse<GetContactCampaignStats> resp = getContactStatsWithHttpInfo(email);
+    public GetContactCampaignStats getContactStats(String email, LocalDate startDate, LocalDate endDate) throws ApiException {
+        ApiResponse<GetContactCampaignStats> resp = getContactStatsWithHttpInfo(email, startDate, endDate);
         return resp.getData();
     }
 
     /**
-     * Get the campaigns statistics for a contact
+     * Get email campaigns&#39; statistics for a contact
      * 
      * @param email Email address (urlencoded) of the contact (required)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @return ApiResponse&lt;GetContactCampaignStats&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String email) throws ApiException {
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, null, null);
+    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String email, LocalDate startDate, LocalDate endDate) throws ApiException {
+        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Get the campaigns statistics for a contact (asynchronously)
+     * Get email campaigns&#39; statistics for a contact (asynchronously)
      * 
      * @param email Email address (urlencoded) of the contact (required)
+     * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsAsync(String email, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsAsync(String email, LocalDate startDate, LocalDate endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1555,7 +1687,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, startDate, endDate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1765,7 +1897,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -1780,7 +1912,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -1796,7 +1928,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the contacts in a list (asynchronously)
+     * Get contacts in a list (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -1897,7 +2029,7 @@ public class ContactsApi {
     }
 
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      * 
      * @param folderId id of the folder (required)
      * @return GetFolder
@@ -1909,7 +2041,7 @@ public class ContactsApi {
     }
 
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      * 
      * @param folderId id of the folder (required)
      * @return ApiResponse&lt;GetFolder&gt;
@@ -1922,7 +2054,7 @@ public class ContactsApi {
     }
 
     /**
-     * Returns folder details (asynchronously)
+     * Returns a folder&#39;s details (asynchronously)
      * 
      * @param folderId id of the folder (required)
      * @param callback The callback to be executed when the API call finishes
@@ -2026,7 +2158,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -2040,7 +2172,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -2055,7 +2187,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the lists in a folder (asynchronously)
+     * Get lists in a folder (asynchronously)
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -2164,7 +2296,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get all the folders
+     * Get all folders
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -2177,7 +2309,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get all the folders
+     * Get all folders
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -2191,7 +2323,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get all the folders (asynchronously)
+     * Get all folders (asynchronously)
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
@@ -2290,7 +2422,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      * 
      * @param listId Id of the list (required)
      * @return GetExtendedList
@@ -2302,7 +2434,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      * 
      * @param listId Id of the list (required)
      * @return ApiResponse&lt;GetExtendedList&gt;
@@ -2315,7 +2447,7 @@ public class ContactsApi {
     }
 
     /**
-     * Get the details of a list (asynchronously)
+     * Get a list&#39;s details (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param callback The callback to be executed when the API call finishes
@@ -2666,7 +2798,7 @@ public class ContactsApi {
     }
 
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
@@ -2679,7 +2811,7 @@ public class ContactsApi {
     }
 
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
@@ -2693,7 +2825,7 @@ public class ContactsApi {
     }
 
     /**
-     * Remove existing contacts from a list (asynchronously)
+     * Delete a contact from a list (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
@@ -2927,7 +3059,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates contact attribute
+     * Update contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -2939,7 +3071,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates contact attribute
+     * Update contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -2953,7 +3085,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates contact attribute (asynchronously)
+     * Update contact attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -3058,7 +3190,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates a contact
+     * Update a contact
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @param updateContact Values to update a contact (required)
@@ -3069,7 +3201,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates a contact
+     * Update a contact
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @param updateContact Values to update a contact (required)
@@ -3082,7 +3214,7 @@ public class ContactsApi {
     }
 
     /**
-     * Updates a contact (asynchronously)
+     * Update a contact (asynchronously)
      * 
      * @param email Email (urlencoded) of the contact (required)
      * @param updateContact Values to update a contact (required)
@@ -3186,7 +3318,7 @@ public class ContactsApi {
     }
 
     /**
-     * Update a contact folder
+     * Update a folder
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)
@@ -3197,7 +3329,7 @@ public class ContactsApi {
     }
 
     /**
-     * Update a contact folder
+     * Update a folder
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)
@@ -3210,7 +3342,7 @@ public class ContactsApi {
     }
 
     /**
-     * Update a contact folder (asynchronously)
+     * Update a folder (asynchronously)
      * 
      * @param folderId Id of the folder (required)
      * @param updateFolder Name of the folder (required)

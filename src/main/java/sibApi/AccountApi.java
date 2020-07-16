@@ -112,7 +112,7 @@ public class AccountApi {
     }
 
     /**
-     * Get your account informations, plans and credits details
+     * Get your account information, plan and credits details
      * 
      * @return GetAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -123,7 +123,7 @@ public class AccountApi {
     }
 
     /**
-     * Get your account informations, plans and credits details
+     * Get your account information, plan and credits details
      * 
      * @return ApiResponse&lt;GetAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,7 +135,7 @@ public class AccountApi {
     }
 
     /**
-     * Get your account informations, plans and credits details (asynchronously)
+     * Get your account information, plan and credits details (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
