@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UpdateChildAccountStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class UpdateChildAccountStatus {
   @SerializedName("transactionalEmail")
   private Boolean transactionalEmail = null;
@@ -36,6 +36,9 @@ public class UpdateChildAccountStatus {
 
   @SerializedName("marketingAutomation")
   private Boolean marketingAutomation = null;
+
+  @SerializedName("smsCampaign")
+  private Boolean smsCampaign = null;
 
   public UpdateChildAccountStatus transactionalEmail(Boolean transactionalEmail) {
     this.transactionalEmail = transactionalEmail;
@@ -91,6 +94,24 @@ public class UpdateChildAccountStatus {
     this.marketingAutomation = marketingAutomation;
   }
 
+  public UpdateChildAccountStatus smsCampaign(Boolean smsCampaign) {
+    this.smsCampaign = smsCampaign;
+    return this;
+  }
+
+   /**
+   * Status of SMS Campaign Platform activation for your account (true&#x3D;enabled, false&#x3D;disabled)
+   * @return smsCampaign
+  **/
+  @ApiModelProperty(example = "true", value = "Status of SMS Campaign Platform activation for your account (true=enabled, false=disabled)")
+  public Boolean isSmsCampaign() {
+    return smsCampaign;
+  }
+
+  public void setSmsCampaign(Boolean smsCampaign) {
+    this.smsCampaign = smsCampaign;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,12 +124,13 @@ public class UpdateChildAccountStatus {
     UpdateChildAccountStatus updateChildAccountStatus = (UpdateChildAccountStatus) o;
     return ObjectUtils.equals(this.transactionalEmail, updateChildAccountStatus.transactionalEmail) &&
     ObjectUtils.equals(this.transactionalSms, updateChildAccountStatus.transactionalSms) &&
-    ObjectUtils.equals(this.marketingAutomation, updateChildAccountStatus.marketingAutomation);
+    ObjectUtils.equals(this.marketingAutomation, updateChildAccountStatus.marketingAutomation) &&
+    ObjectUtils.equals(this.smsCampaign, updateChildAccountStatus.smsCampaign);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(transactionalEmail, transactionalSms, marketingAutomation);
+    return ObjectUtils.hashCodeMulti(transactionalEmail, transactionalSms, marketingAutomation, smsCampaign);
   }
 
 
@@ -120,6 +142,7 @@ public class UpdateChildAccountStatus {
     sb.append("    transactionalEmail: ").append(toIndentedString(transactionalEmail)).append("\n");
     sb.append("    transactionalSms: ").append(toIndentedString(transactionalSms)).append("\n");
     sb.append("    marketingAutomation: ").append(toIndentedString(marketingAutomation)).append("\n");
+    sb.append("    smsCampaign: ").append(toIndentedString(smsCampaign)).append("\n");
     sb.append("}");
     return sb.toString();
   }

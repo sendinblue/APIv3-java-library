@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * CreateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class CreateContact {
   @SerializedName("email")
   private String email = null;
@@ -57,10 +57,10 @@ public class CreateContact {
   }
 
    /**
-   * Email address of the user. Mandatory if &#39;SMS&#39; field is not passed in &#39;attributes&#39; parameter. Mobile Number in &#39;SMS&#39; field should be passed with proper country code. For example {&quot;SMS&quot;:&quot;+91xxxxxxxxxx&quot;} or {&quot;SMS&quot;:&quot;0091xxxxxxxxxx&quot;}
+   * Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
    * @return email
   **/
-  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in \"SMS\" field should be passed with proper country code. For example {'SMS':'+91xxxxxxxxxx'} or {'SMS':'0091xxxxxxxxxx'}")
+  @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}")
   public String getEmail() {
     return email;
   }
@@ -75,10 +75,10 @@ public class CreateContact {
   }
 
    /**
-   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {&quot;FNAME&quot;:&quot;Elly&quot;, &quot;LNAME&quot;:&quot;Roger&quot;}
+   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {\&quot;FNAME\&quot;:\&quot;Elly\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}
    * @return attributes
   **/
-  @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {'FNAME':'Elly', 'LNAME':'Roger'}")
+  @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {\"FNAME\":\"Elly\", \"LNAME\":\"Roger\"}")
   public Object getAttributes() {
     return attributes;
   }

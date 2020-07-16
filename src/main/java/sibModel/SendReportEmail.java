@@ -29,7 +29,7 @@ import java.util.List;
  * Email sending credentials including subject, body, to, cc etc.
  */
 @ApiModel(description = "Email sending credentials including subject, body, to, cc etc.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class SendReportEmail {
   @SerializedName("subject")
   private String subject = null;

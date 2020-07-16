@@ -28,7 +28,7 @@ import sibModel.GetSmtpTemplateOverviewSender;
 /**
  * GetSmtpTemplateOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetSmtpTemplateOverview {
   @SerializedName("id")
   private Long id = null;
@@ -65,6 +65,9 @@ public class GetSmtpTemplateOverview {
 
   @SerializedName("modifiedAt")
   private OffsetDateTime modifiedAt = null;
+
+  @SerializedName("doiTemplate")
+  private Boolean doiTemplate = null;
 
   public GetSmtpTemplateOverview id(Long id) {
     this.id = id;
@@ -282,6 +285,24 @@ public class GetSmtpTemplateOverview {
     this.modifiedAt = modifiedAt;
   }
 
+  public GetSmtpTemplateOverview doiTemplate(Boolean doiTemplate) {
+    this.doiTemplate = doiTemplate;
+    return this;
+  }
+
+   /**
+   * It is true if template is a valid Double opt-in (DOI) template, otherwise it is false. This field will be available only in case of single template detail call.
+   * @return doiTemplate
+  **/
+  @ApiModelProperty(example = "false", value = "It is true if template is a valid Double opt-in (DOI) template, otherwise it is false. This field will be available only in case of single template detail call.")
+  public Boolean isDoiTemplate() {
+    return doiTemplate;
+  }
+
+  public void setDoiTemplate(Boolean doiTemplate) {
+    this.doiTemplate = doiTemplate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -303,12 +324,13 @@ public class GetSmtpTemplateOverview {
     ObjectUtils.equals(this.tag, getSmtpTemplateOverview.tag) &&
     ObjectUtils.equals(this.htmlContent, getSmtpTemplateOverview.htmlContent) &&
     ObjectUtils.equals(this.createdAt, getSmtpTemplateOverview.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getSmtpTemplateOverview.modifiedAt);
+    ObjectUtils.equals(this.modifiedAt, getSmtpTemplateOverview.modifiedAt) &&
+    ObjectUtils.equals(this.doiTemplate, getSmtpTemplateOverview.doiTemplate);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, isActive, testSent, sender, replyTo, toField, tag, htmlContent, createdAt, modifiedAt);
+    return ObjectUtils.hashCodeMulti(id, name, subject, isActive, testSent, sender, replyTo, toField, tag, htmlContent, createdAt, modifiedAt, doiTemplate);
   }
 
 
@@ -329,6 +351,7 @@ public class GetSmtpTemplateOverview {
     sb.append("    htmlContent: ").append(toIndentedString(htmlContent)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    doiTemplate: ").append(toIndentedString(doiTemplate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

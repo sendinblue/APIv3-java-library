@@ -29,7 +29,7 @@ import sibModel.GetTransacBlockedContactsReason;
 /**
  * GetTransacBlockedContactsContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetTransacBlockedContactsContacts {
   @SerializedName("email")
   private String email = null;

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * RemoveContactFromList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RemoveContactFromList {
   @SerializedName("emails")
   private List<String> emails = null;
@@ -50,10 +50,10 @@ public class RemoveContactFromList {
   }
 
    /**
-   * Required if &#39;all&#39; is false. Emails to remove from a list
+   * Required if &#39;all&#39; is false. Emails to remove from a list. You can pass a maximum of 150 emails for removal in one request.
    * @return emails
   **/
-  @ApiModelProperty(value = "Required if 'all' is false. Emails to remove from a list")
+  @ApiModelProperty(value = "Required if 'all' is false. Emails to remove from a list. You can pass a maximum of 150 emails for removal in one request.")
   public List<String> getEmails() {
     return emails;
   }
@@ -68,10 +68,10 @@ public class RemoveContactFromList {
   }
 
    /**
-   * Required if &#39;emails&#39; is empty. Remove all existing contacts from a list
+   * Required if &#39;emails&#39; is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
    * @return all
   **/
-  @ApiModelProperty(example = "false", value = "Required if 'emails' is empty. Remove all existing contacts from a list")
+  @ApiModelProperty(example = "false", value = "Required if 'emails' is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress")
   public Boolean isAll() {
     return all;
   }

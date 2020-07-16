@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * AddContactToList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class AddContactToList {
   @SerializedName("emails")
   private List<String> emails = null;
@@ -47,10 +47,10 @@ public class AddContactToList {
   }
 
    /**
-   * Emails to add to a list
+   * Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
    * @return emails
   **/
-  @ApiModelProperty(value = "Emails to add to a list")
+  @ApiModelProperty(value = "Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.")
   public List<String> getEmails() {
     return emails;
   }

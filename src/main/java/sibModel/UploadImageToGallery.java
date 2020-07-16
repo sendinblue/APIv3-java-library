@@ -22,70 +22,52 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import sibModel.GetChildInfoApiKeysV2;
-import sibModel.GetChildInfoApiKeysV3;
 
 /**
- * API Keys associated to child account
+ * UploadImageToGallery
  */
-@ApiModel(description = "API Keys associated to child account")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
-public class GetChildInfoApiKeys {
-  @SerializedName("v2")
-  private List<GetChildInfoApiKeysV2> v2 = new ArrayList<GetChildInfoApiKeysV2>();
+public class UploadImageToGallery {
+  @SerializedName("imageUrl")
+  private String imageUrl = null;
 
-  @SerializedName("v3")
-  private List<GetChildInfoApiKeysV3> v3 = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public GetChildInfoApiKeys v2(List<GetChildInfoApiKeysV2> v2) {
-    this.v2 = v2;
-    return this;
-  }
-
-  public GetChildInfoApiKeys addV2Item(GetChildInfoApiKeysV2 v2Item) {
-    this.v2.add(v2Item);
+  public UploadImageToGallery imageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
     return this;
   }
 
    /**
-   * Get v2
-   * @return v2
+   * The absolute url of the image (no local file). Maximum allowed size for image is 2MB. Allowed extensions for images are - jpeg, jpg, png, bmp, gif.
+   * @return imageUrl
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<GetChildInfoApiKeysV2> getV2() {
-    return v2;
+  @ApiModelProperty(example = "https://somedomain.com/image1.jpg", required = true, value = "The absolute url of the image (no local file). Maximum allowed size for image is 2MB. Allowed extensions for images are - jpeg, jpg, png, bmp, gif.")
+  public String getImageUrl() {
+    return imageUrl;
   }
 
-  public void setV2(List<GetChildInfoApiKeysV2> v2) {
-    this.v2 = v2;
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
 
-  public GetChildInfoApiKeys v3(List<GetChildInfoApiKeysV3> v3) {
-    this.v3 = v3;
-    return this;
-  }
-
-  public GetChildInfoApiKeys addV3Item(GetChildInfoApiKeysV3 v3Item) {
-    if (this.v3 == null) {
-      this.v3 = new ArrayList<GetChildInfoApiKeysV3>();
-    }
-    this.v3.add(v3Item);
+  public UploadImageToGallery name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get v3
-   * @return v3
+   * Name of the image.
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public List<GetChildInfoApiKeysV3> getV3() {
-    return v3;
+  @ApiModelProperty(example = "nature.jpg", value = "Name of the image.")
+  public String getName() {
+    return name;
   }
 
-  public void setV3(List<GetChildInfoApiKeysV3> v3) {
-    this.v3 = v3;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -97,24 +79,24 @@ public class GetChildInfoApiKeys {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    GetChildInfoApiKeys getChildInfoApiKeys = (GetChildInfoApiKeys) o;
-    return ObjectUtils.equals(this.v2, getChildInfoApiKeys.v2) &&
-    ObjectUtils.equals(this.v3, getChildInfoApiKeys.v3);
+    UploadImageToGallery uploadImageToGallery = (UploadImageToGallery) o;
+    return ObjectUtils.equals(this.imageUrl, uploadImageToGallery.imageUrl) &&
+    ObjectUtils.equals(this.name, uploadImageToGallery.name);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(v2, v3);
+    return ObjectUtils.hashCodeMulti(imageUrl, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetChildInfoApiKeys {\n");
+    sb.append("class UploadImageToGallery {\n");
     
-    sb.append("    v2: ").append(toIndentedString(v2)).append("\n");
-    sb.append("    v3: ").append(toIndentedString(v3)).append("\n");
+    sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

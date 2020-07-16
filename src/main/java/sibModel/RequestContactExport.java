@@ -29,7 +29,7 @@ import sibModel.RequestContactExportCustomContactFilter;
 /**
  * RequestContactExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RequestContactExport {
   @SerializedName("exportAttributes")
   private List<String> exportAttributes = null;
@@ -75,10 +75,10 @@ public class RequestContactExport {
   }
 
    /**
-   * This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {&#39;blacklisted&#39;:true} will export all the blacklisted contacts. 
+   * This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {\&quot;blacklisted\&quot;:true} will export all the blacklisted contacts. 
    * @return contactFilter
   **/
-  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", value = "This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {'blacklisted':true} will export all the blacklisted contacts. ")
+  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", value = "This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {\"blacklisted\":true} will export all the blacklisted contacts. ")
   public Object getContactFilter() {
     return contactFilter;
   }
@@ -111,10 +111,10 @@ public class RequestContactExport {
   }
 
    /**
-   * Webhook that will be called once the export process is finished
+   * Webhook that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
    * @return notifyUrl
   **/
-  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "Webhook that will be called once the export process is finished")
+  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "Webhook that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479")
   public String getNotifyUrl() {
     return notifyUrl;
   }

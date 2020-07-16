@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * CreateWebhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class CreateWebhook {
   @SerializedName("url")
   private String url = null;
@@ -41,6 +41,8 @@ public class CreateWebhook {
    */
   @JsonAdapter(EventsEnum.Adapter.class)
   public enum EventsEnum {
+    SENT("sent"),
+    
     HARDBOUNCE("hardBounce"),
     
     SOFTBOUNCE("softBounce"),
@@ -209,10 +211,10 @@ public class CreateWebhook {
   }
 
    /**
-   * Events triggering the webhook. Possible values for Transactional type webhook – request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition &amp; delivered
+   * Events triggering the webhook. Possible values for Transactional type webhook – sent, request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition &amp; delivered
    * @return events
   **/
-  @ApiModelProperty(required = true, value = "Events triggering the webhook. Possible values for Transactional type webhook – request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition & delivered")
+  @ApiModelProperty(required = true, value = "Events triggering the webhook. Possible values for Transactional type webhook – sent, request, delivered, hardBounce, softBounce, blocked, spam, invalid, deferred, click, opened, uniqueOpened and unsubscribed and possible values for Marketing type webhook – spam, opened, click, hardBounce, softBounce, unsubscribed, listAddition & delivered")
   public List<EventsEnum> getEvents() {
     return events;
   }

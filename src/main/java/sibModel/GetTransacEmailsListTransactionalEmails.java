@@ -22,12 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetTransacEmailsListTransactionalEmails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetTransacEmailsListTransactionalEmails {
   @SerializedName("email")
   private String email = null;
@@ -46,6 +48,12 @@ public class GetTransacEmailsListTransactionalEmails {
 
   @SerializedName("date")
   private OffsetDateTime date = null;
+
+  @SerializedName("from")
+  private String from = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
 
   public GetTransacEmailsListTransactionalEmails email(String email) {
     this.email = email;
@@ -155,6 +163,50 @@ public class GetTransacEmailsListTransactionalEmails {
     this.date = date;
   }
 
+  public GetTransacEmailsListTransactionalEmails from(String from) {
+    this.from = from;
+    return this;
+  }
+
+   /**
+   * Email address of the sender from which the email was sent
+   * @return from
+  **/
+  @ApiModelProperty(example = "diana.doe@example.com", value = "Email address of the sender from which the email was sent")
+  public String getFrom() {
+    return from;
+  }
+
+  public void setFrom(String from) {
+    this.from = from;
+  }
+
+  public GetTransacEmailsListTransactionalEmails tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public GetTransacEmailsListTransactionalEmails addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Tags used for your email
+   * @return tags
+  **/
+  @ApiModelProperty(value = "Tags used for your email")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +222,14 @@ public class GetTransacEmailsListTransactionalEmails {
     ObjectUtils.equals(this.templateId, getTransacEmailsListTransactionalEmails.templateId) &&
     ObjectUtils.equals(this.messageId, getTransacEmailsListTransactionalEmails.messageId) &&
     ObjectUtils.equals(this.uuid, getTransacEmailsListTransactionalEmails.uuid) &&
-    ObjectUtils.equals(this.date, getTransacEmailsListTransactionalEmails.date);
+    ObjectUtils.equals(this.date, getTransacEmailsListTransactionalEmails.date) &&
+    ObjectUtils.equals(this.from, getTransacEmailsListTransactionalEmails.from) &&
+    ObjectUtils.equals(this.tags, getTransacEmailsListTransactionalEmails.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, subject, templateId, messageId, uuid, date);
+    return ObjectUtils.hashCodeMulti(email, subject, templateId, messageId, uuid, date, from, tags);
   }
 
 
@@ -190,6 +244,8 @@ public class GetTransacEmailsListTransactionalEmails {
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetExtendedCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetExtendedCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -216,6 +216,9 @@ public class GetExtendedCampaignOverview {
 
   @SerializedName("sentDate")
   private OffsetDateTime sentDate = null;
+
+  @SerializedName("returnBounce")
+  private Long returnBounce = null;
 
   public GetExtendedCampaignOverview id(Long id) {
     this.id = id;
@@ -721,6 +724,24 @@ public class GetExtendedCampaignOverview {
     this.sentDate = sentDate;
   }
 
+  public GetExtendedCampaignOverview returnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+    return this;
+  }
+
+   /**
+   * Total number of non-delivered campaigns for a particular campaign id.
+   * @return returnBounce
+  **/
+  @ApiModelProperty(example = "5", value = "Total number of non-delivered campaigns for a particular campaign id.")
+  public Long getReturnBounce() {
+    return returnBounce;
+  }
+
+  public void setReturnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -758,12 +779,13 @@ public class GetExtendedCampaignOverview {
     ObjectUtils.equals(this.inlineImageActivation, getExtendedCampaignOverview.inlineImageActivation) &&
     ObjectUtils.equals(this.mirrorActive, getExtendedCampaignOverview.mirrorActive) &&
     ObjectUtils.equals(this.recurring, getExtendedCampaignOverview.recurring) &&
-    ObjectUtils.equals(this.sentDate, getExtendedCampaignOverview.sentDate);
+    ObjectUtils.equals(this.sentDate, getExtendedCampaignOverview.sentDate) &&
+    ObjectUtils.equals(this.returnBounce, getExtendedCampaignOverview.returnBounce);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, returnBounce);
   }
 
 
@@ -800,6 +822,7 @@ public class GetExtendedCampaignOverview {
     sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
+    sb.append("    returnBounce: ").append(toIndentedString(returnBounce)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,7 +27,7 @@ import java.io.IOException;
  * Credits remaining for child account
  */
 @ApiModel(description = "Credits remaining for child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RemainingCreditModelChild {
   @SerializedName("sms")
   private Double sms = null;
@@ -44,7 +44,7 @@ public class RemainingCreditModelChild {
    * SMS Credits remaining for child account
    * @return sms
   **/
-  @ApiModelProperty(example = "500", required = true, value = "SMS Credits remaining for child account")
+  @ApiModelProperty(example = "500.0", required = true, value = "SMS Credits remaining for child account")
   public Double getSms() {
     return sms;
   }
@@ -62,12 +62,12 @@ public class RemainingCreditModelChild {
    * Email Credits remaining for child account
    * @return email
   **/
-  @ApiModelProperty(example = "2000", required = true, value = "Email Credits remaining for child account")
+  @ApiModelProperty(example = "2000.0", required = true, value = "Email Credits remaining for child account")
   public Double getEmail() {
     return email;
   }
 
-  public void setEmail(Long Double) {
+  public void setEmail(Double email) {
     this.email = email;
   }
 

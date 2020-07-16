@@ -29,7 +29,7 @@ import sibModel.RequestContactImportNewList;
 /**
  * RequestContactImport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RequestContactImport {
   @SerializedName("fileUrl")
   private String fileUrl = null;
@@ -82,10 +82,10 @@ public class RequestContactImport {
   }
 
    /**
-   * Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes
+   * Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
    * @return fileBody
   **/
-  @ApiModelProperty(example = "NAME;SURNAME;EMAIL\\n\"Smith\";\"John\";\"john.smith@example.com\"\\n\"Roger\";\"Ellie\";\"ellie36@example.com", value = "Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes")
+  @ApiModelProperty(example = "NAME;SURNAME;EMAIL\\n\"Smith\";\"John\";\"john.smith@example.com\"\\n\"Roger\";\"Ellie\";\"ellie36@example.com", value = "Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.")
   public String getFileBody() {
     return fileBody;
   }
@@ -126,10 +126,10 @@ public class RequestContactImport {
   }
 
    /**
-   * URL that will be called once the export process is finished
+   * URL that will be called once the import process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
    * @return notifyUrl
   **/
-  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "URL that will be called once the export process is finished")
+  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "URL that will be called once the import process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479")
   public String getNotifyUrl() {
     return notifyUrl;
   }
