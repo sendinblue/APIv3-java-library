@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Mandatory if &#39;templateId&#39; is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {&#39;name&#39;:&#39;Mary from MyShop&#39;, &#39;email&#39;:&#39;no-reply@myshop.com&#39;}
+ * Mandatory if &#39;templateId&#39; is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {\&quot;name\&quot;:\&quot;Mary from MyShop\&quot;, \&quot;email\&quot;:\&quot;no-reply@myshop.com\&quot;}
  */
-@ApiModel(description = "Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {'name':'Mary from MyShop', 'email':'no-reply@myshop.com'}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@ApiModel(description = "Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"}")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class SendSmtpEmailSender {
   @SerializedName("name")
   private String name = null;

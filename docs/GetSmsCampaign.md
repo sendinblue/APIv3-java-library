@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the SMS Campaign | 
 **status** | [**StatusEnum**](#StatusEnum) | Status of the SMS Campaign | 
 **content** | **String** | Content of the SMS Campaign | 
-**scheduledAt** | [**OffsetDateTime**]| UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format | 
+**scheduledAt** | [**OffsetDateTime**] | UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format | 
 **sender** | **String** | Sender of the SMS Campaign | 
 **createdAt** | [**OffsetDateTime**] | Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **modifiedAt** | [**OffsetDateTime**] | UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ) | 

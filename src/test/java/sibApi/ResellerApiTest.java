@@ -57,9 +57,9 @@ public class ResellerApiTest {
      */
     @Test
     public void addCreditsTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         AddCredits addCredits = null;
-        RemainingCreditModel response = api.addCredits(childAuthKey, addCredits);
+        RemainingCreditModel response = api.addCredits(childIdentifier, addCredits);
 
         // TODO: test validations
     }
@@ -74,15 +74,15 @@ public class ResellerApiTest {
      */
     @Test
     public void associateIpToChildTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         ManageIp ip = null;
-        api.associateIpToChild(childAuthKey, ip);
+        api.associateIpToChild(childIdentifier, ip);
 
         // TODO: test validations
     }
     
     /**
-     * Creates a domain for a child account
+     * Create a domain for a child account
      *
      * 
      *
@@ -91,9 +91,9 @@ public class ResellerApiTest {
      */
     @Test
     public void createChildDomainTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         AddChildDomain addChildDomain = null;
-        api.createChildDomain(childAuthKey, addChildDomain);
+        api.createChildDomain(childIdentifier, addChildDomain);
 
         // TODO: test validations
     }
@@ -115,7 +115,7 @@ public class ResellerApiTest {
     }
     
     /**
-     * Deletes the sender domain of the reseller child based on the childAuthKey and domainName passed
+     * Delete the sender domain of the reseller child based on the childIdentifier and domainName passed
      *
      * 
      *
@@ -124,15 +124,15 @@ public class ResellerApiTest {
      */
     @Test
     public void deleteChildDomainTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         String domainName = null;
-        api.deleteChildDomain(childAuthKey, domainName);
+        api.deleteChildDomain(childIdentifier, domainName);
 
         // TODO: test validations
     }
     
     /**
-     * Deletes a single reseller child based on the childAuthKey supplied
+     * Delete a single reseller child based on the child identifier supplied
      *
      * 
      *
@@ -141,8 +141,8 @@ public class ResellerApiTest {
      */
     @Test
     public void deleteResellerChildTest() throws ApiException {
-        String childAuthKey = null;
-        api.deleteResellerChild(childAuthKey);
+        String childIdentifier = null;
+        api.deleteResellerChild(childIdentifier);
 
         // TODO: test validations
     }
@@ -157,15 +157,15 @@ public class ResellerApiTest {
      */
     @Test
     public void dissociateIpFromChildTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         ManageIp ip = null;
-        api.dissociateIpFromChild(childAuthKey, ip);
+        api.dissociateIpFromChild(childIdentifier, ip);
 
         // TODO: test validations
     }
     
     /**
-     * Returns the status of reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the childAuthKey supplied
+     * Get the status of a reseller&#39;s child account creation, whether it is successfully created (exists) or not based on the identifier supplied
      *
      * 
      *
@@ -174,14 +174,14 @@ public class ResellerApiTest {
      */
     @Test
     public void getChildAccountCreationStatusTest() throws ApiException {
-        String childAuthKey = null;
-        GetChildAccountCreationStatus response = api.getChildAccountCreationStatus(childAuthKey);
+        String childIdentifier = null;
+        GetChildAccountCreationStatus response = api.getChildAccountCreationStatus(childIdentifier);
 
         // TODO: test validations
     }
     
     /**
-     * Gets all the sender domains of a specific child account
+     * Get all sender domains for a specific child account
      *
      * 
      *
@@ -190,14 +190,14 @@ public class ResellerApiTest {
      */
     @Test
     public void getChildDomainsTest() throws ApiException {
-        String childAuthKey = null;
-        GetChildDomains response = api.getChildDomains(childAuthKey);
+        String childIdentifier = null;
+        GetChildDomains response = api.getChildDomains(childIdentifier);
 
         // TODO: test validations
     }
     
     /**
-     * Gets the info about a specific child account
+     * Get a child account&#39;s details
      *
      * 
      *
@@ -206,14 +206,14 @@ public class ResellerApiTest {
      */
     @Test
     public void getChildInfoTest() throws ApiException {
-        String childAuthKey = null;
-        GetChildInfo response = api.getChildInfo(childAuthKey);
+        String childIdentifier = null;
+        GetChildInfo response = api.getChildInfo(childIdentifier);
 
         // TODO: test validations
     }
     
     /**
-     * Gets the list of all reseller&#39;s children accounts
+     * Get the list of all children accounts
      *
      * 
      *
@@ -239,8 +239,8 @@ public class ResellerApiTest {
      */
     @Test
     public void getSsoTokenTest() throws ApiException {
-        String childAuthKey = null;
-        GetSsoToken response = api.getSsoToken(childAuthKey);
+        String childIdentifier = null;
+        GetSsoToken response = api.getSsoToken(childIdentifier);
 
         // TODO: test validations
     }
@@ -255,15 +255,15 @@ public class ResellerApiTest {
      */
     @Test
     public void removeCreditsTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         RemoveCredits removeCredits = null;
-        RemainingCreditModel response = api.removeCredits(childAuthKey, removeCredits);
+        RemainingCreditModel response = api.removeCredits(childIdentifier, removeCredits);
 
         // TODO: test validations
     }
     
     /**
-     * Updates infos of reseller&#39;s child account status based on the childAuthKey supplied
+     * Update info of reseller&#39;s child account status based on the childIdentifier supplied
      *
      * 
      *
@@ -272,15 +272,15 @@ public class ResellerApiTest {
      */
     @Test
     public void updateChildAccountStatusTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         UpdateChildAccountStatus updateChildAccountStatus = null;
-        api.updateChildAccountStatus(childAuthKey, updateChildAccountStatus);
+        api.updateChildAccountStatus(childIdentifier, updateChildAccountStatus);
 
         // TODO: test validations
     }
     
     /**
-     * Updates the sender domain of reseller&#39;s child based on the childAuthKey and domainName passed
+     * Update the sender domain of reseller&#39;s child based on the childIdentifier and domainName passed
      *
      * 
      *
@@ -289,16 +289,16 @@ public class ResellerApiTest {
      */
     @Test
     public void updateChildDomainTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         String domainName = null;
         UpdateChildDomain updateChildDomain = null;
-        api.updateChildDomain(childAuthKey, domainName, updateChildDomain);
+        api.updateChildDomain(childIdentifier, domainName, updateChildDomain);
 
         // TODO: test validations
     }
     
     /**
-     * Updates infos of reseller&#39;s child based on the childAuthKey supplied
+     * Update info of reseller&#39;s child based on the child identifier supplied
      *
      * 
      *
@@ -307,9 +307,9 @@ public class ResellerApiTest {
      */
     @Test
     public void updateResellerChildTest() throws ApiException {
-        String childAuthKey = null;
+        String childIdentifier = null;
         UpdateChild resellerChild = null;
-        api.updateResellerChild(childAuthKey, resellerChild);
+        api.updateResellerChild(childIdentifier, resellerChild);
 
         // TODO: test validations
     }

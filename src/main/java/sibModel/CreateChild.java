@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CreateChild
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class CreateChild {
   @SerializedName("email")
   private String email = null;
@@ -42,6 +42,64 @@ public class CreateChild {
 
   @SerializedName("password")
   private String password = null;
+
+  /**
+   * Language of the child account
+   */
+  @JsonAdapter(LanguageEnum.Adapter.class)
+  public enum LanguageEnum {
+    FR("fr"),
+    
+    ES("es"),
+    
+    PT("pt"),
+    
+    IT("it"),
+    
+    DE("de"),
+    
+    EN("en");
+
+    private String value;
+
+    LanguageEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LanguageEnum fromValue(String text) {
+      for (LanguageEnum b : LanguageEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<LanguageEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LanguageEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LanguageEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LanguageEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("language")
+  private LanguageEnum language = null;
 
   public CreateChild email(String email) {
     this.email = email;
@@ -133,6 +191,24 @@ public class CreateChild {
     this.password = password;
   }
 
+  public CreateChild language(LanguageEnum language) {
+    this.language = language;
+    return this;
+  }
+
+   /**
+   * Language of the child account
+   * @return language
+  **/
+  @ApiModelProperty(example = "en", value = "Language of the child account")
+  public LanguageEnum getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(LanguageEnum language) {
+    this.language = language;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,12 +223,13 @@ public class CreateChild {
     ObjectUtils.equals(this.firstName, createChild.firstName) &&
     ObjectUtils.equals(this.lastName, createChild.lastName) &&
     ObjectUtils.equals(this.companyName, createChild.companyName) &&
-    ObjectUtils.equals(this.password, createChild.password);
+    ObjectUtils.equals(this.password, createChild.password) &&
+    ObjectUtils.equals(this.language, createChild.language);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, password);
+    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, password, language);
   }
 
 
@@ -166,6 +243,7 @@ public class CreateChild {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("}");
     return sb.toString();
   }

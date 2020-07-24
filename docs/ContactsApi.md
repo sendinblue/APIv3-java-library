@@ -5,30 +5,31 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addContactToList**](ContactsApi.md#addContactToList) | **POST** /contacts/lists/{listId}/contacts/add | Add existing contacts to a list
-[**createAttribute**](ContactsApi.md#createAttribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Creates contact attribute
+[**createAttribute**](ContactsApi.md#createAttribute) | **POST** /contacts/attributes/{attributeCategory}/{attributeName} | Create contact attribute
 [**createContact**](ContactsApi.md#createContact) | **POST** /contacts | Create a contact
+[**createDoiContact**](ContactsApi.md#createDoiContact) | **POST** /contacts/doubleOptinConfirmation | Create Contact via DOI (Double-Opt-In) Flow
 [**createFolder**](ContactsApi.md#createFolder) | **POST** /contacts/folders | Create a folder
 [**createList**](ContactsApi.md#createList) | **POST** /contacts/lists | Create a list
-[**deleteAttribute**](ContactsApi.md#deleteAttribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Deletes an attribute
-[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{email} | Deletes a contact
+[**deleteAttribute**](ContactsApi.md#deleteAttribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{email} | Delete a contact
 [**deleteFolder**](ContactsApi.md#deleteFolder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**deleteList**](ContactsApi.md#deleteList) | **DELETE** /contacts/lists/{listId} | Delete a list
-[**getAttributes**](ContactsApi.md#getAttributes) | **GET** /contacts/attributes | Lists all attributes
-[**getContactInfo**](ContactsApi.md#getContactInfo) | **GET** /contacts/{email} | Retrieves contact informations
-[**getContactStats**](ContactsApi.md#getContactStats) | **GET** /contacts/{email}/campaignStats | Get the campaigns statistics for a contact
+[**getAttributes**](ContactsApi.md#getAttributes) | **GET** /contacts/attributes | List all attributes
+[**getContactInfo**](ContactsApi.md#getContactInfo) | **GET** /contacts/{email} | Get a contact&#39;s details
+[**getContactStats**](ContactsApi.md#getContactStats) | **GET** /contacts/{email}/campaignStats | Get email campaigns&#39; statistics for a contact
 [**getContacts**](ContactsApi.md#getContacts) | **GET** /contacts | Get all the contacts
-[**getContactsFromList**](ContactsApi.md#getContactsFromList) | **GET** /contacts/lists/{listId}/contacts | Get the contacts in a list
-[**getFolder**](ContactsApi.md#getFolder) | **GET** /contacts/folders/{folderId} | Returns folder details
-[**getFolderLists**](ContactsApi.md#getFolderLists) | **GET** /contacts/folders/{folderId}/lists | Get the lists in a folder
-[**getFolders**](ContactsApi.md#getFolders) | **GET** /contacts/folders | Get all the folders
-[**getList**](ContactsApi.md#getList) | **GET** /contacts/lists/{listId} | Get the details of a list
+[**getContactsFromList**](ContactsApi.md#getContactsFromList) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
+[**getFolder**](ContactsApi.md#getFolder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
+[**getFolderLists**](ContactsApi.md#getFolderLists) | **GET** /contacts/folders/{folderId}/lists | Get lists in a folder
+[**getFolders**](ContactsApi.md#getFolders) | **GET** /contacts/folders | Get all folders
+[**getList**](ContactsApi.md#getList) | **GET** /contacts/lists/{listId} | Get a list&#39;s details
 [**getLists**](ContactsApi.md#getLists) | **GET** /contacts/lists | Get all the lists
 [**importContacts**](ContactsApi.md#importContacts) | **POST** /contacts/import | Import contacts
-[**removeContactFromList**](ContactsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Remove existing contacts from a list
+[**removeContactFromList**](ContactsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**requestContactExport**](ContactsApi.md#requestContactExport) | **POST** /contacts/export | Export contacts
-[**updateAttribute**](ContactsApi.md#updateAttribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Updates contact attribute
-[**updateContact**](ContactsApi.md#updateContact) | **PUT** /contacts/{email} | Updates a contact
-[**updateFolder**](ContactsApi.md#updateFolder) | **PUT** /contacts/folders/{folderId} | Update a contact folder
+[**updateAttribute**](ContactsApi.md#updateAttribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
+[**updateContact**](ContactsApi.md#updateContact) | **PUT** /contacts/{email} | Update a contact
+[**updateFolder**](ContactsApi.md#updateFolder) | **PUT** /contacts/folders/{folderId} | Update a folder
 [**updateList**](ContactsApi.md#updateList) | **PUT** /contacts/lists/{listId} | Update a list
 
 
@@ -97,7 +98,7 @@ Name | Type | Description  | Notes
 # **createAttribute**
 > createAttribute(attributeCategory, attributeName, createAttribute)
 
-Creates contact attribute
+Create contact attribute
 
 ### Example
 ```java
@@ -204,6 +205,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateUpdateContactModel**](CreateUpdateContactModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createDoiContact"></a>
+# **createDoiContact**
+> createDoiContact(createDoiContact)
+
+Create Contact via DOI (Double-Opt-In) Flow
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.ContactsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+ContactsApi apiInstance = new ContactsApi();
+CreateDoiContact createDoiContact = new CreateDoiContact(); // CreateDoiContact | Values to create the Double opt-in (DOI) contact
+try {
+    apiInstance.createDoiContact(createDoiContact);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ContactsApi#createDoiContact");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createDoiContact** | [**CreateDoiContact**](CreateDoiContact.md)| Values to create the Double opt-in (DOI) contact |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -336,7 +395,7 @@ Name | Type | Description  | Notes
 # **deleteAttribute**
 > deleteAttribute(attributeCategory, attributeName)
 
-Deletes an attribute
+Delete an attribute
 
 ### Example
 ```java
@@ -396,7 +455,7 @@ null (empty response body)
 # **deleteContact**
 > deleteContact(email)
 
-Deletes a contact
+Delete a contact
 
 ### Example
 ```java
@@ -570,7 +629,7 @@ null (empty response body)
 # **getAttributes**
 > GetAttributes getAttributes()
 
-Lists all attributes
+List all attributes
 
 ### Example
 ```java
@@ -625,7 +684,7 @@ This endpoint does not need any parameter.
 # **getContactInfo**
 > GetExtendedContactDetails getContactInfo(email)
 
-Retrieves contact informations
+Get a contact&#39;s details
 
 ### Example
 ```java
@@ -648,7 +707,7 @@ apiKey.setApiKey("YOUR API KEY");
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partnerK	ey.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 ContactsApi apiInstance = new ContactsApi();
 String email = "email_example"; // String | Email (urlencoded) of the contact OR its SMS attribute value
@@ -682,9 +741,9 @@ Name | Type | Description  | Notes
 
 <a name="getContactStats"></a>
 # **getContactStats**
-> GetContactCampaignStats getContactStats(email)
+> GetContactCampaignStats getContactStats(email, startDate, endDate)
 
-Get the campaigns statistics for a contact
+Get email campaigns&#39; statistics for a contact
 
 ### Example
 ```java
@@ -711,8 +770,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ContactsApi apiInstance = new ContactsApi();
 String email = "email_example"; // String | Email address (urlencoded) of the contact
+LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
+LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
 try {
-    GetContactCampaignStats result = apiInstance.getContactStats(email);
+    GetContactCampaignStats result = apiInstance.getContactStats(email, startDate, endDate);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContactStats");
@@ -725,6 +786,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **String**| Email address (urlencoded) of the contact |
+ **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate | [optional]
+ **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate | [optional]
 
 ### Return type
 
@@ -771,7 +834,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ContactsApi apiInstance = new ContactsApi();
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-OffsetDateTime modifiedSince = new OffsetDateTime(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 try {
     GetContacts result = apiInstance.getContacts(limit, offset, modifiedSince);
     System.out.println(result);
@@ -806,7 +869,7 @@ Name | Type | Description  | Notes
 # **getContactsFromList**
 > GetContacts getContactsFromList(listId, modifiedSince, limit, offset)
 
-Get the contacts in a list
+Get contacts in a list
 
 ### Example
 ```java
@@ -833,7 +896,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ContactsApi apiInstance = new ContactsApi();
 Long listId = 789L; // Long | Id of the list
-OffsetDateTime modifiedSince = new OffsetDateTime(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
 try {
@@ -871,7 +934,7 @@ Name | Type | Description  | Notes
 # **getFolder**
 > GetFolder getFolder(folderId)
 
-Returns folder details
+Returns a folder&#39;s details
 
 ### Example
 ```java
@@ -930,7 +993,7 @@ Name | Type | Description  | Notes
 # **getFolderLists**
 > GetFolderLists getFolderLists(folderId, limit, offset)
 
-Get the lists in a folder
+Get lists in a folder
 
 ### Example
 ```java
@@ -993,7 +1056,7 @@ Name | Type | Description  | Notes
 # **getFolders**
 > GetFolders getFolders(limit, offset)
 
-Get all the folders
+Get all folders
 
 ### Example
 ```java
@@ -1054,7 +1117,7 @@ Name | Type | Description  | Notes
 # **getList**
 > GetExtendedList getList(listId)
 
-Get the details of a list
+Get a list&#39;s details
 
 ### Example
 ```java
@@ -1235,7 +1298,7 @@ Name | Type | Description  | Notes
 # **removeContactFromList**
 > PostContactInfo removeContactFromList(listId, contactEmails)
 
-Remove existing contacts from a list
+Delete a contact from a list
 
 ### Example
 ```java
@@ -1357,7 +1420,7 @@ Name | Type | Description  | Notes
 # **updateAttribute**
 > updateAttribute(attributeCategory, attributeName, updateAttribute)
 
-Updates contact attribute
+Update contact attribute
 
 ### Example
 ```java
@@ -1419,7 +1482,7 @@ null (empty response body)
 # **updateContact**
 > updateContact(email, updateContact)
 
-Updates a contact
+Update a contact
 
 ### Example
 ```java
@@ -1479,7 +1542,7 @@ null (empty response body)
 # **updateFolder**
 > updateFolder(folderId, updateFolder)
 
-Update a contact folder
+Update a folder
 
 ### Example
 ```java

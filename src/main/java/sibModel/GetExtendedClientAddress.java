@@ -27,7 +27,7 @@ import java.io.IOException;
  * Address informations
  */
 @ApiModel(description = "Address informations")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetExtendedClientAddress {
   @SerializedName("street")
   private String street = null;

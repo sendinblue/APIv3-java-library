@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class GetEmailCampaign {
   @SerializedName("id")
   private Long id = null;
@@ -216,6 +216,9 @@ public class GetEmailCampaign {
 
   @SerializedName("sentDate")
   private OffsetDateTime sentDate = null;
+
+  @SerializedName("returnBounce")
+  private Long returnBounce = null;
 
   @SerializedName("recipients")
   private Object recipients = null;
@@ -727,6 +730,24 @@ public class GetEmailCampaign {
     this.sentDate = sentDate;
   }
 
+  public GetEmailCampaign returnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+    return this;
+  }
+
+   /**
+   * Total number of non-delivered campaigns for a particular campaign id.
+   * @return returnBounce
+  **/
+  @ApiModelProperty(example = "5", value = "Total number of non-delivered campaigns for a particular campaign id.")
+  public Long getReturnBounce() {
+    return returnBounce;
+  }
+
+  public void setReturnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+  }
+
   public GetEmailCampaign recipients(Object recipients) {
     this.recipients = recipients;
     return this;
@@ -801,13 +822,14 @@ public class GetEmailCampaign {
     ObjectUtils.equals(this.mirrorActive, getEmailCampaign.mirrorActive) &&
     ObjectUtils.equals(this.recurring, getEmailCampaign.recurring) &&
     ObjectUtils.equals(this.sentDate, getEmailCampaign.sentDate) &&
+    ObjectUtils.equals(this.returnBounce, getEmailCampaign.returnBounce) &&
     ObjectUtils.equals(this.recipients, getEmailCampaign.recipients) &&
     ObjectUtils.equals(this.statistics, getEmailCampaign.statistics);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, recipients, statistics);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, returnBounce, recipients, statistics);
   }
 
 
@@ -844,6 +866,7 @@ public class GetEmailCampaign {
     sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
+    sb.append("    returnBounce: ").append(toIndentedString(returnBounce)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");

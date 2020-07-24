@@ -512,7 +512,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -527,7 +527,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -543,7 +543,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the contacts in a list (asynchronously)
+     * Get contacts in a list (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
@@ -650,7 +650,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -664,7 +664,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -679,7 +679,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the lists in a folder (asynchronously)
+     * Get lists in a folder (asynchronously)
      * 
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
@@ -779,7 +779,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      * 
      * @param listId Id of the list (required)
      * @return GetExtendedList
@@ -791,7 +791,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      * 
      * @param listId Id of the list (required)
      * @return ApiResponse&lt;GetExtendedList&gt;
@@ -804,7 +804,7 @@ public class ListsApi {
     }
 
     /**
-     * Get the details of a list (asynchronously)
+     * Get a list&#39;s details (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param callback The callback to be executed when the API call finishes
@@ -1033,7 +1033,7 @@ public class ListsApi {
     }
 
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
@@ -1046,7 +1046,7 @@ public class ListsApi {
     }
 
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)
@@ -1060,7 +1060,7 @@ public class ListsApi {
     }
 
     /**
-     * Remove existing contacts from a list (asynchronously)
+     * Delete a contact from a list (asynchronously)
      * 
      * @param listId Id of the list (required)
      * @param contactEmails Emails adresses of the contact (required)

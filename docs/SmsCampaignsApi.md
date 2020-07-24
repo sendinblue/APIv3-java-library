@@ -5,15 +5,15 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createSmsCampaign**](SmsCampaignsApi.md#createSmsCampaign) | **POST** /smsCampaigns | Creates an SMS campaign
-[**deleteSmsCampaign**](SmsCampaignsApi.md#deleteSmsCampaign) | **DELETE** /smsCampaigns/{campaignId} | Delete the SMS campaign
+[**deleteSmsCampaign**](SmsCampaignsApi.md#deleteSmsCampaign) | **DELETE** /smsCampaigns/{campaignId} | Delete an SMS campaign
 [**getSmsCampaign**](SmsCampaignsApi.md#getSmsCampaign) | **GET** /smsCampaigns/{campaignId} | Get an SMS campaign
-[**getSmsCampaigns**](SmsCampaignsApi.md#getSmsCampaigns) | **GET** /smsCampaigns | Returns the informations for all your created SMS campaigns
-[**requestSmsRecipientExport**](SmsCampaignsApi.md#requestSmsRecipientExport) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Exports the recipients of the specified campaign.
+[**getSmsCampaigns**](SmsCampaignsApi.md#getSmsCampaigns) | **GET** /smsCampaigns | Returns the information for all your created SMS campaigns
+[**requestSmsRecipientExport**](SmsCampaignsApi.md#requestSmsRecipientExport) | **POST** /smsCampaigns/{campaignId}/exportRecipients | Export an SMS campaign&#39;s recipients
 [**sendSmsCampaignNow**](SmsCampaignsApi.md#sendSmsCampaignNow) | **POST** /smsCampaigns/{campaignId}/sendNow | Send your SMS campaign immediately
-[**sendSmsReport**](SmsCampaignsApi.md#sendSmsReport) | **POST** /smsCampaigns/{campaignId}/sendReport | Send report of SMS campaigns
-[**sendTestSms**](SmsCampaignsApi.md#sendTestSms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send an SMS
-[**updateSmsCampaign**](SmsCampaignsApi.md#updateSmsCampaign) | **PUT** /smsCampaigns/{campaignId} | Updates an SMS campaign
-[**updateSmsCampaignStatus**](SmsCampaignsApi.md#updateSmsCampaignStatus) | **PUT** /smsCampaigns/{campaignId}/status | Update the campaign status
+[**sendSmsReport**](SmsCampaignsApi.md#sendSmsReport) | **POST** /smsCampaigns/{campaignId}/sendReport | Send an SMS campaign&#39;s report
+[**sendTestSms**](SmsCampaignsApi.md#sendTestSms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send a test SMS campaign
+[**updateSmsCampaign**](SmsCampaignsApi.md#updateSmsCampaign) | **PUT** /smsCampaigns/{campaignId} | Update an SMS campaign
+[**updateSmsCampaignStatus**](SmsCampaignsApi.md#updateSmsCampaignStatus) | **PUT** /smsCampaigns/{campaignId}/status | Update a campaign&#39;s status
 
 
 <a name="createSmsCampaign"></a>
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 # **deleteSmsCampaign**
 > deleteSmsCampaign(campaignId)
 
-Delete the SMS campaign
+Delete an SMS campaign
 
 ### Example
 ```java
@@ -194,9 +194,9 @@ Name | Type | Description  | Notes
 
 <a name="getSmsCampaigns"></a>
 # **getSmsCampaigns**
-> GetSmsCampaigns getSmsCampaigns(status, limit, offset)
+> GetSmsCampaigns getSmsCampaigns(status, startDate, endDate, limit, offset)
 
-Returns the informations for all your created SMS campaigns
+Returns the information for all your created SMS campaigns
 
 ### Example
 ```java
@@ -223,8 +223,8 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 SmsCampaignsApi apiInstance = new SmsCampaignsApi();
 String status = "status_example"; // String | Status of campaign.
-OffsetDateTime startDate = new OffsetDateTime(); // OffsetDateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
-OffsetDateTime endDate = new OffsetDateTime(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
+OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
 try {
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 # **requestSmsRecipientExport**
 > CreatedProcessId requestSmsRecipientExport(campaignId, recipientExport)
 
-Exports the recipients of the specified campaign.
+Export an SMS campaign&#39;s recipients
 
 It returns the background process ID which on completion calls the notify URL that you have set in the input.
 
@@ -384,7 +384,7 @@ null (empty response body)
 # **sendSmsReport**
 > sendSmsReport(campaignId, sendReport)
 
-Send report of SMS campaigns
+Send an SMS campaign&#39;s report
 
 Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
 
@@ -446,7 +446,7 @@ null (empty response body)
 # **sendTestSms**
 > sendTestSms(campaignId, phoneNumber)
 
-Send an SMS
+Send a test SMS campaign
 
 ### Example
 ```java
@@ -506,7 +506,7 @@ null (empty response body)
 # **updateSmsCampaign**
 > updateSmsCampaign(campaignId, updateSmsCampaign)
 
-Updates an SMS campaign
+Update an SMS campaign
 
 ### Example
 ```java
@@ -566,7 +566,7 @@ null (empty response body)
 # **updateSmsCampaignStatus**
 > updateSmsCampaignStatus(campaignId, status)
 
-Update the campaign status
+Update a campaign&#39;s status
 
 ### Example
 ```java

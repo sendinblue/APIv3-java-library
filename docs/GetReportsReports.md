@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **LocalDate** | Date of the statistics | 
+**date** | [**LocalDate**] | Date of the statistics | 
 **requests** | **Long** | Number of requests for the date | 
 **delivered** | **Long** | Number of delivered emails for the date | 
 **hardBounces** | **Long** | Number of hardbounces for the date | 

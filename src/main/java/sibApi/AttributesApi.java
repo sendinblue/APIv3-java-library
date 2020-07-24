@@ -135,7 +135,7 @@ public class AttributesApi {
     }
 
     /**
-     * Creates contact attribute
+     * Create contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -147,7 +147,7 @@ public class AttributesApi {
     }
 
     /**
-     * Creates contact attribute
+     * Create contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -161,7 +161,7 @@ public class AttributesApi {
     }
 
     /**
-     * Creates contact attribute (asynchronously)
+     * Create contact attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the attribute (required)
@@ -267,7 +267,7 @@ public class AttributesApi {
     }
 
     /**
-     * Deletes an attribute
+     * Delete an attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -278,7 +278,7 @@ public class AttributesApi {
     }
 
     /**
-     * Deletes an attribute
+     * Delete an attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -291,7 +291,7 @@ public class AttributesApi {
     }
 
     /**
-     * Deletes an attribute (asynchronously)
+     * Delete an attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -382,7 +382,7 @@ public class AttributesApi {
     }
 
     /**
-     * Lists all attributes
+     * List all attributes
      * 
      * @return GetAttributes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -393,7 +393,7 @@ public class AttributesApi {
     }
 
     /**
-     * Lists all attributes
+     * List all attributes
      * 
      * @return ApiResponse&lt;GetAttributes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -405,7 +405,7 @@ public class AttributesApi {
     }
 
     /**
-     * Lists all attributes (asynchronously)
+     * List all attributes (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -515,7 +515,7 @@ public class AttributesApi {
     }
 
     /**
-     * Updates contact attribute
+     * Update contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -527,7 +527,7 @@ public class AttributesApi {
     }
 
     /**
-     * Updates contact attribute
+     * Update contact attribute
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)
@@ -541,7 +541,7 @@ public class AttributesApi {
     }
 
     /**
-     * Updates contact attribute (asynchronously)
+     * Update contact attribute (asynchronously)
      * 
      * @param attributeCategory Category of the attribute (required)
      * @param attributeName Name of the existing attribute (required)

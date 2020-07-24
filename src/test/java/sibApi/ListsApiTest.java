@@ -93,7 +93,7 @@ public class ListsApiTest {
     }
     
     /**
-     * Get the contacts in a list
+     * Get contacts in a list
      *
      * 
      *
@@ -112,7 +112,7 @@ public class ListsApiTest {
     }
     
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      *
      * 
      *
@@ -130,7 +130,7 @@ public class ListsApiTest {
     }
     
     /**
-     * Get the details of a list
+     * Get a list&#39;s details
      *
      * 
      *
@@ -163,7 +163,7 @@ public class ListsApiTest {
     }
     
     /**
-     * Remove existing contacts from a list
+     * Delete a contact from a list
      *
      * 
      *

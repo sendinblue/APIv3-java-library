@@ -38,7 +38,7 @@ public class TransactionalSmsApiTest {
 
     
     /**
-     * Get all the SMS activity (unaggregated events)
+     * Get all your SMS activity (unaggregated events)
      *
      * 
      *
@@ -99,7 +99,7 @@ public class TransactionalSmsApiTest {
     }
     
     /**
-     * Send the SMS campaign to the specified mobile number
+     * Send SMS message to a mobile number
      *
      * 
      *

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * RequestSmsRecipientExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RequestSmsRecipientExport {
   @SerializedName("notifyURL")
   private String notifyURL = null;
@@ -95,10 +95,10 @@ public class RequestSmsRecipientExport {
   }
 
    /**
-   * URL that will be called once the export process is finished
+   * URL that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479
    * @return notifyURL
   **/
-  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "URL that will be called once the export process is finished")
+  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "URL that will be called once the export process is finished. For reference, https://help.sendinblue.com/hc/en-us/articles/360007666479")
   public String getNotifyURL() {
     return notifyURL;
   }

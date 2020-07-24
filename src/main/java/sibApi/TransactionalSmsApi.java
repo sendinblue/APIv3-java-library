@@ -141,7 +141,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Get all the SMS activity (unaggregated events)
+     * Get all your SMS activity (unaggregated events)
      * 
      * @param limit Number of documents per page (optional, default to 50)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)
@@ -160,7 +160,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Get all the SMS activity (unaggregated events)
+     * Get all your SMS activity (unaggregated events)
      * 
      * @param limit Number of documents per page (optional, default to 50)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)
@@ -180,7 +180,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Get all the SMS activity (unaggregated events) (asynchronously)
+     * Get all your SMS activity (unaggregated events) (asynchronously)
      * 
      * @param limit Number of documents per page (optional, default to 50)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report (optional)
@@ -558,7 +558,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Send the SMS campaign to the specified mobile number
+     * Send SMS message to a mobile number
      * 
      * @param sendTransacSms Values to send a transactional SMS (required)
      * @return SendSms
@@ -570,7 +570,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Send the SMS campaign to the specified mobile number
+     * Send SMS message to a mobile number
      * 
      * @param sendTransacSms Values to send a transactional SMS (required)
      * @return ApiResponse&lt;SendSms&gt;
@@ -583,7 +583,7 @@ public class TransactionalSmsApi {
     }
 
     /**
-     * Send the SMS campaign to the specified mobile number (asynchronously)
+     * Send SMS message to a mobile number (asynchronously)
      * 
      * @param sendTransacSms Values to send a transactional SMS (required)
      * @param callback The callback to be executed when the API call finishes

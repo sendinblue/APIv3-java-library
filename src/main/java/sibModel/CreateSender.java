@@ -29,7 +29,7 @@ import sibModel.CreateSenderIps;
 /**
  * CreateSender
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class CreateSender {
   @SerializedName("name")
   private String name = null;
@@ -64,10 +64,10 @@ public class CreateSender {
   }
 
    /**
-   * From Email to use for the sender
+   * From email to use for the sender. A verification email will be sent to this address.
    * @return email
   **/
-  @ApiModelProperty(example = "newsletter@mycompany.com", required = true, value = "From Email to use for the sender")
+  @ApiModelProperty(example = "newsletter@mycompany.com", required = true, value = "From email to use for the sender. A verification email will be sent to this address.")
   public String getEmail() {
     return email;
   }

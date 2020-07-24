@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * UpdateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class UpdateContact {
   @SerializedName("attributes")
   private Object attributes = null;
@@ -54,10 +54,10 @@ public class UpdateContact {
   }
 
    /**
-   * Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, { &#39;EMAIL&#39;:&#39;newemail@domain.com&#39;, &#39;FNAME&#39;:&#39;Ellie&#39;, &#39;LNAME&#39;:&#39;Roger&#39;} &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. Keep in mind transactional attributes can be updated the same way as normal attributes.  Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {&#39;SMS&#39;:&#39;+91xxxxxxxxxx&#39;} or {&#39;SMS&#39;:&#39;0091xxxxxxxxxx&#39;}
+   * Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
    * @return attributes
   **/
-  @ApiModelProperty(example = "{\"EMAIL\":\"newemail@domain.com\",\"FNAME\":\"Ellie\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, { 'EMAIL':'newemail@domain.com', 'FNAME':'Ellie', 'LNAME':'Roger'} `{ \"EMAIL\":\"newemail@domain.com\", \"FNAME\":\"Ellie\", \"LNAME\":\"Roger\"}`. Keep in mind transactional attributes can be updated the same way as normal attributes.  Mobile Number in \"SMS\" field should be passed with proper country code. For example {'SMS':'+91xxxxxxxxxx'} or {'SMS':'0091xxxxxxxxxx'}")
+  @ApiModelProperty(example = "{\"EMAIL\":\"newemail@domain.com\",\"FNAME\":\"Ellie\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, `{ \"EMAIL\":\"newemail@domain.com\", \"FNAME\":\"Ellie\", \"LNAME\":\"Roger\"}`. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}")
   public Object getAttributes() {
     return attributes;
   }

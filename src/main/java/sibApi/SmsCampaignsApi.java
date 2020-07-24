@@ -253,7 +253,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Delete the SMS campaign
+     * Delete an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -263,7 +263,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Delete the SMS campaign
+     * Delete an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
      * @return ApiResponse&lt;Void&gt;
@@ -275,7 +275,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Delete the SMS campaign (asynchronously)
+     * Delete an SMS campaign (asynchronously)
      * 
      * @param campaignId id of the SMS campaign (required)
      * @param callback The callback to be executed when the API call finishes
@@ -503,7 +503,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Returns the informations for all your created SMS campaigns
+     * Returns the information for all your created SMS campaigns
      * 
      * @param status Status of campaign. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
@@ -519,7 +519,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Returns the informations for all your created SMS campaigns
+     * Returns the information for all your created SMS campaigns
      * 
      * @param status Status of campaign. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
@@ -536,7 +536,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Returns the informations for all your created SMS campaigns (asynchronously)
+     * Returns the information for all your created SMS campaigns (asynchronously)
      * 
      * @param status Status of campaign. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
@@ -639,7 +639,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Exports the recipients of the specified campaign.
+     * Export an SMS campaign&#39;s recipients
      * It returns the background process ID which on completion calls the notify URL that you have set in the input.
      * @param campaignId id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -652,7 +652,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Exports the recipients of the specified campaign.
+     * Export an SMS campaign&#39;s recipients
      * It returns the background process ID which on completion calls the notify URL that you have set in the input.
      * @param campaignId id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -666,7 +666,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Exports the recipients of the specified campaign. (asynchronously)
+     * Export an SMS campaign&#39;s recipients (asynchronously)
      * It returns the background process ID which on completion calls the notify URL that you have set in the input.
      * @param campaignId id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -890,7 +890,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send report of SMS campaigns
+     * Send an SMS campaign&#39;s report
      * Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
      * @param campaignId id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -901,7 +901,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send report of SMS campaigns
+     * Send an SMS campaign&#39;s report
      * Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
      * @param campaignId id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -914,7 +914,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send report of SMS campaigns (asynchronously)
+     * Send an SMS campaign&#39;s report (asynchronously)
      * Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
      * @param campaignId id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -1018,7 +1018,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send an SMS
+     * Send a test SMS campaign
      * 
      * @param campaignId Id of the SMS campaign (required)
      * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
@@ -1029,7 +1029,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send an SMS
+     * Send a test SMS campaign
      * 
      * @param campaignId Id of the SMS campaign (required)
      * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
@@ -1042,7 +1042,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Send an SMS (asynchronously)
+     * Send a test SMS campaign (asynchronously)
      * 
      * @param campaignId Id of the SMS campaign (required)
      * @param phoneNumber Mobile number of the recipient with the country code. This number must belong to one of your contacts in SendinBlue account and must not be blacklisted (required)
@@ -1146,7 +1146,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Updates an SMS campaign
+     * Update an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
      * @param updateSmsCampaign Values to update an SMS Campaign (required)
@@ -1157,7 +1157,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Updates an SMS campaign
+     * Update an SMS campaign
      * 
      * @param campaignId id of the SMS campaign (required)
      * @param updateSmsCampaign Values to update an SMS Campaign (required)
@@ -1170,7 +1170,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Updates an SMS campaign (asynchronously)
+     * Update an SMS campaign (asynchronously)
      * 
      * @param campaignId id of the SMS campaign (required)
      * @param updateSmsCampaign Values to update an SMS Campaign (required)
@@ -1274,7 +1274,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Update the campaign status
+     * Update a campaign&#39;s status
      * 
      * @param campaignId id of the campaign (required)
      * @param status Status of the campaign. (required)
@@ -1285,7 +1285,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Update the campaign status
+     * Update a campaign&#39;s status
      * 
      * @param campaignId id of the campaign (required)
      * @param status Status of the campaign. (required)
@@ -1298,7 +1298,7 @@ public class SmsCampaignsApi {
     }
 
     /**
-     * Update the campaign status (asynchronously)
+     * Update a campaign&#39;s status (asynchronously)
      * 
      * @param campaignId id of the campaign (required)
      * @param status Status of the campaign. (required)

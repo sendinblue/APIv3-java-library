@@ -42,6 +42,7 @@ import sibModel.SendReport;
 import sibModel.SendTestEmail;
 import sibModel.UpdateCampaignStatus;
 import sibModel.UpdateEmailCampaign;
+import sibModel.UploadImageToGallery;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -375,7 +376,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Export the recipients of a campaign
+     * Export the recipients of an email campaign
      * 
      * @param campaignId Id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -388,7 +389,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Export the recipients of a campaign
+     * Export the recipients of an email campaign
      * 
      * @param campaignId Id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -402,7 +403,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Export the recipients of a campaign (asynchronously)
+     * Export the recipients of an email campaign (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
      * @param recipientExport Values to send for a recipient export request (optional)
@@ -501,7 +502,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get A/B test email campaign result
+     * Get an A/B test email campaign results
      * Obtain winning version of an A/B test email campaign
      * @param campaignId Id of the A/B test campaign (required)
      * @return AbTestCampaignResult
@@ -513,7 +514,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get A/B test email campaign result
+     * Get an A/B test email campaign results
      * Obtain winning version of an A/B test email campaign
      * @param campaignId Id of the A/B test campaign (required)
      * @return ApiResponse&lt;AbTestCampaignResult&gt;
@@ -526,7 +527,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get A/B test email campaign result (asynchronously)
+     * Get an A/B test email campaign results (asynchronously)
      * Obtain winning version of an A/B test email campaign
      * @param campaignId Id of the A/B test campaign (required)
      * @param callback The callback to be executed when the API call finishes
@@ -624,7 +625,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get campaign informations
+     * Get an email campaign report
      * 
      * @param campaignId Id of the campaign (required)
      * @return GetEmailCampaign
@@ -636,7 +637,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get campaign informations
+     * Get an email campaign report
      * 
      * @param campaignId Id of the campaign (required)
      * @return ApiResponse&lt;GetEmailCampaign&gt;
@@ -649,7 +650,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Get campaign informations (asynchronously)
+     * Get an email campaign report (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
      * @param callback The callback to be executed when the API call finishes
@@ -758,7 +759,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Return all your created campaigns
+     * Return all your created email campaigns
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
@@ -775,7 +776,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Return all your created campaigns
+     * Return all your created email campaigns
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
@@ -793,7 +794,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Return all your created campaigns (asynchronously)
+     * Return all your created email campaigns (asynchronously)
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
@@ -1144,7 +1145,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send the report of a campaigns
+     * Send the report of a campaign
      * A PDF will be sent to the specified email addresses
      * @param campaignId Id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -1155,7 +1156,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send the report of a campaigns
+     * Send the report of a campaign
      * A PDF will be sent to the specified email addresses
      * @param campaignId Id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -1168,7 +1169,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Send the report of a campaigns (asynchronously)
+     * Send the report of a campaign (asynchronously)
      * A PDF will be sent to the specified email addresses
      * @param campaignId Id of the campaign (required)
      * @param sendReport Values for send a report (required)
@@ -1400,7 +1401,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign status
+     * Update an email campaign status
      * 
      * @param campaignId Id of the campaign (required)
      * @param status Status of the campaign (required)
@@ -1411,7 +1412,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign status
+     * Update an email campaign status
      * 
      * @param campaignId Id of the campaign (required)
      * @param status Status of the campaign (required)
@@ -1424,7 +1425,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign status (asynchronously)
+     * Update an email campaign status (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
      * @param status Status of the campaign (required)
@@ -1528,7 +1529,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign
+     * Update an email campaign
      * 
      * @param campaignId Id of the campaign (required)
      * @param emailCampaign Values to update a campaign (required)
@@ -1539,7 +1540,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign
+     * Update an email campaign
      * 
      * @param campaignId Id of the campaign (required)
      * @param emailCampaign Values to update a campaign (required)
@@ -1552,7 +1553,7 @@ public class EmailCampaignsApi {
     }
 
     /**
-     * Update a campaign (asynchronously)
+     * Update an email campaign (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
      * @param emailCampaign Values to update a campaign (required)
@@ -1582,6 +1583,124 @@ public class EmailCampaignsApi {
         }
 
         com.squareup.okhttp.Call call = updateEmailCampaignValidateBeforeCall(campaignId, emailCampaign, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for uploadImageToGallery
+     * @param uploadImage Parameters to upload an image (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call uploadImageToGalleryCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = uploadImage;
+
+        // create path and map variables
+        String localVarPath = "/emailCampaigns/images";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call uploadImageToGalleryValidateBeforeCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'uploadImage' is set
+        if (uploadImage == null) {
+            throw new ApiException("Missing the required parameter 'uploadImage' when calling uploadImageToGallery(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = uploadImageToGalleryCall(uploadImage, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Upload an image to your account&#39;s image gallery
+     * 
+     * @param uploadImage Parameters to upload an image (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void uploadImageToGallery(UploadImageToGallery uploadImage) throws ApiException {
+        uploadImageToGalleryWithHttpInfo(uploadImage);
+    }
+
+    /**
+     * Upload an image to your account&#39;s image gallery
+     * 
+     * @param uploadImage Parameters to upload an image (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> uploadImageToGalleryWithHttpInfo(UploadImageToGallery uploadImage) throws ApiException {
+        com.squareup.okhttp.Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Upload an image to your account&#39;s image gallery (asynchronously)
+     * 
+     * @param uploadImage Parameters to upload an image (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call uploadImageToGalleryAsync(UploadImageToGallery uploadImage, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

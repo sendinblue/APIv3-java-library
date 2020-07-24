@@ -354,7 +354,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for your account
+     * Get all the dedicated IPs for your account
      * 
      * @return GetIps
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -365,7 +365,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for your account
+     * Get all the dedicated IPs for your account
      * 
      * @return ApiResponse&lt;GetIps&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -377,7 +377,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for your account (asynchronously)
+     * Get all the dedicated IPs for your account (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -474,7 +474,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for a sender
+     * Get all the dedicated IPs for a sender
      * 
      * @param senderId Id of the sender (required)
      * @return GetIpsFromSender
@@ -486,7 +486,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for a sender
+     * Get all the dedicated IPs for a sender
      * 
      * @param senderId Id of the sender (required)
      * @return ApiResponse&lt;GetIpsFromSender&gt;
@@ -499,7 +499,7 @@ public class SendersApi {
     }
 
     /**
-     * Return all the dedicated IPs for a sender (asynchronously)
+     * Get all the dedicated IPs for a sender (asynchronously)
      * 
      * @param senderId Id of the sender (required)
      * @param callback The callback to be executed when the API call finishes

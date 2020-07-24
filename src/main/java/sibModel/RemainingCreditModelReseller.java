@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * RemainingCreditModelReseller
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class RemainingCreditModelReseller {
   @SerializedName("sms")
   private Double sms = null;
@@ -43,7 +43,7 @@ public class RemainingCreditModelReseller {
    * SMS Credits remaining for reseller account
    * @return sms
   **/
-  @ApiModelProperty(example = "12900", required = true, value = "SMS Credits remaining for reseller account")
+  @ApiModelProperty(example = "12900.0", required = true, value = "SMS Credits remaining for reseller account")
   public Double getSms() {
     return sms;
   }
@@ -61,7 +61,7 @@ public class RemainingCreditModelReseller {
    * Email Credits remaining for reseller account
    * @return email
   **/
-  @ApiModelProperty(example = "2000000", required = true, value = "Email Credits remaining for reseller account")
+  @ApiModelProperty(example = "2000000.0", required = true, value = "Email Credits remaining for reseller account")
   public Double getEmail() {
     return email;
   }

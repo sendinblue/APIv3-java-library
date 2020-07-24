@@ -4,14 +4,14 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSmtpTemplate**](SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create a transactional email template
+[**createSmtpTemplate**](SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
 [**deleteHardbounces**](SmtpApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-[**deleteSmtpTemplate**](SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive transactional email template
+[**deleteSmtpTemplate**](SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 [**getAggregatedSmtpReport**](SmtpApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
 [**getEmailEventReport**](SmtpApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
 [**getSmtpReport**](SmtpApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-[**getSmtpTemplate**](SmtpApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template informations
-[**getSmtpTemplates**](SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of transactional email templates
+[**getSmtpTemplate**](SmtpApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
+[**getSmtpTemplates**](SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
 [**getTransacBlockedContacts**](SmtpApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 [**getTransacEmailContent**](SmtpApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 [**getTransacEmailsList**](SmtpApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
@@ -20,14 +20,14 @@ Method | HTTP request | Description
 [**sendTransacEmail**](SmtpApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
 [**smtpBlockedContactsEmailDelete**](SmtpApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
 [**smtpLogMessageIdDelete**](SmtpApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-[**updateSmtpTemplate**](SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Updates a transactional email templates
+[**updateSmtpTemplate**](SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
 
 
 <a name="createSmtpTemplate"></a>
 # **createSmtpTemplate**
 > CreateModel createSmtpTemplate(smtpTemplate)
 
-Create a transactional email template
+Create an email template
 
 ### Example
 ```java
@@ -146,7 +146,7 @@ null (empty response body)
 # **deleteSmtpTemplate**
 > deleteSmtpTemplate(templateId)
 
-Delete an inactive transactional email template
+Delete an inactive email template
 
 ### Example
 ```java
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 # **getSmtpTemplate**
 > GetSmtpTemplateOverview getSmtpTemplate(templateId)
 
-Returns the template informations
+Returns the template information
 
 ### Example
 ```java
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 # **getSmtpTemplates**
 > GetSmtpTemplates getSmtpTemplates(templateStatus, limit, offset)
 
-Get the list of transactional email templates
+Get the list of email templates
 
 ### Example
 ```java
@@ -618,16 +618,16 @@ Get the personalized content of a sent transactional email
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: api-key
-ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api-key.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partner-key.setApiKey("YOUR API KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 SmtpApi apiInstance = new SmtpApi();
 String uuid = "uuid_example"; // String | Unique id of the transactional email that has been sent to a particular contact
@@ -679,23 +679,23 @@ This endpoint will show the list of emails for past 30 days by default. To retri
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: api-key
-ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api-key.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partner-key.setApiKey("YOUR API KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 SmtpApi apiInstance = new SmtpApi();
 String email = "email_example"; // String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
 Long templateId = 789L; // Long | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
 String messageId = "messageId_example"; // String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
-LocalDate endDate = new LocalDate(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
 try {
     GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
     System.out.println(result);
@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
  **email** | **String**| Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. | [optional]
  **templateId** | **Long**| Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. | [optional]
  **messageId** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional]
- **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
  **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
 
 ### Return type
@@ -986,16 +986,16 @@ Delete an SMTP transactional log
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: api-key
-ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api-key.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partner-key.setApiKey("YOUR API KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 SmtpApi apiInstance = new SmtpApi();
 String messageId = "messageId_example"; // String | MessageId of the transactional log to delete
@@ -1030,7 +1030,7 @@ null (empty response body)
 # **updateSmtpTemplate**
 > updateSmtpTemplate(templateId, smtpTemplate)
 
-Updates a transactional email templates
+Update an email template
 
 ### Example
 ```java

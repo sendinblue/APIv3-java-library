@@ -4,17 +4,17 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSmsEvents**](TransactionalSmsApi.md#getSmsEvents) | **GET** /transactionalSMS/statistics/events | Get all the SMS activity (unaggregated events)
+[**getSmsEvents**](TransactionalSmsApi.md#getSmsEvents) | **GET** /transactionalSMS/statistics/events | Get all your SMS activity (unaggregated events)
 [**getTransacAggregatedSmsReport**](TransactionalSmsApi.md#getTransacAggregatedSmsReport) | **GET** /transactionalSMS/statistics/aggregatedReport | Get your SMS activity aggregated over a period of time
 [**getTransacSmsReport**](TransactionalSmsApi.md#getTransacSmsReport) | **GET** /transactionalSMS/statistics/reports | Get your SMS activity aggregated per day
-[**sendTransacSms**](TransactionalSmsApi.md#sendTransacSms) | **POST** /transactionalSMS/sms | Send the SMS campaign to the specified mobile number
+[**sendTransacSms**](TransactionalSmsApi.md#sendTransacSms) | **POST** /transactionalSMS/sms | Send SMS message to a mobile number
 
 
 <a name="getSmsEvents"></a>
 # **getSmsEvents**
 > GetSmsEventReport getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags)
 
-Get all the SMS activity (unaggregated events)
+Get all your SMS activity (unaggregated events)
 
 ### Example
 ```java
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 # **sendTransacSms**
 > SendSms sendTransacSms(sendTransacSms)
 
-Send the SMS campaign to the specified mobile number
+Send SMS message to a mobile number
 
 ### Example
 ```java

@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * PostContactInfoContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class PostContactInfoContacts {
   @SerializedName("success")
   private List<String> success = null;
@@ -38,6 +38,9 @@ public class PostContactInfoContacts {
 
   @SerializedName("total")
   private Long total = null;
+
+  @SerializedName("processId")
+  private Long processId = null;
 
   public PostContactInfoContacts success(List<String> success) {
     this.success = success;
@@ -109,6 +112,24 @@ public class PostContactInfoContacts {
     this.total = total;
   }
 
+  public PostContactInfoContacts processId(Long processId) {
+    this.processId = processId;
+    return this;
+  }
+
+   /**
+   * Id of the process created to remove contacts from list when user opts for \&quot;all\&quot; option.
+   * @return processId
+  **/
+  @ApiModelProperty(example = "78", value = "Id of the process created to remove contacts from list when user opts for \"all\" option.")
+  public Long getProcessId() {
+    return processId;
+  }
+
+  public void setProcessId(Long processId) {
+    this.processId = processId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -121,12 +142,13 @@ public class PostContactInfoContacts {
     PostContactInfoContacts postContactInfoContacts = (PostContactInfoContacts) o;
     return ObjectUtils.equals(this.success, postContactInfoContacts.success) &&
     ObjectUtils.equals(this.failure, postContactInfoContacts.failure) &&
-    ObjectUtils.equals(this.total, postContactInfoContacts.total);
+    ObjectUtils.equals(this.total, postContactInfoContacts.total) &&
+    ObjectUtils.equals(this.processId, postContactInfoContacts.processId);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(success, failure, total);
+    return ObjectUtils.hashCodeMulti(success, failure, total, processId);
   }
 
 
@@ -138,6 +160,7 @@ public class PostContactInfoContacts {
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    processId: ").append(toIndentedString(processId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

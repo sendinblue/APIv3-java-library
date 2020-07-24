@@ -29,7 +29,7 @@ import sibModel.UpdateEmailCampaignSender;
 /**
  * UpdateEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class UpdateEmailCampaign {
   @SerializedName("tag")
   private String tag = null;
@@ -474,10 +474,10 @@ public class UpdateEmailCampaign {
   }
 
    /**
-   * Pass the set of attributes to customize the type &#39;classic&#39; campaign. For example, {&#39;FNAME&#39;:&#39;Joe&#39;, &#39;LNAME&#39;:&#39;Doe&#39;}. The &#39;params&#39; field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of &#39;subject&#39;, &#39;htmlContent/htmlUrl&#39;, &#39;sender.name&#39; &amp; &#39;toField&#39;
+   * Pass the set of attributes to customize the type &#39;classic&#39; campaign. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}. The &#39;params&#39; field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of &#39;subject&#39;, &#39;htmlContent/htmlUrl&#39;, &#39;sender.name&#39; &amp; &#39;toField&#39;
    * @return params
   **/
-  @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the type 'classic' campaign. For example, {'FNAME':'Joe', 'LNAME':'Doe'}. The 'params' field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'")
+  @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the type 'classic' campaign. For example, {\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}. The 'params' field will get updated, only if the campaign is in New Template Language, else ignored. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'")
   public Object getParams() {
     return params;
   }

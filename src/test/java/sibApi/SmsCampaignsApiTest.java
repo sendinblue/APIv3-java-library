@@ -61,7 +61,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Delete the SMS campaign
+     * Delete an SMS campaign
      *
      * 
      *
@@ -93,7 +93,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Returns the informations for all your created SMS campaigns
+     * Returns the information for all your created SMS campaigns
      *
      * 
      *
@@ -113,7 +113,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Exports the recipients of the specified campaign.
+     * Export an SMS campaign&#39;s recipients
      *
      * It returns the background process ID which on completion calls the notify URL that you have set in the input.
      *
@@ -146,7 +146,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Send report of SMS campaigns
+     * Send an SMS campaign&#39;s report
      *
      * Send report of Sent and Archived campaign, to the specified email addresses, with respective data and a pdf attachment in detail.
      *
@@ -163,7 +163,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Send an SMS
+     * Send a test SMS campaign
      *
      * 
      *
@@ -180,7 +180,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Updates an SMS campaign
+     * Update an SMS campaign
      *
      * 
      *
@@ -197,7 +197,7 @@ public class SmsCampaignsApiTest {
     }
     
     /**
-     * Update the campaign status
+     * Update a campaign&#39;s status
      *
      * 
      *

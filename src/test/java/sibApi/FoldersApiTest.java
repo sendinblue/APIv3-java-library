@@ -70,7 +70,7 @@ public class FoldersApiTest {
     }
     
     /**
-     * Returns folder details
+     * Returns a folder&#39;s details
      *
      * 
      *
@@ -86,7 +86,7 @@ public class FoldersApiTest {
     }
     
     /**
-     * Get the lists in a folder
+     * Get lists in a folder
      *
      * 
      *
@@ -104,7 +104,7 @@ public class FoldersApiTest {
     }
     
     /**
-     * Get all the folders
+     * Get all folders
      *
      * 
      *
@@ -121,7 +121,7 @@ public class FoldersApiTest {
     }
     
     /**
-     * Update a contact folder
+     * Update a folder
      *
      * 
      *

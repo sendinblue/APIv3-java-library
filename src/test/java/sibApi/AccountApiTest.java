@@ -38,7 +38,7 @@ public class AccountApiTest {
 
     
     /**
-     * Get your account informations, plans and credits details
+     * Get your account information, plan and credits details
      *
      * 
      *

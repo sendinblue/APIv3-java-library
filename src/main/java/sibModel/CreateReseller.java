@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * CreateReseller
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-23T17:54:09.105+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
 public class CreateReseller {
   @SerializedName("authKey")
   private String authKey = null;
+
+  @SerializedName("id")
+  private Long id = null;
 
   public CreateReseller authKey(String authKey) {
     this.authKey = authKey;
@@ -49,6 +52,24 @@ public class CreateReseller {
     this.authKey = authKey;
   }
 
+  public CreateReseller id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of Reseller child created
+   * @return id
+  **/
+  @ApiModelProperty(example = "1234567", value = "Id of Reseller child created")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,12 +80,13 @@ public class CreateReseller {
     return false;
   }
     CreateReseller createReseller = (CreateReseller) o;
-    return ObjectUtils.equals(this.authKey, createReseller.authKey);
+    return ObjectUtils.equals(this.authKey, createReseller.authKey) &&
+    ObjectUtils.equals(this.id, createReseller.id);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(authKey);
+    return ObjectUtils.hashCodeMulti(authKey, id);
   }
 
 
@@ -74,6 +96,7 @@ public class CreateReseller {
     sb.append("class CreateReseller {\n");
     
     sb.append("    authKey: ").append(toIndentedString(authKey)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
