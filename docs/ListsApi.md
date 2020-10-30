@@ -46,7 +46,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses of the contacts
+AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses OR IDs of the contacts
 try {
     PostContactInfo result = apiInstance.addContactToList(listId, contactEmails);
     System.out.println(result);
@@ -61,7 +61,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts |
+ **contactEmails** | [**AddContactToList**](AddContactToList.md)| Emails addresses OR IDs of the contacts |
 
 ### Return type
 
@@ -472,7 +472,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails adresses of the contact
+RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails addresses OR IDs of the contacts
 try {
     PostContactInfo result = apiInstance.removeContactFromList(listId, contactEmails);
     System.out.println(result);
@@ -487,7 +487,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact |
+ **contactEmails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails addresses OR IDs of the contacts |
 
 ### Return type
 

@@ -22,14 +22,19 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CreateSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class CreateSmtpEmail {
   @SerializedName("messageId")
   private String messageId = null;
+
+  @SerializedName("messageIds")
+  private List<String> messageIds = null;
 
   public CreateSmtpEmail messageId(String messageId) {
     this.messageId = messageId;
@@ -40,13 +45,39 @@ public class CreateSmtpEmail {
    * Message ID of the transactional email sent
    * @return messageId
   **/
-  @ApiModelProperty(example = "<201798300811.5787683@relay.domain.com>", required = true, value = "Message ID of the transactional email sent")
+  @ApiModelProperty(example = "<201798300811.5787683@relay.domain.com>", value = "Message ID of the transactional email sent")
   public String getMessageId() {
     return messageId;
   }
 
   public void setMessageId(String messageId) {
     this.messageId = messageId;
+  }
+
+  public CreateSmtpEmail messageIds(List<String> messageIds) {
+    this.messageIds = messageIds;
+    return this;
+  }
+
+  public CreateSmtpEmail addMessageIdsItem(String messageIdsItem) {
+    if (this.messageIds == null) {
+      this.messageIds = new ArrayList<String>();
+    }
+    this.messageIds.add(messageIdsItem);
+    return this;
+  }
+
+   /**
+   * Get messageIds
+   * @return messageIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getMessageIds() {
+    return messageIds;
+  }
+
+  public void setMessageIds(List<String> messageIds) {
+    this.messageIds = messageIds;
   }
 
 
@@ -59,12 +90,13 @@ public class CreateSmtpEmail {
     return false;
   }
     CreateSmtpEmail createSmtpEmail = (CreateSmtpEmail) o;
-    return ObjectUtils.equals(this.messageId, createSmtpEmail.messageId);
+    return ObjectUtils.equals(this.messageId, createSmtpEmail.messageId) &&
+    ObjectUtils.equals(this.messageIds, createSmtpEmail.messageIds);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(messageId);
+    return ObjectUtils.hashCodeMulti(messageId, messageIds);
   }
 
 
@@ -74,6 +106,7 @@ public class CreateSmtpEmail {
     sb.append("class CreateSmtpEmail {\n");
     
     sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
+    sb.append("    messageIds: ").append(toIndentedString(messageIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

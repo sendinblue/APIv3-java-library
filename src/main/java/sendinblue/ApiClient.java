@@ -85,7 +85,7 @@ public class ApiClient {
         json = new Json();
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/4.1.1/java");
+        setUserAgent("Java-v5.0.0");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class GetCampaignStats {
   @SerializedName("listId")
   private Long listId = null;
@@ -63,6 +63,9 @@ public class GetCampaignStats {
 
   @SerializedName("deferred")
   private Long deferred = null;
+
+  @SerializedName("returnBounce")
+  private Long returnBounce = null;
 
   public GetCampaignStats listId(Long listId) {
     this.listId = listId;
@@ -280,6 +283,24 @@ public class GetCampaignStats {
     this.deferred = deferred;
   }
 
+  public GetCampaignStats returnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+    return this;
+  }
+
+   /**
+   * Total number of non-delivered campaigns for a particular campaign id.
+   * @return returnBounce
+  **/
+  @ApiModelProperty(example = "5", value = "Total number of non-delivered campaigns for a particular campaign id.")
+  public Long getReturnBounce() {
+    return returnBounce;
+  }
+
+  public void setReturnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -301,12 +322,13 @@ public class GetCampaignStats {
     ObjectUtils.equals(this.uniqueViews, getCampaignStats.uniqueViews) &&
     ObjectUtils.equals(this.unsubscriptions, getCampaignStats.unsubscriptions) &&
     ObjectUtils.equals(this.viewed, getCampaignStats.viewed) &&
-    ObjectUtils.equals(this.deferred, getCampaignStats.deferred);
+    ObjectUtils.equals(this.deferred, getCampaignStats.deferred) &&
+    ObjectUtils.equals(this.returnBounce, getCampaignStats.returnBounce);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(listId, uniqueClicks, clickers, complaints, delivered, sent, softBounces, hardBounces, uniqueViews, unsubscriptions, viewed, deferred);
+    return ObjectUtils.hashCodeMulti(listId, uniqueClicks, clickers, complaints, delivered, sent, softBounces, hardBounces, uniqueViews, unsubscriptions, viewed, deferred, returnBounce);
   }
 
 
@@ -327,6 +349,7 @@ public class GetCampaignStats {
     sb.append("    unsubscriptions: ").append(toIndentedString(unsubscriptions)).append("\n");
     sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
     sb.append("    deferred: ").append(toIndentedString(deferred)).append("\n");
+    sb.append("    returnBounce: ").append(toIndentedString(returnBounce)).append("\n");
     sb.append("}");
     return sb.toString();
   }

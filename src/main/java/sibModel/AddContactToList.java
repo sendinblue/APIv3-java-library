@@ -28,10 +28,13 @@ import java.util.List;
 /**
  * AddContactToList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class AddContactToList {
   @SerializedName("emails")
   private List<String> emails = null;
+
+  @SerializedName("ids")
+  private List<Long> ids = null;
 
   public AddContactToList emails(List<String> emails) {
     this.emails = emails;
@@ -47,16 +50,42 @@ public class AddContactToList {
   }
 
    /**
-   * Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+   * Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
    * @return emails
   **/
-  @ApiModelProperty(value = "Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.")
+  @ApiModelProperty(value = "Mandatory if IDs are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.")
   public List<String> getEmails() {
     return emails;
   }
 
   public void setEmails(List<String> emails) {
     this.emails = emails;
+  }
+
+  public AddContactToList ids(List<Long> ids) {
+    this.ids = ids;
+    return this;
+  }
+
+  public AddContactToList addIdsItem(Long idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<Long>();
+    }
+    this.ids.add(idsItem);
+    return this;
+  }
+
+   /**
+   * Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+   * @return ids
+  **/
+  @ApiModelProperty(value = "Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.")
+  public List<Long> getIds() {
+    return ids;
+  }
+
+  public void setIds(List<Long> ids) {
+    this.ids = ids;
   }
 
 
@@ -69,12 +98,13 @@ public class AddContactToList {
     return false;
   }
     AddContactToList addContactToList = (AddContactToList) o;
-    return ObjectUtils.equals(this.emails, addContactToList.emails);
+    return ObjectUtils.equals(this.emails, addContactToList.emails) &&
+    ObjectUtils.equals(this.ids, addContactToList.ids);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emails);
+    return ObjectUtils.hashCodeMulti(emails, ids);
   }
 
 
@@ -84,6 +114,7 @@ public class AddContactToList {
     sb.append("class AddContactToList {\n");
     
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,16 +24,19 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Mandatory if &#39;templateId&#39; is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {\&quot;name\&quot;:\&quot;Mary from MyShop\&quot;, \&quot;email\&quot;:\&quot;no-reply@myshop.com\&quot;}
+ * Mandatory if &#x60;templateId&#x60; is not passed. Pass name (optional) and email or id of sender from which emails will be sent. &#x60;name&#x60; will be ignored if passed along with sender &#x60;id&#x60;. For example, {\&quot;name\&quot;:\&quot;Mary from MyShop\&quot;, \&quot;email\&quot;:\&quot;no-reply@myshop.com\&quot;} or {\&quot;id\&quot;:2}
  */
-@ApiModel(description = "Mandatory if 'templateId' is not passed. Pass name (optional) and email of sender from which emails will be sent. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@ApiModel(description = "Mandatory if `templateId` is not passed. Pass name (optional) and email or id of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class SendSmtpEmailSender {
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("email")
   private String email = null;
+
+  @SerializedName("id")
+  private Long id = null;
 
   public SendSmtpEmailSender name(String name) {
     this.name = name;
@@ -71,6 +74,24 @@ public class SendSmtpEmailSender {
     this.email = email;
   }
 
+  public SendSmtpEmailSender id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Id of the sender from which the emails will be sent
+   * @return id
+  **/
+  @ApiModelProperty(example = "2", value = "Id of the sender from which the emails will be sent")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +103,13 @@ public class SendSmtpEmailSender {
   }
     SendSmtpEmailSender sendSmtpEmailSender = (SendSmtpEmailSender) o;
     return ObjectUtils.equals(this.name, sendSmtpEmailSender.name) &&
-    ObjectUtils.equals(this.email, sendSmtpEmailSender.email);
+    ObjectUtils.equals(this.email, sendSmtpEmailSender.email) &&
+    ObjectUtils.equals(this.id, sendSmtpEmailSender.id);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(name, email);
+    return ObjectUtils.hashCodeMulti(name, email, id);
   }
 
 
@@ -98,6 +120,7 @@ public class SendSmtpEmailSender {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

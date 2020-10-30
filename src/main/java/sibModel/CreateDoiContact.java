@@ -160,7 +160,7 @@ public class CreateDoiContact {
    * URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}.
    * @return redirectionUrl
   **/
-  @ApiModelProperty(example = "http://requestb.in/173lyyx1", value = "URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}.")
+  @ApiModelProperty(example = "http://requestb.in/173lyyx1", required = true, value = "URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}.")
   public String getRedirectionUrl() {
     return redirectionUrl;
   }

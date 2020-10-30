@@ -84,7 +84,7 @@ public class ContactsApi {
     /**
      * Build call for addContactToList
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -155,7 +155,7 @@ public class ContactsApi {
      * Add existing contacts to a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -168,7 +168,7 @@ public class ContactsApi {
      * Add existing contacts to a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -182,7 +182,7 @@ public class ContactsApi {
      * Add existing contacts to a list (asynchronously)
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -966,18 +966,18 @@ public class ContactsApi {
     }
     /**
      * Build call for deleteContact
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteContactCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call deleteContactCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/contacts/{email}"
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+        String localVarPath = "/contacts/{identifier}"
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1015,15 +1015,15 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteContactValidateBeforeCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteContactValidateBeforeCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'email' is set
-        if (email == null) {
-            throw new ApiException("Missing the required parameter 'email' when calling deleteContact(Async)");
+        // verify the required parameter 'identifier' is set
+        if (identifier == null) {
+            throw new ApiException("Missing the required parameter 'identifier' when calling deleteContact(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = deleteContactCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteContactCall(identifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1031,34 +1031,34 @@ public class ContactsApi {
     /**
      * Delete a contact
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteContact(String email) throws ApiException {
-        deleteContactWithHttpInfo(email);
+    public void deleteContact(String identifier) throws ApiException {
+        deleteContactWithHttpInfo(identifier);
     }
 
     /**
      * Delete a contact
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> deleteContactWithHttpInfo(String email) throws ApiException {
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(email, null, null);
+    public ApiResponse<Void> deleteContactWithHttpInfo(String identifier) throws ApiException {
+        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(identifier, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete a contact (asynchronously)
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteContactAsync(String email, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteContactAsync(String identifier, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1079,7 +1079,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(identifier, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1436,18 +1436,18 @@ public class ContactsApi {
     }
     /**
      * Build call for getContactInfo
-     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
+     * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactInfoCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactInfoCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/contacts/{email}"
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+        String localVarPath = "/contacts/{identifier}"
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1485,15 +1485,15 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactInfoValidateBeforeCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactInfoValidateBeforeCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'email' is set
-        if (email == null) {
-            throw new ApiException("Missing the required parameter 'email' when calling getContactInfo(Async)");
+        // verify the required parameter 'identifier' is set
+        if (identifier == null) {
+            throw new ApiException("Missing the required parameter 'identifier' when calling getContactInfo(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = getContactInfoCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactInfoCall(identifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1501,24 +1501,24 @@ public class ContactsApi {
     /**
      * Get a contact&#39;s details
      * 
-     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
+     * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @return GetExtendedContactDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetExtendedContactDetails getContactInfo(String email) throws ApiException {
-        ApiResponse<GetExtendedContactDetails> resp = getContactInfoWithHttpInfo(email);
+    public GetExtendedContactDetails getContactInfo(String identifier) throws ApiException {
+        ApiResponse<GetExtendedContactDetails> resp = getContactInfoWithHttpInfo(identifier);
         return resp.getData();
     }
 
     /**
      * Get a contact&#39;s details
      * 
-     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
+     * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @return ApiResponse&lt;GetExtendedContactDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetExtendedContactDetails> getContactInfoWithHttpInfo(String email) throws ApiException {
-        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(email, null, null);
+    public ApiResponse<GetExtendedContactDetails> getContactInfoWithHttpInfo(String identifier) throws ApiException {
+        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(identifier, null, null);
         Type localVarReturnType = new TypeToken<GetExtendedContactDetails>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1526,12 +1526,12 @@ public class ContactsApi {
     /**
      * Get a contact&#39;s details (asynchronously)
      * 
-     * @param email Email (urlencoded) of the contact OR its SMS attribute value (required)
+     * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactInfoAsync(String email, final ApiCallback<GetExtendedContactDetails> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactInfoAsync(String identifier, final ApiCallback<GetExtendedContactDetails> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1552,14 +1552,14 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(email, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(identifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetExtendedContactDetails>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getContactStats
-     * @param email Email address (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @param progressListener Progress listener
@@ -1567,12 +1567,12 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsCall(String email, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsCall(String identifier, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/contacts/{email}/campaignStats"
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+        String localVarPath = "/contacts/{identifier}/campaignStats"
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1614,15 +1614,15 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String email, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String identifier, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'email' is set
-        if (email == null) {
-            throw new ApiException("Missing the required parameter 'email' when calling getContactStats(Async)");
+        // verify the required parameter 'identifier' is set
+        if (identifier == null) {
+            throw new ApiException("Missing the required parameter 'identifier' when calling getContactStats(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = getContactStatsCall(email, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactStatsCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1630,28 +1630,28 @@ public class ContactsApi {
     /**
      * Get email campaigns&#39; statistics for a contact
      * 
-     * @param email Email address (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @return GetContactCampaignStats
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContactCampaignStats getContactStats(String email, LocalDate startDate, LocalDate endDate) throws ApiException {
-        ApiResponse<GetContactCampaignStats> resp = getContactStatsWithHttpInfo(email, startDate, endDate);
+    public GetContactCampaignStats getContactStats(String identifier, LocalDate startDate, LocalDate endDate) throws ApiException {
+        ApiResponse<GetContactCampaignStats> resp = getContactStatsWithHttpInfo(identifier, startDate, endDate);
         return resp.getData();
     }
 
     /**
      * Get email campaigns&#39; statistics for a contact
      * 
-     * @param email Email address (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @return ApiResponse&lt;GetContactCampaignStats&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String email, LocalDate startDate, LocalDate endDate) throws ApiException {
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, startDate, endDate, null, null);
+    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String identifier, LocalDate startDate, LocalDate endDate) throws ApiException {
+        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1659,14 +1659,14 @@ public class ContactsApi {
     /**
      * Get email campaigns&#39; statistics for a contact (asynchronously)
      * 
-     * @param email Email address (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsAsync(String email, LocalDate startDate, LocalDate endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsAsync(String identifier, LocalDate startDate, LocalDate endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1687,7 +1687,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(email, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2730,7 +2730,7 @@ public class ContactsApi {
     /**
      * Build call for removeContactFromList
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2801,7 +2801,7 @@ public class ContactsApi {
      * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2814,7 +2814,7 @@ public class ContactsApi {
      * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2828,7 +2828,7 @@ public class ContactsApi {
      * Delete a contact from a list (asynchronously)
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3121,19 +3121,19 @@ public class ContactsApi {
     }
     /**
      * Build call for updateContact
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param updateContact Values to update a contact (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateContactCall(String email, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call updateContactCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateContact;
 
         // create path and map variables
-        String localVarPath = "/contacts/{email}"
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+        String localVarPath = "/contacts/{identifier}"
+            .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(identifier.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3171,11 +3171,11 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateContactValidateBeforeCall(String email, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateContactValidateBeforeCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'email' is set
-        if (email == null) {
-            throw new ApiException("Missing the required parameter 'email' when calling updateContact(Async)");
+        // verify the required parameter 'identifier' is set
+        if (identifier == null) {
+            throw new ApiException("Missing the required parameter 'identifier' when calling updateContact(Async)");
         }
         
         // verify the required parameter 'updateContact' is set
@@ -3184,7 +3184,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateContactCall(email, updateContact, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateContactCall(identifier, updateContact, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3192,37 +3192,37 @@ public class ContactsApi {
     /**
      * Update a contact
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param updateContact Values to update a contact (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void updateContact(String email, UpdateContact updateContact) throws ApiException {
-        updateContactWithHttpInfo(email, updateContact);
+    public void updateContact(String identifier, UpdateContact updateContact) throws ApiException {
+        updateContactWithHttpInfo(identifier, updateContact);
     }
 
     /**
      * Update a contact
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param updateContact Values to update a contact (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> updateContactWithHttpInfo(String email, UpdateContact updateContact) throws ApiException {
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(email, updateContact, null, null);
+    public ApiResponse<Void> updateContactWithHttpInfo(String identifier, UpdateContact updateContact) throws ApiException {
+        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(identifier, updateContact, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Update a contact (asynchronously)
      * 
-     * @param email Email (urlencoded) of the contact (required)
+     * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param updateContact Values to update a contact (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateContactAsync(String email, UpdateContact updateContact, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateContactAsync(String identifier, UpdateContact updateContact, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3243,7 +3243,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(email, updateContact, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(identifier, updateContact, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

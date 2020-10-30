@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription {
   @SerializedName("campaignId")
   private Long campaignId = null;
@@ -83,7 +83,7 @@ public class GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscriptio
    * IP from which the user has unsubscribed
    * @return ip
   **/
-  @ApiModelProperty(example = "165.87.3.15", required = true, value = "IP from which the user has unsubscribed")
+  @ApiModelProperty(example = "165.87.3.15", value = "IP from which the user has unsubscribed")
   public String getIp() {
     return ip;
   }

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **includeListIds** | **List&lt;Long&gt;** | Lists under user account where contact should be added | 
 **excludeListIds** | **List&lt;Long&gt;** | Lists under user account where contact should not be added |  [optional]
 **templateId** | **Long** | Id of the Double opt-in (DOI) template | 
-**redirectionUrl** | **String** | URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}. |  [optional]
+**redirectionUrl** | **String** | URL of the web page that user will be redirected to after clicking on the double opt in URL. When editing your DOI template you can reference this URL by using the tag {{ params.DOIurl }}. | 
 
 
 

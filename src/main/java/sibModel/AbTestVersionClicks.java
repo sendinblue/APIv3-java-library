@@ -14,70 +14,17 @@
 package sibModel;
 
 import org.apache.commons.lang3.ObjectUtils;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import sibModel.AbTestVersionClicksInner;
 
 /**
- * Custom attributes for the report email.
+ * Information on clicked links for a particular version
  */
-@ApiModel(description = "Custom attributes for the report email.")
+@ApiModel(description = "Information on clicked links for a particular version")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class SendReportEmail {
-  @SerializedName("to")
-  private List<String> to = new ArrayList<String>();
-
-  @SerializedName("body")
-  private String body = null;
-
-  public SendReportEmail to(List<String> to) {
-    this.to = to;
-    return this;
-  }
-
-  public SendReportEmail addToItem(String toItem) {
-    this.to.add(toItem);
-    return this;
-  }
-
-   /**
-   * Email addresses of the recipients
-   * @return to
-  **/
-  @ApiModelProperty(required = true, value = "Email addresses of the recipients")
-  public List<String> getTo() {
-    return to;
-  }
-
-  public void setTo(List<String> to) {
-    this.to = to;
-  }
-
-  public SendReportEmail body(String body) {
-    this.body = body;
-    return this;
-  }
-
-   /**
-   * Custom text message to be presented in the report email.
-   * @return body
-  **/
-  @ApiModelProperty(example = "Please find attached the report of our last email campaign.", required = true, value = "Custom text message to be presented in the report email.")
-  public String getBody() {
-    return body;
-  }
-
-  public void setBody(String body) {
-    this.body = body;
-  }
-
+public class AbTestVersionClicks extends ArrayList<AbTestVersionClicksInner> {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,24 +34,20 @@ public class SendReportEmail {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    SendReportEmail sendReportEmail = (SendReportEmail) o;
-    return ObjectUtils.equals(this.to, sendReportEmail.to) &&
-    ObjectUtils.equals(this.body, sendReportEmail.body);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(to, body);
+    return ObjectUtils.hashCodeMulti(super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendReportEmail {\n");
-    
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
-    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("class AbTestVersionClicks {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

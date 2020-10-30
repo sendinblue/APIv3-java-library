@@ -22,53 +22,74 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
+import java.math.BigDecimal;
 
 /**
- * GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
+ * AbTestVersionClicksInner
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {
-  @SerializedName("eventTime")
-  private OffsetDateTime eventTime = null;
+public class AbTestVersionClicksInner {
+  @SerializedName("link")
+  private String link = null;
 
-  @SerializedName("ip")
-  private String ip = null;
+  @SerializedName("clicksCount")
+  private BigDecimal clicksCount = null;
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription eventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  @SerializedName("clickRate")
+  private String clickRate = null;
+
+  public AbTestVersionClicksInner link(String link) {
+    this.link = link;
     return this;
   }
 
    /**
-   * UTC date-time of the event
-   * @return eventTime
+   * URL of the link
+   * @return link
   **/
-  @ApiModelProperty(example = "2017-03-12T20:15:13Z", required = true, value = "UTC date-time of the event")
-  public OffsetDateTime getEventTime() {
-    return eventTime;
+  @ApiModelProperty(example = "https://facbook.com/versionA", required = true, value = "URL of the link")
+  public String getLink() {
+    return link;
   }
 
-  public void setEventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  public void setLink(String link) {
+    this.link = link;
   }
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription ip(String ip) {
-    this.ip = ip;
+  public AbTestVersionClicksInner clicksCount(BigDecimal clicksCount) {
+    this.clicksCount = clicksCount;
     return this;
   }
 
    /**
-   * IP from which the user has been unsubscribed
-   * @return ip
+   * Number of times a link is clicked
+   * @return clicksCount
   **/
-  @ApiModelProperty(example = "165.87.3.15", value = "IP from which the user has been unsubscribed")
-  public String getIp() {
-    return ip;
+  @ApiModelProperty(example = "3.0", required = true, value = "Number of times a link is clicked")
+  public BigDecimal getClicksCount() {
+    return clicksCount;
   }
 
-  public void setIp(String ip) {
-    this.ip = ip;
+  public void setClicksCount(BigDecimal clicksCount) {
+    this.clicksCount = clicksCount;
+  }
+
+  public AbTestVersionClicksInner clickRate(String clickRate) {
+    this.clickRate = clickRate;
+    return this;
+  }
+
+   /**
+   * Percentage of clicks of link with respect to total clicks
+   * @return clickRate
+  **/
+  @ApiModelProperty(example = "40%", required = true, value = "Percentage of clicks of link with respect to total clicks")
+  public String getClickRate() {
+    return clickRate;
+  }
+
+  public void setClickRate(String clickRate) {
+    this.clickRate = clickRate;
   }
 
 
@@ -80,24 +101,26 @@ public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscripti
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription = (GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription) o;
-    return ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.eventTime) &&
-    ObjectUtils.equals(this.ip, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.ip);
+    AbTestVersionClicksInner abTestVersionClicksInner = (AbTestVersionClicksInner) o;
+    return ObjectUtils.equals(this.link, abTestVersionClicksInner.link) &&
+    ObjectUtils.equals(this.clicksCount, abTestVersionClicksInner.clicksCount) &&
+    ObjectUtils.equals(this.clickRate, abTestVersionClicksInner.clickRate);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(eventTime, ip);
+    return ObjectUtils.hashCodeMulti(link, clicksCount, clickRate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {\n");
+    sb.append("class AbTestVersionClicksInner {\n");
     
-    sb.append("    eventTime: ").append(toIndentedString(eventTime)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    clicksCount: ").append(toIndentedString(clicksCount)).append("\n");
+    sb.append("    clickRate: ").append(toIndentedString(clickRate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

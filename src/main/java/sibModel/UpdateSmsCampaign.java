@@ -69,10 +69,10 @@ public class UpdateSmsCampaign {
   }
 
    /**
-   * Name of the sender. The number of characters is limited to 11
+   * Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**
    * @return sender
   **/
-  @ApiModelProperty(example = "MyShop", value = "Name of the sender. The number of characters is limited to 11")
+  @ApiModelProperty(example = "MyShop", value = "Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**")
   public String getSender() {
     return sender;
   }

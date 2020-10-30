@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetAggregatedReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class GetAggregatedReport {
   @SerializedName("range")
   private String range = null;
@@ -76,7 +76,7 @@ public class GetAggregatedReport {
    * Time frame of the report
    * @return range
   **/
-  @ApiModelProperty(example = "2016-09-08|2017-04-06", required = true, value = "Time frame of the report")
+  @ApiModelProperty(example = "2016-09-08|2017-04-06", value = "Time frame of the report")
   public String getRange() {
     return range;
   }
@@ -94,7 +94,7 @@ public class GetAggregatedReport {
    * Number of requests for the timeframe
    * @return requests
   **/
-  @ApiModelProperty(example = "263", required = true, value = "Number of requests for the timeframe")
+  @ApiModelProperty(example = "263", value = "Number of requests for the timeframe")
   public Long getRequests() {
     return requests;
   }
@@ -112,7 +112,7 @@ public class GetAggregatedReport {
    * Number of delivered emails for the timeframe
    * @return delivered
   **/
-  @ApiModelProperty(example = "249", required = true, value = "Number of delivered emails for the timeframe")
+  @ApiModelProperty(example = "249", value = "Number of delivered emails for the timeframe")
   public Long getDelivered() {
     return delivered;
   }
@@ -130,7 +130,7 @@ public class GetAggregatedReport {
    * Number of hardbounces for the timeframe
    * @return hardBounces
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of hardbounces for the timeframe")
+  @ApiModelProperty(example = "1", value = "Number of hardbounces for the timeframe")
   public Long getHardBounces() {
     return hardBounces;
   }
@@ -148,7 +148,7 @@ public class GetAggregatedReport {
    * Number of softbounces for the timeframe
    * @return softBounces
   **/
-  @ApiModelProperty(example = "4", required = true, value = "Number of softbounces for the timeframe")
+  @ApiModelProperty(example = "4", value = "Number of softbounces for the timeframe")
   public Long getSoftBounces() {
     return softBounces;
   }
@@ -166,7 +166,7 @@ public class GetAggregatedReport {
    * Number of clicks for the timeframe
    * @return clicks
   **/
-  @ApiModelProperty(example = "12", required = true, value = "Number of clicks for the timeframe")
+  @ApiModelProperty(example = "12", value = "Number of clicks for the timeframe")
   public Long getClicks() {
     return clicks;
   }
@@ -184,7 +184,7 @@ public class GetAggregatedReport {
    * Number of unique clicks for the timeframe
    * @return uniqueClicks
   **/
-  @ApiModelProperty(example = "8", required = true, value = "Number of unique clicks for the timeframe")
+  @ApiModelProperty(example = "8", value = "Number of unique clicks for the timeframe")
   public Long getUniqueClicks() {
     return uniqueClicks;
   }
@@ -202,7 +202,7 @@ public class GetAggregatedReport {
    * Number of openings for the timeframe
    * @return opens
   **/
-  @ApiModelProperty(example = "47", required = true, value = "Number of openings for the timeframe")
+  @ApiModelProperty(example = "47", value = "Number of openings for the timeframe")
   public Long getOpens() {
     return opens;
   }
@@ -220,7 +220,7 @@ public class GetAggregatedReport {
    * Number of unique openings for the timeframe
    * @return uniqueOpens
   **/
-  @ApiModelProperty(example = "37", required = true, value = "Number of unique openings for the timeframe")
+  @ApiModelProperty(example = "37", value = "Number of unique openings for the timeframe")
   public Long getUniqueOpens() {
     return uniqueOpens;
   }
@@ -238,7 +238,7 @@ public class GetAggregatedReport {
    * Number of complaint (spam report) for the timeframe
    * @return spamReports
   **/
-  @ApiModelProperty(example = "0", required = true, value = "Number of complaint (spam report) for the timeframe")
+  @ApiModelProperty(example = "0", value = "Number of complaint (spam report) for the timeframe")
   public Long getSpamReports() {
     return spamReports;
   }
@@ -256,7 +256,7 @@ public class GetAggregatedReport {
    * Number of blocked contact emails for the timeframe
    * @return blocked
   **/
-  @ApiModelProperty(example = "2", required = true, value = "Number of blocked contact emails for the timeframe")
+  @ApiModelProperty(example = "2", value = "Number of blocked contact emails for the timeframe")
   public Long getBlocked() {
     return blocked;
   }
@@ -274,7 +274,7 @@ public class GetAggregatedReport {
    * Number of invalid emails for the timeframe
    * @return invalid
   **/
-  @ApiModelProperty(example = "0", required = true, value = "Number of invalid emails for the timeframe")
+  @ApiModelProperty(example = "0", value = "Number of invalid emails for the timeframe")
   public Long getInvalid() {
     return invalid;
   }
@@ -292,7 +292,7 @@ public class GetAggregatedReport {
    * Number of unsubscribed emails for the timeframe
    * @return unsubscribed
   **/
-  @ApiModelProperty(example = "0", required = true, value = "Number of unsubscribed emails for the timeframe")
+  @ApiModelProperty(example = "0", value = "Number of unsubscribed emails for the timeframe")
   public Long getUnsubscribed() {
     return unsubscribed;
   }

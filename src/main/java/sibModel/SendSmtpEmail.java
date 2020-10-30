@@ -27,6 +27,7 @@ import java.util.List;
 import sibModel.SendSmtpEmailAttachment;
 import sibModel.SendSmtpEmailBcc;
 import sibModel.SendSmtpEmailCc;
+import sibModel.SendSmtpEmailMessageVersions;
 import sibModel.SendSmtpEmailReplyTo;
 import sibModel.SendSmtpEmailSender;
 import sibModel.SendSmtpEmailTo;
@@ -34,13 +35,13 @@ import sibModel.SendSmtpEmailTo;
 /**
  * SendSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class SendSmtpEmail {
   @SerializedName("sender")
   private SendSmtpEmailSender sender = null;
 
   @SerializedName("to")
-  private List<SendSmtpEmailTo> to = new ArrayList<SendSmtpEmailTo>();
+  private List<SendSmtpEmailTo> to = null;
 
   @SerializedName("bcc")
   private List<SendSmtpEmailBcc> bcc = null;
@@ -72,6 +73,9 @@ public class SendSmtpEmail {
   @SerializedName("params")
   private Object params = null;
 
+  @SerializedName("messageVersions")
+  private List<SendSmtpEmailMessageVersions> messageVersions = null;
+
   @SerializedName("tags")
   private List<String> tags = null;
 
@@ -99,15 +103,18 @@ public class SendSmtpEmail {
   }
 
   public SendSmtpEmail addToItem(SendSmtpEmailTo toItem) {
+    if (this.to == null) {
+      this.to = new ArrayList<SendSmtpEmailTo>();
+    }
     this.to.add(toItem);
     return this;
   }
 
    /**
-   * List of email addresses and names (optional) of the recipients. For example, [{\&quot;name\&quot;:\&quot;Jimmy\&quot;, \&quot;email\&quot;:\&quot;jimmy98@example.com\&quot;}, {\&quot;name\&quot;:\&quot;Joe\&quot;, \&quot;email\&quot;:\&quot;joe@example.com\&quot;}]
+   * Mandatory if messageVersions are not passed, ignored if messageVersions are passed. List of email addresses and names (optional) of the recipients. For example, [{\&quot;name\&quot;:\&quot;Jimmy\&quot;, \&quot;email\&quot;:\&quot;jimmy98@example.com\&quot;}, {\&quot;name\&quot;:\&quot;Joe\&quot;, \&quot;email\&quot;:\&quot;joe@example.com\&quot;}]
    * @return to
   **/
-  @ApiModelProperty(required = true, value = "List of email addresses and names (optional) of the recipients. For example, [{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]")
+  @ApiModelProperty(value = "Mandatory if messageVersions are not passed, ignored if messageVersions are passed. List of email addresses and names (optional) of the recipients. For example, [{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]")
   public List<SendSmtpEmailTo> getTo() {
     return to;
   }
@@ -290,10 +297,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Id of the template
+   * Id of the template. Mandatory if messageVersions are passed
    * @return templateId
   **/
-  @ApiModelProperty(example = "2", value = "Id of the template")
+  @ApiModelProperty(example = "2", value = "Id of the template. Mandatory if messageVersions are passed")
   public Long getTemplateId() {
     return templateId;
   }
@@ -318,6 +325,32 @@ public class SendSmtpEmail {
 
   public void setParams(Object params) {
     this.params = params;
+  }
+
+  public SendSmtpEmail messageVersions(List<SendSmtpEmailMessageVersions> messageVersions) {
+    this.messageVersions = messageVersions;
+    return this;
+  }
+
+  public SendSmtpEmail addMessageVersionsItem(SendSmtpEmailMessageVersions messageVersionsItem) {
+    if (this.messageVersions == null) {
+      this.messageVersions = new ArrayList<SendSmtpEmailMessageVersions>();
+    }
+    this.messageVersions.add(messageVersionsItem);
+    return this;
+  }
+
+   /**
+   * You can customize and send out multiple versions of a templateId. Some global parameters such as **to(mandatory), bcc, cc, replyTo** can also be customized specific to each version. The size of individual / cumulative params in all the messageVersions shall not exceed 100 KB limit.
+   * @return messageVersions
+  **/
+  @ApiModelProperty(value = "You can customize and send out multiple versions of a templateId. Some global parameters such as **to(mandatory), bcc, cc, replyTo** can also be customized specific to each version. The size of individual / cumulative params in all the messageVersions shall not exceed 100 KB limit.")
+  public List<SendSmtpEmailMessageVersions> getMessageVersions() {
+    return messageVersions;
+  }
+
+  public void setMessageVersions(List<SendSmtpEmailMessageVersions> messageVersions) {
+    this.messageVersions = messageVersions;
   }
 
   public SendSmtpEmail tags(List<String> tags) {
@@ -368,12 +401,13 @@ public class SendSmtpEmail {
     ObjectUtils.equals(this.headers, sendSmtpEmail.headers) &&
     ObjectUtils.equals(this.templateId, sendSmtpEmail.templateId) &&
     ObjectUtils.equals(this.params, sendSmtpEmail.params) &&
+    ObjectUtils.equals(this.messageVersions, sendSmtpEmail.messageVersions) &&
     ObjectUtils.equals(this.tags, sendSmtpEmail.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params, tags);
+    return ObjectUtils.hashCodeMulti(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params, messageVersions, tags);
   }
 
 
@@ -394,6 +428,7 @@ public class SendSmtpEmail {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    messageVersions: ").append(toIndentedString(messageVersions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

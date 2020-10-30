@@ -28,10 +28,13 @@ import java.util.List;
 /**
  * RemoveContactFromList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class RemoveContactFromList {
   @SerializedName("emails")
   private List<String> emails = null;
+
+  @SerializedName("ids")
+  private List<Long> ids = null;
 
   @SerializedName("all")
   private Boolean all = null;
@@ -62,16 +65,42 @@ public class RemoveContactFromList {
     this.emails = emails;
   }
 
+  public RemoveContactFromList ids(List<Long> ids) {
+    this.ids = ids;
+    return this;
+  }
+
+  public RemoveContactFromList addIdsItem(Long idsItem) {
+    if (this.ids == null) {
+      this.ids = new ArrayList<Long>();
+    }
+    this.ids.add(idsItem);
+    return this;
+  }
+
+   /**
+   * Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.
+   * @return ids
+  **/
+  @ApiModelProperty(value = "Mandatory if Emails are not passed, ignored otherwise. Emails to add to a list. You can pass a maximum of 150 emails for addition in one request. If you need to add the emails in bulk, please prefer /contacts/import api.")
+  public List<Long> getIds() {
+    return ids;
+  }
+
+  public void setIds(List<Long> ids) {
+    this.ids = ids;
+  }
+
   public RemoveContactFromList all(Boolean all) {
     this.all = all;
     return this;
   }
 
    /**
-   * Required if &#39;emails&#39; is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
+   * Required if none of &#39;emails&#39; or &#39;ids&#39; are passed. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress
    * @return all
   **/
-  @ApiModelProperty(example = "false", value = "Required if 'emails' is empty. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress")
+  @ApiModelProperty(example = "false", value = "Required if none of 'emails' or 'ids' are passed. Remove all existing contacts from a list.  A process will be created in this scenario. You can fetch the process details to know about the progress")
   public Boolean isAll() {
     return all;
   }
@@ -91,12 +120,13 @@ public class RemoveContactFromList {
   }
     RemoveContactFromList removeContactFromList = (RemoveContactFromList) o;
     return ObjectUtils.equals(this.emails, removeContactFromList.emails) &&
+    ObjectUtils.equals(this.ids, removeContactFromList.ids) &&
     ObjectUtils.equals(this.all, removeContactFromList.all);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emails, all);
+    return ObjectUtils.hashCodeMulti(emails, ids, all);
   }
 
 
@@ -106,6 +136,7 @@ public class RemoveContactFromList {
     sb.append("class RemoveContactFromList {\n");
     
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    all: ").append(toIndentedString(all)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,13 +31,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerkey.setApiKey("YOUR PARTNER KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute
@@ -93,13 +93,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerkey.setApiKey("YOUR PARTNER KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute
@@ -153,13 +153,13 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apikey.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partnerkey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerkey.setApiKey("YOUR PARTNER KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 try {
@@ -214,7 +214,7 @@ apiKey.setApiKey("YOUR API KEY");
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 AttributesApi apiInstance = new AttributesApi();
 String attributeCategory = "attributeCategory_example"; // String | Category of the attribute

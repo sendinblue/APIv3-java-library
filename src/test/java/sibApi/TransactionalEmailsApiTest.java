@@ -43,12 +43,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for SmtpApi
+ * API tests for TransactionalEmailsApi
  */
 @Ignore
-public class SmtpApiTest {
+public class TransactionalEmailsApiTest {
 
-    private final SmtpApi api = new SmtpApi();
+    private final TransactionalEmailsApi api = new TransactionalEmailsApi();
 
     
     /**

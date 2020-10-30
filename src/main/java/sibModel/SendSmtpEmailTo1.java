@@ -22,53 +22,52 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
+ * SendSmtpEmailTo1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {
-  @SerializedName("eventTime")
-  private OffsetDateTime eventTime = null;
+public class SendSmtpEmailTo1 {
+  @SerializedName("email")
+  private String email = null;
 
-  @SerializedName("ip")
-  private String ip = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription eventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  public SendSmtpEmailTo1 email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * UTC date-time of the event
-   * @return eventTime
+   * Email address of the recipient
+   * @return email
   **/
-  @ApiModelProperty(example = "2017-03-12T20:15:13Z", required = true, value = "UTC date-time of the event")
-  public OffsetDateTime getEventTime() {
-    return eventTime;
+  @ApiModelProperty(example = "jimmy98@example.com", required = true, value = "Email address of the recipient")
+  public String getEmail() {
+    return email;
   }
 
-  public void setEventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription ip(String ip) {
-    this.ip = ip;
+  public SendSmtpEmailTo1 name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * IP from which the user has been unsubscribed
-   * @return ip
+   * Name of the recipient. **Maximum allowed characters are 70**.
+   * @return name
   **/
-  @ApiModelProperty(example = "165.87.3.15", value = "IP from which the user has been unsubscribed")
-  public String getIp() {
-    return ip;
+  @ApiModelProperty(example = "Jimmy", value = "Name of the recipient. **Maximum allowed characters are 70**.")
+  public String getName() {
+    return name;
   }
 
-  public void setIp(String ip) {
-    this.ip = ip;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -80,24 +79,24 @@ public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscripti
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription = (GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription) o;
-    return ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.eventTime) &&
-    ObjectUtils.equals(this.ip, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.ip);
+    SendSmtpEmailTo1 sendSmtpEmailTo1 = (SendSmtpEmailTo1) o;
+    return ObjectUtils.equals(this.email, sendSmtpEmailTo1.email) &&
+    ObjectUtils.equals(this.name, sendSmtpEmailTo1.name);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(eventTime, ip);
+    return ObjectUtils.hashCodeMulti(email, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {\n");
+    sb.append("class SendSmtpEmailTo1 {\n");
     
-    sb.append("    eventTime: ").append(toIndentedString(eventTime)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

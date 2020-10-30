@@ -68,7 +68,7 @@ public class ListsApi {
     /**
      * Build call for addContactToList
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -139,7 +139,7 @@ public class ListsApi {
      * Add existing contacts to a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -152,7 +152,7 @@ public class ListsApi {
      * Add existing contacts to a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -166,7 +166,7 @@ public class ListsApi {
      * Add existing contacts to a list (asynchronously)
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails addresses of the contacts (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -965,7 +965,7 @@ public class ListsApi {
     /**
      * Build call for removeContactFromList
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1036,7 +1036,7 @@ public class ListsApi {
      * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return PostContactInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1049,7 +1049,7 @@ public class ListsApi {
      * Delete a contact from a list
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @return ApiResponse&lt;PostContactInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1063,7 +1063,7 @@ public class ListsApi {
      * Delete a contact from a list (asynchronously)
      * 
      * @param listId Id of the list (required)
-     * @param contactEmails Emails adresses of the contact (required)
+     * @param contactEmails Emails addresses OR IDs of the contacts (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

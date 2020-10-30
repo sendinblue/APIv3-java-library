@@ -22,11 +22,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import sibModel.AbTestCampaignResultClickedLinks;
+import sibModel.AbTestCampaignResultStatistics;
 
 /**
  * AbTestCampaignResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class AbTestCampaignResult {
   /**
    * Winning Campaign Info. pending &#x3D; Campaign has been picked for sending and winning version is yet to be decided, tie &#x3D; A tie happened between both the versions, notAvailable &#x3D; Campaign has not yet been picked for sending.
@@ -146,6 +148,12 @@ public class AbTestCampaignResult {
   @SerializedName("winningVersionRate")
   private String winningVersionRate = null;
 
+  @SerializedName("statistics")
+  private AbTestCampaignResultStatistics statistics = null;
+
+  @SerializedName("clickedLinks")
+  private AbTestCampaignResultClickedLinks clickedLinks = null;
+
   public AbTestCampaignResult winningVersion(WinningVersionEnum winningVersion) {
     this.winningVersion = winningVersion;
     return this;
@@ -254,6 +262,42 @@ public class AbTestCampaignResult {
     this.winningVersionRate = winningVersionRate;
   }
 
+  public AbTestCampaignResult statistics(AbTestCampaignResultStatistics statistics) {
+    this.statistics = statistics;
+    return this;
+  }
+
+   /**
+   * Get statistics
+   * @return statistics
+  **/
+  @ApiModelProperty(value = "")
+  public AbTestCampaignResultStatistics getStatistics() {
+    return statistics;
+  }
+
+  public void setStatistics(AbTestCampaignResultStatistics statistics) {
+    this.statistics = statistics;
+  }
+
+  public AbTestCampaignResult clickedLinks(AbTestCampaignResultClickedLinks clickedLinks) {
+    this.clickedLinks = clickedLinks;
+    return this;
+  }
+
+   /**
+   * Get clickedLinks
+   * @return clickedLinks
+  **/
+  @ApiModelProperty(value = "")
+  public AbTestCampaignResultClickedLinks getClickedLinks() {
+    return clickedLinks;
+  }
+
+  public void setClickedLinks(AbTestCampaignResultClickedLinks clickedLinks) {
+    this.clickedLinks = clickedLinks;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,12 +313,14 @@ public class AbTestCampaignResult {
     ObjectUtils.equals(this.winningSubjectLine, abTestCampaignResult.winningSubjectLine) &&
     ObjectUtils.equals(this.openRate, abTestCampaignResult.openRate) &&
     ObjectUtils.equals(this.clickRate, abTestCampaignResult.clickRate) &&
-    ObjectUtils.equals(this.winningVersionRate, abTestCampaignResult.winningVersionRate);
+    ObjectUtils.equals(this.winningVersionRate, abTestCampaignResult.winningVersionRate) &&
+    ObjectUtils.equals(this.statistics, abTestCampaignResult.statistics) &&
+    ObjectUtils.equals(this.clickedLinks, abTestCampaignResult.clickedLinks);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(winningVersion, winningCriteria, winningSubjectLine, openRate, clickRate, winningVersionRate);
+    return ObjectUtils.hashCodeMulti(winningVersion, winningCriteria, winningSubjectLine, openRate, clickRate, winningVersionRate, statistics, clickedLinks);
   }
 
 
@@ -289,6 +335,8 @@ public class AbTestCampaignResult {
     sb.append("    openRate: ").append(toIndentedString(openRate)).append("\n");
     sb.append("    clickRate: ").append(toIndentedString(clickRate)).append("\n");
     sb.append("    winningVersionRate: ").append(toIndentedString(winningVersionRate)).append("\n");
+    sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
+    sb.append("    clickedLinks: ").append(toIndentedString(clickedLinks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

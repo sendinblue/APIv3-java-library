@@ -517,16 +517,16 @@ Get all sender domains for a specific child account
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: api-key
-ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api-key.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partner-key.setApiKey("YOUR API KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
 String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
@@ -878,16 +878,16 @@ Update the sender domain of reseller&#39;s child based on the childIdentifier an
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: api-key
-ApiKeyAuth api-key = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api-key.setApiKeyPrefix("Token");
+//apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partner-key
-ApiKeyAuth partner-key = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partner-key.setApiKey("YOUR API KEY");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partner-key.setApiKeyPrefix("Token");
+//partnerKey.setApiKeyPrefix("Token");
 
 ResellerApi apiInstance = new ResellerApi();
 String childIdentifier = "childIdentifier_example"; // String | Either auth key or id of reseller's child
