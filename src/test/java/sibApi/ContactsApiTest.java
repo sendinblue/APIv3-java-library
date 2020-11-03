@@ -185,8 +185,8 @@ public class ContactsApiTest {
      */
     @Test
     public void deleteContactTest() throws ApiException {
-        String email = null;
-        api.deleteContact(email);
+        String identifier = null;
+        api.deleteContact(identifier);
 
         // TODO: test validations
     }
@@ -248,8 +248,8 @@ public class ContactsApiTest {
      */
     @Test
     public void getContactInfoTest() throws ApiException {
-        String email = null;
-        GetExtendedContactDetails response = api.getContactInfo(email);
+        String identifier = null;
+        GetExtendedContactDetails response = api.getContactInfo(identifier);
 
         // TODO: test validations
     }
@@ -264,10 +264,10 @@ public class ContactsApiTest {
      */
     @Test
     public void getContactStatsTest() throws ApiException {
-        String email = null;
+        String identifier = null;
         LocalDate startDate = null;
         LocalDate endDate = null;
-        GetContactCampaignStats response = api.getContactStats(email, startDate, endDate);
+        GetContactCampaignStats response = api.getContactStats(identifier, startDate, endDate);
 
         // TODO: test validations
     }
@@ -470,9 +470,9 @@ public class ContactsApiTest {
      */
     @Test
     public void updateContactTest() throws ApiException {
-        String email = null;
+        String identifier = null;
         UpdateContact updateContact = null;
-        api.updateContact(email, updateContact);
+        api.updateContact(identifier, updateContact);
 
         // TODO: test validations
     }

@@ -21,3 +21,6 @@ target
 build
 .idea/
 target/
+Out/
+sib-api-v3-sdk.iml
+APIv3-java-library.iml

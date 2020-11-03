@@ -11,12 +11,12 @@ Method | HTTP request | Description
 [**createFolder**](ContactsApi.md#createFolder) | **POST** /contacts/folders | Create a folder
 [**createList**](ContactsApi.md#createList) | **POST** /contacts/lists | Create a list
 [**deleteAttribute**](ContactsApi.md#deleteAttribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
-[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{email} | Delete a contact
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{identifier} | Delete a contact
 [**deleteFolder**](ContactsApi.md#deleteFolder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 [**deleteList**](ContactsApi.md#deleteList) | **DELETE** /contacts/lists/{listId} | Delete a list
 [**getAttributes**](ContactsApi.md#getAttributes) | **GET** /contacts/attributes | List all attributes
-[**getContactInfo**](ContactsApi.md#getContactInfo) | **GET** /contacts/{email} | Get a contact&#39;s details
-[**getContactStats**](ContactsApi.md#getContactStats) | **GET** /contacts/{email}/campaignStats | Get email campaigns&#39; statistics for a contact
+[**getContactInfo**](ContactsApi.md#getContactInfo) | **GET** /contacts/{identifier} | Get a contact&#39;s details
+[**getContactStats**](ContactsApi.md#getContactStats) | **GET** /contacts/{identifier}/campaignStats | Get email campaigns&#39; statistics for a contact
 [**getContacts**](ContactsApi.md#getContacts) | **GET** /contacts | Get all the contacts
 [**getContactsFromList**](ContactsApi.md#getContactsFromList) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
 [**getFolder**](ContactsApi.md#getFolder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 [**removeContactFromList**](ContactsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 [**requestContactExport**](ContactsApi.md#requestContactExport) | **POST** /contacts/export | Export contacts
 [**updateAttribute**](ContactsApi.md#updateAttribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
-[**updateContact**](ContactsApi.md#updateContact) | **PUT** /contacts/{email} | Update a contact
+[**updateContact**](ContactsApi.md#updateContact) | **PUT** /contacts/{identifier} | Update a contact
 [**updateFolder**](ContactsApi.md#updateFolder) | **PUT** /contacts/folders/{folderId} | Update a folder
 [**updateList**](ContactsApi.md#updateList) | **PUT** /contacts/lists/{listId} | Update a list
 
@@ -64,7 +64,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ContactsApi apiInstance = new ContactsApi();
 Long listId = 789L; // Long | Id of the list
-AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses of the contacts
+AddContactToList contactEmails = new AddContactToList(); // AddContactToList | Emails addresses OR IDs of the contacts
 try {
     PostContactInfo result = apiInstance.addContactToList(listId, contactEmails);
     System.out.println(result);
@@ -79,7 +79,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**AddContactToList**](AddContactToList.md)| Emails addresses of the contacts |
+ **contactEmails** | [**AddContactToList**](AddContactToList.md)| Emails addresses OR IDs of the contacts |
 
 ### Return type
 
@@ -240,7 +240,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR API KEY");
+partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -453,7 +453,7 @@ null (empty response body)
 
 <a name="deleteContact"></a>
 # **deleteContact**
-> deleteContact(email)
+> deleteContact(identifier)
 
 Delete a contact
 
@@ -481,9 +481,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ContactsApi apiInstance = new ContactsApi();
-String email = "email_example"; // String | Email (urlencoded) of the contact
+String identifier = "identifier_example"; // String | Email (urlencoded) OR ID of the contact
 try {
-    apiInstance.deleteContact(email);
+    apiInstance.deleteContact(identifier);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#deleteContact");
     e.printStackTrace();
@@ -494,7 +494,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact |
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact |
 
 ### Return type
 
@@ -682,7 +682,7 @@ This endpoint does not need any parameter.
 
 <a name="getContactInfo"></a>
 # **getContactInfo**
-> GetExtendedContactDetails getContactInfo(email)
+> GetExtendedContactDetails getContactInfo(identifier)
 
 Get a contact&#39;s details
 
@@ -710,9 +710,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ContactsApi apiInstance = new ContactsApi();
-String email = "email_example"; // String | Email (urlencoded) of the contact OR its SMS attribute value
+String identifier = "identifier_example"; // String | Email (urlencoded) OR ID of the contact OR its SMS attribute value
 try {
-    GetExtendedContactDetails result = apiInstance.getContactInfo(email);
+    GetExtendedContactDetails result = apiInstance.getContactInfo(identifier);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContactInfo");
@@ -724,7 +724,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact OR its SMS attribute value |
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact OR its SMS attribute value |
 
 ### Return type
 
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 <a name="getContactStats"></a>
 # **getContactStats**
-> GetContactCampaignStats getContactStats(email, startDate, endDate)
+> GetContactCampaignStats getContactStats(identifier, startDate, endDate)
 
 Get email campaigns&#39; statistics for a contact
 
@@ -769,11 +769,11 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ContactsApi apiInstance = new ContactsApi();
-String email = "email_example"; // String | Email address (urlencoded) of the contact
+String identifier = "identifier_example"; // String | Email (urlencoded) OR ID of the contact
 LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate
 LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate
 try {
-    GetContactCampaignStats result = apiInstance.getContactStats(email, startDate, endDate);
+    GetContactCampaignStats result = apiInstance.getContactStats(identifier, startDate, endDate);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContactStats");
@@ -785,7 +785,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email address (urlencoded) of the contact |
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact |
  **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate | [optional]
  **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate | [optional]
 
@@ -1325,7 +1325,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ContactsApi apiInstance = new ContactsApi();
 Long listId = 789L; // Long | Id of the list
-RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails adresses of the contact
+RemoveContactFromList contactEmails = new RemoveContactFromList(); // RemoveContactFromList | Emails addresses OR IDs of the contacts
 try {
     PostContactInfo result = apiInstance.removeContactFromList(listId, contactEmails);
     System.out.println(result);
@@ -1340,7 +1340,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **contactEmails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails adresses of the contact |
+ **contactEmails** | [**RemoveContactFromList**](RemoveContactFromList.md)| Emails addresses OR IDs of the contacts |
 
 ### Return type
 
@@ -1480,7 +1480,7 @@ null (empty response body)
 
 <a name="updateContact"></a>
 # **updateContact**
-> updateContact(email, updateContact)
+> updateContact(identifier, updateContact)
 
 Update a contact
 
@@ -1508,10 +1508,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 ContactsApi apiInstance = new ContactsApi();
-String email = "email_example"; // String | Email (urlencoded) of the contact
+String identifier = "identifier_example"; // String | Email (urlencoded) OR ID of the contact
 UpdateContact updateContact = new UpdateContact(); // UpdateContact | Values to update a contact
 try {
-    apiInstance.updateContact(email, updateContact);
+    apiInstance.updateContact(identifier, updateContact);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#updateContact");
     e.printStackTrace();
@@ -1522,7 +1522,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **String**| Email (urlencoded) of the contact |
+ **identifier** | **String**| Email (urlencoded) OR ID of the contact |
  **updateContact** | [**UpdateContact**](UpdateContact.md)| Values to update a contact |
 
 ### Return type

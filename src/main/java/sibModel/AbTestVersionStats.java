@@ -22,53 +22,53 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 
 /**
- * GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
+ * Percentage of a particular event for both versions
  */
+@ApiModel(description = "Percentage of a particular event for both versions")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {
-  @SerializedName("eventTime")
-  private OffsetDateTime eventTime = null;
+public class AbTestVersionStats {
+  @SerializedName("Version A")
+  private String versionA = null;
 
-  @SerializedName("ip")
-  private String ip = null;
+  @SerializedName("Version B")
+  private String versionB = null;
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription eventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  public AbTestVersionStats versionA(String versionA) {
+    this.versionA = versionA;
     return this;
   }
 
    /**
-   * UTC date-time of the event
-   * @return eventTime
+   * percentage of an event for version A
+   * @return versionA
   **/
-  @ApiModelProperty(example = "2017-03-12T20:15:13Z", required = true, value = "UTC date-time of the event")
-  public OffsetDateTime getEventTime() {
-    return eventTime;
+  @ApiModelProperty(example = "50%", required = true, value = "percentage of an event for version A")
+  public String getVersionA() {
+    return versionA;
   }
 
-  public void setEventTime(OffsetDateTime eventTime) {
-    this.eventTime = eventTime;
+  public void setVersionA(String versionA) {
+    this.versionA = versionA;
   }
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription ip(String ip) {
-    this.ip = ip;
+  public AbTestVersionStats versionB(String versionB) {
+    this.versionB = versionB;
     return this;
   }
 
    /**
-   * IP from which the user has been unsubscribed
-   * @return ip
+   * percentage of an event for version B
+   * @return versionB
   **/
-  @ApiModelProperty(example = "165.87.3.15", value = "IP from which the user has been unsubscribed")
-  public String getIp() {
-    return ip;
+  @ApiModelProperty(example = "50%", required = true, value = "percentage of an event for version B")
+  public String getVersionB() {
+    return versionB;
   }
 
-  public void setIp(String ip) {
-    this.ip = ip;
+  public void setVersionB(String versionB) {
+    this.versionB = versionB;
   }
 
 
@@ -80,24 +80,24 @@ public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscripti
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription = (GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription) o;
-    return ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.eventTime) &&
-    ObjectUtils.equals(this.ip, getExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription.ip);
+    AbTestVersionStats abTestVersionStats = (AbTestVersionStats) o;
+    return ObjectUtils.equals(this.versionA, abTestVersionStats.versionA) &&
+    ObjectUtils.equals(this.versionB, abTestVersionStats.versionB);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(eventTime, ip);
+    return ObjectUtils.hashCodeMulti(versionA, versionB);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {\n");
+    sb.append("class AbTestVersionStats {\n");
     
-    sb.append("    eventTime: ").append(toIndentedString(eventTime)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    versionA: ").append(toIndentedString(versionA)).append("\n");
+    sb.append("    versionB: ").append(toIndentedString(versionB)).append("\n");
     sb.append("}");
     return sb.toString();
   }

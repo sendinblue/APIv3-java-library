@@ -1,26 +1,26 @@
-# SmtpApi
+# TransactionalEmailsApi
 
 All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSmtpTemplate**](SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
-[**deleteHardbounces**](SmtpApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-[**deleteSmtpTemplate**](SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
-[**getAggregatedSmtpReport**](SmtpApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
-[**getEmailEventReport**](SmtpApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
-[**getSmtpReport**](SmtpApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-[**getSmtpTemplate**](SmtpApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
-[**getSmtpTemplates**](SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
-[**getTransacBlockedContacts**](SmtpApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
-[**getTransacEmailContent**](SmtpApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
-[**getTransacEmailsList**](SmtpApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-[**sendTemplate**](SmtpApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
-[**sendTestTemplate**](SmtpApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
-[**sendTransacEmail**](SmtpApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
-[**smtpBlockedContactsEmailDelete**](SmtpApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
-[**smtpLogMessageIdDelete**](SmtpApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-[**updateSmtpTemplate**](SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
+[**createSmtpTemplate**](TransactionalEmailsApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
+[**deleteHardbounces**](TransactionalEmailsApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
+[**deleteSmtpTemplate**](TransactionalEmailsApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
+[**getAggregatedSmtpReport**](TransactionalEmailsApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**getEmailEventReport**](TransactionalEmailsApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+[**getSmtpReport**](TransactionalEmailsApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
+[**getSmtpTemplate**](TransactionalEmailsApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
+[**getSmtpTemplates**](TransactionalEmailsApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
+[**getTransacBlockedContacts**](TransactionalEmailsApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
+[**getTransacEmailContent**](TransactionalEmailsApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+[**getTransacEmailsList**](TransactionalEmailsApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
+[**sendTemplate**](TransactionalEmailsApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
+[**sendTestTemplate**](TransactionalEmailsApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
+[**sendTransacEmail**](TransactionalEmailsApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
+[**smtpBlockedContactsEmailDelete**](TransactionalEmailsApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+[**smtpLogMessageIdDelete**](TransactionalEmailsApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
+[**updateSmtpTemplate**](TransactionalEmailsApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
 
 
 <a name="createSmtpTemplate"></a>
@@ -36,7 +36,7 @@ Create an email template
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -46,19 +46,19 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 CreateSmtpTemplate smtpTemplate = new CreateSmtpTemplate(); // CreateSmtpTemplate | values to update in transactional email template
 try {
     CreateModel result = apiInstance.createSmtpTemplate(smtpTemplate);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#createSmtpTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#createSmtpTemplate");
     e.printStackTrace();
 }
 ```
@@ -97,7 +97,7 @@ Delete hardbounces. To use carefully (e.g. in case of temporary ISP failures)
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -107,18 +107,18 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 DeleteHardbounces deleteHardbounces = new DeleteHardbounces(); // DeleteHardbounces | values to delete hardbounces
 try {
     apiInstance.deleteHardbounces(deleteHardbounces);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#deleteHardbounces");
+    System.err.println("Exception when calling TransactionalEmailsApi#deleteHardbounces");
     e.printStackTrace();
 }
 ```
@@ -155,7 +155,7 @@ Delete an inactive email template
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -165,18 +165,18 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long templateId = 789L; // Long | id of the template
 try {
     apiInstance.deleteSmtpTemplate(templateId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#deleteSmtpTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#deleteSmtpTemplate");
     e.printStackTrace();
 }
 ```
@@ -213,7 +213,7 @@ Get your transactional email activity aggregated over a period of time
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -223,13 +223,13 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
@@ -238,7 +238,7 @@ try {
     GetAggregatedReport result = apiInstance.getAggregatedSmtpReport(startDate, endDate, days, tag);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getAggregatedSmtpReport");
+    System.err.println("Exception when calling TransactionalEmailsApi#getAggregatedSmtpReport");
     e.printStackTrace();
 }
 ```
@@ -278,7 +278,7 @@ Get all your transactional email activity (unaggregated events)
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -288,13 +288,13 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long limit = 50L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
@@ -309,7 +309,7 @@ try {
     GetEmailEventReport result = apiInstance.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getEmailEventReport");
+    System.err.println("Exception when calling TransactionalEmailsApi#getEmailEventReport");
     e.printStackTrace();
 }
 ```
@@ -355,7 +355,7 @@ Get your transactional email activity aggregated per day
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -365,13 +365,13 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long limit = 10L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document on the page
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
@@ -382,7 +382,7 @@ try {
     GetReports result = apiInstance.getSmtpReport(limit, offset, startDate, endDate, days, tag);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getSmtpReport");
+    System.err.println("Exception when calling TransactionalEmailsApi#getSmtpReport");
     e.printStackTrace();
 }
 ```
@@ -424,7 +424,7 @@ Returns the template information
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -434,19 +434,19 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long templateId = 789L; // Long | id of the template
 try {
     GetSmtpTemplateOverview result = apiInstance.getSmtpTemplate(templateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getSmtpTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#getSmtpTemplate");
     e.printStackTrace();
 }
 ```
@@ -483,7 +483,7 @@ Get the list of email templates
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -499,7 +499,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Boolean templateStatus = true; // Boolean | Filter on the status of the template. Active = true, inactive = false
 Long limit = 50L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document in the page
@@ -507,7 +507,7 @@ try {
     GetSmtpTemplates result = apiInstance.getSmtpTemplates(templateStatus, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getSmtpTemplates");
+    System.err.println("Exception when calling TransactionalEmailsApi#getSmtpTemplates");
     e.printStackTrace();
 }
 ```
@@ -546,7 +546,7 @@ Get the list of blocked or unsubscribed transactional contacts
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -556,13 +556,13 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the blocked or unsubscribed contacts
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the blocked or unsubscribed contacts
 Long limit = 50L; // Long | Number of documents returned per page
@@ -572,7 +572,7 @@ try {
     GetTransacBlockedContacts result = apiInstance.getTransacBlockedContacts(startDate, endDate, limit, offset, senders);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getTransacBlockedContacts");
+    System.err.println("Exception when calling TransactionalEmailsApi#getTransacBlockedContacts");
     e.printStackTrace();
 }
 ```
@@ -613,7 +613,7 @@ Get the personalized content of a sent transactional email
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -629,13 +629,13 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String uuid = "uuid_example"; // String | Unique id of the transactional email that has been sent to a particular contact
 try {
     GetTransacEmailContent result = apiInstance.getTransacEmailContent(uuid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getTransacEmailContent");
+    System.err.println("Exception when calling TransactionalEmailsApi#getTransacEmailContent");
     e.printStackTrace();
 }
 ```
@@ -674,7 +674,7 @@ This endpoint will show the list of emails for past 30 days by default. To retri
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -690,7 +690,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String email = "email_example"; // String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
 Long templateId = 789L; // Long | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
 String messageId = "messageId_example"; // String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
@@ -700,7 +700,7 @@ try {
     GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#getTransacEmailsList");
+    System.err.println("Exception when calling TransactionalEmailsApi#getTransacEmailsList");
     e.printStackTrace();
 }
 ```
@@ -743,7 +743,7 @@ This endpoint is deprecated. Prefer v3/smtp/email instead.
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -753,20 +753,20 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long templateId = 789L; // Long | Id of the template
 SendEmail sendEmail = new SendEmail(); // SendEmail | 
 try {
     SendTemplateEmail result = apiInstance.sendTemplate(templateId, sendEmail);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#sendTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#sendTemplate");
     e.printStackTrace();
 }
 ```
@@ -804,7 +804,7 @@ Send a template to your test list
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -814,19 +814,19 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long templateId = 789L; // Long | Id of the template
 SendTestEmail sendTestEmail = new SendTestEmail(); // SendTestEmail | 
 try {
     apiInstance.sendTestTemplate(templateId, sendTestEmail);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#sendTestTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#sendTestTemplate");
     e.printStackTrace();
 }
 ```
@@ -864,7 +864,7 @@ Send a transactional email
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -874,19 +874,19 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 SendSmtpEmail sendSmtpEmail = new SendSmtpEmail(); // SendSmtpEmail | Values to send a transactional email
 try {
     CreateSmtpEmail result = apiInstance.sendTransacEmail(sendSmtpEmail);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#sendTransacEmail");
+    System.err.println("Exception when calling TransactionalEmailsApi#sendTransacEmail");
     e.printStackTrace();
 }
 ```
@@ -923,7 +923,7 @@ Unblock or resubscribe a transactional contact
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -933,18 +933,18 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String email = "email_example"; // String | contact email (urlencoded) to unblock.
 try {
     apiInstance.smtpBlockedContactsEmailDelete(email);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#smtpBlockedContactsEmailDelete");
+    System.err.println("Exception when calling TransactionalEmailsApi#smtpBlockedContactsEmailDelete");
     e.printStackTrace();
 }
 ```
@@ -981,7 +981,7 @@ Delete an SMTP transactional log
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -997,12 +997,12 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String messageId = "messageId_example"; // String | MessageId of the transactional log to delete
 try {
     apiInstance.smtpLogMessageIdDelete(messageId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#smtpLogMessageIdDelete");
+    System.err.println("Exception when calling TransactionalEmailsApi#smtpLogMessageIdDelete");
     e.printStackTrace();
 }
 ```
@@ -1039,7 +1039,7 @@ Update an email template
 //import sendinblue.ApiException;
 //import sendinblue.Configuration;
 //import sendinblue.auth.*;
-//import sibApi.SmtpApi;
+//import sibApi.TransactionalEmailsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -1049,19 +1049,19 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
-SmtpApi apiInstance = new SmtpApi();
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Long templateId = 789L; // Long | id of the template
 UpdateSmtpTemplate smtpTemplate = new UpdateSmtpTemplate(); // UpdateSmtpTemplate | values to update in transactional email template
 try {
     apiInstance.updateSmtpTemplate(templateId, smtpTemplate);
 } catch (ApiException e) {
-    System.err.println("Exception when calling SmtpApi#updateSmtpTemplate");
+    System.err.println("Exception when calling TransactionalEmailsApi#updateSmtpTemplate");
     e.printStackTrace();
 }
 ```

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SendTransacSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
 public class SendTransacSms {
   @SerializedName("sender")
   private String sender = null;
@@ -99,10 +99,10 @@ public class SendTransacSms {
   }
 
    /**
-   * Name of the sender. Only alphanumeric characters. No more than 11 characters
+   * Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**
    * @return sender
   **/
-  @ApiModelProperty(example = "MyShop", required = true, value = "Name of the sender. Only alphanumeric characters. No more than 11 characters")
+  @ApiModelProperty(example = "MyShop", required = true, value = "Name of the sender. **The number of characters is limited to 11 for alphanumeric characters and 15 for numeric characters**")
   public String getSender() {
     return sender;
   }

@@ -54,14 +54,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SmtpApi {
+public class TransactionalEmailsApi {
     private ApiClient apiClient;
 
-    public SmtpApi() {
+    public TransactionalEmailsApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public SmtpApi(ApiClient apiClient) {
+    public TransactionalEmailsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
