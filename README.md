@@ -408,7 +408,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### api-ey
+### api-key
 
 - **Type**: API key
 - **API key parameter name**: api-key
