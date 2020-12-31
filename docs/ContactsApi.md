@@ -51,13 +51,13 @@ Add existing contacts to a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -112,13 +112,13 @@ Create contact attribute
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -174,13 +174,13 @@ Create a contact
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -233,13 +233,13 @@ Create Contact via DOI (Double-Opt-In) Flow
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -291,13 +291,13 @@ Create a folder
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -350,13 +350,13 @@ Create a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -409,13 +409,13 @@ Delete an attribute
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -469,13 +469,13 @@ Delete a contact
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -527,13 +527,13 @@ Delete a folder (and all its lists)
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -585,13 +585,13 @@ Delete a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -643,13 +643,13 @@ List all attributes
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -698,13 +698,13 @@ Get a contact&#39;s details
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -757,13 +757,13 @@ Get email campaigns&#39; statistics for a contact
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -820,13 +820,13 @@ Get all the contacts
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -885,13 +885,13 @@ Get contacts in a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -952,13 +952,13 @@ Returns a folder&#39;s details
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1011,13 +1011,13 @@ Get lists in a folder
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1076,13 +1076,13 @@ Get all folders
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1139,13 +1139,13 @@ Get a list&#39;s details
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1198,13 +1198,13 @@ Get all the lists
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1263,13 +1263,13 @@ It returns the background process ID which on completion calls the notify URL th
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1322,13 +1322,13 @@ Delete a contact from a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1385,13 +1385,13 @@ It returns the background process ID which on completion calls the notify URL th
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1444,13 +1444,13 @@ Update contact attribute
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1506,13 +1506,13 @@ Update a contact
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1566,13 +1566,13 @@ Update a folder
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -1626,13 +1626,13 @@ Update a list
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: apiKey
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
