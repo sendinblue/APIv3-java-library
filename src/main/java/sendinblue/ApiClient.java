@@ -57,7 +57,7 @@ public class ApiClient {
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
     private String userAgent = "sendinblue_clientAPI/v#/java";
-    private String clientVersion = "5.1.0";
+    private String clientVersion = "v5.1.0";
 
     private Map<String, Authentication> authentications;
 
@@ -349,7 +349,7 @@ public class ApiClient {
      * @return ApiClient
      */
     public ApiClient setUserAgent(String userAgent) {
-        addDefaultHeader("User-Agent", userAgent.replace("#", clientVersion));
+        addDefaultHeader("User-Agent", userAgent.replace("v#", clientVersion));
         return this;
     }
 
