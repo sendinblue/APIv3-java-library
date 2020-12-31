@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -149,7 +149,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -266,7 +266,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -444,7 +444,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -502,7 +502,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -560,7 +560,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -618,7 +618,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -673,7 +673,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -795,7 +795,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -860,7 +860,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -927,7 +927,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1051,7 +1051,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1114,7 +1114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1173,7 +1173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1236,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1297,7 +1297,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1358,7 +1358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1419,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1481,7 +1481,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1541,7 +1541,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1601,7 +1601,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 
@@ -1661,7 +1661,7 @@ null (empty response body)
 
 ### Authorization
 
-[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
 
 ### HTTP request headers
 

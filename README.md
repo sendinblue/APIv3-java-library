@@ -408,16 +408,16 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### apiKey
+### api-ey
 
 - **Type**: API key
-- **API key parameter name**: apiKey
+- **API key parameter name**: api-key
 - **Location**: HTTP header
 
-### partnerKey
+### partner-key
 
 - **Type**: API key
-- **API key parameter name**: partnerKey
+- **API key parameter name**: partner-key
 - **Location**: HTTP header
 
 
