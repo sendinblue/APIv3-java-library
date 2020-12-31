@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Mandatory if &#x60;templateId&#x60; is not passed. Pass name (optional) and email or id of sender from which emails will be sent. &#x60;name&#x60; will be ignored if passed along with sender &#x60;id&#x60;. For example, {\&quot;name\&quot;:\&quot;Mary from MyShop\&quot;, \&quot;email\&quot;:\&quot;no-reply@myshop.com\&quot;} or {\&quot;id\&quot;:2}
+ * Mandatory if &#x60;templateId&#x60; is not passed. Pass &#x60;name&#x60; (optional) and &#x60;email&#x60; OR &#x60;id&#x60; of sender from which emails will be sent. &#x60;name&#x60; will be ignored if passed along with sender &#x60;id&#x60;. For example, {&quot;name&quot;:&quot;Mary from MyShop&quot;, &quot;email&quot;:&quot;no-reply@myshop.com&quot;} or {&quot;id&quot;:2}
  */
-@ApiModel(description = "Mandatory if `templateId` is not passed. Pass name (optional) and email or id of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
+@ApiModel(description = "Mandatory if `templateId` is not passed. Pass `name` (optional) and `email` OR `id` of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class SendSmtpEmailSender {
   @SerializedName("name")
   private String name = null;
@@ -44,10 +44,10 @@ public class SendSmtpEmailSender {
   }
 
    /**
-   * Name of the sender from which the emails will be sent. Maximum allowed characters are 70.
+   * Name of the sender from which the emails will be sent. Maximum allowed characters are 70. Applicable only when email is passed.
    * @return name
   **/
-  @ApiModelProperty(example = "Mary from MyShop", value = "Name of the sender from which the emails will be sent. Maximum allowed characters are 70.")
+  @ApiModelProperty(example = "Mary from MyShop", value = "Name of the sender from which the emails will be sent. Maximum allowed characters are 70. Applicable only when email is passed.")
   public String getName() {
     return name;
   }
@@ -62,10 +62,10 @@ public class SendSmtpEmailSender {
   }
 
    /**
-   * Email of the sender from which the emails will be sent
+   * Email of the sender from which the emails will be sent. Mandatory if sender id is not passed.
    * @return email
   **/
-  @ApiModelProperty(example = "no-reply@myshop.com", required = true, value = "Email of the sender from which the emails will be sent")
+  @ApiModelProperty(example = "no-reply@myshop.com", value = "Email of the sender from which the emails will be sent. Mandatory if sender id is not passed.")
   public String getEmail() {
     return email;
   }
@@ -80,10 +80,10 @@ public class SendSmtpEmailSender {
   }
 
    /**
-   * Id of the sender from which the emails will be sent
+   * Id of the sender from which the emails will be sent. In order to select a sender with specific pool of IP’s, dedicated ip users shall pass id (instead of email). Mandatory if email is not passed.
    * @return id
   **/
-  @ApiModelProperty(example = "2", value = "Id of the sender from which the emails will be sent")
+  @ApiModelProperty(example = "2", value = "Id of the sender from which the emails will be sent. In order to select a sender with specific pool of IP’s, dedicated ip users shall pass id (instead of email). Mandatory if email is not passed.")
   public Long getId() {
     return id;
   }

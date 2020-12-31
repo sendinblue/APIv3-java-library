@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * GetChildrenList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetChildrenList {
   @SerializedName("children")
   private List<Object> children = null;
@@ -71,7 +71,7 @@ public class GetChildrenList {
    * Number of child accounts
    * @return count
   **/
-  @ApiModelProperty(example = "24", required = true, value = "Number of child accounts")
+  @ApiModelProperty(example = "24", value = "Number of child accounts")
   public Long getCount() {
     return count;
   }

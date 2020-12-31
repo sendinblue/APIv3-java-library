@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **campaigns** | **List&lt;Object&gt;** |  |  [optional]
-**count** | **Long** | Number of SMS campaigns retrieved | 
+**count** | **Long** | Number of SMS campaigns retrieved |  [optional]
 
 
 

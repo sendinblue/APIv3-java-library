@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SendEmailAttachment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class SendEmailAttachment {
   @SerializedName("content")
   private byte[] content = null;
@@ -40,10 +40,10 @@ public class SendEmailAttachment {
   }
 
    /**
-   * Byte array of the attachment generated on the fly ( Encoded to base64 chunk data at our end )
+   * Base64 encoded chunk data of the attachment generated on the fly
    * @return content
   **/
-  @ApiModelProperty(example = "b3JkZXIucGRm", required = true, value = "Byte array of the attachment generated on the fly ( Encoded to base64 chunk data at our end )")
+  @ApiModelProperty(example = "b3JkZXIucGRm", required = true, value = "Base64 encoded chunk data of the attachment generated on the fly")
   public byte[] getContent() {
     return content;
   }

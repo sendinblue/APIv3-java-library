@@ -183,12 +183,13 @@ public class ProcessApi {
      * Build call for getProcesses
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getProcessesCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getProcessesCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -200,6 +201,8 @@ public class ProcessApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -234,10 +237,10 @@ public class ProcessApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getProcessesValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getProcessesValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getProcessesCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getProcessesCall(limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -247,11 +250,12 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetProcesses
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetProcesses getProcesses(Long limit, Long offset) throws ApiException {
-        ApiResponse<GetProcesses> resp = getProcessesWithHttpInfo(limit, offset);
+    public GetProcesses getProcesses(Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetProcesses> resp = getProcessesWithHttpInfo(limit, offset, sort);
         return resp.getData();
     }
 
@@ -260,11 +264,12 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetProcesses&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetProcesses> getProcessesWithHttpInfo(Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(limit, offset, null, null);
+    public ApiResponse<GetProcesses> getProcessesWithHttpInfo(Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetProcesses>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -274,11 +279,12 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getProcessesAsync(Long limit, Long offset, final ApiCallback<GetProcesses> callback) throws ApiException {
+    public com.squareup.okhttp.Call getProcessesAsync(Long limit, Long offset, String sort, final ApiCallback<GetProcesses> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -299,7 +305,7 @@ public class ProcessApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getProcessesValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetProcesses>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

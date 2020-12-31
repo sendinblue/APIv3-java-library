@@ -25,14 +25,14 @@ Return the informations for a process
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partner-key
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+// Configure API key authorization: partnerKey
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 <a name="getProcesses"></a>
 # **getProcesses**
-> GetProcesses getProcesses(limit, offset)
+> GetProcesses getProcesses(limit, offset, sort)
 
 Return all the processes for your account
 
@@ -84,14 +84,14 @@ Return all the processes for your account
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -99,8 +99,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ProcessApi apiInstance = new ProcessApi();
 Long limit = 10L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetProcesses result = apiInstance.getProcesses(limit, offset);
+    GetProcesses result = apiInstance.getProcesses(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProcessApi#getProcesses");
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 10]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -121,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetTransacAggregatedSmsReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetTransacAggregatedSmsReport {
   @SerializedName("range")
   private String range = null;
@@ -67,7 +67,7 @@ public class GetTransacAggregatedSmsReport {
    * Time frame of the report
    * @return range
   **/
-  @ApiModelProperty(example = "2016-09-08|2017-04-06", required = true, value = "Time frame of the report")
+  @ApiModelProperty(example = "2016-09-08|2017-04-06", value = "Time frame of the report")
   public String getRange() {
     return range;
   }
@@ -85,7 +85,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of requests for the timeframe
    * @return requests
   **/
-  @ApiModelProperty(example = "263", required = true, value = "Number of requests for the timeframe")
+  @ApiModelProperty(example = "263", value = "Number of requests for the timeframe")
   public Long getRequests() {
     return requests;
   }
@@ -103,7 +103,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of delivered SMS for the timeframe
    * @return delivered
   **/
-  @ApiModelProperty(example = "249", required = true, value = "Number of delivered SMS for the timeframe")
+  @ApiModelProperty(example = "249", value = "Number of delivered SMS for the timeframe")
   public Long getDelivered() {
     return delivered;
   }
@@ -121,7 +121,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of hardbounces for the timeframe
    * @return hardBounces
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of hardbounces for the timeframe")
+  @ApiModelProperty(example = "1", value = "Number of hardbounces for the timeframe")
   public Long getHardBounces() {
     return hardBounces;
   }
@@ -139,7 +139,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of softbounces for the timeframe
    * @return softBounces
   **/
-  @ApiModelProperty(example = "4", required = true, value = "Number of softbounces for the timeframe")
+  @ApiModelProperty(example = "4", value = "Number of softbounces for the timeframe")
   public Long getSoftBounces() {
     return softBounces;
   }
@@ -157,7 +157,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of blocked contact for the timeframe
    * @return blocked
   **/
-  @ApiModelProperty(example = "2", required = true, value = "Number of blocked contact for the timeframe")
+  @ApiModelProperty(example = "2", value = "Number of blocked contact for the timeframe")
   public Long getBlocked() {
     return blocked;
   }
@@ -175,7 +175,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of unsubscription for the timeframe
    * @return unsubscribed
   **/
-  @ApiModelProperty(example = "6", required = true, value = "Number of unsubscription for the timeframe")
+  @ApiModelProperty(example = "6", value = "Number of unsubscription for the timeframe")
   public Long getUnsubscribed() {
     return unsubscribed;
   }
@@ -193,7 +193,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of answered SMS for the timeframe
    * @return replied
   **/
-  @ApiModelProperty(example = "12", required = true, value = "Number of answered SMS for the timeframe")
+  @ApiModelProperty(example = "12", value = "Number of answered SMS for the timeframe")
   public Long getReplied() {
     return replied;
   }
@@ -211,7 +211,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of accepted for the timeframe
    * @return accepted
   **/
-  @ApiModelProperty(example = "252", required = true, value = "Number of accepted for the timeframe")
+  @ApiModelProperty(example = "252", value = "Number of accepted for the timeframe")
   public Long getAccepted() {
     return accepted;
   }
@@ -229,7 +229,7 @@ public class GetTransacAggregatedSmsReport {
    * Number of rejected for the timeframe
    * @return rejected
   **/
-  @ApiModelProperty(example = "8", required = true, value = "Number of rejected for the timeframe")
+  @ApiModelProperty(example = "8", value = "Number of rejected for the timeframe")
   public Long getRejected() {
     return rejected;
   }

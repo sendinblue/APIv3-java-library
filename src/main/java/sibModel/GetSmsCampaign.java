@@ -28,7 +28,7 @@ import sibModel.GetSmsCampaignOverview;
 /**
  * GetSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetSmsCampaign {
   @SerializedName("id")
   private Long id = null;
@@ -196,7 +196,7 @@ public class GetSmsCampaign {
    * UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format
    * @return scheduledAt
   **/
-  @ApiModelProperty(example = "2017-06-01T12:30:00Z", required = true, value = "UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format")
+  @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format")
   public OffsetDateTime getScheduledAt() {
     return scheduledAt;
   }

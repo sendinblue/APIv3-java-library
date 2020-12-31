@@ -28,7 +28,7 @@ import sibModel.GetSmtpTemplateOverviewSender;
 /**
  * GetSmtpTemplateOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetSmtpTemplateOverview {
   @SerializedName("id")
   private Long id = null;
@@ -183,7 +183,7 @@ public class GetSmtpTemplateOverview {
   }
 
    /**
-   * Email defined as the \&quot;Reply to\&quot; for the template
+   * Email defined as the &quot;Reply to&quot; for the template
    * @return replyTo
   **/
   @ApiModelProperty(example = "replyto@domain.com", required = true, value = "Email defined as the \"Reply to\" for the template")
@@ -201,7 +201,7 @@ public class GetSmtpTemplateOverview {
   }
 
    /**
-   * Customisation of the \&quot;to\&quot; field for the template
+   * Customisation of the &quot;to&quot; field for the template
    * @return toField
   **/
   @ApiModelProperty(example = "{FIRSTNAME} {LASTNAME}", required = true, value = "Customisation of the \"to\" field for the template")

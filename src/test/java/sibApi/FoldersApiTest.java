@@ -98,7 +98,8 @@ public class FoldersApiTest {
         Long folderId = null;
         Long limit = null;
         Long offset = null;
-        GetFolderLists response = api.getFolderLists(folderId, limit, offset);
+        String sort = null;
+        GetFolderLists response = api.getFolderLists(folderId, limit, offset, sort);
 
         // TODO: test validations
     }
@@ -115,7 +116,8 @@ public class FoldersApiTest {
     public void getFoldersTest() throws ApiException {
         Long limit = null;
         Long offset = null;
-        GetFolders response = api.getFolders(limit, offset);
+        String sort = null;
+        GetFolders response = api.getFolders(limit, offset, sort);
 
         // TODO: test validations
     }

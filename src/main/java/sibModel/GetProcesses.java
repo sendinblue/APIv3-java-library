@@ -29,7 +29,7 @@ import sibModel.GetProcess;
 /**
  * GetProcesses
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetProcesses {
   @SerializedName("processes")
   private List<GetProcess> processes = null;
@@ -72,7 +72,7 @@ public class GetProcesses {
    * Number of processes available on your account
    * @return count
   **/
-  @ApiModelProperty(example = "5", required = true, value = "Number of processes available on your account")
+  @ApiModelProperty(example = "5", value = "Number of processes available on your account")
   public Long getCount() {
     return count;
   }

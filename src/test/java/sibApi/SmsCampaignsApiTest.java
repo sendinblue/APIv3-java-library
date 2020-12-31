@@ -107,7 +107,8 @@ public class SmsCampaignsApiTest {
         OffsetDateTime endDate = null;
         Long limit = null;
         Long offset = null;
-        GetSmsCampaigns response = api.getSmsCampaigns(status, startDate, endDate, limit, offset);
+        String sort = null;
+        GetSmsCampaigns response = api.getSmsCampaigns(status, startDate, endDate, limit, offset, sort);
 
         // TODO: test validations
     }

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetChildDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetChildDomain {
   @SerializedName("domain")
   private String domain = null;
@@ -43,7 +43,7 @@ public class GetChildDomain {
    * Sender domain
    * @return domain
   **/
-  @ApiModelProperty(example = "mycustomdomain.com", required = true, value = "Sender domain")
+  @ApiModelProperty(example = "mycustomdomain.com", value = "Sender domain")
   public String getDomain() {
     return domain;
   }
@@ -61,7 +61,7 @@ public class GetChildDomain {
    * indicates whether a domain is verified or not
    * @return active
   **/
-  @ApiModelProperty(example = "true", required = true, value = "indicates whether a domain is verified or not")
+  @ApiModelProperty(example = "true", value = "indicates whether a domain is verified or not")
   public Boolean isActive() {
     return active;
   }

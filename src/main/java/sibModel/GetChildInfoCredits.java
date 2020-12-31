@@ -27,7 +27,7 @@ import java.io.IOException;
  * Credits available for your child
  */
 @ApiModel(description = "Credits available for your child")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetChildInfoCredits {
   @SerializedName("emailCredits")
   private Long emailCredits = null;

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ip** | **String** | IP from which the user has opened the email or clicked on the link (only available if the event is opened or clicks) |  [optional]
 **link** | **String** | The link which is sent to the user (only available if the event is requests or opened or clicks) |  [optional]
 **from** | **String** | Sender email from which the emails are sent |  [optional]
+**templateId** | **Long** | ID of the template (only available if the email is template based) |  [optional]
 
 
 <a name="EventEnum"></a>
@@ -32,6 +33,7 @@ INVALID | &quot;invalid&quot;
 DEFERRED | &quot;deferred&quot;
 BLOCKED | &quot;blocked&quot;
 UNSUBSCRIBED | &quot;unsubscribed&quot;
+ERROR | &quot;error&quot;
 
 
 

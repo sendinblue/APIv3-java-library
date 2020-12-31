@@ -29,7 +29,7 @@ import sibModel.SendEmailAttachment;
 /**
  * SendEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class SendEmail {
   @SerializedName("emailTo")
   private List<String> emailTo = new ArrayList<String>();
@@ -183,10 +183,10 @@ public class SendEmail {
   }
 
    /**
-   * Pass the list of content ( byte array which is encoded to base64 chunk data at our end ) and name of the attachment. For example, [{&#39;content&#39;:&#39;byte array content 1&#39;, &#39;name&#39;:&#39;attcahment1&#39;}, {&#39;content&#39;:&#39;byte array content 2&#39;, &#39;name&#39;:&#39;attcahment2&#39;}].
+   * Pass the list of content (base64 encoded) and name of the attachment. For example, [{&quot;content&quot;:&quot;base64 encoded content 1&quot;, &quot;name&quot;:&quot;attcahment1&quot;}, {&quot;content&quot;:&quot;base64 encoded content 2&quot;, &quot;name&quot;:&quot;attcahment2&quot;}].
    * @return attachment
   **/
-  @ApiModelProperty(value = "Pass the list of content ( byte array which is encoded to base64 chunk data at our end ) and name of the attachment. For example, [{'content':'byte array content 1', 'name':'attcahment1'}, {'content':'byte array content 2', 'name':'attcahment2'}].")
+  @ApiModelProperty(value = "Pass the list of content (base64 encoded) and name of the attachment. For example, [{\"content\":\"base64 encoded content 1\", \"name\":\"attcahment1\"}, {\"content\":\"base64 encoded content 2\", \"name\":\"attcahment2\"}].")
   public List<SendEmailAttachment> getAttachment() {
     return attachment;
   }
@@ -201,7 +201,7 @@ public class SendEmail {
   }
 
    /**
-   * Pass the set of headers that shall be sent along the mail headers in the original email. &#39;sender.ip&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in &#x60;This-Case-Only&#x60; (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, {\&quot;Content-Type\&quot;:\&quot;text/html\&quot;, \&quot;charset\&quot;:\&quot;iso-8859-1\&quot;, \&quot;sender.ip\&quot;:\&quot;1.2.3.4\&quot;}
+   * Pass the set of headers that shall be sent along the mail headers in the original email. &#39;sender.ip&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in &#x60;This-Case-Only&#x60; (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, {&quot;Content-Type&quot;:&quot;text/html&quot;, &quot;charset&quot;:&quot;iso-8859-1&quot;, &quot;sender.ip&quot;:&quot;1.2.3.4&quot;}
    * @return headers
   **/
   @ApiModelProperty(example = "{\"Content-Type\":\"text/html\",\"charset\":\"iso-8859-1\",\"sender.ip\":\"1.2.3.4\"}", value = "Pass the set of headers that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in `This-Case-Only` (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, {\"Content-Type\":\"text/html\", \"charset\":\"iso-8859-1\", \"sender.ip\":\"1.2.3.4\"}")
@@ -219,7 +219,7 @@ public class SendEmail {
   }
 
    /**
-   * Pass the set of attributes to customize the template. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}
+   * Pass the set of attributes to customize the template. For example, {&quot;FNAME&quot;:&quot;Joe&quot;, &quot;LNAME&quot;:&quot;Doe&quot;}
    * @return attributes
   **/
   @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the template. For example, {\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}")

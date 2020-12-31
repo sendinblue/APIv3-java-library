@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GetAttributesEnumeration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetAttributesEnumeration {
   @SerializedName("value")
   private Long value = null;
@@ -40,7 +40,7 @@ public class GetAttributesEnumeration {
   }
 
    /**
-   * ID of Value of the \&quot;category\&quot; type attribute
+   * ID of Value of the &quot;category&quot; type attribute
    * @return value
   **/
   @ApiModelProperty(example = "1", required = true, value = "ID of Value of the \"category\" type attribute")
@@ -58,7 +58,7 @@ public class GetAttributesEnumeration {
   }
 
    /**
-   * Label of the \&quot;category\&quot; type attribute
+   * Label of the &quot;category&quot; type attribute
    * @return label
   **/
   @ApiModelProperty(example = "Women", required = true, value = "Label of the \"category\" type attribute")

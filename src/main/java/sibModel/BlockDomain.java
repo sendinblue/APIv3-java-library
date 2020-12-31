@@ -24,51 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\&quot;email\&quot;:\&quot;ann6533@example.com\&quot;, \&quot;name\&quot;:\&quot;Ann\&quot;}
+ * BlockDomain
  */
-@ApiModel(description = "Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\"email\":\"ann6533@example.com\", \"name\":\"Ann\"}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class SendSmtpEmailReplyTo1 {
-  @SerializedName("email")
-  private String email = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+public class BlockDomain {
+  @SerializedName("domain")
+  private String domain = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  public SendSmtpEmailReplyTo1 email(String email) {
-    this.email = email;
+  public BlockDomain domain(String domain) {
+    this.domain = domain;
     return this;
   }
 
    /**
-   * Email address in reply to
-   * @return email
+   * name of the domain to be blocked
+   * @return domain
   **/
-  @ApiModelProperty(example = "ann6533@example.com", required = true, value = "Email address in reply to")
-  public String getEmail() {
-    return email;
+  @ApiModelProperty(example = "example.com", required = true, value = "name of the domain to be blocked")
+  public String getDomain() {
+    return domain;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public SendSmtpEmailReplyTo1 name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name in reply to. Maximum allowed characters are 70.
-   * @return name
-  **/
-  @ApiModelProperty(example = "Ann", value = "Name in reply to. Maximum allowed characters are 70.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setDomain(String domain) {
+    this.domain = domain;
   }
 
 
@@ -80,24 +58,22 @@ public class SendSmtpEmailReplyTo1 {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    SendSmtpEmailReplyTo1 sendSmtpEmailReplyTo1 = (SendSmtpEmailReplyTo1) o;
-    return ObjectUtils.equals(this.email, sendSmtpEmailReplyTo1.email) &&
-    ObjectUtils.equals(this.name, sendSmtpEmailReplyTo1.name);
+    BlockDomain blockDomain = (BlockDomain) o;
+    return ObjectUtils.equals(this.domain, blockDomain.domain);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, name);
+    return ObjectUtils.hashCodeMulti(domain);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendSmtpEmailReplyTo1 {\n");
+    sb.append("class BlockDomain {\n");
     
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

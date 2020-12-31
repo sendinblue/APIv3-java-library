@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetAccountPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetAccountPlan {
   /**
    * Displays the plan type of the user
@@ -86,7 +86,7 @@ public class GetAccountPlan {
   private TypeEnum type = null;
 
   /**
-   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, &quot;Send Limit&quot; is one of the possible types of credit of a user. &quot;Send Limit&quot; implies the total number of emails you can send to the subscribers in your account.
    */
   @JsonAdapter(CreditsTypeEnum.Adapter.class)
   public enum CreditsTypeEnum {
@@ -169,7 +169,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, &quot;Send Limit&quot; is one of the possible types of credit of a user. &quot;Send Limit&quot; implies the total number of emails you can send to the subscribers in your account.
    * @return creditsType
   **/
   @ApiModelProperty(example = "sendLimit", required = true, value = "This is the type of the credit, \"Send Limit\" is one of the possible types of credit of a user. \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.")
@@ -205,7 +205,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
+   * Date of the period from which the plan will start (only available for &quot;subscription&quot; and &quot;reseller&quot; plan type)
    * @return startDate
   **/
   @ApiModelProperty(example = "2016-12-31", value = "Date of the period from which the plan will start (only available for \"subscription\" and \"reseller\" plan type)")
@@ -223,7 +223,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
+   * Date of the period from which the plan will end (only available for &quot;subscription&quot; and &quot;reseller&quot; plan type)
    * @return endDate
   **/
   @ApiModelProperty(example = "2017-01-31", value = "Date of the period from which the plan will end (only available for \"subscription\" and \"reseller\" plan type)")

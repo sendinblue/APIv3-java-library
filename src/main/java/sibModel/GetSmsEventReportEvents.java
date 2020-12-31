@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetSmsEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetSmsEventReportEvents {
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
@@ -120,7 +120,7 @@ public class GetSmsEventReportEvents {
    * Phone number which has generated the event
    * @return phoneNumber
   **/
-  @ApiModelProperty(example = "00189001094", required = true, value = "Phone number which has generated the event")
+  @ApiModelProperty(example = "00189001094", value = "Phone number which has generated the event")
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -138,7 +138,7 @@ public class GetSmsEventReportEvents {
    * UTC date-time on which the event has been generated
    * @return date
   **/
-  @ApiModelProperty(example = "2017-03-12T12:30:00Z", required = true, value = "UTC date-time on which the event has been generated")
+  @ApiModelProperty(example = "2017-03-12T12:30:00Z", value = "UTC date-time on which the event has been generated")
   public OffsetDateTime getDate() {
     return date;
   }
@@ -156,7 +156,7 @@ public class GetSmsEventReportEvents {
    * Message ID which generated the event
    * @return messageId
   **/
-  @ApiModelProperty(example = "1472640582425378", required = true, value = "Message ID which generated the event")
+  @ApiModelProperty(example = "1472640582425378", value = "Message ID which generated the event")
   public String getMessageId() {
     return messageId;
   }
@@ -174,7 +174,7 @@ public class GetSmsEventReportEvents {
    * Event which occurred
    * @return event
   **/
-  @ApiModelProperty(example = "accepted", required = true, value = "Event which occurred")
+  @ApiModelProperty(example = "accepted", value = "Event which occurred")
   public EventEnum getEvent() {
     return event;
   }

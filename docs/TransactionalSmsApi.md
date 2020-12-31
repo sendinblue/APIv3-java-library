@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getSmsEvents"></a>
 # **getSmsEvents**
-> GetSmsEventReport getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags)
+> GetSmsEventReport getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort)
 
 Get all your SMS activity (unaggregated events)
 
@@ -27,14 +27,14 @@ Get all your SMS activity (unaggregated events)
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -48,8 +48,9 @@ Integer days = 56; // Integer | Number of days in the past including today (posi
 String phoneNumber = "phoneNumber_example"; // String | Filter the report for a specific phone number
 String event = "event_example"; // String | Filter the report for specific events
 String tags = "tags_example"; // String | Filter the report for specific tags passed as a serialized urlencoded array
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetSmsEventReport result = apiInstance.getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags);
+    GetSmsEventReport result = apiInstance.getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalSmsApi#getSmsEvents");
@@ -69,6 +70,7 @@ Name | Type | Description  | Notes
  **phoneNumber** | **String**| Filter the report for a specific phone number | [optional]
  **event** | **String**| Filter the report for specific events | [optional] [enum: bounces, hardBounces, softBounces, delivered, sent, accepted, unsubscription, replies, blocked]
  **tags** | **String**| Filter the report for specific tags passed as a serialized urlencoded array | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 
@@ -100,14 +102,14 @@ Get your SMS activity aggregated over a period of time
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -141,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 
@@ -150,7 +152,7 @@ Name | Type | Description  | Notes
 
 <a name="getTransacSmsReport"></a>
 # **getTransacSmsReport**
-> GetTransacSmsReport getTransacSmsReport(startDate, endDate, days, tag)
+> GetTransacSmsReport getTransacSmsReport(startDate, endDate, days, tag, sort)
 
 Get your SMS activity aggregated per day
 
@@ -165,14 +167,14 @@ Get your SMS activity aggregated per day
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -182,8 +184,9 @@ String startDate = "startDate_example"; // String | Mandatory if endDate is used
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Filter on a tag
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetTransacSmsReport result = apiInstance.getTransacSmsReport(startDate, endDate, days, tag);
+    GetTransacSmsReport result = apiInstance.getTransacSmsReport(startDate, endDate, days, tag, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalSmsApi#getTransacSmsReport");
@@ -199,6 +202,7 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Filter on a tag | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -206,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 
@@ -230,14 +234,14 @@ Send SMS message to a mobile number
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+// Configure API key authorization: apiKey
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("apiKey");
 apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
 // Configure API key authorization: partnerKey
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partnerKey");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
@@ -265,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+[apiKey](../README.md#apiKey), [partnerKey](../README.md#partnerKey)
 
 ### HTTP request headers
 

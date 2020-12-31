@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetTransacEmailContentEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetTransacEmailContentEvents {
   @SerializedName("name")
   private String name = null;

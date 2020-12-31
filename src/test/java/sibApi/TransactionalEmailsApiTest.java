@@ -14,12 +14,14 @@
 package sibApi;
 
 import sendinblue.ApiException;
+import sibModel.BlockDomain;
 import sibModel.CreateModel;
 import sibModel.CreateSmtpEmail;
 import sibModel.CreateSmtpTemplate;
 import sibModel.DeleteHardbounces;
 import sibModel.ErrorModel;
 import sibModel.GetAggregatedReport;
+import sibModel.GetBlockedDomains;
 import sibModel.GetEmailEventReport;
 import sibModel.GetReports;
 import sibModel.GetSmtpTemplateOverview;
@@ -52,6 +54,22 @@ public class TransactionalEmailsApiTest {
 
     
     /**
+     * Add a new domain to the list of blocked domains
+     *
+     * Blocks a new domain in order to avoid messages being sent to the same
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void blockNewDomainTest() throws ApiException {
+        BlockDomain blockDomain = null;
+        api.blockNewDomain(blockDomain);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Create an email template
      *
      * 
@@ -63,6 +81,22 @@ public class TransactionalEmailsApiTest {
     public void createSmtpTemplateTest() throws ApiException {
         CreateSmtpTemplate smtpTemplate = null;
         CreateModel response = api.createSmtpTemplate(smtpTemplate);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Unblock an existing domain from the list of blocked domains
+     *
+     * Unblocks an existing domain from the list of blocked domains
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteBlockedDomainTest() throws ApiException {
+        String domain = null;
+        api.deleteBlockedDomain(domain);
 
         // TODO: test validations
     }
@@ -119,6 +153,21 @@ public class TransactionalEmailsApiTest {
     }
     
     /**
+     * Get the list of blocked domains
+     *
+     * Get the list of blocked domains
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getBlockedDomainsTest() throws ApiException {
+        GetBlockedDomains response = api.getBlockedDomains();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get all your transactional email activity (unaggregated events)
      *
      * 
@@ -138,7 +187,8 @@ public class TransactionalEmailsApiTest {
         String tags = null;
         String messageId = null;
         Long templateId = null;
-        GetEmailEventReport response = api.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId);
+        String sort = null;
+        GetEmailEventReport response = api.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
 
         // TODO: test validations
     }
@@ -159,7 +209,8 @@ public class TransactionalEmailsApiTest {
         String endDate = null;
         Integer days = null;
         String tag = null;
-        GetReports response = api.getSmtpReport(limit, offset, startDate, endDate, days, tag);
+        String sort = null;
+        GetReports response = api.getSmtpReport(limit, offset, startDate, endDate, days, tag, sort);
 
         // TODO: test validations
     }
@@ -193,7 +244,8 @@ public class TransactionalEmailsApiTest {
         Boolean templateStatus = null;
         Long limit = null;
         Long offset = null;
-        GetSmtpTemplates response = api.getSmtpTemplates(templateStatus, limit, offset);
+        String sort = null;
+        GetSmtpTemplates response = api.getSmtpTemplates(templateStatus, limit, offset, sort);
 
         // TODO: test validations
     }
@@ -213,7 +265,8 @@ public class TransactionalEmailsApiTest {
         Long limit = null;
         Long offset = null;
         List<String> senders = null;
-        GetTransacBlockedContacts response = api.getTransacBlockedContacts(startDate, endDate, limit, offset, senders);
+        String sort = null;
+        GetTransacBlockedContacts response = api.getTransacBlockedContacts(startDate, endDate, limit, offset, senders, sort);
 
         // TODO: test validations
     }
@@ -249,7 +302,8 @@ public class TransactionalEmailsApiTest {
         String messageId = null;
         LocalDate startDate = null;
         LocalDate endDate = null;
-        GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
+        String sort = null;
+        GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
 
         // TODO: test validations
     }
