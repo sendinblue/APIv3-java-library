@@ -56,8 +56,7 @@ public class ApiClient {
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
-    private String userAgent = "sendinblue_clientAPI/v#/java";
-    private String clientVersion = "v5.1.0";
+    private String defaultUserAgent = "sendinblue_clientAPI/v5.1.0/java";
 
     private Map<String, Authentication> authentications;
 
@@ -87,7 +86,7 @@ public class ApiClient {
         json = new Json();
 
         // Set default User-Agent.
-        setUserAgent(userAgent);
+        setUserAgent(defaultUserAgent);
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -349,7 +348,10 @@ public class ApiClient {
      * @return ApiClient
      */
     public ApiClient setUserAgent(String userAgent) {
-        addDefaultHeader("User-Agent", userAgent.replace("v#", clientVersion));
+        if (userAgent.toLowerCase().startsWith("sendinblue_"))
+            addDefaultHeader("User-Agent", userAgent);
+        else
+            addDefaultHeader("User-Agent", defaultUserAgent);
         return this;
     }
 
