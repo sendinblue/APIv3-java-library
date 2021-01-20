@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 <a name="getProcesses"></a>
 # **getProcesses**
-> GetProcesses getProcesses(limit, offset)
+> GetProcesses getProcesses(limit, offset, sort)
 
 Return all the processes for your account
 
@@ -90,7 +90,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -99,8 +99,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ProcessApi apiInstance = new ProcessApi();
 Long limit = 10L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetProcesses result = apiInstance.getProcesses(limit, offset);
+    GetProcesses result = apiInstance.getProcesses(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProcessApi#getProcesses");
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 10]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

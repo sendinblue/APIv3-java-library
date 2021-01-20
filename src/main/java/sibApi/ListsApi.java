@@ -444,12 +444,13 @@ public class ListsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactsFromListCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -464,6 +465,8 @@ public class ListsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -498,7 +501,7 @@ public class ListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsFromListValidateBeforeCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactsFromListValidateBeforeCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -506,7 +509,7 @@ public class ListsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactsFromListCall(listId, modifiedSince, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactsFromListCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -518,11 +521,12 @@ public class ListsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetContacts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContacts getContactsFromList(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset) throws ApiException {
-        ApiResponse<GetContacts> resp = getContactsFromListWithHttpInfo(listId, modifiedSince, limit, offset);
+    public GetContacts getContactsFromList(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetContacts> resp = getContactsFromListWithHttpInfo(listId, modifiedSince, limit, offset, sort);
         return resp.getData();
     }
 
@@ -533,11 +537,12 @@ public class ListsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetContacts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContacts> getContactsFromListWithHttpInfo(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, null, null);
+    public ApiResponse<GetContacts> getContactsFromListWithHttpInfo(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -549,11 +554,12 @@ public class ListsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListAsync(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, final ApiCallback<GetContacts> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactsFromListAsync(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -574,7 +580,7 @@ public class ListsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -584,12 +590,13 @@ public class ListsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsCall(Long folderId, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getFolderListsCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -602,6 +609,8 @@ public class ListsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -636,7 +645,7 @@ public class ListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -644,7 +653,7 @@ public class ListsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFolderListsCall(folderId, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFolderListsCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -655,11 +664,12 @@ public class ListsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetFolderLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetFolderLists getFolderLists(Long folderId, Long limit, Long offset) throws ApiException {
-        ApiResponse<GetFolderLists> resp = getFolderListsWithHttpInfo(folderId, limit, offset);
+    public GetFolderLists getFolderLists(Long folderId, Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetFolderLists> resp = getFolderListsWithHttpInfo(folderId, limit, offset, sort);
         return resp.getData();
     }
 
@@ -669,11 +679,12 @@ public class ListsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetFolderLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetFolderLists> getFolderListsWithHttpInfo(Long folderId, Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, null, null);
+    public ApiResponse<GetFolderLists> getFolderListsWithHttpInfo(Long folderId, Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -684,11 +695,12 @@ public class ListsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsAsync(Long folderId, Long limit, Long offset, final ApiCallback<GetFolderLists> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFolderListsAsync(Long folderId, Long limit, Long offset, String sort, final ApiCallback<GetFolderLists> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -709,7 +721,7 @@ public class ListsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -841,12 +853,13 @@ public class ListsApi {
      * Build call for getLists
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListsCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getListsCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -858,6 +871,8 @@ public class ListsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -892,10 +907,10 @@ public class ListsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getListsValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getListsValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getListsCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getListsCall(limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -905,11 +920,12 @@ public class ListsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetLists getLists(Long limit, Long offset) throws ApiException {
-        ApiResponse<GetLists> resp = getListsWithHttpInfo(limit, offset);
+    public GetLists getLists(Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetLists> resp = getListsWithHttpInfo(limit, offset, sort);
         return resp.getData();
     }
 
@@ -918,11 +934,12 @@ public class ListsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetLists> getListsWithHttpInfo(Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, null, null);
+    public ApiResponse<GetLists> getListsWithHttpInfo(Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetLists>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -932,11 +949,12 @@ public class ListsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getListsAsync(Long limit, Long offset, final ApiCallback<GetLists> callback) throws ApiException {
+    public com.squareup.okhttp.Call getListsAsync(Long limit, Long offset, String sort, final ApiCallback<GetLists> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -957,7 +975,7 @@ public class ListsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetLists>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

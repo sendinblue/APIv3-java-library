@@ -144,7 +144,8 @@ public class EmailCampaignsApiTest {
         OffsetDateTime endDate = null;
         Long limit = null;
         Long offset = null;
-        GetEmailCampaigns response = api.getEmailCampaigns(type, status, startDate, endDate, limit, offset);
+        String sort = null;
+        GetEmailCampaigns response = api.getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort);
 
         // TODO: test validations
     }

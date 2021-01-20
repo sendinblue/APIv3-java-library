@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetEmailEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetEmailEventReportEvents {
   @SerializedName("email")
   private String email = null;
@@ -68,7 +68,9 @@ public class GetEmailEventReportEvents {
     
     BLOCKED("blocked"),
     
-    UNSUBSCRIBED("unsubscribed");
+    UNSUBSCRIBED("unsubscribed"),
+    
+    ERROR("error");
 
     private String value;
 
@@ -125,6 +127,9 @@ public class GetEmailEventReportEvents {
 
   @SerializedName("from")
   private String from = null;
+
+  @SerializedName("templateId")
+  private Long templateId = null;
 
   public GetEmailEventReportEvents email(String email) {
     this.email = email;
@@ -306,6 +311,24 @@ public class GetEmailEventReportEvents {
     this.from = from;
   }
 
+  public GetEmailEventReportEvents templateId(Long templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * ID of the template (only available if the email is template based)
+   * @return templateId
+  **/
+  @ApiModelProperty(example = "4", value = "ID of the template (only available if the email is template based)")
+  public Long getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(Long templateId) {
+    this.templateId = templateId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -325,12 +348,13 @@ public class GetEmailEventReportEvents {
     ObjectUtils.equals(this.tag, getEmailEventReportEvents.tag) &&
     ObjectUtils.equals(this.ip, getEmailEventReportEvents.ip) &&
     ObjectUtils.equals(this.link, getEmailEventReportEvents.link) &&
-    ObjectUtils.equals(this.from, getEmailEventReportEvents.from);
+    ObjectUtils.equals(this.from, getEmailEventReportEvents.from) &&
+    ObjectUtils.equals(this.templateId, getEmailEventReportEvents.templateId);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, date, subject, messageId, event, reason, tag, ip, link, from);
+    return ObjectUtils.hashCodeMulti(email, date, subject, messageId, event, reason, tag, ip, link, from, templateId);
   }
 
 
@@ -349,6 +373,7 @@ public class GetEmailEventReportEvents {
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

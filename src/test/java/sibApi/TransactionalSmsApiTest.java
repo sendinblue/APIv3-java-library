@@ -55,7 +55,8 @@ public class TransactionalSmsApiTest {
         String phoneNumber = null;
         String event = null;
         String tags = null;
-        GetSmsEventReport response = api.getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags);
+        String sort = null;
+        GetSmsEventReport response = api.getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort);
 
         // TODO: test validations
     }
@@ -93,7 +94,8 @@ public class TransactionalSmsApiTest {
         String endDate = null;
         Integer days = null;
         String tag = null;
-        GetTransacSmsReport response = api.getTransacSmsReport(startDate, endDate, days, tag);
+        String sort = null;
+        GetTransacSmsReport response = api.getTransacSmsReport(startDate, endDate, days, tag, sort);
 
         // TODO: test validations
     }

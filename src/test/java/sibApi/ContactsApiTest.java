@@ -285,7 +285,8 @@ public class ContactsApiTest {
         Long limit = null;
         Long offset = null;
         OffsetDateTime modifiedSince = null;
-        GetContacts response = api.getContacts(limit, offset, modifiedSince);
+        String sort = null;
+        GetContacts response = api.getContacts(limit, offset, modifiedSince, sort);
 
         // TODO: test validations
     }
@@ -304,7 +305,8 @@ public class ContactsApiTest {
         OffsetDateTime modifiedSince = null;
         Long limit = null;
         Long offset = null;
-        GetContacts response = api.getContactsFromList(listId, modifiedSince, limit, offset);
+        String sort = null;
+        GetContacts response = api.getContactsFromList(listId, modifiedSince, limit, offset, sort);
 
         // TODO: test validations
     }
@@ -338,7 +340,8 @@ public class ContactsApiTest {
         Long folderId = null;
         Long limit = null;
         Long offset = null;
-        GetFolderLists response = api.getFolderLists(folderId, limit, offset);
+        String sort = null;
+        GetFolderLists response = api.getFolderLists(folderId, limit, offset, sort);
 
         // TODO: test validations
     }
@@ -355,7 +358,8 @@ public class ContactsApiTest {
     public void getFoldersTest() throws ApiException {
         Long limit = null;
         Long offset = null;
-        GetFolders response = api.getFolders(limit, offset);
+        String sort = null;
+        GetFolders response = api.getFolders(limit, offset, sort);
 
         // TODO: test validations
     }
@@ -388,7 +392,8 @@ public class ContactsApiTest {
     public void getListsTest() throws ApiException {
         Long limit = null;
         Long offset = null;
-        GetLists response = api.getLists(limit, offset);
+        String sort = null;
+        GetLists response = api.getLists(limit, offset, sort);
 
         // TODO: test validations
     }

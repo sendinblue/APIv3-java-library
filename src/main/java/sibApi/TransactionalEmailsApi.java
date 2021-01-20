@@ -27,12 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import sibModel.BlockDomain;
 import sibModel.CreateModel;
 import sibModel.CreateSmtpEmail;
 import sibModel.CreateSmtpTemplate;
 import sibModel.DeleteHardbounces;
 import sibModel.ErrorModel;
 import sibModel.GetAggregatedReport;
+import sibModel.GetBlockedDomains;
 import sibModel.GetEmailEventReport;
 import sibModel.GetReports;
 import sibModel.GetSmtpTemplateOverview;
@@ -73,6 +75,124 @@ public class TransactionalEmailsApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for blockNewDomain
+     * @param blockDomain  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call blockNewDomainCall(BlockDomain blockDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = blockDomain;
+
+        // create path and map variables
+        String localVarPath = "/smtp/blockedDomains";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call blockNewDomainValidateBeforeCall(BlockDomain blockDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'blockDomain' is set
+        if (blockDomain == null) {
+            throw new ApiException("Missing the required parameter 'blockDomain' when calling blockNewDomain(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = blockNewDomainCall(blockDomain, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Add a new domain to the list of blocked domains
+     * Blocks a new domain in order to avoid messages being sent to the same
+     * @param blockDomain  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void blockNewDomain(BlockDomain blockDomain) throws ApiException {
+        blockNewDomainWithHttpInfo(blockDomain);
+    }
+
+    /**
+     * Add a new domain to the list of blocked domains
+     * Blocks a new domain in order to avoid messages being sent to the same
+     * @param blockDomain  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> blockNewDomainWithHttpInfo(BlockDomain blockDomain) throws ApiException {
+        com.squareup.okhttp.Call call = blockNewDomainValidateBeforeCall(blockDomain, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Add a new domain to the list of blocked domains (asynchronously)
+     * Blocks a new domain in order to avoid messages being sent to the same
+     * @param blockDomain  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call blockNewDomainAsync(BlockDomain blockDomain, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = blockNewDomainValidateBeforeCall(blockDomain, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
     /**
      * Build call for createSmtpTemplate
      * @param smtpTemplate values to update in transactional email template (required)
@@ -193,6 +313,125 @@ public class TransactionalEmailsApi {
         com.squareup.okhttp.Call call = createSmtpTemplateValidateBeforeCall(smtpTemplate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteBlockedDomain
+     * @param domain The name of the domain to be deleted (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteBlockedDomainCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/blockedDomains/{domain}"
+            .replaceAll("\\{" + "domain" + "\\}", apiClient.escapeString(domain.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteBlockedDomainValidateBeforeCall(String domain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'domain' is set
+        if (domain == null) {
+            throw new ApiException("Missing the required parameter 'domain' when calling deleteBlockedDomain(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteBlockedDomainCall(domain, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Unblock an existing domain from the list of blocked domains
+     * Unblocks an existing domain from the list of blocked domains
+     * @param domain The name of the domain to be deleted (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteBlockedDomain(String domain) throws ApiException {
+        deleteBlockedDomainWithHttpInfo(domain);
+    }
+
+    /**
+     * Unblock an existing domain from the list of blocked domains
+     * Unblocks an existing domain from the list of blocked domains
+     * @param domain The name of the domain to be deleted (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteBlockedDomainWithHttpInfo(String domain) throws ApiException {
+        com.squareup.okhttp.Call call = deleteBlockedDomainValidateBeforeCall(domain, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Unblock an existing domain from the list of blocked domains (asynchronously)
+     * Unblocks an existing domain from the list of blocked domains
+     * @param domain The name of the domain to be deleted (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteBlockedDomainAsync(String domain, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteBlockedDomainValidateBeforeCall(domain, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -565,6 +804,119 @@ public class TransactionalEmailsApi {
         return call;
     }
     /**
+     * Build call for getBlockedDomains
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getBlockedDomainsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/smtp/blockedDomains";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getBlockedDomainsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getBlockedDomainsCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get the list of blocked domains
+     * Get the list of blocked domains
+     * @return GetBlockedDomains
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetBlockedDomains getBlockedDomains() throws ApiException {
+        ApiResponse<GetBlockedDomains> resp = getBlockedDomainsWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get the list of blocked domains
+     * Get the list of blocked domains
+     * @return ApiResponse&lt;GetBlockedDomains&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetBlockedDomains> getBlockedDomainsWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getBlockedDomainsValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<GetBlockedDomains>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get the list of blocked domains (asynchronously)
+     * Get the list of blocked domains
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getBlockedDomainsAsync(final ApiCallback<GetBlockedDomains> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getBlockedDomainsValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GetBlockedDomains>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getEmailEventReport
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
@@ -576,12 +928,13 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -609,6 +962,8 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("messageId", messageId));
         if (templateId != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("templateId", templateId));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -643,10 +998,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getEmailEventReportCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getEmailEventReportCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -664,11 +1019,12 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetEmailEventReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
-        ApiResponse<GetEmailEventReport> resp = getEmailEventReportWithHttpInfo(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId);
+    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
+        ApiResponse<GetEmailEventReport> resp = getEmailEventReportWithHttpInfo(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
         return resp.getData();
     }
 
@@ -685,11 +1041,12 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetEmailEventReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId) throws ApiException {
-        com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, null, null);
+    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort, null, null);
         Type localVarReturnType = new TypeToken<GetEmailEventReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -707,11 +1064,12 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -732,7 +1090,7 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetEmailEventReport>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -745,12 +1103,13 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -770,6 +1129,8 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("days", days));
         if (tag != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("tag", tag));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -804,10 +1165,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getSmtpReportCall(limit, offset, startDate, endDate, days, tag, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmtpReportCall(limit, offset, startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -821,11 +1182,12 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetReports
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetReports getSmtpReport(Long limit, Long offset, String startDate, String endDate, Integer days, String tag) throws ApiException {
-        ApiResponse<GetReports> resp = getSmtpReportWithHttpInfo(limit, offset, startDate, endDate, days, tag);
+    public GetReports getSmtpReport(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+        ApiResponse<GetReports> resp = getSmtpReportWithHttpInfo(limit, offset, startDate, endDate, days, tag, sort);
         return resp.getData();
     }
 
@@ -838,11 +1200,12 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetReports&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String tag) throws ApiException {
-        com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, null, null);
+    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, sort, null, null);
         Type localVarReturnType = new TypeToken<GetReports>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -856,11 +1219,12 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, final ApiCallback<GetReports> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ApiCallback<GetReports> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -881,7 +1245,7 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetReports>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1014,12 +1378,13 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmtpTemplatesCall(Boolean templateStatus, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpTemplatesCall(Boolean templateStatus, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1033,6 +1398,8 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1067,10 +1434,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmtpTemplatesValidateBeforeCall(Boolean templateStatus, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmtpTemplatesValidateBeforeCall(Boolean templateStatus, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getSmtpTemplatesCall(templateStatus, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmtpTemplatesCall(templateStatus, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1081,11 +1448,12 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetSmtpTemplates
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmtpTemplates getSmtpTemplates(Boolean templateStatus, Long limit, Long offset) throws ApiException {
-        ApiResponse<GetSmtpTemplates> resp = getSmtpTemplatesWithHttpInfo(templateStatus, limit, offset);
+    public GetSmtpTemplates getSmtpTemplates(Boolean templateStatus, Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetSmtpTemplates> resp = getSmtpTemplatesWithHttpInfo(templateStatus, limit, offset, sort);
         return resp.getData();
     }
 
@@ -1095,11 +1463,12 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetSmtpTemplates&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmtpTemplates> getSmtpTemplatesWithHttpInfo(Boolean templateStatus, Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getSmtpTemplatesValidateBeforeCall(templateStatus, limit, offset, null, null);
+    public ApiResponse<GetSmtpTemplates> getSmtpTemplatesWithHttpInfo(Boolean templateStatus, Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getSmtpTemplatesValidateBeforeCall(templateStatus, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetSmtpTemplates>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1110,11 +1479,12 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmtpTemplatesAsync(Boolean templateStatus, Long limit, Long offset, final ApiCallback<GetSmtpTemplates> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpTemplatesAsync(Boolean templateStatus, Long limit, Long offset, String sort, final ApiCallback<GetSmtpTemplates> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1135,7 +1505,7 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmtpTemplatesValidateBeforeCall(templateStatus, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmtpTemplatesValidateBeforeCall(templateStatus, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmtpTemplates>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1147,12 +1517,13 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacBlockedContactsCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacBlockedContactsCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1170,6 +1541,8 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
         if (senders != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "senders", senders));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1204,10 +1577,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacBlockedContactsValidateBeforeCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacBlockedContactsValidateBeforeCall(String startDate, String endDate, Long limit, Long offset, List<String> senders, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTransacBlockedContactsCall(startDate, endDate, limit, offset, senders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacBlockedContactsCall(startDate, endDate, limit, offset, senders, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1220,11 +1593,12 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetTransacBlockedContacts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacBlockedContacts getTransacBlockedContacts(String startDate, String endDate, Long limit, Long offset, List<String> senders) throws ApiException {
-        ApiResponse<GetTransacBlockedContacts> resp = getTransacBlockedContactsWithHttpInfo(startDate, endDate, limit, offset, senders);
+    public GetTransacBlockedContacts getTransacBlockedContacts(String startDate, String endDate, Long limit, Long offset, List<String> senders, String sort) throws ApiException {
+        ApiResponse<GetTransacBlockedContacts> resp = getTransacBlockedContactsWithHttpInfo(startDate, endDate, limit, offset, senders, sort);
         return resp.getData();
     }
 
@@ -1236,11 +1610,12 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetTransacBlockedContacts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacBlockedContacts> getTransacBlockedContactsWithHttpInfo(String startDate, String endDate, Long limit, Long offset, List<String> senders) throws ApiException {
-        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, null, null);
+    public ApiResponse<GetTransacBlockedContacts> getTransacBlockedContactsWithHttpInfo(String startDate, String endDate, Long limit, Long offset, List<String> senders, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, sort, null, null);
         Type localVarReturnType = new TypeToken<GetTransacBlockedContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1253,11 +1628,12 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacBlockedContactsAsync(String startDate, String endDate, Long limit, Long offset, List<String> senders, final ApiCallback<GetTransacBlockedContacts> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacBlockedContactsAsync(String startDate, String endDate, Long limit, Long offset, List<String> senders, String sort, final ApiCallback<GetTransacBlockedContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1278,7 +1654,7 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacBlockedContactsValidateBeforeCall(startDate, endDate, limit, offset, senders, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetTransacBlockedContacts>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1413,12 +1789,13 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1436,6 +1813,8 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
         if (endDate != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1470,10 +1849,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1486,11 +1865,12 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetTransacEmailsList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate) throws ApiException {
-        ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate);
+    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort) throws ApiException {
+        ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate, sort);
         return resp.getData();
     }
 
@@ -1502,11 +1882,12 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetTransacEmailsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate) throws ApiException {
-        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, null, null);
+    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, null, null);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1519,11 +1900,12 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1544,7 +1926,7 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

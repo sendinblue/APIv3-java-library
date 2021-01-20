@@ -27,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetTransacSmsReportReports
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetTransacSmsReportReports {
   @SerializedName("date")
   private LocalDate date = null;
@@ -68,7 +68,7 @@ public class GetTransacSmsReportReports {
    * Date for which statistics are retrieved
    * @return date
   **/
-  @ApiModelProperty(example = "2017-03-17", required = true, value = "Date for which statistics are retrieved")
+  @ApiModelProperty(example = "2017-03-17", value = "Date for which statistics are retrieved")
   public LocalDate getDate() {
     return date;
   }
@@ -86,7 +86,7 @@ public class GetTransacSmsReportReports {
    * Number of requests for the date
    * @return requests
   **/
-  @ApiModelProperty(example = "87", required = true, value = "Number of requests for the date")
+  @ApiModelProperty(example = "87", value = "Number of requests for the date")
   public Long getRequests() {
     return requests;
   }
@@ -104,7 +104,7 @@ public class GetTransacSmsReportReports {
    * Number of delivered SMS for the date
    * @return delivered
   **/
-  @ApiModelProperty(example = "85", required = true, value = "Number of delivered SMS for the date")
+  @ApiModelProperty(example = "85", value = "Number of delivered SMS for the date")
   public Long getDelivered() {
     return delivered;
   }
@@ -122,7 +122,7 @@ public class GetTransacSmsReportReports {
    * Number of hardbounces for the date
    * @return hardBounces
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of hardbounces for the date")
+  @ApiModelProperty(example = "1", value = "Number of hardbounces for the date")
   public Long getHardBounces() {
     return hardBounces;
   }
@@ -140,7 +140,7 @@ public class GetTransacSmsReportReports {
    * Number of softbounces for the date
    * @return softBounces
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of softbounces for the date")
+  @ApiModelProperty(example = "1", value = "Number of softbounces for the date")
   public Long getSoftBounces() {
     return softBounces;
   }
@@ -158,7 +158,7 @@ public class GetTransacSmsReportReports {
    * Number of blocked contact for the date
    * @return blocked
   **/
-  @ApiModelProperty(example = "0", required = true, value = "Number of blocked contact for the date")
+  @ApiModelProperty(example = "0", value = "Number of blocked contact for the date")
   public Long getBlocked() {
     return blocked;
   }
@@ -176,7 +176,7 @@ public class GetTransacSmsReportReports {
    * Number of unsubscription for the date
    * @return unsubscribed
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of unsubscription for the date")
+  @ApiModelProperty(example = "1", value = "Number of unsubscription for the date")
   public Long getUnsubscribed() {
     return unsubscribed;
   }
@@ -194,7 +194,7 @@ public class GetTransacSmsReportReports {
    * Number of answered SMS for the date
    * @return replied
   **/
-  @ApiModelProperty(example = "2", required = true, value = "Number of answered SMS for the date")
+  @ApiModelProperty(example = "2", value = "Number of answered SMS for the date")
   public Long getReplied() {
     return replied;
   }
@@ -212,7 +212,7 @@ public class GetTransacSmsReportReports {
    * Number of accepted for the date
    * @return accepted
   **/
-  @ApiModelProperty(example = "85", required = true, value = "Number of accepted for the date")
+  @ApiModelProperty(example = "85", value = "Number of accepted for the date")
   public Long getAccepted() {
     return accepted;
   }
@@ -230,7 +230,7 @@ public class GetTransacSmsReportReports {
    * Number of rejected for the date
    * @return rejected
   **/
-  @ApiModelProperty(example = "1", required = true, value = "Number of rejected for the date")
+  @ApiModelProperty(example = "1", value = "Number of rejected for the date")
   public Long getRejected() {
     return rejected;
   }

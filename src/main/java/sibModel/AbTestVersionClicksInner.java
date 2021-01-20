@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * AbTestVersionClicksInner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class AbTestVersionClicksInner {
   @SerializedName("link")
   private String link = null;

@@ -4,10 +4,13 @@ All URIs are relative to *https://api.sendinblue.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**blockNewDomain**](TransactionalEmailsApi.md#blockNewDomain) | **POST** /smtp/blockedDomains | Add a new domain to the list of blocked domains
 [**createSmtpTemplate**](TransactionalEmailsApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
+[**deleteBlockedDomain**](TransactionalEmailsApi.md#deleteBlockedDomain) | **DELETE** /smtp/blockedDomains/{domain} | Unblock an existing domain from the list of blocked domains
 [**deleteHardbounces**](TransactionalEmailsApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
 [**deleteSmtpTemplate**](TransactionalEmailsApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 [**getAggregatedSmtpReport**](TransactionalEmailsApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+[**getBlockedDomains**](TransactionalEmailsApi.md#getBlockedDomains) | **GET** /smtp/blockedDomains | Get the list of blocked domains
 [**getEmailEventReport**](TransactionalEmailsApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
 [**getSmtpReport**](TransactionalEmailsApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**getSmtpTemplate**](TransactionalEmailsApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
@@ -22,6 +25,66 @@ Method | HTTP request | Description
 [**smtpLogMessageIdDelete**](TransactionalEmailsApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
 [**updateSmtpTemplate**](TransactionalEmailsApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
 
+
+<a name="blockNewDomain"></a>
+# **blockNewDomain**
+> blockNewDomain(blockDomain)
+
+Add a new domain to the list of blocked domains
+
+Blocks a new domain in order to avoid messages being sent to the same
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+BlockDomain blockDomain = new BlockDomain(); // BlockDomain | 
+try {
+    apiInstance.blockNewDomain(blockDomain);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#blockNewDomain");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **blockDomain** | [**BlockDomain**](BlockDomain.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="createSmtpTemplate"></a>
 # **createSmtpTemplate**
@@ -72,6 +135,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateModel**](CreateModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteBlockedDomain"></a>
+# **deleteBlockedDomain**
+> deleteBlockedDomain(domain)
+
+Unblock an existing domain from the list of blocked domains
+
+Unblocks an existing domain from the list of blocked domains
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+String domain = "domain_example"; // String | The name of the domain to be deleted
+try {
+    apiInstance.deleteBlockedDomain(domain);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#deleteBlockedDomain");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String**| The name of the domain to be deleted |
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
@@ -265,9 +388,66 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getBlockedDomains"></a>
+# **getBlockedDomains**
+> GetBlockedDomains getBlockedDomains()
+
+Get the list of blocked domains
+
+Get the list of blocked domains
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+try {
+    GetBlockedDomains result = apiInstance.getBlockedDomains();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#getBlockedDomains");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetBlockedDomains**](GetBlockedDomains.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getEmailEventReport"></a>
 # **getEmailEventReport**
-> GetEmailEventReport getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId)
+> GetEmailEventReport getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort)
 
 Get all your transactional email activity (unaggregated events)
 
@@ -305,8 +485,9 @@ String event = "event_example"; // String | Filter the report for a specific eve
 String tags = "tags_example"; // String | Filter the report for tags (serialized and urlencoded array)
 String messageId = "messageId_example"; // String | Filter on a specific message id
 Long templateId = 789L; // Long | Filter on a specific template id
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetEmailEventReport result = apiInstance.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId);
+    GetEmailEventReport result = apiInstance.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getEmailEventReport");
@@ -324,10 +505,11 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **email** | **String**| Filter the report for a specific email addresses | [optional]
- **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed]
+ **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error]
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional]
  **messageId** | **String**| Filter on a specific message id | [optional]
  **templateId** | **Long**| Filter on a specific template id | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -344,7 +526,7 @@ Name | Type | Description  | Notes
 
 <a name="getSmtpReport"></a>
 # **getSmtpReport**
-> GetReports getSmtpReport(limit, offset, startDate, endDate, days, tag)
+> GetReports getSmtpReport(limit, offset, startDate, endDate, days, tag, sort)
 
 Get your transactional email activity aggregated per day
 
@@ -378,8 +560,9 @@ String startDate = "startDate_example"; // String | Mandatory if endDate is used
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
 Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Tag of the emails
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetReports result = apiInstance.getSmtpReport(limit, offset, startDate, endDate, days, tag);
+    GetReports result = apiInstance.getSmtpReport(limit, offset, startDate, endDate, days, tag, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getSmtpReport");
@@ -397,6 +580,7 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional]
  **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Tag of the emails | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -472,7 +656,7 @@ Name | Type | Description  | Notes
 
 <a name="getSmtpTemplates"></a>
 # **getSmtpTemplates**
-> GetSmtpTemplates getSmtpTemplates(templateStatus, limit, offset)
+> GetSmtpTemplates getSmtpTemplates(templateStatus, limit, offset, sort)
 
 Get the list of email templates
 
@@ -503,8 +687,9 @@ TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Boolean templateStatus = true; // Boolean | Filter on the status of the template. Active = true, inactive = false
 Long limit = 50L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document in the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetSmtpTemplates result = apiInstance.getSmtpTemplates(templateStatus, limit, offset);
+    GetSmtpTemplates result = apiInstance.getSmtpTemplates(templateStatus, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getSmtpTemplates");
@@ -519,6 +704,7 @@ Name | Type | Description  | Notes
  **templateStatus** | **Boolean**| Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false | [optional]
  **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -535,7 +721,7 @@ Name | Type | Description  | Notes
 
 <a name="getTransacBlockedContacts"></a>
 # **getTransacBlockedContacts**
-> GetTransacBlockedContacts getTransacBlockedContacts(startDate, endDate, limit, offset, senders)
+> GetTransacBlockedContacts getTransacBlockedContacts(startDate, endDate, limit, offset, senders, sort)
 
 Get the list of blocked or unsubscribed transactional contacts
 
@@ -568,8 +754,9 @@ String endDate = "endDate_example"; // String | Mandatory if startDate is used. 
 Long limit = 50L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document on the page
 List<String> senders = Arrays.asList("senders_example"); // List<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetTransacBlockedContacts result = apiInstance.getTransacBlockedContacts(startDate, endDate, limit, offset, senders);
+    GetTransacBlockedContacts result = apiInstance.getTransacBlockedContacts(startDate, endDate, limit, offset, senders, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getTransacBlockedContacts");
@@ -586,6 +773,7 @@ Name | Type | Description  | Notes
  **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
  **senders** | [**List&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -661,7 +849,7 @@ Name | Type | Description  | Notes
 
 <a name="getTransacEmailsList"></a>
 # **getTransacEmailsList**
-> GetTransacEmailsList getTransacEmailsList(email, templateId, messageId, startDate, endDate)
+> GetTransacEmailsList getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort)
 
 Get the list of transactional emails on the basis of allowed filters
 
@@ -696,8 +884,9 @@ Long templateId = 789L; // Long | Mandatory if email and messageId are not passe
 String messageId = "messageId_example"; // String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
 LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
 LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate);
+    GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getTransacEmailsList");
@@ -714,6 +903,7 @@ Name | Type | Description  | Notes
  **messageId** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional]
  **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
  **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

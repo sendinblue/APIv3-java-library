@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * PostContactInfoContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class PostContactInfoContacts {
   @SerializedName("success")
   private List<String> success = null;
@@ -100,7 +100,7 @@ public class PostContactInfoContacts {
   }
 
    /**
-   * Displays the count of total number of contacts removed from list when user opts for \&quot;all\&quot; option.
+   * Displays the count of total number of contacts removed from list when user opts for &quot;all&quot; option.
    * @return total
   **/
   @ApiModelProperty(example = "27", value = "Displays the count of total number of contacts removed from list when user opts for \"all\" option.")
@@ -118,7 +118,7 @@ public class PostContactInfoContacts {
   }
 
    /**
-   * Id of the process created to remove contacts from list when user opts for \&quot;all\&quot; option.
+   * Id of the process created to remove contacts from list when user opts for &quot;all&quot; option.
    * @return processId
   **/
   @ApiModelProperty(example = "78", value = "Id of the process created to remove contacts from list when user opts for \"all\" option.")

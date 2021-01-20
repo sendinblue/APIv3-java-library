@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 <a name="getFolderLists"></a>
 # **getFolderLists**
-> GetFolderLists getFolderLists(folderId, limit, offset)
+> GetFolderLists getFolderLists(folderId, limit, offset, sort)
 
 Get lists in a folder
 
@@ -221,8 +221,9 @@ FoldersApi apiInstance = new FoldersApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset);
+    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FoldersApi#getFolderLists");
@@ -237,6 +238,7 @@ Name | Type | Description  | Notes
  **folderId** | **Long**| Id of the folder |
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -253,7 +255,7 @@ Name | Type | Description  | Notes
 
 <a name="getFolders"></a>
 # **getFolders**
-> GetFolders getFolders(limit, offset)
+> GetFolders getFolders(limit, offset, sort)
 
 Get all folders
 
@@ -283,8 +285,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 FoldersApi apiInstance = new FoldersApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetFolders result = apiInstance.getFolders(limit, offset);
+    GetFolders result = apiInstance.getFolders(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FoldersApi#getFolders");
@@ -298,6 +301,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [default to 10]
  **offset** | **Long**| Index of the first document of the page | [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetExtendedCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetExtendedCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -532,7 +532,7 @@ public class GetExtendedCampaignOverview {
   }
 
    /**
-   * Email defined as the \&quot;Reply to\&quot; of the campaign
+   * Email defined as the &quot;Reply to&quot; of the campaign
    * @return replyTo
   **/
   @ApiModelProperty(example = "replyto@domain.com", required = true, value = "Email defined as the \"Reply to\" of the campaign")
@@ -550,10 +550,10 @@ public class GetExtendedCampaignOverview {
   }
 
    /**
-   * Customisation of the \&quot;to\&quot; field of the campaign
+   * Customisation of the &quot;to&quot; field of the campaign
    * @return toField
   **/
-  @ApiModelProperty(example = "{FNAME} {LNAME}", required = true, value = "Customisation of the \"to\" field of the campaign")
+  @ApiModelProperty(example = "{FNAME} {LNAME}", value = "Customisation of the \"to\" field of the campaign")
   public String getToField() {
     return toField;
   }
@@ -607,7 +607,7 @@ public class GetExtendedCampaignOverview {
    * Tag of the campaign
    * @return tag
   **/
-  @ApiModelProperty(example = "Newsletter", required = true, value = "Tag of the campaign")
+  @ApiModelProperty(example = "Newsletter", value = "Tag of the campaign")
   public String getTag() {
     return tag;
   }

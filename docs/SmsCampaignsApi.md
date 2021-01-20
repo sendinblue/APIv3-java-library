@@ -39,7 +39,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -98,7 +98,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -156,7 +156,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 <a name="getSmsCampaigns"></a>
 # **getSmsCampaigns**
-> GetSmsCampaigns getSmsCampaigns(status, startDate, endDate, limit, offset)
+> GetSmsCampaigns getSmsCampaigns(status, startDate, endDate, limit, offset, sort)
 
 Returns the information for all your created SMS campaigns
 
@@ -215,7 +215,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -227,8 +227,9 @@ OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory i
 OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetSmsCampaigns result = apiInstance.getSmsCampaigns(status, startDate, endDate, limit, offset);
+    GetSmsCampaigns result = apiInstance.getSmsCampaigns(status, startDate, endDate, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SmsCampaignsApi#getSmsCampaigns");
@@ -245,6 +246,7 @@ Name | Type | Description  | Notes
  **endDate** | **OffsetDateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 500]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -284,7 +286,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -345,7 +347,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -405,7 +407,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -465,7 +467,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -525,7 +527,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -585,7 +587,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)

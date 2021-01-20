@@ -428,12 +428,13 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsCall(Long folderId, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getFolderListsCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -446,6 +447,8 @@ public class FoldersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -480,7 +483,7 @@ public class FoldersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -488,7 +491,7 @@ public class FoldersApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFolderListsCall(folderId, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFolderListsCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -499,11 +502,12 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetFolderLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetFolderLists getFolderLists(Long folderId, Long limit, Long offset) throws ApiException {
-        ApiResponse<GetFolderLists> resp = getFolderListsWithHttpInfo(folderId, limit, offset);
+    public GetFolderLists getFolderLists(Long folderId, Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetFolderLists> resp = getFolderListsWithHttpInfo(folderId, limit, offset, sort);
         return resp.getData();
     }
 
@@ -513,11 +517,12 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetFolderLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetFolderLists> getFolderListsWithHttpInfo(Long folderId, Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, null, null);
+    public ApiResponse<GetFolderLists> getFolderListsWithHttpInfo(Long folderId, Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -528,11 +533,12 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsAsync(Long folderId, Long limit, Long offset, final ApiCallback<GetFolderLists> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFolderListsAsync(Long folderId, Long limit, Long offset, String sort, final ApiCallback<GetFolderLists> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -553,7 +559,7 @@ public class FoldersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -562,12 +568,13 @@ public class FoldersApi {
      * Build call for getFolders
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFoldersCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getFoldersCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -579,6 +586,8 @@ public class FoldersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (offset != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -613,7 +622,7 @@ public class FoldersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFoldersValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFoldersValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'limit' is set
         if (limit == null) {
@@ -626,7 +635,7 @@ public class FoldersApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFoldersCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFoldersCall(limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -636,11 +645,12 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return GetFolders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetFolders getFolders(Long limit, Long offset) throws ApiException {
-        ApiResponse<GetFolders> resp = getFoldersWithHttpInfo(limit, offset);
+    public GetFolders getFolders(Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetFolders> resp = getFoldersWithHttpInfo(limit, offset, sort);
         return resp.getData();
     }
 
@@ -649,11 +659,12 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @return ApiResponse&lt;GetFolders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetFolders> getFoldersWithHttpInfo(Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, null, null);
+    public ApiResponse<GetFolders> getFoldersWithHttpInfo(Long limit, Long offset, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetFolders>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -663,11 +674,12 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
+     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFoldersAsync(Long limit, Long offset, final ApiCallback<GetFolders> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFoldersAsync(Long limit, Long offset, String sort, final ApiCallback<GetFolders> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -688,7 +700,7 @@ public class FoldersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolders>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

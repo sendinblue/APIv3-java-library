@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 <a name="getEmailCampaigns"></a>
 # **getEmailCampaigns**
-> GetEmailCampaigns getEmailCampaigns(type, status, startDate, endDate, limit, offset)
+> GetEmailCampaigns getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort)
 
 Return all your created email campaigns
 
@@ -353,8 +353,9 @@ OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory i
 OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 Long limit = 500L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document in the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, startDate, endDate, limit, offset);
+    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EmailCampaignsApi#getEmailCampaigns");
@@ -372,6 +373,7 @@ Name | Type | Description  | Notes
  **endDate** | **OffsetDateTime**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
  **limit** | **Long**| Number of documents per page | [optional] [default to 500]
  **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

@@ -62,7 +62,8 @@ public class ProcessApiTest {
     public void getProcessesTest() throws ApiException {
         Long limit = null;
         Long offset = null;
-        GetProcesses response = api.getProcesses(limit, offset);
+        String sort = null;
+        GetProcesses response = api.getProcesses(limit, offset, sort);
 
         // TODO: test validations
     }

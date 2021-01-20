@@ -20,10 +20,10 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-    <groupId>com.sendinblue</groupId>
-    <artifactId>sib-api-v3-sdk</artifactId>
-    <version>5.0.0</version>
-    <scope>compile</scope>
+  <groupId>com.sendinblue</groupId>
+  <artifactId>sib-api-v3-sdk</artifactId>
+  <version>5.1.0</version>
+  <scope>compile</scope>
 </dependency>
 ```
 
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:5.0.0"
+compile "com.sendinblue:sib-api-v3-sdk:5.1.0"
 ```
 
 ### Others
@@ -45,8 +45,8 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/sib-api-v3-sdk-5.0.0.jar
-* target/lib/*.jar
+* `target/sib-api-v3-sdk-5.1.0.jar`
+* `target/lib/*.jar`
 
 ## Getting Started
 
@@ -73,9 +73,9 @@ public class AccountApiExample {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //apiKey.setApiKeyPrefix("Token");
 
-        // Configure API key authorization: partnerKey
+        // Configure API key authorization: partner-key
         ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-        partnerKey.setApiKey("YOUR API KEY");
+        partnerKey.setApiKey("YOUR PARTNER KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //partnerKey.setApiKeyPrefix("Token");
 
@@ -110,12 +110,12 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**createFolder**](docs/ContactsApi.md#createFolder) | **POST** /contacts/folders | Create a folder
 *ContactsApi* | [**createList**](docs/ContactsApi.md#createList) | **POST** /contacts/lists | Create a list
 *ContactsApi* | [**deleteAttribute**](docs/ContactsApi.md#deleteAttribute) | **DELETE** /contacts/attributes/{attributeCategory}/{attributeName} | Delete an attribute
-*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /contacts/{email} | Delete a contact
+*ContactsApi* | [**deleteContact**](docs/ContactsApi.md#deleteContact) | **DELETE** /contacts/{identifier} | Delete a contact
 *ContactsApi* | [**deleteFolder**](docs/ContactsApi.md#deleteFolder) | **DELETE** /contacts/folders/{folderId} | Delete a folder (and all its lists)
 *ContactsApi* | [**deleteList**](docs/ContactsApi.md#deleteList) | **DELETE** /contacts/lists/{listId} | Delete a list
 *ContactsApi* | [**getAttributes**](docs/ContactsApi.md#getAttributes) | **GET** /contacts/attributes | List all attributes
-*ContactsApi* | [**getContactInfo**](docs/ContactsApi.md#getContactInfo) | **GET** /contacts/{email} | Get a contact&#39;s details
-*ContactsApi* | [**getContactStats**](docs/ContactsApi.md#getContactStats) | **GET** /contacts/{email}/campaignStats | Get email campaigns&#39; statistics for a contact
+*ContactsApi* | [**getContactInfo**](docs/ContactsApi.md#getContactInfo) | **GET** /contacts/{identifier} | Get a contact&#39;s details
+*ContactsApi* | [**getContactStats**](docs/ContactsApi.md#getContactStats) | **GET** /contacts/{identifier}/campaignStats | Get email campaigns&#39; statistics for a contact
 *ContactsApi* | [**getContacts**](docs/ContactsApi.md#getContacts) | **GET** /contacts | Get all the contacts
 *ContactsApi* | [**getContactsFromList**](docs/ContactsApi.md#getContactsFromList) | **GET** /contacts/lists/{listId}/contacts | Get contacts in a list
 *ContactsApi* | [**getFolder**](docs/ContactsApi.md#getFolder) | **GET** /contacts/folders/{folderId} | Returns a folder&#39;s details
@@ -127,7 +127,7 @@ Class | Method | HTTP request | Description
 *ContactsApi* | [**removeContactFromList**](docs/ContactsApi.md#removeContactFromList) | **POST** /contacts/lists/{listId}/contacts/remove | Delete a contact from a list
 *ContactsApi* | [**requestContactExport**](docs/ContactsApi.md#requestContactExport) | **POST** /contacts/export | Export contacts
 *ContactsApi* | [**updateAttribute**](docs/ContactsApi.md#updateAttribute) | **PUT** /contacts/attributes/{attributeCategory}/{attributeName} | Update contact attribute
-*ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PUT** /contacts/{email} | Update a contact
+*ContactsApi* | [**updateContact**](docs/ContactsApi.md#updateContact) | **PUT** /contacts/{identifier} | Update a contact
 *ContactsApi* | [**updateFolder**](docs/ContactsApi.md#updateFolder) | **PUT** /contacts/folders/{folderId} | Update a folder
 *ContactsApi* | [**updateList**](docs/ContactsApi.md#updateList) | **PUT** /contacts/lists/{listId} | Update a list
 *EmailCampaignsApi* | [**createEmailCampaign**](docs/EmailCampaignsApi.md#createEmailCampaign) | **POST** /emailCampaigns | Create an email campaign
@@ -192,23 +192,26 @@ Class | Method | HTTP request | Description
 *SmsCampaignsApi* | [**sendTestSms**](docs/SmsCampaignsApi.md#sendTestSms) | **POST** /smsCampaigns/{campaignId}/sendTest | Send a test SMS campaign
 *SmsCampaignsApi* | [**updateSmsCampaign**](docs/SmsCampaignsApi.md#updateSmsCampaign) | **PUT** /smsCampaigns/{campaignId} | Update an SMS campaign
 *SmsCampaignsApi* | [**updateSmsCampaignStatus**](docs/SmsCampaignsApi.md#updateSmsCampaignStatus) | **PUT** /smsCampaigns/{campaignId}/status | Update a campaign&#39;s status
-*SmtpApi* | [**createSmtpTemplate**](docs/SmtpApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
-*SmtpApi* | [**deleteHardbounces**](docs/SmtpApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
-*SmtpApi* | [**deleteSmtpTemplate**](docs/SmtpApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
-*SmtpApi* | [**getAggregatedSmtpReport**](docs/SmtpApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
-*SmtpApi* | [**getEmailEventReport**](docs/SmtpApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
-*SmtpApi* | [**getSmtpReport**](docs/SmtpApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
-*SmtpApi* | [**getSmtpTemplate**](docs/SmtpApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
-*SmtpApi* | [**getSmtpTemplates**](docs/SmtpApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
-*SmtpApi* | [**getTransacBlockedContacts**](docs/SmtpApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
-*SmtpApi* | [**getTransacEmailContent**](docs/SmtpApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
-*SmtpApi* | [**getTransacEmailsList**](docs/SmtpApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-*SmtpApi* | [**sendTemplate**](docs/SmtpApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
-*SmtpApi* | [**sendTestTemplate**](docs/SmtpApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
-*SmtpApi* | [**sendTransacEmail**](docs/SmtpApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
-*SmtpApi* | [**smtpBlockedContactsEmailDelete**](docs/SmtpApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
-*SmtpApi* | [**smtpLogMessageIdDelete**](docs/SmtpApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
-*SmtpApi* | [**updateSmtpTemplate**](docs/SmtpApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
+*TransactionalEmailsApi* | [**blockNewDomain**](docs/TransactionalEmailsApi.md#blockNewDomain) | **POST** /smtp/blockedDomains | Add a new domain to the list of blocked domains
+*TransactionalEmailsApi* | [**createSmtpTemplate**](docs/TransactionalEmailsApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
+*TransactionalEmailsApi* | [**deleteBlockedDomain**](docs/TransactionalEmailsApi.md#deleteBlockedDomain) | **DELETE** /smtp/blockedDomains/{domain} | Unblock an existing domain from the list of blocked domains
+*TransactionalEmailsApi* | [**deleteHardbounces**](docs/TransactionalEmailsApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
+*TransactionalEmailsApi* | [**deleteSmtpTemplate**](docs/TransactionalEmailsApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
+*TransactionalEmailsApi* | [**getAggregatedSmtpReport**](docs/TransactionalEmailsApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
+*TransactionalEmailsApi* | [**getBlockedDomains**](docs/TransactionalEmailsApi.md#getBlockedDomains) | **GET** /smtp/blockedDomains | Get the list of blocked domains
+*TransactionalEmailsApi* | [**getEmailEventReport**](docs/TransactionalEmailsApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+*TransactionalEmailsApi* | [**getSmtpReport**](docs/TransactionalEmailsApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
+*TransactionalEmailsApi* | [**getSmtpTemplate**](docs/TransactionalEmailsApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
+*TransactionalEmailsApi* | [**getSmtpTemplates**](docs/TransactionalEmailsApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
+*TransactionalEmailsApi* | [**getTransacBlockedContacts**](docs/TransactionalEmailsApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
+*TransactionalEmailsApi* | [**getTransacEmailContent**](docs/TransactionalEmailsApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
+*TransactionalEmailsApi* | [**getTransacEmailsList**](docs/TransactionalEmailsApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
+*TransactionalEmailsApi* | [**sendTemplate**](docs/TransactionalEmailsApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
+*TransactionalEmailsApi* | [**sendTestTemplate**](docs/TransactionalEmailsApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
+*TransactionalEmailsApi* | [**sendTransacEmail**](docs/TransactionalEmailsApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
+*TransactionalEmailsApi* | [**smtpBlockedContactsEmailDelete**](docs/TransactionalEmailsApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
+*TransactionalEmailsApi* | [**smtpLogMessageIdDelete**](docs/TransactionalEmailsApi.md#smtpLogMessageIdDelete) | **DELETE** /smtp/log/{messageId} | Delete an SMTP transactional log
+*TransactionalEmailsApi* | [**updateSmtpTemplate**](docs/TransactionalEmailsApi.md#updateSmtpTemplate) | **PUT** /smtp/templates/{templateId} | Update an email template
 *TransactionalSmsApi* | [**getSmsEvents**](docs/TransactionalSmsApi.md#getSmsEvents) | **GET** /transactionalSMS/statistics/events | Get all your SMS activity (unaggregated events)
 *TransactionalSmsApi* | [**getTransacAggregatedSmsReport**](docs/TransactionalSmsApi.md#getTransacAggregatedSmsReport) | **GET** /transactionalSMS/statistics/aggregatedReport | Get your SMS activity aggregated over a period of time
 *TransactionalSmsApi* | [**getTransacSmsReport**](docs/TransactionalSmsApi.md#getTransacSmsReport) | **GET** /transactionalSMS/statistics/reports | Get your SMS activity aggregated per day
@@ -223,9 +226,15 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AbTestCampaignResult](docs/AbTestCampaignResult.md)
+ - [AbTestCampaignResultClickedLinks](docs/AbTestCampaignResultClickedLinks.md)
+ - [AbTestCampaignResultStatistics](docs/AbTestCampaignResultStatistics.md)
+ - [AbTestVersionClicks](docs/AbTestVersionClicks.md)
+ - [AbTestVersionClicksInner](docs/AbTestVersionClicksInner.md)
+ - [AbTestVersionStats](docs/AbTestVersionStats.md)
  - [AddChildDomain](docs/AddChildDomain.md)
  - [AddContactToList](docs/AddContactToList.md)
  - [AddCredits](docs/AddCredits.md)
+ - [BlockDomain](docs/BlockDomain.md)
  - [CreateAttribute](docs/CreateAttribute.md)
  - [CreateAttributeEnumeration](docs/CreateAttributeEnumeration.md)
  - [CreateChild](docs/CreateChild.md)
@@ -260,6 +269,7 @@ Class | Method | HTTP request | Description
  - [GetAttributes](docs/GetAttributes.md)
  - [GetAttributesAttributes](docs/GetAttributesAttributes.md)
  - [GetAttributesEnumeration](docs/GetAttributesEnumeration.md)
+ - [GetBlockedDomains](docs/GetBlockedDomains.md)
  - [GetCampaignOverview](docs/GetCampaignOverview.md)
  - [GetCampaignRecipients](docs/GetCampaignRecipients.md)
  - [GetCampaignStats](docs/GetCampaignStats.md)

@@ -5,7 +5,7 @@
     <artifactId>sib-api-v3-sdk</artifactId>
     <packaging>jar</packaging>
     <name>sib-api-v3-sdk</name>
-    <version>5.0.0</version>
+    <version>5.1.0</version>
     <url>https://github.com/sendinblue/APIv3-java-library</url>
     <description>SendinBlue&#39;s API v3 Java Library</description>
     <scm>

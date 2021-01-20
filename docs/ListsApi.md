@@ -195,7 +195,7 @@ null (empty response body)
 
 <a name="getContactsFromList"></a>
 # **getContactsFromList**
-> GetContacts getContactsFromList(listId, modifiedSince, limit, offset)
+> GetContacts getContactsFromList(listId, modifiedSince, limit, offset, sort)
 
 Get contacts in a list
 
@@ -224,11 +224,12 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-OffsetDateTime modifiedSince = new OffsetDateTime(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetContacts result = apiInstance.getContactsFromList(listId, modifiedSince, limit, offset);
+    GetContacts result = apiInstance.getContactsFromList(listId, modifiedSince, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ListsApi#getContactsFromList");
@@ -244,6 +245,7 @@ Name | Type | Description  | Notes
  **modifiedSince** | **OffsetDateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional]
  **limit** | **Long**| Number of documents per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -260,7 +262,7 @@ Name | Type | Description  | Notes
 
 <a name="getFolderLists"></a>
 # **getFolderLists**
-> GetFolderLists getFolderLists(folderId, limit, offset)
+> GetFolderLists getFolderLists(folderId, limit, offset, sort)
 
 Get lists in a folder
 
@@ -291,8 +293,9 @@ ListsApi apiInstance = new ListsApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset);
+    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ListsApi#getFolderLists");
@@ -307,6 +310,7 @@ Name | Type | Description  | Notes
  **folderId** | **Long**| Id of the folder |
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -382,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="getLists"></a>
 # **getLists**
-> GetLists getLists(limit, offset)
+> GetLists getLists(limit, offset, sort)
 
 Get all the lists
 
@@ -403,7 +407,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
@@ -412,8 +416,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ListsApi apiInstance = new ListsApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetLists result = apiInstance.getLists(limit, offset);
+    GetLists result = apiInstance.getLists(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ListsApi#getLists");
@@ -427,6 +432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -464,7 +470,7 @@ apiKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: partnerKey
+// Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
 partnerKey.setApiKey("YOUR PARTNER KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)

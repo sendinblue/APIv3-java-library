@@ -28,10 +28,10 @@ import java.util.List;
 /**
  * GetLists
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-16T12:59:25.669+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
 public class GetLists {
   @SerializedName("lists")
-  private List<Object> lists = new ArrayList<Object>();
+  private List<Object> lists = null;
 
   @SerializedName("count")
   private Long count = null;
@@ -42,6 +42,9 @@ public class GetLists {
   }
 
   public GetLists addListsItem(Object listsItem) {
+    if (this.lists == null) {
+      this.lists = new ArrayList<Object>();
+    }
     this.lists.add(listsItem);
     return this;
   }
@@ -50,7 +53,7 @@ public class GetLists {
    * Listing of all the lists available in your account
    * @return lists
   **/
-  @ApiModelProperty(required = true, value = "Listing of all the lists available in your account")
+  @ApiModelProperty(value = "Listing of all the lists available in your account")
   public List<Object> getLists() {
     return lists;
   }
@@ -68,7 +71,7 @@ public class GetLists {
    * Number of lists in your account
    * @return count
   **/
-  @ApiModelProperty(example = "150", required = true, value = "Number of lists in your account")
+  @ApiModelProperty(example = "150", value = "Number of lists in your account")
   public Long getCount() {
     return count;
   }

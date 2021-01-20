@@ -22,52 +22,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * SendSmtpEmailTo1
+ * list of blocked domains
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-30T14:16:44.260+05:30")
-public class SendSmtpEmailTo1 {
-  @SerializedName("email")
-  private String email = null;
+@ApiModel(description = "list of blocked domains")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+public class GetBlockedDomains {
+  @SerializedName("domains")
+  private List<String> domains = new ArrayList<String>();
 
-  @SerializedName("name")
-  private String name = null;
+  public GetBlockedDomains domains(List<String> domains) {
+    this.domains = domains;
+    return this;
+  }
 
-  public SendSmtpEmailTo1 email(String email) {
-    this.email = email;
+  public GetBlockedDomains addDomainsItem(String domainsItem) {
+    this.domains.add(domainsItem);
     return this;
   }
 
    /**
-   * Email address of the recipient
-   * @return email
+   * List of all blocked domains
+   * @return domains
   **/
-  @ApiModelProperty(example = "jimmy98@example.com", required = true, value = "Email address of the recipient")
-  public String getEmail() {
-    return email;
+  @ApiModelProperty(required = true, value = "List of all blocked domains")
+  public List<String> getDomains() {
+    return domains;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public SendSmtpEmailTo1 name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the recipient. **Maximum allowed characters are 70**.
-   * @return name
-  **/
-  @ApiModelProperty(example = "Jimmy", value = "Name of the recipient. **Maximum allowed characters are 70**.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setDomains(List<String> domains) {
+    this.domains = domains;
   }
 
 
@@ -79,24 +66,22 @@ public class SendSmtpEmailTo1 {
   if (o == null || getClass() != o.getClass()) {
     return false;
   }
-    SendSmtpEmailTo1 sendSmtpEmailTo1 = (SendSmtpEmailTo1) o;
-    return ObjectUtils.equals(this.email, sendSmtpEmailTo1.email) &&
-    ObjectUtils.equals(this.name, sendSmtpEmailTo1.name);
+    GetBlockedDomains getBlockedDomains = (GetBlockedDomains) o;
+    return ObjectUtils.equals(this.domains, getBlockedDomains.domains);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, name);
+    return ObjectUtils.hashCodeMulti(domains);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SendSmtpEmailTo1 {\n");
+    sb.append("class GetBlockedDomains {\n");
     
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
     sb.append("}");
     return sb.toString();
   }

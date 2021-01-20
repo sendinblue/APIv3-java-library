@@ -1,10 +1,10 @@
 
-# CreateSmtpEmail
+# BlockDomain
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messageId** | **String** | Message ID of the transactional email sent | 
+**domain** | **String** | name of the domain to be blocked | 
 
 
 

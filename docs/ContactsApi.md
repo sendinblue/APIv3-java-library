@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 <a name="getContacts"></a>
 # **getContacts**
-> GetContacts getContacts(limit, offset, modifiedSince)
+> GetContacts getContacts(limit, offset, modifiedSince, sort)
 
 Get all the contacts
 
@@ -835,8 +835,9 @@ ContactsApi apiInstance = new ContactsApi();
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
 OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetContacts result = apiInstance.getContacts(limit, offset, modifiedSince);
+    GetContacts result = apiInstance.getContacts(limit, offset, modifiedSince, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContacts");
@@ -851,6 +852,7 @@ Name | Type | Description  | Notes
  **limit** | **Long**| Number of documents per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
  **modifiedSince** | **OffsetDateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -867,7 +869,7 @@ Name | Type | Description  | Notes
 
 <a name="getContactsFromList"></a>
 # **getContactsFromList**
-> GetContacts getContactsFromList(listId, modifiedSince, limit, offset)
+> GetContacts getContactsFromList(listId, modifiedSince, limit, offset, sort)
 
 Get contacts in a list
 
@@ -899,8 +901,9 @@ Long listId = 789L; // Long | Id of the list
 OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetContacts result = apiInstance.getContactsFromList(listId, modifiedSince, limit, offset);
+    GetContacts result = apiInstance.getContactsFromList(listId, modifiedSince, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContactsFromList");
@@ -916,6 +919,7 @@ Name | Type | Description  | Notes
  **modifiedSince** | **OffsetDateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional]
  **limit** | **Long**| Number of documents per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -991,7 +995,7 @@ Name | Type | Description  | Notes
 
 <a name="getFolderLists"></a>
 # **getFolderLists**
-> GetFolderLists getFolderLists(folderId, limit, offset)
+> GetFolderLists getFolderLists(folderId, limit, offset, sort)
 
 Get lists in a folder
 
@@ -1022,8 +1026,9 @@ ContactsApi apiInstance = new ContactsApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset);
+    GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getFolderLists");
@@ -1038,6 +1043,7 @@ Name | Type | Description  | Notes
  **folderId** | **Long**| Id of the folder |
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -1054,7 +1060,7 @@ Name | Type | Description  | Notes
 
 <a name="getFolders"></a>
 # **getFolders**
-> GetFolders getFolders(limit, offset)
+> GetFolders getFolders(limit, offset, sort)
 
 Get all folders
 
@@ -1084,8 +1090,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ContactsApi apiInstance = new ContactsApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetFolders result = apiInstance.getFolders(limit, offset);
+    GetFolders result = apiInstance.getFolders(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getFolders");
@@ -1099,6 +1106,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [default to 10]
  **offset** | **Long**| Index of the first document of the page | [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -1174,7 +1182,7 @@ Name | Type | Description  | Notes
 
 <a name="getLists"></a>
 # **getLists**
-> GetLists getLists(limit, offset)
+> GetLists getLists(limit, offset, sort)
 
 Get all the lists
 
@@ -1204,8 +1212,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ContactsApi apiInstance = new ContactsApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
 try {
-    GetLists result = apiInstance.getLists(limit, offset);
+    GetLists result = apiInstance.getLists(limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getLists");
@@ -1219,6 +1228,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
