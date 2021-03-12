@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.sendinblue",
     name := "sib-api-v3-sdk",
-    version := "5.1.0",
+    version := "5.2.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

@@ -224,10 +224,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ListsApi apiInstance = new ListsApi();
 Long listId = 789L; // Long | Id of the list
-OffsetDateTime modifiedSince = OffsetDateTime.now(); // OffsetDateTime | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
+String modifiedSince = "modifiedSince_example"; // String | Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.
 Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetContacts result = apiInstance.getContactsFromList(listId, modifiedSince, limit, offset, sort);
     System.out.println(result);
@@ -242,10 +242,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **Long**| Id of the list |
- **modifiedSince** | **OffsetDateTime**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional]
+ **modifiedSince** | **String**| Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. | [optional]
  **limit** | **Long**| Number of documents per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -293,7 +293,7 @@ ListsApi apiInstance = new ListsApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset, sort);
     System.out.println(result);
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
  **folderId** | **Long**| Id of the folder |
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -416,7 +416,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ListsApi apiInstance = new ListsApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetLists result = apiInstance.getLists(limit, offset, sort);
     System.out.println(result);
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

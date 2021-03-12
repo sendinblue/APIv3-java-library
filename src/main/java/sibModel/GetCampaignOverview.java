@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -147,7 +147,7 @@ public class GetCampaignOverview {
   private StatusEnum status = null;
 
   @SerializedName("scheduledAt")
-  private OffsetDateTime scheduledAt = null;
+  private String scheduledAt = null;
 
   @SerializedName("abTesting")
   private Boolean abTesting = null;
@@ -260,7 +260,7 @@ public class GetCampaignOverview {
     this.status = status;
   }
 
-  public GetCampaignOverview scheduledAt(OffsetDateTime scheduledAt) {
+  public GetCampaignOverview scheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
     return this;
   }
@@ -270,11 +270,11 @@ public class GetCampaignOverview {
    * @return scheduledAt
   **/
   @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getScheduledAt() {
+  public String getScheduledAt() {
     return scheduledAt;
   }
 
-  public void setScheduledAt(OffsetDateTime scheduledAt) {
+  public void setScheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 

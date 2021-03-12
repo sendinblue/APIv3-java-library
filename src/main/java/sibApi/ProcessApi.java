@@ -183,7 +183,7 @@ public class ProcessApi {
      * Build call for getProcesses
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -250,7 +250,7 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetProcesses
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -264,7 +264,7 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetProcesses&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -279,7 +279,7 @@ public class ProcessApi {
      * 
      * @param limit Number limitation for the result returned (optional, default to 10)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

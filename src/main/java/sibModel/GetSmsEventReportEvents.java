@@ -27,13 +27,13 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetSmsEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetSmsEventReportEvents {
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
 
   @SerializedName("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @SerializedName("messageId")
   private String messageId = null;
@@ -129,7 +129,7 @@ public class GetSmsEventReportEvents {
     this.phoneNumber = phoneNumber;
   }
 
-  public GetSmsEventReportEvents date(OffsetDateTime date) {
+  public GetSmsEventReportEvents date(String date) {
     this.date = date;
     return this;
   }
@@ -139,11 +139,11 @@ public class GetSmsEventReportEvents {
    * @return date
   **/
   @ApiModelProperty(example = "2017-03-12T12:30:00Z", value = "UTC date-time on which the event has been generated")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

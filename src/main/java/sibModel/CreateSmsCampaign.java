@@ -28,7 +28,7 @@ import sibModel.CreateSmsCampaignRecipients;
 /**
  * CreateSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class CreateSmsCampaign {
   @SerializedName("name")
   private String name = null;
@@ -43,7 +43,7 @@ public class CreateSmsCampaign {
   private CreateSmsCampaignRecipients recipients = null;
 
   @SerializedName("scheduledAt")
-  private OffsetDateTime scheduledAt = null;
+  private String scheduledAt = null;
 
   public CreateSmsCampaign name(String name) {
     this.name = name;
@@ -117,7 +117,7 @@ public class CreateSmsCampaign {
     this.recipients = recipients;
   }
 
-  public CreateSmsCampaign scheduledAt(OffsetDateTime scheduledAt) {
+  public CreateSmsCampaign scheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
     return this;
   }
@@ -127,11 +127,11 @@ public class CreateSmsCampaign {
    * @return scheduledAt
   **/
   @ApiModelProperty(example = "2017-05-05T12:30:00+02:00", value = "UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result.")
-  public OffsetDateTime getScheduledAt() {
+  public String getScheduledAt() {
     return scheduledAt;
   }
 
-  public void setScheduledAt(OffsetDateTime scheduledAt) {
+  public void setScheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 

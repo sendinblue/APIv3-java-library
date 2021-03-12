@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetWebhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetWebhook {
   @SerializedName("url")
   private String url = null;
@@ -94,10 +94,10 @@ public class GetWebhook {
   private TypeEnum type = null;
 
   @SerializedName("createdAt")
-  private OffsetDateTime createdAt = null;
+  private String createdAt = null;
 
   @SerializedName("modifiedAt")
-  private OffsetDateTime modifiedAt = null;
+  private String modifiedAt = null;
 
   public GetWebhook url(String url) {
     this.url = url;
@@ -194,7 +194,7 @@ public class GetWebhook {
     this.type = type;
   }
 
-  public GetWebhook createdAt(OffsetDateTime createdAt) {
+  public GetWebhook createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -204,15 +204,15 @@ public class GetWebhook {
    * @return createdAt
   **/
   @ApiModelProperty(example = "2016-12-01T12:50:00Z", required = true, value = "Creation UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public GetWebhook modifiedAt(OffsetDateTime modifiedAt) {
+  public GetWebhook modifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -222,11 +222,11 @@ public class GetWebhook {
    * @return modifiedAt
   **/
   @ApiModelProperty(example = "2017-05-12T13:15:00Z", required = true, value = "Last modification UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getModifiedAt() {
+  public String getModifiedAt() {
     return modifiedAt;
   }
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 

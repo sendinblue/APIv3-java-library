@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **subject** | **String** | Subject of the campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;false&#x60; |  [optional]
 **type** | [**TypeEnum**](#TypeEnum) | Type of campaign | 
 **status** | [**StatusEnum**](#StatusEnum) | Status of the campaign | 
-**scheduledAt** | [**OffsetDateTime**] | UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ) |  [optional]
+**scheduledAt** | **String** | UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ) |  [optional]
 **abTesting** | **Boolean** | Status of A/B Test for the campaign. abTesting &#x3D; false means it is disabled, &amp; abTesting &#x3D; true means it is enabled. |  [optional]
 **subjectA** | **String** | Subject A of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60; |  [optional]
 **subjectB** | **String** | Subject B of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60; |  [optional]

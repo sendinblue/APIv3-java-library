@@ -221,7 +221,7 @@ FoldersApi apiInstance = new FoldersApi();
 Long folderId = 789L; // Long | Id of the folder
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetFolderLists result = apiInstance.getFolderLists(folderId, limit, offset, sort);
     System.out.println(result);
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
  **folderId** | **Long**| Id of the folder |
  **limit** | **Long**| Number of documents per page | [optional] [default to 10]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -285,7 +285,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 FoldersApi apiInstance = new FoldersApi();
 Long limit = 10L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document of the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetFolders result = apiInstance.getFolders(limit, offset, sort);
     System.out.println(result);
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number of documents per page | [default to 10]
  **offset** | **Long**| Index of the first document of the page | [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

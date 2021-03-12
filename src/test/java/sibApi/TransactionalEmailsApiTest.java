@@ -145,7 +145,7 @@ public class TransactionalEmailsApiTest {
     public void getAggregatedSmtpReportTest() throws ApiException {
         String startDate = null;
         String endDate = null;
-        Integer days = null;
+        Long days = null;
         String tag = null;
         GetAggregatedReport response = api.getAggregatedSmtpReport(startDate, endDate, days, tag);
 
@@ -181,7 +181,7 @@ public class TransactionalEmailsApiTest {
         Long offset = null;
         String startDate = null;
         String endDate = null;
-        Integer days = null;
+        Long days = null;
         String email = null;
         String event = null;
         String tags = null;
@@ -207,7 +207,7 @@ public class TransactionalEmailsApiTest {
         Long offset = null;
         String startDate = null;
         String endDate = null;
-        Integer days = null;
+        Long days = null;
         String tag = null;
         String sort = null;
         GetReports response = api.getSmtpReport(limit, offset, startDate, endDate, days, tag, sort);
@@ -300,8 +300,8 @@ public class TransactionalEmailsApiTest {
         String email = null;
         Long templateId = null;
         String messageId = null;
-        LocalDate startDate = null;
-        LocalDate endDate = null;
+        String startDate = null;
+        String endDate = null;
         String sort = null;
         GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
 

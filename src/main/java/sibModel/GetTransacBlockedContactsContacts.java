@@ -28,7 +28,7 @@ import sibModel.GetTransacBlockedContactsReason;
 /**
  * GetTransacBlockedContactsContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetTransacBlockedContactsContacts {
   @SerializedName("email")
   private String email = null;
@@ -40,7 +40,7 @@ public class GetTransacBlockedContactsContacts {
   private GetTransacBlockedContactsReason reason = null;
 
   @SerializedName("blockedAt")
-  private OffsetDateTime blockedAt = null;
+  private String blockedAt = null;
 
   public GetTransacBlockedContactsContacts email(String email) {
     this.email = email;
@@ -96,7 +96,7 @@ public class GetTransacBlockedContactsContacts {
     this.reason = reason;
   }
 
-  public GetTransacBlockedContactsContacts blockedAt(OffsetDateTime blockedAt) {
+  public GetTransacBlockedContactsContacts blockedAt(String blockedAt) {
     this.blockedAt = blockedAt;
     return this;
   }
@@ -106,11 +106,11 @@ public class GetTransacBlockedContactsContacts {
    * @return blockedAt
   **/
   @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "Date when the contact was blocked or unsubscribed on")
-  public OffsetDateTime getBlockedAt() {
+  public String getBlockedAt() {
     return blockedAt;
   }
 
-  public void setBlockedAt(OffsetDateTime blockedAt) {
+  public void setBlockedAt(String blockedAt) {
     this.blockedAt = blockedAt;
   }
 

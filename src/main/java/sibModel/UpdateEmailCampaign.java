@@ -29,7 +29,7 @@ import sibModel.UpdateEmailCampaignSender;
 /**
  * UpdateEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class UpdateEmailCampaign {
   @SerializedName("tag")
   private String tag = null;
@@ -47,7 +47,7 @@ public class UpdateEmailCampaign {
   private String htmlUrl = null;
 
   @SerializedName("scheduledAt")
-  private OffsetDateTime scheduledAt = null;
+  private String scheduledAt = null;
 
   @SerializedName("subject")
   private String subject = null;
@@ -252,7 +252,7 @@ public class UpdateEmailCampaign {
     this.htmlUrl = htmlUrl;
   }
 
-  public UpdateEmailCampaign scheduledAt(OffsetDateTime scheduledAt) {
+  public UpdateEmailCampaign scheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
     return this;
   }
@@ -262,11 +262,11 @@ public class UpdateEmailCampaign {
    * @return scheduledAt
   **/
   @ApiModelProperty(example = "2017-06-01T12:30:00+02:00", value = "UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part).")
-  public OffsetDateTime getScheduledAt() {
+  public String getScheduledAt() {
     return scheduledAt;
   }
 
-  public void setScheduledAt(OffsetDateTime scheduledAt) {
+  public void setScheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 

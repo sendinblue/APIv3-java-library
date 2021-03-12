@@ -31,7 +31,7 @@ import sibModel.GetList;
 /**
  * GetExtendedList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetExtendedList {
   @SerializedName("id")
   private Long id = null;
@@ -49,7 +49,7 @@ public class GetExtendedList {
   private Long folderId = null;
 
   @SerializedName("createdAt")
-  private OffsetDateTime createdAt = null;
+  private String createdAt = null;
 
   @SerializedName("campaignStats")
   private List<GetExtendedListCampaignStats> campaignStats = null;
@@ -147,7 +147,7 @@ public class GetExtendedList {
     this.folderId = folderId;
   }
 
-  public GetExtendedList createdAt(OffsetDateTime createdAt) {
+  public GetExtendedList createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -157,11 +157,11 @@ public class GetExtendedList {
    * @return createdAt
   **/
   @ApiModelProperty(example = "2017-03-13T17:05:09Z", required = true, value = "Creation UTC date-time of the list (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 

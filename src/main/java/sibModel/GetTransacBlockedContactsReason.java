@@ -27,7 +27,7 @@ import java.io.IOException;
  * Reason for blocking / unsubscribing
  */
 @ApiModel(description = "Reason for blocking / unsubscribing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetTransacBlockedContactsReason {
   /**
    * Reason code for blocking / unsubscribing (This code is safe for comparison)

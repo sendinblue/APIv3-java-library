@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetContactDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetContactDetails {
   @SerializedName("email")
   private String email = null;
@@ -44,10 +44,10 @@ public class GetContactDetails {
   private Boolean smsBlacklisted = null;
 
   @SerializedName("createdAt")
-  private OffsetDateTime createdAt = null;
+  private String createdAt = null;
 
   @SerializedName("modifiedAt")
-  private OffsetDateTime modifiedAt = null;
+  private String modifiedAt = null;
 
   @SerializedName("listIds")
   private List<Long> listIds = new ArrayList<Long>();
@@ -130,7 +130,7 @@ public class GetContactDetails {
     this.smsBlacklisted = smsBlacklisted;
   }
 
-  public GetContactDetails createdAt(OffsetDateTime createdAt) {
+  public GetContactDetails createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -140,15 +140,15 @@ public class GetContactDetails {
    * @return createdAt
   **/
   @ApiModelProperty(example = "2017-05-12T12:30:00Z", required = true, value = "Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public GetContactDetails modifiedAt(OffsetDateTime modifiedAt) {
+  public GetContactDetails modifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -158,11 +158,11 @@ public class GetContactDetails {
    * @return modifiedAt
   **/
   @ApiModelProperty(example = "2017-05-12T12:30:00Z", required = true, value = "Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getModifiedAt() {
+  public String getModifiedAt() {
     return modifiedAt;
   }
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 

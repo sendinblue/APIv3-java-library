@@ -27,13 +27,13 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetTransacEmailContentEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetTransacEmailContentEvents {
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("time")
-  private OffsetDateTime time = null;
+  private String time = null;
 
   public GetTransacEmailContentEvents name(String name) {
     this.name = name;
@@ -53,7 +53,7 @@ public class GetTransacEmailContentEvents {
     this.name = name;
   }
 
-  public GetTransacEmailContentEvents time(OffsetDateTime time) {
+  public GetTransacEmailContentEvents time(String time) {
     this.time = time;
     return this;
   }
@@ -63,11 +63,11 @@ public class GetTransacEmailContentEvents {
    * @return time
   **/
   @ApiModelProperty(example = "2017-03-12T12:30:00Z", required = true, value = "Time at which the event occurred")
-  public OffsetDateTime getTime() {
+  public String getTime() {
     return time;
   }
 
-  public void setTime(OffsetDateTime time) {
+  public void setTime(String time) {
     this.time = time;
   }
 

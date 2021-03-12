@@ -30,7 +30,7 @@ import sibModel.GetTransacEmailContentEvents;
 /**
  * GetTransacEmailContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetTransacEmailContent {
   @SerializedName("email")
   private String email = null;
@@ -42,7 +42,7 @@ public class GetTransacEmailContent {
   private Long templateId = null;
 
   @SerializedName("date")
-  private OffsetDateTime date = null;
+  private String date = null;
 
   @SerializedName("events")
   private List<GetTransacEmailContentEvents> events = new ArrayList<GetTransacEmailContentEvents>();
@@ -107,7 +107,7 @@ public class GetTransacEmailContent {
     this.templateId = templateId;
   }
 
-  public GetTransacEmailContent date(OffsetDateTime date) {
+  public GetTransacEmailContent date(String date) {
     this.date = date;
     return this;
   }
@@ -117,11 +117,11 @@ public class GetTransacEmailContent {
    * @return date
   **/
   @ApiModelProperty(example = "2017-03-12T12:30:00Z", required = true, value = "Date on which transactional email was sent")
-  public OffsetDateTime getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

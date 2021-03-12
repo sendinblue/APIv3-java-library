@@ -140,8 +140,8 @@ public class EmailCampaignsApiTest {
     public void getEmailCampaignsTest() throws ApiException {
         String type = null;
         String status = null;
-        OffsetDateTime startDate = null;
-        OffsetDateTime endDate = null;
+        String startDate = null;
+        String endDate = null;
         Long limit = null;
         Long offset = null;
         String sort = null;

@@ -265,8 +265,8 @@ public class ContactsApiTest {
     @Test
     public void getContactStatsTest() throws ApiException {
         String identifier = null;
-        LocalDate startDate = null;
-        LocalDate endDate = null;
+        String startDate = null;
+        String endDate = null;
         GetContactCampaignStats response = api.getContactStats(identifier, startDate, endDate);
 
         // TODO: test validations
@@ -284,7 +284,7 @@ public class ContactsApiTest {
     public void getContactsTest() throws ApiException {
         Long limit = null;
         Long offset = null;
-        OffsetDateTime modifiedSince = null;
+        String modifiedSince = null;
         String sort = null;
         GetContacts response = api.getContacts(limit, offset, modifiedSince, sort);
 
@@ -302,7 +302,7 @@ public class ContactsApiTest {
     @Test
     public void getContactsFromListTest() throws ApiException {
         Long listId = null;
-        OffsetDateTime modifiedSince = null;
+        String modifiedSince = null;
         Long limit = null;
         Long offset = null;
         String sort = null;

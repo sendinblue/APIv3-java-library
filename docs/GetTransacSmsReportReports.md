@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | [**LocalDate**] | Date for which statistics are retrieved |  [optional]
+**date** |  [**LocalDate**] | Date for which statistics are retrieved |  [optional]
 **requests** | **Long** | Number of requests for the date |  [optional]
 **delivered** | **Long** | Number of delivered SMS for the date |  [optional]
 **hardBounces** | **Long** | Number of hardbounces for the date |  [optional]

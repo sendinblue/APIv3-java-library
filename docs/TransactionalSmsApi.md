@@ -44,11 +44,11 @@ Long limit = 50L; // Long | Number of documents per page
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
 Long offset = 0L; // Long | Index of the first document of the page
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String phoneNumber = "phoneNumber_example"; // String | Filter the report for a specific phone number
 String event = "event_example"; // String | Filter the report for specific events
 String tags = "tags_example"; // String | Filter the report for specific tags passed as a serialized urlencoded array
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetSmsEventReport result = apiInstance.getSmsEvents(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort);
     System.out.println(result);
@@ -66,11 +66,11 @@ Name | Type | Description  | Notes
  **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **phoneNumber** | **String**| Filter the report for a specific phone number | [optional]
  **event** | **String**| Filter the report for specific events | [optional] [enum: bounces, hardBounces, softBounces, delivered, sent, accepted, unsubscription, replies, blocked]
  **tags** | **String**| Filter the report for specific tags passed as a serialized urlencoded array | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -117,7 +117,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with startDate and endDate
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with startDate and endDate
 String tag = "tag_example"; // String | Filter on a tag
 try {
     GetTransacAggregatedSmsReport result = apiInstance.getTransacAggregatedSmsReport(startDate, endDate, days, tag);
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with startDate and endDate | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with startDate and endDate | [optional]
  **tag** | **String**| Filter on a tag | [optional]
 
 ### Return type
@@ -182,9 +182,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 TransactionalSmsApi apiInstance = new TransactionalSmsApi();
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Filter on a tag
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetTransacSmsReport result = apiInstance.getTransacSmsReport(startDate, endDate, days, tag, sort);
     System.out.println(result);
@@ -200,9 +200,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the report | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report | [optional]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Filter on a tag | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

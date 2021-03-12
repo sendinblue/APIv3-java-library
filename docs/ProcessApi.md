@@ -99,7 +99,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 ProcessApi apiInstance = new ProcessApi();
 Long limit = 10L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetProcesses result = apiInstance.getProcesses(limit, offset, sort);
     System.out.println(result);
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Long**| Number limitation for the result returned | [optional] [default to 10]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
