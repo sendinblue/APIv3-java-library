@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **templateId** | **Long** | Id of the template |  [optional]
 **messageId** | **String** | Message Id of the sent email | 
 **uuid** | **String** | Unique id of the email sent to a particular contact | 
-**date** | [**OffsetDateTime**] | Date on which transactional email was sent | 
+**date** | **String** | Date on which transactional email was sent | 
 **from** | **String** | Email address of the sender from which the email was sent |  [optional]
 **tags** | **List&lt;String&gt;** | Tags used for your email |  [optional]
 

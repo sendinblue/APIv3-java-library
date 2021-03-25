@@ -355,7 +355,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Tag of the emails
 try {
     GetAggregatedReport result = apiInstance.getAggregatedSmtpReport(startDate, endDate, days, tag);
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Tag of the emails | [optional]
 
 ### Return type
@@ -479,13 +479,13 @@ Long limit = 50L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String email = "email_example"; // String | Filter the report for a specific email addresses
 String event = "event_example"; // String | Filter the report for a specific event type
 String tags = "tags_example"; // String | Filter the report for tags (serialized and urlencoded array)
 String messageId = "messageId_example"; // String | Filter on a specific message id
 Long templateId = 789L; // Long | Filter on a specific template id
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetEmailEventReport result = apiInstance.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
     System.out.println(result);
@@ -503,13 +503,13 @@ Name | Type | Description  | Notes
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
  **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **email** | **String**| Filter the report for a specific email addresses | [optional]
  **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error]
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional]
  **messageId** | **String**| Filter on a specific message id | [optional]
  **templateId** | **Long**| Filter on a specific template id | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -558,9 +558,9 @@ Long limit = 10L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document on the page
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD)
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD)
-Integer days = 56; // Integer | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
+Long days = 789L; // Long | Number of days in the past including today (positive integer). Not compatible with 'startDate' and 'endDate'
 String tag = "tag_example"; // String | Tag of the emails
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetReports result = apiInstance.getSmtpReport(limit, offset, startDate, endDate, days, tag, sort);
     System.out.println(result);
@@ -578,9 +578,9 @@ Name | Type | Description  | Notes
  **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
  **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD) | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) | [optional]
- **days** | **Integer**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
+ **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **tag** | **String**| Tag of the emails | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -687,7 +687,7 @@ TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 Boolean templateStatus = true; // Boolean | Filter on the status of the template. Active = true, inactive = false
 Long limit = 50L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document in the page
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetSmtpTemplates result = apiInstance.getSmtpTemplates(templateStatus, limit, offset, sort);
     System.out.println(result);
@@ -704,7 +704,7 @@ Name | Type | Description  | Notes
  **templateStatus** | **Boolean**| Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false | [optional]
  **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -754,7 +754,7 @@ String endDate = "endDate_example"; // String | Mandatory if startDate is used. 
 Long limit = 50L; // Long | Number of documents returned per page
 Long offset = 0L; // Long | Index of the first document on the page
 List<String> senders = Arrays.asList("senders_example"); // List<String> | Comma separated list of emails of the senders from which contacts are blocked or unsubscribed
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetTransacBlockedContacts result = apiInstance.getTransacBlockedContacts(startDate, endDate, limit, offset, senders, sort);
     System.out.println(result);
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
  **limit** | **Long**| Number of documents returned per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
  **senders** | [**List&lt;String&gt;**](String.md)| Comma separated list of emails of the senders from which contacts are blocked or unsubscribed | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 
@@ -882,9 +882,9 @@ TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
 String email = "email_example"; // String | Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent.
 Long templateId = 789L; // Long | Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email.
 String messageId = "messageId_example"; // String | Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent.
-LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
-LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
-String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation
+String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
+String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
     GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
     System.out.println(result);
@@ -901,9 +901,9 @@ Name | Type | Description  | Notes
  **email** | **String**| Mandatory if templateId and messageId are not passed in query filters. Email address to which transactional email has been sent. | [optional]
  **templateId** | **Long**| Mandatory if email and messageId are not passed in query filters. Id of the template that was used to compose transactional email. | [optional]
  **messageId** | **String**| Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. | [optional]
- **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
- **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
- **sort** | **String**| Sort the results in the ascending/descending order of record creation | [optional] [default to desc] [enum: asc, desc]
+ **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

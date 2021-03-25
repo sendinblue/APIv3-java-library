@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **toField** | **String** | Customisation of the &quot;to&quot; field for the template | 
 **tag** | **String** | Tag of the template | 
 **htmlContent** | **String** | HTML content of the template | 
-**createdAt** | [**OffsetDateTime**] | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
-**modifiedAt** | [**OffsetDateTime**] | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**createdAt** | **String** | Creation UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**modifiedAt** | **String** | Last modification UTC date-time of the template (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **doiTemplate** | **Boolean** | It is true if template is a valid Double opt-in (DOI) template, otherwise it is false. This field will be available only in case of single template detail call. |  [optional]
 
 

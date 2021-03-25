@@ -691,13 +691,13 @@ public class EmailCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number of documents per page (optional, default to 500)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsCall(String type, String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsCall(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -753,7 +753,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignsValidateBeforeCall(String type, String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailCampaignsValidateBeforeCall(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getEmailCampaignsCall(type, status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
@@ -770,11 +770,11 @@ public class EmailCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number of documents per page (optional, default to 500)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetEmailCampaigns
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailCampaigns getEmailCampaigns(String type, String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort) throws ApiException {
+    public GetEmailCampaigns getEmailCampaigns(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
         ApiResponse<GetEmailCampaigns> resp = getEmailCampaignsWithHttpInfo(type, status, startDate, endDate, limit, offset, sort);
         return resp.getData();
     }
@@ -788,11 +788,11 @@ public class EmailCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number of documents per page (optional, default to 500)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetEmailCampaigns&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailCampaigns> getEmailCampaignsWithHttpInfo(String type, String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort) throws ApiException {
+    public ApiResponse<GetEmailCampaigns> getEmailCampaignsWithHttpInfo(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getEmailCampaignsValidateBeforeCall(type, status, startDate, endDate, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetEmailCampaigns>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -807,12 +807,12 @@ public class EmailCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number of documents per page (optional, default to 500)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsAsync(String type, String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ApiCallback<GetEmailCampaigns> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailCampaignsAsync(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetEmailCampaigns> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

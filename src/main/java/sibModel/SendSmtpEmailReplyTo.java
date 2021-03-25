@@ -27,7 +27,7 @@ import java.io.IOException;
  * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {&quot;email&quot;:&quot;ann6533@example.com&quot;, &quot;name&quot;:&quot;Ann&quot;}.
  */
 @ApiModel(description = "Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\"email\":\"ann6533@example.com\", \"name\":\"Ann\"}.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class SendSmtpEmailReplyTo {
   @SerializedName("email")
   private String email = null;

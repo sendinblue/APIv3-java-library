@@ -27,15 +27,15 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription {
   @SerializedName("eventTime")
-  private OffsetDateTime eventTime = null;
+  private String eventTime = null;
 
   @SerializedName("ip")
   private String ip = null;
 
-  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription eventTime(OffsetDateTime eventTime) {
+  public GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscription eventTime(String eventTime) {
     this.eventTime = eventTime;
     return this;
   }
@@ -45,11 +45,11 @@ public class GetExtendedContactDetailsStatisticsUnsubscriptionsAdminUnsubscripti
    * @return eventTime
   **/
   @ApiModelProperty(example = "2017-03-12T20:15:13Z", required = true, value = "UTC date-time of the event")
-  public OffsetDateTime getEventTime() {
+  public String getEventTime() {
     return eventTime;
   }
 
-  public void setEventTime(OffsetDateTime eventTime) {
+  public void setEventTime(String eventTime) {
     this.eventTime = eventTime;
   }
 

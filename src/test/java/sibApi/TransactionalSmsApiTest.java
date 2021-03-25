@@ -51,7 +51,7 @@ public class TransactionalSmsApiTest {
         String startDate = null;
         String endDate = null;
         Long offset = null;
-        Integer days = null;
+        Long days = null;
         String phoneNumber = null;
         String event = null;
         String tags = null;
@@ -73,7 +73,7 @@ public class TransactionalSmsApiTest {
     public void getTransacAggregatedSmsReportTest() throws ApiException {
         String startDate = null;
         String endDate = null;
-        Integer days = null;
+        Long days = null;
         String tag = null;
         GetTransacAggregatedSmsReport response = api.getTransacAggregatedSmsReport(startDate, endDate, days, tag);
 
@@ -92,7 +92,7 @@ public class TransactionalSmsApiTest {
     public void getTransacSmsReportTest() throws ApiException {
         String startDate = null;
         String endDate = null;
-        Integer days = null;
+        Long days = null;
         String tag = null;
         String sort = null;
         GetTransacSmsReport response = api.getTransacSmsReport(startDate, endDate, days, tag, sort);

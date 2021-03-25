@@ -677,7 +677,7 @@ public class TransactionalEmailsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAggregatedSmtpReportCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getAggregatedSmtpReportCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -727,7 +727,7 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAggregatedSmtpReportValidateBeforeCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAggregatedSmtpReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getAggregatedSmtpReportCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
@@ -745,7 +745,7 @@ public class TransactionalEmailsApi {
      * @return GetAggregatedReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetAggregatedReport getAggregatedSmtpReport(String startDate, String endDate, Integer days, String tag) throws ApiException {
+    public GetAggregatedReport getAggregatedSmtpReport(String startDate, String endDate, Long days, String tag) throws ApiException {
         ApiResponse<GetAggregatedReport> resp = getAggregatedSmtpReportWithHttpInfo(startDate, endDate, days, tag);
         return resp.getData();
     }
@@ -760,7 +760,7 @@ public class TransactionalEmailsApi {
      * @return ApiResponse&lt;GetAggregatedReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetAggregatedReport> getAggregatedSmtpReportWithHttpInfo(String startDate, String endDate, Integer days, String tag) throws ApiException {
+    public ApiResponse<GetAggregatedReport> getAggregatedSmtpReportWithHttpInfo(String startDate, String endDate, Long days, String tag) throws ApiException {
         com.squareup.okhttp.Call call = getAggregatedSmtpReportValidateBeforeCall(startDate, endDate, days, tag, null, null);
         Type localVarReturnType = new TypeToken<GetAggregatedReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -777,7 +777,7 @@ public class TransactionalEmailsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAggregatedSmtpReportAsync(String startDate, String endDate, Integer days, String tag, final ApiCallback<GetAggregatedReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAggregatedSmtpReportAsync(String startDate, String endDate, Long days, String tag, final ApiCallback<GetAggregatedReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -928,13 +928,13 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportCall(Long limit, Long offset, String startDate, String endDate, Long days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -998,7 +998,7 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailEventReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Long days, String email, String event, String tags, String messageId, Long templateId, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getEmailEventReportCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort, progressListener, progressRequestListener);
@@ -1019,11 +1019,11 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetEmailEventReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
+    public GetEmailEventReport getEmailEventReport(Long limit, Long offset, String startDate, String endDate, Long days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
         ApiResponse<GetEmailEventReport> resp = getEmailEventReportWithHttpInfo(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
         return resp.getData();
     }
@@ -1041,11 +1041,11 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetEmailEventReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
+    public ApiResponse<GetEmailEventReport> getEmailEventReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Long days, String email, String event, String tags, String messageId, Long templateId, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getEmailEventReportValidateBeforeCall(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort, null, null);
         Type localVarReturnType = new TypeToken<GetEmailEventReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1064,12 +1064,12 @@ public class TransactionalEmailsApi {
      * @param tags Filter the report for tags (serialized and urlencoded array) (optional)
      * @param messageId Filter on a specific message id (optional)
      * @param templateId Filter on a specific template id (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String email, String event, String tags, String messageId, Long templateId, String sort, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailEventReportAsync(Long limit, Long offset, String startDate, String endDate, Long days, String email, String event, String tags, String messageId, Long templateId, String sort, final ApiCallback<GetEmailEventReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1103,13 +1103,13 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportCall(Long limit, Long offset, String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1165,7 +1165,7 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmtpReportValidateBeforeCall(Long limit, Long offset, String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getSmtpReportCall(limit, offset, startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
@@ -1182,11 +1182,11 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetReports
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetReports getSmtpReport(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+    public GetReports getSmtpReport(Long limit, Long offset, String startDate, String endDate, Long days, String tag, String sort) throws ApiException {
         ApiResponse<GetReports> resp = getSmtpReportWithHttpInfo(limit, offset, startDate, endDate, days, tag, sort);
         return resp.getData();
     }
@@ -1200,11 +1200,11 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetReports&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+    public ApiResponse<GetReports> getSmtpReportWithHttpInfo(Long limit, Long offset, String startDate, String endDate, Long days, String tag, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getSmtpReportValidateBeforeCall(limit, offset, startDate, endDate, days, tag, sort, null, null);
         Type localVarReturnType = new TypeToken<GetReports>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1219,12 +1219,12 @@ public class TransactionalEmailsApi {
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD) (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Tag of the emails (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, String startDate, String endDate, Integer days, String tag, String sort, final ApiCallback<GetReports> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmtpReportAsync(Long limit, Long offset, String startDate, String endDate, Long days, String tag, String sort, final ApiCallback<GetReports> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1378,7 +1378,7 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1448,7 +1448,7 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetSmtpTemplates
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1463,7 +1463,7 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetSmtpTemplates&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1479,7 +1479,7 @@ public class TransactionalEmailsApi {
      * @param templateStatus Filter on the status of the template. Active &#x3D; true, inactive &#x3D; false (optional)
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1517,7 +1517,7 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1593,7 +1593,7 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetTransacBlockedContacts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1610,7 +1610,7 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetTransacBlockedContacts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1628,7 +1628,7 @@ public class TransactionalEmailsApi {
      * @param limit Number of documents returned per page (optional, default to 50)
      * @param offset Index of the first document on the page (optional, default to 0)
      * @param senders Comma separated list of emails of the senders from which contacts are blocked or unsubscribed (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1789,13 +1789,13 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1849,7 +1849,7 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, sort, progressListener, progressRequestListener);
@@ -1865,11 +1865,11 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetTransacEmailsList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort) throws ApiException {
+    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, String startDate, String endDate, String sort) throws ApiException {
         ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate, sort);
         return resp.getData();
     }
@@ -1882,11 +1882,11 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetTransacEmailsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort) throws ApiException {
+    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, String startDate, String endDate, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, null, null);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1900,12 +1900,12 @@ public class TransactionalEmailsApi {
      * @param messageId Mandatory if templateId and email are not passed in query filters. Message ID of the transactional email sent. (optional)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, LocalDate startDate, LocalDate endDate, String sort, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

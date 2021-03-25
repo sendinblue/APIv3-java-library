@@ -27,7 +27,7 @@ import java.io.IOException;
  * Sender details including id or email and name (optional). Only one of either Sender&#39;s email or Sender&#39;s ID shall be passed in one request at a time. For example &#x60;{&quot;name&quot;:&quot;xyz&quot;, &quot;email&quot;:&quot;example@abc.com&quot;}&#x60; , &#x60;{&quot;name&quot;:&quot;xyz&quot;, &quot;id&quot;:123}&#x60;
  */
 @ApiModel(description = "Sender details including id or email and name (optional). Only one of either Sender's email or Sender's ID shall be passed in one request at a time. For example `{\"name\":\"xyz\", \"email\":\"example@abc.com\"}` , `{\"name\":\"xyz\", \"id\":123}`")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class CreateEmailCampaignSender {
   @SerializedName("name")
   private String name = null;

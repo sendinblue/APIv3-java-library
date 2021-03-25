@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **id** | **Long** | ID of the contact for which you requested the details | 
 **emailBlacklisted** | **Boolean** | Blacklist status for email campaigns (true&#x3D;blacklisted, false&#x3D;not blacklisted) | 
 **smsBlacklisted** | **Boolean** | Blacklist status for SMS campaigns (true&#x3D;blacklisted, false&#x3D;not blacklisted) | 
-**createdAt** | [**OffsetDateTime**] | Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
-**modifiedAt** | [**OffsetDateTime**] | Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**createdAt** | **String** | Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
+**modifiedAt** | **String** | Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **listIds** | **List&lt;Long&gt;** |  | 
 **listUnsubscribed** | **List&lt;Long&gt;** |  |  [optional]
 **attributes** | **Object** | Set of attributes of the contact | 

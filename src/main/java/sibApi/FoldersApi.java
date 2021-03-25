@@ -428,7 +428,7 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -502,7 +502,7 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetFolderLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -517,7 +517,7 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetFolderLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -533,7 +533,7 @@ public class FoldersApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -568,7 +568,7 @@ public class FoldersApi {
      * Build call for getFolders
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -645,7 +645,7 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetFolders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -659,7 +659,7 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetFolders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -674,7 +674,7 @@ public class FoldersApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

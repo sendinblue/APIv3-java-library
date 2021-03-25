@@ -28,7 +28,7 @@ import sibModel.GetAccountRelayData;
  * Information about your transactional email account
  */
 @ApiModel(description = "Information about your transactional email account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetAccountRelay {
   @SerializedName("enabled")
   private Boolean enabled = null;

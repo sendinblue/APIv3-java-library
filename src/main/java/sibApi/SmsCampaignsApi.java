@@ -437,13 +437,13 @@ public class SmsCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsCall(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmsCampaignsCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -497,7 +497,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsCampaignsValidateBeforeCall(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsCampaignsValidateBeforeCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getSmsCampaignsCall(status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
@@ -513,11 +513,11 @@ public class SmsCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetSmsCampaigns
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsCampaigns getSmsCampaigns(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort) throws ApiException {
+    public GetSmsCampaigns getSmsCampaigns(String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
         ApiResponse<GetSmsCampaigns> resp = getSmsCampaignsWithHttpInfo(status, startDate, endDate, limit, offset, sort);
         return resp.getData();
     }
@@ -530,11 +530,11 @@ public class SmsCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetSmsCampaigns&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsCampaigns> getSmsCampaignsWithHttpInfo(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort) throws ApiException {
+    public ApiResponse<GetSmsCampaigns> getSmsCampaignsWithHttpInfo(String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetSmsCampaigns>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -548,12 +548,12 @@ public class SmsCampaignsApi {
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent sms campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param limit Number limitation for the result returned (optional, default to 500)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsAsync(String status, OffsetDateTime startDate, OffsetDateTime endDate, Long limit, Long offset, String sort, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsCampaignsAsync(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

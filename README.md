@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.sendinblue</groupId>
   <artifactId>sib-api-v3-sdk</artifactId>
-  <version>5.1.0</version>
+  <version>5.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:5.1.0"
+compile "com.sendinblue:sib-api-v3-sdk:5.2.0"
 ```
 
 ### Others
@@ -40,12 +40,12 @@ compile "com.sendinblue:sib-api-v3-sdk:5.1.0"
 At first generate the JAR by executing:
 
 ```shell
-    mvn package
+mvn package
 ```
 
 Then manually install the following JARs:
 
-* `target/sib-api-v3-sdk-5.1.0.jar`
+* `target/sib-api-v3-sdk-5.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -371,9 +371,12 @@ Class | Method | HTTP request | Description
  - [SendSmtpEmailAttachment](docs/SendSmtpEmailAttachment.md)
  - [SendSmtpEmailBcc](docs/SendSmtpEmailBcc.md)
  - [SendSmtpEmailCc](docs/SendSmtpEmailCc.md)
+ - [SendSmtpEmailMessageVersions](docs/SendSmtpEmailMessageVersions.md)
  - [SendSmtpEmailReplyTo](docs/SendSmtpEmailReplyTo.md)
+ - [SendSmtpEmailReplyTo1](docs/SendSmtpEmailReplyTo1.md)
  - [SendSmtpEmailSender](docs/SendSmtpEmailSender.md)
  - [SendSmtpEmailTo](docs/SendSmtpEmailTo.md)
+ - [SendSmtpEmailTo1](docs/SendSmtpEmailTo1.md)
  - [SendTemplateEmail](docs/SendTemplateEmail.md)
  - [SendTestEmail](docs/SendTestEmail.md)
  - [SendTestSms](docs/SendTestSms.md)

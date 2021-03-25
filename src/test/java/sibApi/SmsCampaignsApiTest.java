@@ -103,8 +103,8 @@ public class SmsCampaignsApiTest {
     @Test
     public void getSmsCampaignsTest() throws ApiException {
         String status = null;
-        OffsetDateTime startDate = null;
-        OffsetDateTime endDate = null;
+        String startDate = null;
+        String endDate = null;
         Long limit = null;
         Long offset = null;
         String sort = null;

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | Email address which generates the event | 
-**date** | [**OffsetDateTime**] | UTC date-time on which the event has been generated | 
+**date** | **String** | UTC date-time on which the event has been generated | 
 **subject** | **String** | Subject of the event |  [optional]
 **messageId** | **String** | Message ID which generated the event | 
 **event** | [**EventEnum**](#EventEnum) | Event which occurred | 

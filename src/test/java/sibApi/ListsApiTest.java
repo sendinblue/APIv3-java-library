@@ -103,7 +103,7 @@ public class ListsApiTest {
     @Test
     public void getContactsFromListTest() throws ApiException {
         Long listId = null;
-        OffsetDateTime modifiedSince = null;
+        String modifiedSince = null;
         Long limit = null;
         Long offset = null;
         String sort = null;

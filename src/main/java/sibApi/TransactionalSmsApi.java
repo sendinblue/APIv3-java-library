@@ -69,13 +69,13 @@ public class TransactionalSmsApi {
      * @param phoneNumber Filter the report for a specific phone number (optional)
      * @param event Filter the report for specific events (optional)
      * @param tags Filter the report for specific tags passed as a serialized urlencoded array (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsEventsCall(Long limit, String startDate, String endDate, Long offset, Integer days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmsEventsCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -135,7 +135,7 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsEventsValidateBeforeCall(Long limit, String startDate, String endDate, Long offset, Integer days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsEventsValidateBeforeCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getSmsEventsCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, progressListener, progressRequestListener);
@@ -154,11 +154,11 @@ public class TransactionalSmsApi {
      * @param phoneNumber Filter the report for a specific phone number (optional)
      * @param event Filter the report for specific events (optional)
      * @param tags Filter the report for specific tags passed as a serialized urlencoded array (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetSmsEventReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsEventReport getSmsEvents(Long limit, String startDate, String endDate, Long offset, Integer days, String phoneNumber, String event, String tags, String sort) throws ApiException {
+    public GetSmsEventReport getSmsEvents(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort) throws ApiException {
         ApiResponse<GetSmsEventReport> resp = getSmsEventsWithHttpInfo(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort);
         return resp.getData();
     }
@@ -174,11 +174,11 @@ public class TransactionalSmsApi {
      * @param phoneNumber Filter the report for a specific phone number (optional)
      * @param event Filter the report for specific events (optional)
      * @param tags Filter the report for specific tags passed as a serialized urlencoded array (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetSmsEventReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsEventReport> getSmsEventsWithHttpInfo(Long limit, String startDate, String endDate, Long offset, Integer days, String phoneNumber, String event, String tags, String sort) throws ApiException {
+    public ApiResponse<GetSmsEventReport> getSmsEventsWithHttpInfo(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getSmsEventsValidateBeforeCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, null, null);
         Type localVarReturnType = new TypeToken<GetSmsEventReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -195,12 +195,12 @@ public class TransactionalSmsApi {
      * @param phoneNumber Filter the report for a specific phone number (optional)
      * @param event Filter the report for specific events (optional)
      * @param tags Filter the report for specific tags passed as a serialized urlencoded array (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsEventsAsync(Long limit, String startDate, String endDate, Long offset, Integer days, String phoneNumber, String event, String tags, String sort, final ApiCallback<GetSmsEventReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsEventsAsync(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ApiCallback<GetSmsEventReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -237,7 +237,7 @@ public class TransactionalSmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacAggregatedSmsReportCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacAggregatedSmsReportCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -287,7 +287,7 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacAggregatedSmsReportValidateBeforeCall(String startDate, String endDate, Integer days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacAggregatedSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getTransacAggregatedSmsReportCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
@@ -305,7 +305,7 @@ public class TransactionalSmsApi {
      * @return GetTransacAggregatedSmsReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacAggregatedSmsReport getTransacAggregatedSmsReport(String startDate, String endDate, Integer days, String tag) throws ApiException {
+    public GetTransacAggregatedSmsReport getTransacAggregatedSmsReport(String startDate, String endDate, Long days, String tag) throws ApiException {
         ApiResponse<GetTransacAggregatedSmsReport> resp = getTransacAggregatedSmsReportWithHttpInfo(startDate, endDate, days, tag);
         return resp.getData();
     }
@@ -320,7 +320,7 @@ public class TransactionalSmsApi {
      * @return ApiResponse&lt;GetTransacAggregatedSmsReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacAggregatedSmsReport> getTransacAggregatedSmsReportWithHttpInfo(String startDate, String endDate, Integer days, String tag) throws ApiException {
+    public ApiResponse<GetTransacAggregatedSmsReport> getTransacAggregatedSmsReportWithHttpInfo(String startDate, String endDate, Long days, String tag) throws ApiException {
         com.squareup.okhttp.Call call = getTransacAggregatedSmsReportValidateBeforeCall(startDate, endDate, days, tag, null, null);
         Type localVarReturnType = new TypeToken<GetTransacAggregatedSmsReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -337,7 +337,7 @@ public class TransactionalSmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacAggregatedSmsReportAsync(String startDate, String endDate, Integer days, String tag, final ApiCallback<GetTransacAggregatedSmsReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacAggregatedSmsReportAsync(String startDate, String endDate, Long days, String tag, final ApiCallback<GetTransacAggregatedSmsReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -369,13 +369,13 @@ public class TransactionalSmsApi {
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Filter on a tag (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacSmsReportCall(String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacSmsReportCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -427,7 +427,7 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacSmsReportValidateBeforeCall(String startDate, String endDate, Integer days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getTransacSmsReportCall(startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
@@ -442,11 +442,11 @@ public class TransactionalSmsApi {
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Filter on a tag (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetTransacSmsReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacSmsReport getTransacSmsReport(String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+    public GetTransacSmsReport getTransacSmsReport(String startDate, String endDate, Long days, String tag, String sort) throws ApiException {
         ApiResponse<GetTransacSmsReport> resp = getTransacSmsReportWithHttpInfo(startDate, endDate, days, tag, sort);
         return resp.getData();
     }
@@ -458,11 +458,11 @@ public class TransactionalSmsApi {
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Filter on a tag (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetTransacSmsReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacSmsReport> getTransacSmsReportWithHttpInfo(String startDate, String endDate, Integer days, String tag, String sort) throws ApiException {
+    public ApiResponse<GetTransacSmsReport> getTransacSmsReportWithHttpInfo(String startDate, String endDate, Long days, String tag, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getTransacSmsReportValidateBeforeCall(startDate, endDate, days, tag, sort, null, null);
         Type localVarReturnType = new TypeToken<GetTransacSmsReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -475,12 +475,12 @@ public class TransactionalSmsApi {
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the report (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
      * @param tag Filter on a tag (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacSmsReportAsync(String startDate, String endDate, Integer days, String tag, String sort, final ApiCallback<GetTransacSmsReport> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacSmsReportAsync(String startDate, String endDate, Long days, String tag, String sort, final ApiCallback<GetTransacSmsReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

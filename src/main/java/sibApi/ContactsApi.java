@@ -1567,7 +1567,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsCall(String identifier, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1614,7 +1614,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String identifier, LocalDate startDate, LocalDate endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'identifier' is set
         if (identifier == null) {
@@ -1636,7 +1636,7 @@ public class ContactsApi {
      * @return GetContactCampaignStats
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContactCampaignStats getContactStats(String identifier, LocalDate startDate, LocalDate endDate) throws ApiException {
+    public GetContactCampaignStats getContactStats(String identifier, String startDate, String endDate) throws ApiException {
         ApiResponse<GetContactCampaignStats> resp = getContactStatsWithHttpInfo(identifier, startDate, endDate);
         return resp.getData();
     }
@@ -1650,7 +1650,7 @@ public class ContactsApi {
      * @return ApiResponse&lt;GetContactCampaignStats&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String identifier, LocalDate startDate, LocalDate endDate) throws ApiException {
+    public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String identifier, String startDate, String endDate) throws ApiException {
         com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1666,7 +1666,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsAsync(String identifier, LocalDate startDate, LocalDate endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactStatsAsync(String identifier, String startDate, String endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1697,13 +1697,13 @@ public class ContactsApi {
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsCall(Long limit, Long offset, OffsetDateTime modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactsCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1753,7 +1753,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsValidateBeforeCall(Long limit, Long offset, OffsetDateTime modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactsValidateBeforeCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
         com.squareup.okhttp.Call call = getContactsCall(limit, offset, modifiedSince, sort, progressListener, progressRequestListener);
@@ -1767,11 +1767,11 @@ public class ContactsApi {
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetContacts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContacts getContacts(Long limit, Long offset, OffsetDateTime modifiedSince, String sort) throws ApiException {
+    public GetContacts getContacts(Long limit, Long offset, String modifiedSince, String sort) throws ApiException {
         ApiResponse<GetContacts> resp = getContactsWithHttpInfo(limit, offset, modifiedSince, sort);
         return resp.getData();
     }
@@ -1782,11 +1782,11 @@ public class ContactsApi {
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetContacts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContacts> getContactsWithHttpInfo(Long limit, Long offset, OffsetDateTime modifiedSince, String sort) throws ApiException {
+    public ApiResponse<GetContacts> getContactsWithHttpInfo(Long limit, Long offset, String modifiedSince, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getContactsValidateBeforeCall(limit, offset, modifiedSince, sort, null, null);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1798,12 +1798,12 @@ public class ContactsApi {
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsAsync(Long limit, Long offset, OffsetDateTime modifiedSince, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactsAsync(Long limit, Long offset, String modifiedSince, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1835,13 +1835,13 @@ public class ContactsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getContactsFromListCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1892,7 +1892,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsFromListValidateBeforeCall(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getContactsFromListValidateBeforeCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -1912,11 +1912,11 @@ public class ContactsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetContacts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetContacts getContactsFromList(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort) throws ApiException {
+    public GetContacts getContactsFromList(Long listId, String modifiedSince, Long limit, Long offset, String sort) throws ApiException {
         ApiResponse<GetContacts> resp = getContactsFromListWithHttpInfo(listId, modifiedSince, limit, offset, sort);
         return resp.getData();
     }
@@ -1928,11 +1928,11 @@ public class ContactsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetContacts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetContacts> getContactsFromListWithHttpInfo(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort) throws ApiException {
+    public ApiResponse<GetContacts> getContactsFromListWithHttpInfo(Long listId, String modifiedSince, Long limit, Long offset, String sort) throws ApiException {
         com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1945,12 +1945,12 @@ public class ContactsApi {
      * @param modifiedSince Filter (urlencoded) the contacts modified after a given UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. (optional)
      * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListAsync(Long listId, OffsetDateTime modifiedSince, Long limit, Long offset, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
+    public com.squareup.okhttp.Call getContactsFromListAsync(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2104,7 +2104,7 @@ public class ContactsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2178,7 +2178,7 @@ public class ContactsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetFolderLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2193,7 +2193,7 @@ public class ContactsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetFolderLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2209,7 +2209,7 @@ public class ContactsApi {
      * @param folderId Id of the folder (required)
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2244,7 +2244,7 @@ public class ContactsApi {
      * Build call for getFolders
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2321,7 +2321,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetFolders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2335,7 +2335,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetFolders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2350,7 +2350,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (required)
      * @param offset Index of the first document of the page (required)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2508,7 +2508,7 @@ public class ContactsApi {
      * Build call for getLists
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -2575,7 +2575,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetLists
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2589,7 +2589,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetLists&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2604,7 +2604,7 @@ public class ContactsApi {
      * 
      * @param limit Number of documents per page (optional, default to 10)
      * @param offset Index of the first document of the page (optional, default to 0)
-     * @param sort Sort the results in the ascending/descending order of record creation (optional, default to desc)
+     * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

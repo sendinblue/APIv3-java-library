@@ -29,7 +29,7 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-30T14:43:00.395+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
 public class GetEmailCampaign {
   @SerializedName("id")
   private Long id = null;
@@ -149,7 +149,7 @@ public class GetEmailCampaign {
   private StatusEnum status = null;
 
   @SerializedName("scheduledAt")
-  private OffsetDateTime scheduledAt = null;
+  private String scheduledAt = null;
 
   @SerializedName("abTesting")
   private Boolean abTesting = null;
@@ -200,10 +200,10 @@ public class GetEmailCampaign {
   private String tag = null;
 
   @SerializedName("createdAt")
-  private OffsetDateTime createdAt = null;
+  private String createdAt = null;
 
   @SerializedName("modifiedAt")
-  private OffsetDateTime modifiedAt = null;
+  private String modifiedAt = null;
 
   @SerializedName("inlineImageActivation")
   private Boolean inlineImageActivation = null;
@@ -215,7 +215,7 @@ public class GetEmailCampaign {
   private Boolean recurring = null;
 
   @SerializedName("sentDate")
-  private OffsetDateTime sentDate = null;
+  private String sentDate = null;
 
   @SerializedName("returnBounce")
   private Long returnBounce = null;
@@ -316,7 +316,7 @@ public class GetEmailCampaign {
     this.status = status;
   }
 
-  public GetEmailCampaign scheduledAt(OffsetDateTime scheduledAt) {
+  public GetEmailCampaign scheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
     return this;
   }
@@ -326,11 +326,11 @@ public class GetEmailCampaign {
    * @return scheduledAt
   **/
   @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getScheduledAt() {
+  public String getScheduledAt() {
     return scheduledAt;
   }
 
-  public void setScheduledAt(OffsetDateTime scheduledAt) {
+  public void setScheduledAt(String scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 
@@ -622,7 +622,7 @@ public class GetEmailCampaign {
     this.tag = tag;
   }
 
-  public GetEmailCampaign createdAt(OffsetDateTime createdAt) {
+  public GetEmailCampaign createdAt(String createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -632,15 +632,15 @@ public class GetEmailCampaign {
    * @return createdAt
   **/
   @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 
-  public GetEmailCampaign modifiedAt(OffsetDateTime modifiedAt) {
+  public GetEmailCampaign modifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
@@ -650,11 +650,11 @@ public class GetEmailCampaign {
    * @return modifiedAt
   **/
   @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "UTC date-time of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public OffsetDateTime getModifiedAt() {
+  public String getModifiedAt() {
     return modifiedAt;
   }
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
+  public void setModifiedAt(String modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
 
@@ -712,7 +712,7 @@ public class GetEmailCampaign {
     this.recurring = recurring;
   }
 
-  public GetEmailCampaign sentDate(OffsetDateTime sentDate) {
+  public GetEmailCampaign sentDate(String sentDate) {
     this.sentDate = sentDate;
     return this;
   }
@@ -722,11 +722,11 @@ public class GetEmailCampaign {
    * @return sentDate
   **/
   @ApiModelProperty(example = "2018-12-01T16:30:00Z", value = "Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'")
-  public OffsetDateTime getSentDate() {
+  public String getSentDate() {
     return sentDate;
   }
 
-  public void setSentDate(OffsetDateTime sentDate) {
+  public void setSentDate(String sentDate) {
     this.sentDate = sentDate;
   }
 
