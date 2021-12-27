@@ -55,7 +55,7 @@ public class ApiClient {
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
-    private String defaultUserAgent = "sendinblue_clientAPI/v5.2.0/java";
+    private String defaultUserAgent = "sendinblue_clientAPI/v5.3.0/java";
 
     private Map<String, Authentication> authentications;
 
