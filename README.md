@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.sendinblue</groupId>
   <artifactId>sib-api-v3-sdk</artifactId>
-  <version>5.2.0</version>
+  <version>5.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.sendinblue:sib-api-v3-sdk:5.2.0"
+compile "com.sendinblue:sib-api-v3-sdk:5.3.0"
 ```
 
 ### Others
@@ -45,7 +45,7 @@ mvn package
 
 Then manually install the following JARs:
 
-* `target/sib-api-v3-sdk-5.2.0.jar`
+* `target/sib-api-v3-sdk-5.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
