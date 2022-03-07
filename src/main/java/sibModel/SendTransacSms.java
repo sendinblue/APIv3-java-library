@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * SendTransacSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendTransacSms {
   @SerializedName("sender")
   private String sender = null;
@@ -92,6 +93,9 @@ public class SendTransacSms {
 
   @SerializedName("webUrl")
   private String webUrl = null;
+
+  @SerializedName("unicodeEnabled")
+  private Boolean unicodeEnabled = false;
 
   public SendTransacSms sender(String sender) {
     this.sender = sender;
@@ -201,27 +205,46 @@ public class SendTransacSms {
     this.webUrl = webUrl;
   }
 
+  public SendTransacSms unicodeEnabled(Boolean unicodeEnabled) {
+    this.unicodeEnabled = unicodeEnabled;
+    return this;
+  }
+
+   /**
+   * Format of the message. It indicates whether the content should be treated as unicode or not.
+   * @return unicodeEnabled
+  **/
+  @ApiModelProperty(example = "true", value = "Format of the message. It indicates whether the content should be treated as unicode or not.")
+  public Boolean isUnicodeEnabled() {
+    return unicodeEnabled;
+  }
+
+  public void setUnicodeEnabled(Boolean unicodeEnabled) {
+    this.unicodeEnabled = unicodeEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendTransacSms sendTransacSms = (SendTransacSms) o;
-    return ObjectUtils.equals(this.sender, sendTransacSms.sender) &&
-    ObjectUtils.equals(this.recipient, sendTransacSms.recipient) &&
-    ObjectUtils.equals(this.content, sendTransacSms.content) &&
-    ObjectUtils.equals(this.type, sendTransacSms.type) &&
-    ObjectUtils.equals(this.tag, sendTransacSms.tag) &&
-    ObjectUtils.equals(this.webUrl, sendTransacSms.webUrl);
+    return Objects.equals(this.sender, sendTransacSms.sender) &&
+        Objects.equals(this.recipient, sendTransacSms.recipient) &&
+        Objects.equals(this.content, sendTransacSms.content) &&
+        Objects.equals(this.type, sendTransacSms.type) &&
+        Objects.equals(this.tag, sendTransacSms.tag) &&
+        Objects.equals(this.webUrl, sendTransacSms.webUrl) &&
+        Objects.equals(this.unicodeEnabled, sendTransacSms.unicodeEnabled);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(sender, recipient, content, type, tag, webUrl);
+    return Objects.hash(sender, recipient, content, type, tag, webUrl, unicodeEnabled);
   }
 
 
@@ -236,6 +259,7 @@ public class SendTransacSms {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    webUrl: ").append(toIndentedString(webUrl)).append("\n");
+    sb.append("    unicodeEnabled: ").append(toIndentedString(unicodeEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

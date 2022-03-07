@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**getTransacBlockedContacts**](TransactionalEmailsApi.md#getTransacBlockedContacts) | **GET** /smtp/blockedContacts | Get the list of blocked or unsubscribed transactional contacts
 [**getTransacEmailContent**](TransactionalEmailsApi.md#getTransacEmailContent) | **GET** /smtp/emails/{uuid} | Get the personalized content of a sent transactional email
 [**getTransacEmailsList**](TransactionalEmailsApi.md#getTransacEmailsList) | **GET** /smtp/emails | Get the list of transactional emails on the basis of allowed filters
-[**sendTemplate**](TransactionalEmailsApi.md#sendTemplate) | **POST** /smtp/templates/{templateId}/send | Send a template
 [**sendTestTemplate**](TransactionalEmailsApi.md#sendTestTemplate) | **POST** /smtp/templates/{templateId}/sendTest | Send a template to your test list
 [**sendTransacEmail**](TransactionalEmailsApi.md#sendTransacEmail) | **POST** /smtp/email | Send a transactional email
 [**smtpBlockedContactsEmailDelete**](TransactionalEmailsApi.md#smtpBlockedContactsEmailDelete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
@@ -53,7 +52,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -111,7 +110,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -172,7 +171,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -232,7 +231,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -290,7 +289,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -329,6 +328,8 @@ null (empty response body)
 
 Get your transactional email activity aggregated over a period of time
 
+This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
+
 ### Example
 ```java
 // Import classes:
@@ -348,7 +349,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -415,7 +416,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -451,6 +452,8 @@ This endpoint does not need any parameter.
 
 Get all your transactional email activity (unaggregated events)
 
+This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
+
 ### Example
 ```java
 // Import classes:
@@ -470,7 +473,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -505,7 +508,7 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
  **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **email** | **String**| Filter the report for a specific email addresses | [optional]
- **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error]
+ **event** | **String**| Filter the report for a specific event type | [optional] [enum: bounces, hardBounces, softBounces, delivered, spam, requests, opened, clicks, invalid, deferred, blocked, unsubscribed, error, loadedByProxy]
  **tags** | **String**| Filter the report for tags (serialized and urlencoded array) | [optional]
  **messageId** | **String**| Filter on a specific message id | [optional]
  **templateId** | **Long**| Filter on a specific template id | [optional]
@@ -549,7 +552,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -620,7 +623,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -679,7 +682,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -744,7 +747,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -813,7 +816,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -849,7 +852,7 @@ Name | Type | Description  | Notes
 
 <a name="getTransacEmailsList"></a>
 # **getTransacEmailsList**
-> GetTransacEmailsList getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort)
+> GetTransacEmailsList getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort, limit, offset)
 
 Get the list of transactional emails on the basis of allowed filters
 
@@ -874,7 +877,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -885,8 +888,10 @@ String messageId = "messageId_example"; // String | Mandatory if templateId and 
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month.
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
 String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
+Long limit = 500L; // Long | Number of documents returned per page
+Long offset = 0L; // Long | Index of the first document in the page
 try {
-    GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
+    GetTransacEmailsList result = apiInstance.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort, limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalEmailsApi#getTransacEmailsList");
@@ -904,73 +909,12 @@ Name | Type | Description  | Notes
  **startDate** | **String**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
  **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
+ **limit** | **Long**| Number of documents returned per page | [optional] [default to 500]
+ **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
 
 ### Return type
 
 [**GetTransacEmailsList**](GetTransacEmailsList.md)
-
-### Authorization
-
-[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="sendTemplate"></a>
-# **sendTemplate**
-> SendTemplateEmail sendTemplate(templateId, sendEmail)
-
-Send a template
-
-This endpoint is deprecated. Prefer v3/smtp/email instead.
-
-### Example
-```java
-// Import classes:
-//import sendinblue.ApiClient;
-//import sendinblue.ApiException;
-//import sendinblue.Configuration;
-//import sendinblue.auth.*;
-//import sibApi.TransactionalEmailsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: api-key
-ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
-apiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.setApiKeyPrefix("Token");
-
-// Configure API key authorization: partner-key
-ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//partnerKey.setApiKeyPrefix("Token");
-
-TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
-Long templateId = 789L; // Long | Id of the template
-SendEmail sendEmail = new SendEmail(); // SendEmail | 
-try {
-    SendTemplateEmail result = apiInstance.sendTemplate(templateId, sendEmail);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling TransactionalEmailsApi#sendTemplate");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **templateId** | **Long**| Id of the template |
- **sendEmail** | [**SendEmail**](SendEmail.md)|  |
-
-### Return type
-
-[**SendTemplateEmail**](SendTemplateEmail.md)
 
 ### Authorization
 
@@ -1006,7 +950,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -1066,7 +1010,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -1125,7 +1069,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -1183,7 +1127,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 
@@ -1241,7 +1185,7 @@ apiKey.setApiKey("YOUR API KEY");
 
 // Configure API key authorization: partner-key
 ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
-partnerKey.setApiKey("YOUR PARTNER KEY");
+partnerKey.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //partnerKey.setApiKeyPrefix("Token");
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * To create a new list and import the contacts into it, pass the listName and an optional folderId.
  */
 @ApiModel(description = "To create a new list and import the contacts into it, pass the listName and an optional folderId.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class RequestContactImportNewList {
   @SerializedName("listName")
   private String listName = null;
@@ -74,20 +75,20 @@ public class RequestContactImportNewList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RequestContactImportNewList requestContactImportNewList = (RequestContactImportNewList) o;
-    return ObjectUtils.equals(this.listName, requestContactImportNewList.listName) &&
-    ObjectUtils.equals(this.folderId, requestContactImportNewList.folderId);
+    return Objects.equals(this.listName, requestContactImportNewList.listName) &&
+        Objects.equals(this.folderId, requestContactImportNewList.folderId);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(listName, folderId);
+    return Objects.hash(listName, folderId);
   }
 
 

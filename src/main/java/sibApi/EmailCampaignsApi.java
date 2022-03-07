@@ -36,7 +36,6 @@ import sibModel.ErrorModel;
 import sibModel.GetEmailCampaign;
 import sibModel.GetEmailCampaigns;
 import sibModel.GetSharedTemplateUrl;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendFailed;
 import sibModel.SendReport;
 import sibModel.SendTestEmail;

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,27 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.GetExtendedListCampaignStats;
 import sibModel.GetList;
 
 /**
  * GetExtendedList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
-public class GetExtendedList {
-  @SerializedName("id")
-  private Long id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("totalBlacklisted")
-  private Long totalBlacklisted = null;
-
-  @SerializedName("totalSubscribers")
-  private Long totalSubscribers = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+public class GetExtendedList extends GetList {
   @SerializedName("folderId")
   private Long folderId = null;
 
@@ -56,78 +44,6 @@ public class GetExtendedList {
 
   @SerializedName("dynamicList")
   private Boolean dynamicList = null;
-
-  public GetExtendedList id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ID of the list
-   * @return id
-  **/
-  @ApiModelProperty(example = "23", required = true, value = "ID of the list")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public GetExtendedList name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the list
-   * @return name
-  **/
-  @ApiModelProperty(example = "Magento Customers - EN", required = true, value = "Name of the list")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public GetExtendedList totalBlacklisted(Long totalBlacklisted) {
-    this.totalBlacklisted = totalBlacklisted;
-    return this;
-  }
-
-   /**
-   * Number of blacklisted contacts in the list
-   * @return totalBlacklisted
-  **/
-  @ApiModelProperty(example = "13", required = true, value = "Number of blacklisted contacts in the list")
-  public Long getTotalBlacklisted() {
-    return totalBlacklisted;
-  }
-
-  public void setTotalBlacklisted(Long totalBlacklisted) {
-    this.totalBlacklisted = totalBlacklisted;
-  }
-
-  public GetExtendedList totalSubscribers(Long totalSubscribers) {
-    this.totalSubscribers = totalSubscribers;
-    return this;
-  }
-
-   /**
-   * Number of contacts in the list
-   * @return totalSubscribers
-  **/
-  @ApiModelProperty(example = "1776", required = true, value = "Number of contacts in the list")
-  public Long getTotalSubscribers() {
-    return totalSubscribers;
-  }
-
-  public void setTotalSubscribers(Long totalSubscribers) {
-    this.totalSubscribers = totalSubscribers;
-  }
 
   public GetExtendedList folderId(Long folderId) {
     this.folderId = folderId;
@@ -212,26 +128,23 @@ public class GetExtendedList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedList getExtendedList = (GetExtendedList) o;
-    return ObjectUtils.equals(this.id, getExtendedList.id) &&
-    ObjectUtils.equals(this.name, getExtendedList.name) &&
-    ObjectUtils.equals(this.totalBlacklisted, getExtendedList.totalBlacklisted) &&
-    ObjectUtils.equals(this.totalSubscribers, getExtendedList.totalSubscribers) &&
-    ObjectUtils.equals(this.folderId, getExtendedList.folderId) &&
-    ObjectUtils.equals(this.createdAt, getExtendedList.createdAt) &&
-    ObjectUtils.equals(this.campaignStats, getExtendedList.campaignStats) &&
-    ObjectUtils.equals(this.dynamicList, getExtendedList.dynamicList);
+    return Objects.equals(this.folderId, getExtendedList.folderId) &&
+        Objects.equals(this.createdAt, getExtendedList.createdAt) &&
+        Objects.equals(this.campaignStats, getExtendedList.campaignStats) &&
+        Objects.equals(this.dynamicList, getExtendedList.dynamicList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, totalBlacklisted, totalSubscribers, folderId, createdAt, campaignStats, dynamicList);
+    return Objects.hash(folderId, createdAt, campaignStats, dynamicList, super.hashCode());
   }
 
 
@@ -239,11 +152,7 @@ public class GetExtendedList {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExtendedList {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    totalBlacklisted: ").append(toIndentedString(totalBlacklisted)).append("\n");
-    sb.append("    totalSubscribers: ").append(toIndentedString(totalSubscribers)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    campaignStats: ").append(toIndentedString(campaignStats)).append("\n");

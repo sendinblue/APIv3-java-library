@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Address informations
  */
 @ApiModel(description = "Address informations")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetExtendedClientAddress {
   @SerializedName("street")
   private String street = null;
@@ -116,22 +117,22 @@ public class GetExtendedClientAddress {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedClientAddress getExtendedClientAddress = (GetExtendedClientAddress) o;
-    return ObjectUtils.equals(this.street, getExtendedClientAddress.street) &&
-    ObjectUtils.equals(this.city, getExtendedClientAddress.city) &&
-    ObjectUtils.equals(this.zipCode, getExtendedClientAddress.zipCode) &&
-    ObjectUtils.equals(this.country, getExtendedClientAddress.country);
+    return Objects.equals(this.street, getExtendedClientAddress.street) &&
+        Objects.equals(this.city, getExtendedClientAddress.city) &&
+        Objects.equals(this.zipCode, getExtendedClientAddress.zipCode) &&
+        Objects.equals(this.country, getExtendedClientAddress.country);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(street, city, zipCode, country);
+    return Objects.hash(street, city, zipCode, country);
   }
 
 

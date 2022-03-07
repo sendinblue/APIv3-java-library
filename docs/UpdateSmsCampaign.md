@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **content** | **String** | Content of the message. The maximum characters used per SMS is 160, if used more than that, it will be counted as more than one SMS |  [optional]
 **recipients** | [**CreateSmsCampaignRecipients**](CreateSmsCampaignRecipients.md) |  |  [optional]
 **scheduledAt** | **String** | UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. |  [optional]
+**unicodeEnabled** | **Boolean** | Format of the message. It indicates whether the content should be treated as unicode or not. |  [optional]
 
 
 

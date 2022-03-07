@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * SendTestEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendTestEmail {
   @SerializedName("emailTo")
   private List<String> emailTo = null;
@@ -47,10 +48,10 @@ public class SendTestEmail {
   }
 
    /**
-   * List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list.
+   * List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list. You can not send more than 50 test emails per day.
    * @return emailTo
   **/
-  @ApiModelProperty(value = "List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list.")
+  @ApiModelProperty(value = "List of the email addresses of the recipients whom you wish to send the test mail. If left empty, the test mail will be sent to your entire test list. You can not send more than 50 test emails per day.")
   public List<String> getEmailTo() {
     return emailTo;
   }
@@ -62,19 +63,19 @@ public class SendTestEmail {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendTestEmail sendTestEmail = (SendTestEmail) o;
-    return ObjectUtils.equals(this.emailTo, sendTestEmail.emailTo);
+    return Objects.equals(this.emailTo, sendTestEmail.emailTo);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emailTo);
+    return Objects.hash(emailTo);
   }
 
 

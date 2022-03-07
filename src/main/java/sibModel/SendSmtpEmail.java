@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -35,7 +36,7 @@ import sibModel.SendSmtpEmailTo;
 /**
  * SendSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendSmtpEmail {
   @SerializedName("sender")
   private SendSmtpEmailSender sender = null;
@@ -261,10 +262,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, &#x60;[{&quot;url&quot;:&quot;https://attachment.domain.com/myAttachmentFromUrl.jpg&quot;, &quot;name&quot;:&quot;myAttachmentFromUrl.jpg&quot;}, {&quot;content&quot;:&quot;base64 example content&quot;, &quot;name&quot;:&quot;myAttachmentFromBase64.jpg&quot;}]&#x60;. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps, odt, mp3, m4a, m4v, wma, ogg, flac, wav, aif, aifc, aiff, mp4, mov, avi, mkv, mpeg, mpg and wmv ( If &#39;templateId&#39; is passed and is in New Template Language format then both attachment url and content are accepted. If template is in Old template Language format, then &#39;attachment&#39; is ignored )
+   * Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, &#x60;[{&quot;url&quot;:&quot;https://attachment.domain.com/myAttachmentFromUrl.jpg&quot;, &quot;name&quot;:&quot;myAttachmentFromUrl.jpg&quot;}, {&quot;content&quot;:&quot;base64 example content&quot;, &quot;name&quot;:&quot;myAttachmentFromBase64.jpg&quot;}]&#x60;. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps, odt, mp3, m4a, m4v, wma, ogg, flac, wav, aif, aifc, aiff, mp4, mov, avi, mkv, mpeg, mpg, wmv, pkpass and xlsm ( If &#39;templateId&#39; is passed and is in New Template Language format then both attachment url and content are accepted. If template is in Old template Language format, then &#39;attachment&#39; is ignored )
    * @return attachment
   **/
-  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, `[{\"url\":\"https://attachment.domain.com/myAttachmentFromUrl.jpg\", \"name\":\"myAttachmentFromUrl.jpg\"}, {\"content\":\"base64 example content\", \"name\":\"myAttachmentFromBase64.jpg\"}]`. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps, odt, mp3, m4a, m4v, wma, ogg, flac, wav, aif, aifc, aiff, mp4, mov, avi, mkv, mpeg, mpg and wmv ( If 'templateId' is passed and is in New Template Language format then both attachment url and content are accepted. If template is in Old template Language format, then 'attachment' is ignored )")
+  @ApiModelProperty(value = "Pass the absolute URL (no local file) or the base64 content of the attachment along with the attachment name (Mandatory if attachment content is passed). For example, `[{\"url\":\"https://attachment.domain.com/myAttachmentFromUrl.jpg\", \"name\":\"myAttachmentFromUrl.jpg\"}, {\"content\":\"base64 example content\", \"name\":\"myAttachmentFromBase64.jpg\"}]`. Allowed extensions for attachment file: xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps, odt, mp3, m4a, m4v, wma, ogg, flac, wav, aif, aifc, aiff, mp4, mov, avi, mkv, mpeg, mpg, wmv, pkpass and xlsm ( If 'templateId' is passed and is in New Template Language format then both attachment url and content are accepted. If template is in Old template Language format, then 'attachment' is ignored )")
   public List<SendSmtpEmailAttachment> getAttachment() {
     return attachment;
   }
@@ -279,10 +280,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Pass the set of custom headers (not the standard headers) that shall be sent along the mail headers in the original email. &#39;sender.ip&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in &#x60;This-Case-Only&#x60; (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, &#x60;{&quot;sender.ip&quot;:&quot;1.2.3.4&quot;, &quot;X-Mailin-custom&quot;:&quot;some_custom_header&quot;}&#x60;.
+   * Pass the set of custom headers (not the standard headers) that shall be sent along the mail headers in the original email. &#39;sender.ip&#39; header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in &#x60;This-Case-Only&#x60; (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, &#x60;{&quot;sender.ip&quot;:&quot;1.2.3.4&quot;, &quot;X-Mailin-custom&quot;:&quot;some_custom_header&quot;, &quot;idempotencyKey&quot;:&quot;abc-123&quot;}&#x60;.
    * @return headers
   **/
-  @ApiModelProperty(example = "{\"sender.ip\":\"1.2.3.4\",\"X-Mailin-custom\":\"some_custom_header\"}", value = "Pass the set of custom headers (not the standard headers) that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in `This-Case-Only` (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, `{\"sender.ip\":\"1.2.3.4\", \"X-Mailin-custom\":\"some_custom_header\"}`.")
+  @ApiModelProperty(example = "{\"sender.ip\":\"1.2.3.4\",\"X-Mailin-custom\":\"some_custom_header\",\"idempotencyKey\":\"abc-123\"}", value = "Pass the set of custom headers (not the standard headers) that shall be sent along the mail headers in the original email. 'sender.ip' header can be set (only for dedicated ip users) to mention the IP to be used for sending transactional emails. Headers are allowed in `This-Case-Only` (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, `{\"sender.ip\":\"1.2.3.4\", \"X-Mailin-custom\":\"some_custom_header\", \"idempotencyKey\":\"abc-123\"}`.")
   public Object getHeaders() {
     return headers;
   }
@@ -297,10 +298,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * Id of the template. Mandatory if messageVersions are passed
+   * Id of the template.
    * @return templateId
   **/
-  @ApiModelProperty(example = "2", value = "Id of the template. Mandatory if messageVersions are passed")
+  @ApiModelProperty(example = "2", value = "Id of the template.")
   public Long getTemplateId() {
     return templateId;
   }
@@ -341,10 +342,10 @@ public class SendSmtpEmail {
   }
 
    /**
-   * You can customize and send out multiple versions of a templateId. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. The size of individual params in all the messageVersions shall not exceed 100 KB limit and that of cumulative params shall not exceed 1000 KB. This feature is currently in its beta version. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - https://developers.sendinblue.com/docs/batch-send-transactional-emails
+   * You can customize and send out multiple versions of a mail. templateId can be customized only if global parameter contains templateId. htmlContent and textContent can be customized only if any of the two, htmlContent or textContent, is present in global parameters. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. Total number of recipients in one API request must not exceed 2000. However, you can still pass upto 99 recipients maximum in one message version. The size of individual params in all the messageVersions shall not exceed 100 KB limit and that of cumulative params shall not exceed 1000 KB. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - https://developers.sendinblue.com/docs/batch-send-transactional-emails
    * @return messageVersions
   **/
-  @ApiModelProperty(value = "You can customize and send out multiple versions of a templateId. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. The size of individual params in all the messageVersions shall not exceed 100 KB limit and that of cumulative params shall not exceed 1000 KB. This feature is currently in its beta version. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - https://developers.sendinblue.com/docs/batch-send-transactional-emails")
+  @ApiModelProperty(value = "You can customize and send out multiple versions of a mail. templateId can be customized only if global parameter contains templateId. htmlContent and textContent can be customized only if any of the two, htmlContent or textContent, is present in global parameters. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. Total number of recipients in one API request must not exceed 2000. However, you can still pass upto 99 recipients maximum in one message version. The size of individual params in all the messageVersions shall not exceed 100 KB limit and that of cumulative params shall not exceed 1000 KB. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - https://developers.sendinblue.com/docs/batch-send-transactional-emails")
   public List<SendSmtpEmailMessageVersions> getMessageVersions() {
     return messageVersions;
   }
@@ -382,32 +383,32 @@ public class SendSmtpEmail {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendSmtpEmail sendSmtpEmail = (SendSmtpEmail) o;
-    return ObjectUtils.equals(this.sender, sendSmtpEmail.sender) &&
-    ObjectUtils.equals(this.to, sendSmtpEmail.to) &&
-    ObjectUtils.equals(this.bcc, sendSmtpEmail.bcc) &&
-    ObjectUtils.equals(this.cc, sendSmtpEmail.cc) &&
-    ObjectUtils.equals(this.htmlContent, sendSmtpEmail.htmlContent) &&
-    ObjectUtils.equals(this.textContent, sendSmtpEmail.textContent) &&
-    ObjectUtils.equals(this.subject, sendSmtpEmail.subject) &&
-    ObjectUtils.equals(this.replyTo, sendSmtpEmail.replyTo) &&
-    ObjectUtils.equals(this.attachment, sendSmtpEmail.attachment) &&
-    ObjectUtils.equals(this.headers, sendSmtpEmail.headers) &&
-    ObjectUtils.equals(this.templateId, sendSmtpEmail.templateId) &&
-    ObjectUtils.equals(this.params, sendSmtpEmail.params) &&
-    ObjectUtils.equals(this.messageVersions, sendSmtpEmail.messageVersions) &&
-    ObjectUtils.equals(this.tags, sendSmtpEmail.tags);
+    return Objects.equals(this.sender, sendSmtpEmail.sender) &&
+        Objects.equals(this.to, sendSmtpEmail.to) &&
+        Objects.equals(this.bcc, sendSmtpEmail.bcc) &&
+        Objects.equals(this.cc, sendSmtpEmail.cc) &&
+        Objects.equals(this.htmlContent, sendSmtpEmail.htmlContent) &&
+        Objects.equals(this.textContent, sendSmtpEmail.textContent) &&
+        Objects.equals(this.subject, sendSmtpEmail.subject) &&
+        Objects.equals(this.replyTo, sendSmtpEmail.replyTo) &&
+        Objects.equals(this.attachment, sendSmtpEmail.attachment) &&
+        Objects.equals(this.headers, sendSmtpEmail.headers) &&
+        Objects.equals(this.templateId, sendSmtpEmail.templateId) &&
+        Objects.equals(this.params, sendSmtpEmail.params) &&
+        Objects.equals(this.messageVersions, sendSmtpEmail.messageVersions) &&
+        Objects.equals(this.tags, sendSmtpEmail.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params, messageVersions, tags);
+    return Objects.hash(sender, to, bcc, cc, htmlContent, textContent, subject, replyTo, attachment, headers, templateId, params, messageVersions, tags);
   }
 
 

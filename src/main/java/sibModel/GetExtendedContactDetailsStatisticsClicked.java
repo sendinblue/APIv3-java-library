@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import sibModel.GetExtendedContactDetailsStatisticsLinks;
 /**
  * GetExtendedContactDetailsStatisticsClicked
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetExtendedContactDetailsStatisticsClicked {
   @SerializedName("campaignId")
   private Long campaignId = null;
@@ -81,20 +82,20 @@ public class GetExtendedContactDetailsStatisticsClicked {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedContactDetailsStatisticsClicked getExtendedContactDetailsStatisticsClicked = (GetExtendedContactDetailsStatisticsClicked) o;
-    return ObjectUtils.equals(this.campaignId, getExtendedContactDetailsStatisticsClicked.campaignId) &&
-    ObjectUtils.equals(this.links, getExtendedContactDetailsStatisticsClicked.links);
+    return Objects.equals(this.campaignId, getExtendedContactDetailsStatisticsClicked.campaignId) &&
+        Objects.equals(this.links, getExtendedContactDetailsStatisticsClicked.links);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(campaignId, links);
+    return Objects.hash(campaignId, links);
   }
 
 

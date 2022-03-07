@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * AddContactToList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class AddContactToList {
   @SerializedName("emails")
   private List<String> emails = null;
@@ -91,20 +92,20 @@ public class AddContactToList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     AddContactToList addContactToList = (AddContactToList) o;
-    return ObjectUtils.equals(this.emails, addContactToList.emails) &&
-    ObjectUtils.equals(this.ids, addContactToList.ids);
+    return Objects.equals(this.emails, addContactToList.emails) &&
+        Objects.equals(this.ids, addContactToList.ids);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(emails, ids);
+    return Objects.hash(emails, ids);
   }
 
 

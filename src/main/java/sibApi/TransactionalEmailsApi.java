@@ -42,11 +42,8 @@ import sibModel.GetSmtpTemplates;
 import sibModel.GetTransacBlockedContacts;
 import sibModel.GetTransacEmailContent;
 import sibModel.GetTransacEmailsList;
-import org.threeten.bp.LocalDate;
 import sibModel.PostSendFailed;
-import sibModel.SendEmail;
 import sibModel.SendSmtpEmail;
-import sibModel.SendTemplateEmail;
 import sibModel.SendTestEmail;
 import sibModel.UpdateSmtpTemplate;
 
@@ -737,7 +734,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get your transactional email activity aggregated over a period of time
-     * 
+     * This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
@@ -752,7 +749,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get your transactional email activity aggregated over a period of time
-     * 
+     * This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
@@ -768,7 +765,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get your transactional email activity aggregated over a period of time (asynchronously)
-     * 
+     * This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
      * @param endDate Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate (optional)
      * @param days Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; (optional)
@@ -1008,7 +1005,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get all your transactional email activity (unaggregated events)
-     * 
+     * This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
@@ -1030,7 +1027,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get all your transactional email activity (unaggregated events)
-     * 
+     * This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
@@ -1053,7 +1050,7 @@ public class TransactionalEmailsApi {
 
     /**
      * Get all your transactional email activity (unaggregated events) (asynchronously)
-     * 
+     * This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      * @param limit Number limitation for the result returned (optional, default to 50)
      * @param offset Beginning point in the list to retrieve from. (optional, default to 0)
      * @param startDate Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate (optional)
@@ -1790,12 +1787,14 @@ public class TransactionalEmailsApi {
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
+     * @param limit Number of documents returned per page (optional, default to 500)
+     * @param offset Index of the first document in the page (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1815,6 +1814,10 @@ public class TransactionalEmailsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1849,10 +1852,10 @@ public class TransactionalEmailsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTransacEmailsListValidateBeforeCall(String email, Long templateId, String messageId, String startDate, String endDate, String sort, Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacEmailsListCall(email, templateId, messageId, startDate, endDate, sort, limit, offset, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1866,11 +1869,13 @@ public class TransactionalEmailsApi {
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
+     * @param limit Number of documents returned per page (optional, default to 500)
+     * @param offset Index of the first document in the page (optional, default to 0)
      * @return GetTransacEmailsList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, String startDate, String endDate, String sort) throws ApiException {
-        ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate, sort);
+    public GetTransacEmailsList getTransacEmailsList(String email, Long templateId, String messageId, String startDate, String endDate, String sort, Long limit, Long offset) throws ApiException {
+        ApiResponse<GetTransacEmailsList> resp = getTransacEmailsListWithHttpInfo(email, templateId, messageId, startDate, endDate, sort, limit, offset);
         return resp.getData();
     }
 
@@ -1883,11 +1888,13 @@ public class TransactionalEmailsApi {
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
+     * @param limit Number of documents returned per page (optional, default to 500)
+     * @param offset Index of the first document in the page (optional, default to 0)
      * @return ApiResponse&lt;GetTransacEmailsList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, String startDate, String endDate, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, null, null);
+    public ApiResponse<GetTransacEmailsList> getTransacEmailsListWithHttpInfo(String email, Long templateId, String messageId, String startDate, String endDate, String sort, Long limit, Long offset) throws ApiException {
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, limit, offset, null, null);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1901,11 +1908,13 @@ public class TransactionalEmailsApi {
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. (optional)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
+     * @param limit Number of documents returned per page (optional, default to 500)
+     * @param offset Index of the first document in the page (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, String startDate, String endDate, String sort, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTransacEmailsListAsync(String email, Long templateId, String messageId, String startDate, String endDate, String sort, Long limit, Long offset, final ApiCallback<GetTransacEmailsList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1926,149 +1935,8 @@ public class TransactionalEmailsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getTransacEmailsListValidateBeforeCall(email, templateId, messageId, startDate, endDate, sort, limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetTransacEmailsList>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for sendTemplate
-     * @param templateId Id of the template (required)
-     * @param sendEmail  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @deprecated
-     */
-    @Deprecated
-    public com.squareup.okhttp.Call sendTemplateCall(Long templateId, SendEmail sendEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = sendEmail;
-
-        // create path and map variables
-        String localVarPath = "/smtp/templates/{templateId}/send"
-            .replaceAll("\\{" + "templateId" + "\\}", apiClient.escapeString(templateId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendTemplateValidateBeforeCall(Long templateId, SendEmail sendEmail, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'templateId' is set
-        if (templateId == null) {
-            throw new ApiException("Missing the required parameter 'templateId' when calling sendTemplate(Async)");
-        }
-        
-        // verify the required parameter 'sendEmail' is set
-        if (sendEmail == null) {
-            throw new ApiException("Missing the required parameter 'sendEmail' when calling sendTemplate(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = sendTemplateCall(templateId, sendEmail, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Send a template
-     * This endpoint is deprecated. Prefer v3/smtp/email instead.
-     * @param templateId Id of the template (required)
-     * @param sendEmail  (required)
-     * @return SendTemplateEmail
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @deprecated
-     */
-    @Deprecated
-    public SendTemplateEmail sendTemplate(Long templateId, SendEmail sendEmail) throws ApiException {
-        ApiResponse<SendTemplateEmail> resp = sendTemplateWithHttpInfo(templateId, sendEmail);
-        return resp.getData();
-    }
-
-    /**
-     * Send a template
-     * This endpoint is deprecated. Prefer v3/smtp/email instead.
-     * @param templateId Id of the template (required)
-     * @param sendEmail  (required)
-     * @return ApiResponse&lt;SendTemplateEmail&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<SendTemplateEmail> sendTemplateWithHttpInfo(Long templateId, SendEmail sendEmail) throws ApiException {
-        com.squareup.okhttp.Call call = sendTemplateValidateBeforeCall(templateId, sendEmail, null, null);
-        Type localVarReturnType = new TypeToken<SendTemplateEmail>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Send a template (asynchronously)
-     * This endpoint is deprecated. Prefer v3/smtp/email instead.
-     * @param templateId Id of the template (required)
-     * @param sendEmail  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @deprecated
-     */
-    @Deprecated
-    public com.squareup.okhttp.Call sendTemplateAsync(Long templateId, SendEmail sendEmail, final ApiCallback<SendTemplateEmail> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = sendTemplateValidateBeforeCall(templateId, sendEmail, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SendTemplateEmail>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

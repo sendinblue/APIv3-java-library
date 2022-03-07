@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * UploadImageToGallery
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class UploadImageToGallery {
   @SerializedName("imageUrl")
   private String imageUrl = null;
@@ -73,20 +74,20 @@ public class UploadImageToGallery {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     UploadImageToGallery uploadImageToGallery = (UploadImageToGallery) o;
-    return ObjectUtils.equals(this.imageUrl, uploadImageToGallery.imageUrl) &&
-    ObjectUtils.equals(this.name, uploadImageToGallery.name);
+    return Objects.equals(this.imageUrl, uploadImageToGallery.imageUrl) &&
+        Objects.equals(this.name, uploadImageToGallery.name);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(imageUrl, name);
+    return Objects.hash(imageUrl, name);
   }
 
 

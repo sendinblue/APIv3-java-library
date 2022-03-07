@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * CreateDoiContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class CreateDoiContact {
   @SerializedName("email")
   private String email = null;
@@ -172,24 +173,24 @@ public class CreateDoiContact {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     CreateDoiContact createDoiContact = (CreateDoiContact) o;
-    return ObjectUtils.equals(this.email, createDoiContact.email) &&
-    ObjectUtils.equals(this.attributes, createDoiContact.attributes) &&
-    ObjectUtils.equals(this.includeListIds, createDoiContact.includeListIds) &&
-    ObjectUtils.equals(this.excludeListIds, createDoiContact.excludeListIds) &&
-    ObjectUtils.equals(this.templateId, createDoiContact.templateId) &&
-    ObjectUtils.equals(this.redirectionUrl, createDoiContact.redirectionUrl);
+    return Objects.equals(this.email, createDoiContact.email) &&
+        Objects.equals(this.attributes, createDoiContact.attributes) &&
+        Objects.equals(this.includeListIds, createDoiContact.includeListIds) &&
+        Objects.equals(this.excludeListIds, createDoiContact.excludeListIds) &&
+        Objects.equals(this.templateId, createDoiContact.templateId) &&
+        Objects.equals(this.redirectionUrl, createDoiContact.redirectionUrl);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, attributes, includeListIds, excludeListIds, templateId, redirectionUrl);
+    return Objects.hash(email, attributes, includeListIds, excludeListIds, templateId, redirectionUrl);
   }
 
 

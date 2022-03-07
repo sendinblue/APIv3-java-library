@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * GetSendersListIps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetSendersListIps {
   @SerializedName("ip")
   private String ip = null;
@@ -94,21 +95,21 @@ public class GetSendersListIps {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetSendersListIps getSendersListIps = (GetSendersListIps) o;
-    return ObjectUtils.equals(this.ip, getSendersListIps.ip) &&
-    ObjectUtils.equals(this.domain, getSendersListIps.domain) &&
-    ObjectUtils.equals(this.weight, getSendersListIps.weight);
+    return Objects.equals(this.ip, getSendersListIps.ip) &&
+        Objects.equals(this.domain, getSendersListIps.domain) &&
+        Objects.equals(this.weight, getSendersListIps.weight);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(ip, domain, weight);
+    return Objects.hash(ip, domain, weight);
   }
 
 

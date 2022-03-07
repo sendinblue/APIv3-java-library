@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the list | 
 **totalBlacklisted** | **Long** | Number of blacklisted contacts in the list | 
 **totalSubscribers** | **Long** | Number of contacts in the list | 
+**uniqueSubscribers** | **Long** | Number of unique contacts in the list | 
 
 
 

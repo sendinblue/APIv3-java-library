@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +23,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetExtendedContactDetailsStatisticsMessagesSent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetExtendedContactDetailsStatisticsMessagesSent {
   @SerializedName("campaignId")
   private Long campaignId = null;
@@ -74,20 +74,20 @@ public class GetExtendedContactDetailsStatisticsMessagesSent {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedContactDetailsStatisticsMessagesSent getExtendedContactDetailsStatisticsMessagesSent = (GetExtendedContactDetailsStatisticsMessagesSent) o;
-    return ObjectUtils.equals(this.campaignId, getExtendedContactDetailsStatisticsMessagesSent.campaignId) &&
-    ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsMessagesSent.eventTime);
+    return Objects.equals(this.campaignId, getExtendedContactDetailsStatisticsMessagesSent.campaignId) &&
+        Objects.equals(this.eventTime, getExtendedContactDetailsStatisticsMessagesSent.eventTime);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(campaignId, eventTime);
+    return Objects.hash(campaignId, eventTime);
   }
 
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,13 +25,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.GetTransacEmailContentEvents;
 
 /**
  * GetTransacEmailContent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetTransacEmailContent {
   @SerializedName("email")
   private String email = null;
@@ -187,25 +187,25 @@ public class GetTransacEmailContent {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetTransacEmailContent getTransacEmailContent = (GetTransacEmailContent) o;
-    return ObjectUtils.equals(this.email, getTransacEmailContent.email) &&
-    ObjectUtils.equals(this.subject, getTransacEmailContent.subject) &&
-    ObjectUtils.equals(this.templateId, getTransacEmailContent.templateId) &&
-    ObjectUtils.equals(this.date, getTransacEmailContent.date) &&
-    ObjectUtils.equals(this.events, getTransacEmailContent.events) &&
-    ObjectUtils.equals(this.body, getTransacEmailContent.body) &&
-    ObjectUtils.equals(this.attachmentCount, getTransacEmailContent.attachmentCount);
+    return Objects.equals(this.email, getTransacEmailContent.email) &&
+        Objects.equals(this.subject, getTransacEmailContent.subject) &&
+        Objects.equals(this.templateId, getTransacEmailContent.templateId) &&
+        Objects.equals(this.date, getTransacEmailContent.date) &&
+        Objects.equals(this.events, getTransacEmailContent.events) &&
+        Objects.equals(this.body, getTransacEmailContent.body) &&
+        Objects.equals(this.attachmentCount, getTransacEmailContent.attachmentCount);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, subject, templateId, date, events, body, attachmentCount);
+    return Objects.hash(email, subject, templateId, date, events, body, attachmentCount);
   }
 
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Credits remaining for child account
  */
 @ApiModel(description = "Credits remaining for child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class RemainingCreditModelChild {
   @SerializedName("sms")
   private Double sms = null;
@@ -74,20 +75,20 @@ public class RemainingCreditModelChild {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RemainingCreditModelChild remainingCreditModelChild = (RemainingCreditModelChild) o;
-    return ObjectUtils.equals(this.sms, remainingCreditModelChild.sms) &&
-    ObjectUtils.equals(this.email, remainingCreditModelChild.email);
+    return Objects.equals(this.sms, remainingCreditModelChild.sms) &&
+        Objects.equals(this.email, remainingCreditModelChild.email);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(sms, email);
+    return Objects.hash(sms, email);
   }
 
 

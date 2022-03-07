@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * GetList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetList {
   @SerializedName("id")
   private Long id = null;
@@ -39,6 +40,9 @@ public class GetList {
 
   @SerializedName("totalSubscribers")
   private Long totalSubscribers = null;
+
+  @SerializedName("uniqueSubscribers")
+  private Long uniqueSubscribers = null;
 
   public GetList id(Long id) {
     this.id = id;
@@ -112,25 +116,44 @@ public class GetList {
     this.totalSubscribers = totalSubscribers;
   }
 
+  public GetList uniqueSubscribers(Long uniqueSubscribers) {
+    this.uniqueSubscribers = uniqueSubscribers;
+    return this;
+  }
+
+   /**
+   * Number of unique contacts in the list
+   * @return uniqueSubscribers
+  **/
+  @ApiModelProperty(example = "1789", required = true, value = "Number of unique contacts in the list")
+  public Long getUniqueSubscribers() {
+    return uniqueSubscribers;
+  }
+
+  public void setUniqueSubscribers(Long uniqueSubscribers) {
+    this.uniqueSubscribers = uniqueSubscribers;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetList getList = (GetList) o;
-    return ObjectUtils.equals(this.id, getList.id) &&
-    ObjectUtils.equals(this.name, getList.name) &&
-    ObjectUtils.equals(this.totalBlacklisted, getList.totalBlacklisted) &&
-    ObjectUtils.equals(this.totalSubscribers, getList.totalSubscribers);
+    return Objects.equals(this.id, getList.id) &&
+        Objects.equals(this.name, getList.name) &&
+        Objects.equals(this.totalBlacklisted, getList.totalBlacklisted) &&
+        Objects.equals(this.totalSubscribers, getList.totalSubscribers) &&
+        Objects.equals(this.uniqueSubscribers, getList.uniqueSubscribers);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, totalBlacklisted, totalSubscribers);
+    return Objects.hash(id, name, totalBlacklisted, totalSubscribers, uniqueSubscribers);
   }
 
 
@@ -143,6 +166,7 @@ public class GetList {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    totalBlacklisted: ").append(toIndentedString(totalBlacklisted)).append("\n");
     sb.append("    totalSubscribers: ").append(toIndentedString(totalSubscribers)).append("\n");
+    sb.append("    uniqueSubscribers: ").append(toIndentedString(uniqueSubscribers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

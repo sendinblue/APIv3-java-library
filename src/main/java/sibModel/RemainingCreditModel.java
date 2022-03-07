@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import sibModel.RemainingCreditModelReseller;
 /**
  * RemainingCreditModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class RemainingCreditModel {
   @SerializedName("child")
   private RemainingCreditModelChild child = null;
@@ -75,20 +76,20 @@ public class RemainingCreditModel {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RemainingCreditModel remainingCreditModel = (RemainingCreditModel) o;
-    return ObjectUtils.equals(this.child, remainingCreditModel.child) &&
-    ObjectUtils.equals(this.reseller, remainingCreditModel.reseller);
+    return Objects.equals(this.child, remainingCreditModel.child) &&
+        Objects.equals(this.reseller, remainingCreditModel.reseller);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(child, reseller);
+    return Objects.hash(child, reseller);
   }
 
 

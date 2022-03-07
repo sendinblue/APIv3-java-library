@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetContactDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetContactDetails {
   @SerializedName("email")
   private String email = null;
@@ -236,27 +236,27 @@ public class GetContactDetails {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetContactDetails getContactDetails = (GetContactDetails) o;
-    return ObjectUtils.equals(this.email, getContactDetails.email) &&
-    ObjectUtils.equals(this.id, getContactDetails.id) &&
-    ObjectUtils.equals(this.emailBlacklisted, getContactDetails.emailBlacklisted) &&
-    ObjectUtils.equals(this.smsBlacklisted, getContactDetails.smsBlacklisted) &&
-    ObjectUtils.equals(this.createdAt, getContactDetails.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getContactDetails.modifiedAt) &&
-    ObjectUtils.equals(this.listIds, getContactDetails.listIds) &&
-    ObjectUtils.equals(this.listUnsubscribed, getContactDetails.listUnsubscribed) &&
-    ObjectUtils.equals(this.attributes, getContactDetails.attributes);
+    return Objects.equals(this.email, getContactDetails.email) &&
+        Objects.equals(this.id, getContactDetails.id) &&
+        Objects.equals(this.emailBlacklisted, getContactDetails.emailBlacklisted) &&
+        Objects.equals(this.smsBlacklisted, getContactDetails.smsBlacklisted) &&
+        Objects.equals(this.createdAt, getContactDetails.createdAt) &&
+        Objects.equals(this.modifiedAt, getContactDetails.modifiedAt) &&
+        Objects.equals(this.listIds, getContactDetails.listIds) &&
+        Objects.equals(this.listUnsubscribed, getContactDetails.listUnsubscribed) &&
+        Objects.equals(this.attributes, getContactDetails.attributes);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, id, emailBlacklisted, smsBlacklisted, createdAt, modifiedAt, listIds, listUnsubscribed, attributes);
+    return Objects.hash(email, id, emailBlacklisted, smsBlacklisted, createdAt, modifiedAt, listIds, listUnsubscribed, attributes);
   }
 
 

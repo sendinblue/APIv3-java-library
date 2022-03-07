@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetWebhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetWebhook {
   @SerializedName("url")
   private String url = null;
@@ -233,25 +233,25 @@ public class GetWebhook {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetWebhook getWebhook = (GetWebhook) o;
-    return ObjectUtils.equals(this.url, getWebhook.url) &&
-    ObjectUtils.equals(this.id, getWebhook.id) &&
-    ObjectUtils.equals(this.description, getWebhook.description) &&
-    ObjectUtils.equals(this.events, getWebhook.events) &&
-    ObjectUtils.equals(this.type, getWebhook.type) &&
-    ObjectUtils.equals(this.createdAt, getWebhook.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getWebhook.modifiedAt);
+    return Objects.equals(this.url, getWebhook.url) &&
+        Objects.equals(this.id, getWebhook.id) &&
+        Objects.equals(this.description, getWebhook.description) &&
+        Objects.equals(this.events, getWebhook.events) &&
+        Objects.equals(this.type, getWebhook.type) &&
+        Objects.equals(this.createdAt, getWebhook.createdAt) &&
+        Objects.equals(this.modifiedAt, getWebhook.modifiedAt);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(url, id, description, events, type, createdAt, modifiedAt);
+    return Objects.hash(url, id, description, events, type, createdAt, modifiedAt);
   }
 
 

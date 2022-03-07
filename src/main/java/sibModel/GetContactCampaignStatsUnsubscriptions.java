@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +31,7 @@ import sibModel.GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscrip
 /**
  * GetContactCampaignStatsUnsubscriptions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetContactCampaignStatsUnsubscriptions {
   @SerializedName("userUnsubscription")
   private List<GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription> userUnsubscription = new ArrayList<GetExtendedContactDetailsStatisticsUnsubscriptionsUserUnsubscription>();
@@ -87,20 +88,20 @@ public class GetContactCampaignStatsUnsubscriptions {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetContactCampaignStatsUnsubscriptions getContactCampaignStatsUnsubscriptions = (GetContactCampaignStatsUnsubscriptions) o;
-    return ObjectUtils.equals(this.userUnsubscription, getContactCampaignStatsUnsubscriptions.userUnsubscription) &&
-    ObjectUtils.equals(this.adminUnsubscription, getContactCampaignStatsUnsubscriptions.adminUnsubscription);
+    return Objects.equals(this.userUnsubscription, getContactCampaignStatsUnsubscriptions.userUnsubscription) &&
+        Objects.equals(this.adminUnsubscription, getContactCampaignStatsUnsubscriptions.adminUnsubscription);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(userUnsubscription, adminUnsubscription);
+    return Objects.hash(userUnsubscription, adminUnsubscription);
   }
 
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,244 +23,21 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.GetSmsCampaignOverview;
+import sibModel.GetSmsCampaignRecipients;
 
 /**
  * GetSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
-public class GetSmsCampaign {
-  @SerializedName("id")
-  private Long id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  /**
-   * Status of the SMS Campaign
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    DRAFT("draft"),
-    
-    SENT("sent"),
-    
-    ARCHIVE("archive"),
-    
-    QUEUED("queued"),
-    
-    SUSPENDED("suspended"),
-    
-    INPROCESS("inProcess");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String text) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("status")
-  private StatusEnum status = null;
-
-  @SerializedName("content")
-  private String content = null;
-
-  @SerializedName("scheduledAt")
-  private String scheduledAt = null;
-
-  @SerializedName("sender")
-  private String sender = null;
-
-  @SerializedName("createdAt")
-  private String createdAt = null;
-
-  @SerializedName("modifiedAt")
-  private String modifiedAt = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+public class GetSmsCampaign extends GetSmsCampaignOverview {
   @SerializedName("recipients")
-  private Object recipients = null;
+  private GetSmsCampaignRecipients recipients = null;
 
   @SerializedName("statistics")
-  private Object statistics = null;
+  private GetSmsCampaignRecipients statistics = null;
 
-  public GetSmsCampaign id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ID of the SMS Campaign
-   * @return id
-  **/
-  @ApiModelProperty(example = "2", required = true, value = "ID of the SMS Campaign")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public GetSmsCampaign name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name of the SMS Campaign
-   * @return name
-  **/
-  @ApiModelProperty(example = "PROMO CODE", required = true, value = "Name of the SMS Campaign")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public GetSmsCampaign status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Status of the SMS Campaign
-   * @return status
-  **/
-  @ApiModelProperty(example = "draft", required = true, value = "Status of the SMS Campaign")
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
-  public GetSmsCampaign content(String content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Content of the SMS Campaign
-   * @return content
-  **/
-  @ApiModelProperty(example = "Visit our Store and get some discount !", required = true, value = "Content of the SMS Campaign")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public GetSmsCampaign scheduledAt(String scheduledAt) {
-    this.scheduledAt = scheduledAt;
-    return this;
-  }
-
-   /**
-   * UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format
-   * @return scheduledAt
-  **/
-  @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which SMS campaign is scheduled. Should be in YYYY-MM-DDTHH:mm:ss.SSSZ format")
-  public String getScheduledAt() {
-    return scheduledAt;
-  }
-
-  public void setScheduledAt(String scheduledAt) {
-    this.scheduledAt = scheduledAt;
-  }
-
-  public GetSmsCampaign sender(String sender) {
-    this.sender = sender;
-    return this;
-  }
-
-   /**
-   * Sender of the SMS Campaign
-   * @return sender
-  **/
-  @ApiModelProperty(example = "MyCompany", required = true, value = "Sender of the SMS Campaign")
-  public String getSender() {
-    return sender;
-  }
-
-  public void setSender(String sender) {
-    this.sender = sender;
-  }
-
-  public GetSmsCampaign createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
-   * @return createdAt
-  **/
-  @ApiModelProperty(example = "2017-06-01T12:30:00Z", required = true, value = "Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public GetSmsCampaign modifiedAt(String modifiedAt) {
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-   /**
-   * UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
-   * @return modifiedAt
-  **/
-  @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "UTC date-time of last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public String getModifiedAt() {
-    return modifiedAt;
-  }
-
-  public void setModifiedAt(String modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-  public GetSmsCampaign recipients(Object recipients) {
+  public GetSmsCampaign recipients(GetSmsCampaignRecipients recipients) {
     this.recipients = recipients;
     return this;
   }
@@ -269,15 +47,15 @@ public class GetSmsCampaign {
    * @return recipients
   **/
   @ApiModelProperty(required = true, value = "")
-  public Object getRecipients() {
+  public GetSmsCampaignRecipients getRecipients() {
     return recipients;
   }
 
-  public void setRecipients(Object recipients) {
+  public void setRecipients(GetSmsCampaignRecipients recipients) {
     this.recipients = recipients;
   }
 
-  public GetSmsCampaign statistics(Object statistics) {
+  public GetSmsCampaign statistics(GetSmsCampaignRecipients statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -287,39 +65,32 @@ public class GetSmsCampaign {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public Object getStatistics() {
+  public GetSmsCampaignRecipients getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(Object statistics) {
+  public void setStatistics(GetSmsCampaignRecipients statistics) {
     this.statistics = statistics;
   }
 
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetSmsCampaign getSmsCampaign = (GetSmsCampaign) o;
-    return ObjectUtils.equals(this.id, getSmsCampaign.id) &&
-    ObjectUtils.equals(this.name, getSmsCampaign.name) &&
-    ObjectUtils.equals(this.status, getSmsCampaign.status) &&
-    ObjectUtils.equals(this.content, getSmsCampaign.content) &&
-    ObjectUtils.equals(this.scheduledAt, getSmsCampaign.scheduledAt) &&
-    ObjectUtils.equals(this.sender, getSmsCampaign.sender) &&
-    ObjectUtils.equals(this.createdAt, getSmsCampaign.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getSmsCampaign.modifiedAt) &&
-    ObjectUtils.equals(this.recipients, getSmsCampaign.recipients) &&
-    ObjectUtils.equals(this.statistics, getSmsCampaign.statistics);
+    return Objects.equals(this.recipients, getSmsCampaign.recipients) &&
+        Objects.equals(this.statistics, getSmsCampaign.statistics) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, sender, createdAt, modifiedAt, recipients, statistics);
+    return Objects.hash(recipients, statistics, super.hashCode());
   }
 
 
@@ -327,15 +98,7 @@ public class GetSmsCampaign {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetSmsCampaign {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
-    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");

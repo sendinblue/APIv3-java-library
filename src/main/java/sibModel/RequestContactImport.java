@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,18 +25,22 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import sibModel.RequestContactImportNewList;
 
 /**
  * RequestContactImport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class RequestContactImport {
   @SerializedName("fileUrl")
   private String fileUrl = null;
 
   @SerializedName("fileBody")
   private String fileBody = null;
+
+  @SerializedName("jsonBody")
+  private List<Map<String, Object>> jsonBody = null;
 
   @SerializedName("listIds")
   private List<Long> listIds = null;
@@ -64,10 +69,10 @@ public class RequestContactImport {
   }
 
    /**
-   * Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv
+   * Mandatory if fileBody or jsonBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv, .json
    * @return fileUrl
   **/
-  @ApiModelProperty(example = "https://importfile.domain.com", value = "Mandatory if fileBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv")
+  @ApiModelProperty(example = "https://importfile.domain.com", value = "Mandatory if fileBody or jsonBody is not defined. URL of the file to be imported (no local file). Possible file formats: .txt, .csv, .json")
   public String getFileUrl() {
     return fileUrl;
   }
@@ -82,16 +87,42 @@ public class RequestContactImport {
   }
 
    /**
-   * Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
+   * Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
    * @return fileBody
   **/
-  @ApiModelProperty(example = "NAME;SURNAME;EMAIL\\n\"Smith\";\"John\";\"john.smith@example.com\"\\n\"Roger\";\"Ellie\";\"ellie36@example.com", value = "Mandatory if fileUrl is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.")
+  @ApiModelProperty(example = "NAME;SURNAME;EMAIL\\n\"Smith\";\"John\";\"john.smith@example.com\"\\n\"Roger\";\"Ellie\";\"ellie36@example.com", value = "Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.")
   public String getFileBody() {
     return fileBody;
   }
 
   public void setFileBody(String fileBody) {
     this.fileBody = fileBody;
+  }
+
+  public RequestContactImport jsonBody(List<Map<String, Object>> jsonBody) {
+    this.jsonBody = jsonBody;
+    return this;
+  }
+
+  public RequestContactImport addJsonBodyItem(Map<String, Object> jsonBodyItem) {
+    if (this.jsonBody == null) {
+      this.jsonBody = new ArrayList<Map<String, Object>>();
+    }
+    this.jsonBody.add(jsonBodyItem);
+    return this;
+  }
+
+   /**
+   * **Mandatory if fileUrl and fileBody is not defined.** JSON content to be imported. **Maximum allowed json body size is 10MB** . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of json body size while parsing. Please use fileUrl instead to import bigger files. 
+   * @return jsonBody
+  **/
+  @ApiModelProperty(value = "**Mandatory if fileUrl and fileBody is not defined.** JSON content to be imported. **Maximum allowed json body size is 10MB** . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of json body size while parsing. Please use fileUrl instead to import bigger files. ")
+  public List<Map<String, Object>> getJsonBody() {
+    return jsonBody;
+  }
+
+  public void setJsonBody(List<Map<String, Object>> jsonBody) {
+    this.jsonBody = jsonBody;
   }
 
   public RequestContactImport listIds(List<Long> listIds) {
@@ -231,27 +262,28 @@ public class RequestContactImport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RequestContactImport requestContactImport = (RequestContactImport) o;
-    return ObjectUtils.equals(this.fileUrl, requestContactImport.fileUrl) &&
-    ObjectUtils.equals(this.fileBody, requestContactImport.fileBody) &&
-    ObjectUtils.equals(this.listIds, requestContactImport.listIds) &&
-    ObjectUtils.equals(this.notifyUrl, requestContactImport.notifyUrl) &&
-    ObjectUtils.equals(this.newList, requestContactImport.newList) &&
-    ObjectUtils.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
-    ObjectUtils.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
-    ObjectUtils.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts) &&
-    ObjectUtils.equals(this.emptyContactsAttributes, requestContactImport.emptyContactsAttributes);
+    return Objects.equals(this.fileUrl, requestContactImport.fileUrl) &&
+        Objects.equals(this.fileBody, requestContactImport.fileBody) &&
+        Objects.equals(this.jsonBody, requestContactImport.jsonBody) &&
+        Objects.equals(this.listIds, requestContactImport.listIds) &&
+        Objects.equals(this.notifyUrl, requestContactImport.notifyUrl) &&
+        Objects.equals(this.newList, requestContactImport.newList) &&
+        Objects.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
+        Objects.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
+        Objects.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts) &&
+        Objects.equals(this.emptyContactsAttributes, requestContactImport.emptyContactsAttributes);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts, emptyContactsAttributes);
+    return Objects.hash(fileUrl, fileBody, jsonBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts, emptyContactsAttributes);
   }
 
 
@@ -262,6 +294,7 @@ public class RequestContactImport {
     
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    fileBody: ").append(toIndentedString(fileBody)).append("\n");
+    sb.append("    jsonBody: ").append(toIndentedString(jsonBody)).append("\n");
     sb.append("    listIds: ").append(toIndentedString(listIds)).append("\n");
     sb.append("    notifyUrl: ").append(toIndentedString(notifyUrl)).append("\n");
     sb.append("    newList: ").append(toIndentedString(newList)).append("\n");

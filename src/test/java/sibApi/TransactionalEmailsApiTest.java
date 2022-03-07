@@ -303,7 +303,9 @@ public class TransactionalEmailsApiTest {
         String startDate = null;
         String endDate = null;
         String sort = null;
-        GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort);
+        Long limit = null;
+        Long offset = null;
+        GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort, limit, offset);
 
         // TODO: test validations
     }
@@ -319,8 +321,9 @@ public class TransactionalEmailsApiTest {
     @Test
     public void sendTemplateTest() throws ApiException {
         Long templateId = null;
-        SendEmail sendEmail = null;
-        SendTemplateEmail response = api.sendTemplate(templateId, sendEmail);
+        SendTestEmail sendEmail = null;
+        // SendTemplateEmail response =
+        api.sendTestTemplate(templateId, sendEmail);
 
         // TODO: test validations
     }

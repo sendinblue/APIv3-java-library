@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * GetSmsCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetSmsCampaignStats {
   @SerializedName("delivered")
   private Long delivered = null;
@@ -178,25 +179,25 @@ public class GetSmsCampaignStats {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetSmsCampaignStats getSmsCampaignStats = (GetSmsCampaignStats) o;
-    return ObjectUtils.equals(this.delivered, getSmsCampaignStats.delivered) &&
-    ObjectUtils.equals(this.sent, getSmsCampaignStats.sent) &&
-    ObjectUtils.equals(this.processing, getSmsCampaignStats.processing) &&
-    ObjectUtils.equals(this.softBounces, getSmsCampaignStats.softBounces) &&
-    ObjectUtils.equals(this.hardBounces, getSmsCampaignStats.hardBounces) &&
-    ObjectUtils.equals(this.unsubscriptions, getSmsCampaignStats.unsubscriptions) &&
-    ObjectUtils.equals(this.answered, getSmsCampaignStats.answered);
+    return Objects.equals(this.delivered, getSmsCampaignStats.delivered) &&
+        Objects.equals(this.sent, getSmsCampaignStats.sent) &&
+        Objects.equals(this.processing, getSmsCampaignStats.processing) &&
+        Objects.equals(this.softBounces, getSmsCampaignStats.softBounces) &&
+        Objects.equals(this.hardBounces, getSmsCampaignStats.hardBounces) &&
+        Objects.equals(this.unsubscriptions, getSmsCampaignStats.unsubscriptions) &&
+        Objects.equals(this.answered, getSmsCampaignStats.answered);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(delivered, sent, processing, softBounces, hardBounces, unsubscriptions, answered);
+    return Objects.hash(delivered, sent, processing, softBounces, hardBounces, unsubscriptions, answered);
   }
 
 

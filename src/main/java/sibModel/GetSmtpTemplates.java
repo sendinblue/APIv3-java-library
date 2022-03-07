@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import sibModel.GetSmtpTemplateOverview;
 /**
  * GetSmtpTemplates
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetSmtpTemplates {
   @SerializedName("count")
   private Long count = null;
@@ -84,20 +85,20 @@ public class GetSmtpTemplates {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetSmtpTemplates getSmtpTemplates = (GetSmtpTemplates) o;
-    return ObjectUtils.equals(this.count, getSmtpTemplates.count) &&
-    ObjectUtils.equals(this.templates, getSmtpTemplates.templates);
+    return Objects.equals(this.count, getSmtpTemplates.count) &&
+        Objects.equals(this.templates, getSmtpTemplates.templates);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(count, templates);
+    return Objects.hash(count, templates);
   }
 
 

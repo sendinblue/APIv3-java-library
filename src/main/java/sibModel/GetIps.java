@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import sibModel.GetIp;
 /**
  * GetIps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetIps {
   @SerializedName("ips")
   private List<GetIp> ips = new ArrayList<GetIp>();
@@ -60,19 +61,19 @@ public class GetIps {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetIps getIps = (GetIps) o;
-    return ObjectUtils.equals(this.ips, getIps.ips);
+    return Objects.equals(this.ips, getIps.ips);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(ips);
+    return Objects.hash(ips);
   }
 
 

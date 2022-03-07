@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * GetClient
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetClient {
   @SerializedName("email")
   private String email = null;
@@ -115,22 +116,22 @@ public class GetClient {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetClient getClient = (GetClient) o;
-    return ObjectUtils.equals(this.email, getClient.email) &&
-    ObjectUtils.equals(this.firstName, getClient.firstName) &&
-    ObjectUtils.equals(this.lastName, getClient.lastName) &&
-    ObjectUtils.equals(this.companyName, getClient.companyName);
+    return Objects.equals(this.email, getClient.email) &&
+        Objects.equals(this.firstName, getClient.firstName) &&
+        Objects.equals(this.lastName, getClient.lastName) &&
+        Objects.equals(this.companyName, getClient.companyName);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName);
+    return Objects.hash(email, firstName, lastName, companyName);
   }
 
 

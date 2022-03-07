@@ -46,13 +46,12 @@ import sibModel.GetFolder;
 import sibModel.GetFolderLists;
 import sibModel.GetFolders;
 import sibModel.GetLists;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
 import sibModel.RemoveContactFromList;
 import sibModel.RequestContactExport;
 import sibModel.RequestContactImport;
 import sibModel.UpdateAttribute;
+import sibModel.UpdateBatchContacts;
 import sibModel.UpdateContact;
 import sibModel.UpdateList;
 
@@ -1500,7 +1499,7 @@ public class ContactsApi {
 
     /**
      * Get a contact&#39;s details
-     * 
+     * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @return GetExtendedContactDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1512,7 +1511,7 @@ public class ContactsApi {
 
     /**
      * Get a contact&#39;s details
-     * 
+     * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @return ApiResponse&lt;GetExtendedContactDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1525,7 +1524,7 @@ public class ContactsApi {
 
     /**
      * Get a contact&#39;s details (asynchronously)
-     * 
+     * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1561,7 +1560,7 @@ public class ContactsApi {
      * Build call for getContactStats
      * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
-     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1632,7 +1631,7 @@ public class ContactsApi {
      * 
      * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
-     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)
      * @return GetContactCampaignStats
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1646,7 +1645,7 @@ public class ContactsApi {
      * 
      * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
-     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)
      * @return ApiResponse&lt;GetContactCampaignStats&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1661,7 +1660,7 @@ public class ContactsApi {
      * 
      * @param identifier Email (urlencoded) OR ID of the contact (required)
      * @param startDate Mandatory if endDate is used. Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate (optional)
-     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate (optional)
+     * @param endDate Mandatory if startDate is used. Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3146,6 +3145,124 @@ public class ContactsApi {
         }
 
         com.squareup.okhttp.Call call = updateAttributeValidateBeforeCall(attributeCategory, attributeName, updateAttribute, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for updateBatchContacts
+     * @param updateBatchContacts Values to update multiple contacts (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateBatchContactsCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = updateBatchContacts;
+
+        // create path and map variables
+        String localVarPath = "/contacts/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateBatchContactsValidateBeforeCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'updateBatchContacts' is set
+        if (updateBatchContacts == null) {
+            throw new ApiException("Missing the required parameter 'updateBatchContacts' when calling updateBatchContacts(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateBatchContactsCall(updateBatchContacts, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update multiple contacts
+     * 
+     * @param updateBatchContacts Values to update multiple contacts (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void updateBatchContacts(UpdateBatchContacts updateBatchContacts) throws ApiException {
+        updateBatchContactsWithHttpInfo(updateBatchContacts);
+    }
+
+    /**
+     * Update multiple contacts
+     * 
+     * @param updateBatchContacts Values to update multiple contacts (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> updateBatchContactsWithHttpInfo(UpdateBatchContacts updateBatchContacts) throws ApiException {
+        com.squareup.okhttp.Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Update multiple contacts (asynchronously)
+     * 
+     * @param updateBatchContacts Values to update multiple contacts (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateBatchContactsAsync(UpdateBatchContacts updateBatchContacts, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

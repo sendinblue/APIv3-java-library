@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,221 +23,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.GetContactDetails;
 import sibModel.GetExtendedContactDetailsStatistics;
 
 /**
  * GetExtendedContactDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
-public class GetExtendedContactDetails {
-  @SerializedName("email")
-  private String email = null;
-
-  @SerializedName("id")
-  private Long id = null;
-
-  @SerializedName("emailBlacklisted")
-  private Boolean emailBlacklisted = null;
-
-  @SerializedName("smsBlacklisted")
-  private Boolean smsBlacklisted = null;
-
-  @SerializedName("createdAt")
-  private String createdAt = null;
-
-  @SerializedName("modifiedAt")
-  private String modifiedAt = null;
-
-  @SerializedName("listIds")
-  private List<Long> listIds = new ArrayList<Long>();
-
-  @SerializedName("listUnsubscribed")
-  private List<Long> listUnsubscribed = null;
-
-  @SerializedName("attributes")
-  private Object attributes = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+public class GetExtendedContactDetails extends GetContactDetails {
   @SerializedName("statistics")
   private GetExtendedContactDetailsStatistics statistics = null;
-
-  public GetExtendedContactDetails email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Email address of the contact for which you requested the details
-   * @return email
-  **/
-  @ApiModelProperty(example = "john.smith@example.com", required = true, value = "Email address of the contact for which you requested the details")
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public GetExtendedContactDetails id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ID of the contact for which you requested the details
-   * @return id
-  **/
-  @ApiModelProperty(example = "32", required = true, value = "ID of the contact for which you requested the details")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public GetExtendedContactDetails emailBlacklisted(Boolean emailBlacklisted) {
-    this.emailBlacklisted = emailBlacklisted;
-    return this;
-  }
-
-   /**
-   * Blacklist status for email campaigns (true&#x3D;blacklisted, false&#x3D;not blacklisted)
-   * @return emailBlacklisted
-  **/
-  @ApiModelProperty(example = "false", required = true, value = "Blacklist status for email campaigns (true=blacklisted, false=not blacklisted)")
-  public Boolean isEmailBlacklisted() {
-    return emailBlacklisted;
-  }
-
-  public void setEmailBlacklisted(Boolean emailBlacklisted) {
-    this.emailBlacklisted = emailBlacklisted;
-  }
-
-  public GetExtendedContactDetails smsBlacklisted(Boolean smsBlacklisted) {
-    this.smsBlacklisted = smsBlacklisted;
-    return this;
-  }
-
-   /**
-   * Blacklist status for SMS campaigns (true&#x3D;blacklisted, false&#x3D;not blacklisted)
-   * @return smsBlacklisted
-  **/
-  @ApiModelProperty(example = "true", required = true, value = "Blacklist status for SMS campaigns (true=blacklisted, false=not blacklisted)")
-  public Boolean isSmsBlacklisted() {
-    return smsBlacklisted;
-  }
-
-  public void setSmsBlacklisted(Boolean smsBlacklisted) {
-    this.smsBlacklisted = smsBlacklisted;
-  }
-
-  public GetExtendedContactDetails createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
-   * @return createdAt
-  **/
-  @ApiModelProperty(example = "2017-05-12T12:30:00Z", required = true, value = "Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public GetExtendedContactDetails modifiedAt(String modifiedAt) {
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-   /**
-   * Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)
-   * @return modifiedAt
-  **/
-  @ApiModelProperty(example = "2017-05-12T12:30:00Z", required = true, value = "Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)")
-  public String getModifiedAt() {
-    return modifiedAt;
-  }
-
-  public void setModifiedAt(String modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-  public GetExtendedContactDetails listIds(List<Long> listIds) {
-    this.listIds = listIds;
-    return this;
-  }
-
-  public GetExtendedContactDetails addListIdsItem(Long listIdsItem) {
-    this.listIds.add(listIdsItem);
-    return this;
-  }
-
-   /**
-   * Get listIds
-   * @return listIds
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<Long> getListIds() {
-    return listIds;
-  }
-
-  public void setListIds(List<Long> listIds) {
-    this.listIds = listIds;
-  }
-
-  public GetExtendedContactDetails listUnsubscribed(List<Long> listUnsubscribed) {
-    this.listUnsubscribed = listUnsubscribed;
-    return this;
-  }
-
-  public GetExtendedContactDetails addListUnsubscribedItem(Long listUnsubscribedItem) {
-    if (this.listUnsubscribed == null) {
-      this.listUnsubscribed = new ArrayList<Long>();
-    }
-    this.listUnsubscribed.add(listUnsubscribedItem);
-    return this;
-  }
-
-   /**
-   * Get listUnsubscribed
-   * @return listUnsubscribed
-  **/
-  @ApiModelProperty(value = "")
-  public List<Long> getListUnsubscribed() {
-    return listUnsubscribed;
-  }
-
-  public void setListUnsubscribed(List<Long> listUnsubscribed) {
-    this.listUnsubscribed = listUnsubscribed;
-  }
-
-  public GetExtendedContactDetails attributes(Object attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Set of attributes of the contact
-   * @return attributes
-  **/
-  @ApiModelProperty(example = "{\"name\":\"Joe\",\"email\":\"joe@example.com\"}", required = true, value = "Set of attributes of the contact")
-  public Object getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
-  }
 
   public GetExtendedContactDetails statistics(GetExtendedContactDetailsStatistics statistics) {
     this.statistics = statistics;
@@ -259,28 +56,20 @@ public class GetExtendedContactDetails {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedContactDetails getExtendedContactDetails = (GetExtendedContactDetails) o;
-    return ObjectUtils.equals(this.email, getExtendedContactDetails.email) &&
-    ObjectUtils.equals(this.id, getExtendedContactDetails.id) &&
-    ObjectUtils.equals(this.emailBlacklisted, getExtendedContactDetails.emailBlacklisted) &&
-    ObjectUtils.equals(this.smsBlacklisted, getExtendedContactDetails.smsBlacklisted) &&
-    ObjectUtils.equals(this.createdAt, getExtendedContactDetails.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getExtendedContactDetails.modifiedAt) &&
-    ObjectUtils.equals(this.listIds, getExtendedContactDetails.listIds) &&
-    ObjectUtils.equals(this.listUnsubscribed, getExtendedContactDetails.listUnsubscribed) &&
-    ObjectUtils.equals(this.attributes, getExtendedContactDetails.attributes) &&
-    ObjectUtils.equals(this.statistics, getExtendedContactDetails.statistics);
+    return Objects.equals(this.statistics, getExtendedContactDetails.statistics) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, id, emailBlacklisted, smsBlacklisted, createdAt, modifiedAt, listIds, listUnsubscribed, attributes, statistics);
+    return Objects.hash(statistics, super.hashCode());
   }
 
 
@@ -288,16 +77,7 @@ public class GetExtendedContactDetails {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExtendedContactDetails {\n");
-    
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    emailBlacklisted: ").append(toIndentedString(emailBlacklisted)).append("\n");
-    sb.append("    smsBlacklisted: ").append(toIndentedString(smsBlacklisted)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-    sb.append("    listIds: ").append(toIndentedString(listIds)).append("\n");
-    sb.append("    listUnsubscribed: ").append(toIndentedString(listUnsubscribed)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");
     return sb.toString();

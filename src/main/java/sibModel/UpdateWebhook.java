@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * UpdateWebhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class UpdateWebhook {
   @SerializedName("url")
   private String url = null;
@@ -41,6 +42,8 @@ public class UpdateWebhook {
    */
   @JsonAdapter(EventsEnum.Adapter.class)
   public enum EventsEnum {
+    SENT("sent"),
+    
     HARDBOUNCE("hardBounce"),
     
     SOFTBOUNCE("softBounce"),
@@ -69,7 +72,9 @@ public class UpdateWebhook {
     
     CONTACTUPDATED("contactUpdated"),
     
-    CONTACTDELETED("contactDeleted");
+    CONTACTDELETED("contactDeleted"),
+    
+    INBOUNDEMAILPROCESSED("inboundEmailProcessed");
 
     private String value;
 
@@ -111,6 +116,9 @@ public class UpdateWebhook {
 
   @SerializedName("events")
   private List<EventsEnum> events = null;
+
+  @SerializedName("domain")
+  private String domain = null;
 
   public UpdateWebhook url(String url) {
     this.url = url;
@@ -162,10 +170,10 @@ public class UpdateWebhook {
   }
 
    /**
-   * Events triggering the webhook. Possible values for Transactional type webhook – &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; and possible values for Marketing type webhook – &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; and &#x60;delivered&#x60;
+   * - Events triggering the webhook. Possible values for **Transactional** type webhook: #### &#x60;sent&#x60; OR &#x60;request&#x60;, &#x60;delivered&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;blocked&#x60;, &#x60;spam&#x60;, &#x60;invalid&#x60;, &#x60;deferred&#x60;, &#x60;click&#x60;, &#x60;opened&#x60;, &#x60;uniqueOpened&#x60; and &#x60;unsubscribed&#x60; - Possible values for **Marketing** type webhook: #### &#x60;spam&#x60;, &#x60;opened&#x60;, &#x60;click&#x60;, &#x60;hardBounce&#x60;, &#x60;softBounce&#x60;, &#x60;unsubscribed&#x60;, &#x60;listAddition&#x60; &amp; &#x60;delivered&#x60; - Possible values for **Inbound** type webhook: #### &#x60;inboundEmailProcessed&#x60; 
    * @return events
   **/
-  @ApiModelProperty(value = "Events triggering the webhook. Possible values for Transactional type webhook – `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` and possible values for Marketing type webhook – `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` and `delivered`")
+  @ApiModelProperty(value = "- Events triggering the webhook. Possible values for **Transactional** type webhook: #### `sent` OR `request`, `delivered`, `hardBounce`, `softBounce`, `blocked`, `spam`, `invalid`, `deferred`, `click`, `opened`, `uniqueOpened` and `unsubscribed` - Possible values for **Marketing** type webhook: #### `spam`, `opened`, `click`, `hardBounce`, `softBounce`, `unsubscribed`, `listAddition` & `delivered` - Possible values for **Inbound** type webhook: #### `inboundEmailProcessed` ")
   public List<EventsEnum> getEvents() {
     return events;
   }
@@ -174,24 +182,43 @@ public class UpdateWebhook {
     this.events = events;
   }
 
+  public UpdateWebhook domain(String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * Inbound domain of webhook, used in case of event type &#x60;inbound&#x60;
+   * @return domain
+  **/
+  @ApiModelProperty(example = "example.com", value = "Inbound domain of webhook, used in case of event type `inbound`")
+  public String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     UpdateWebhook updateWebhook = (UpdateWebhook) o;
-    return ObjectUtils.equals(this.url, updateWebhook.url) &&
-    ObjectUtils.equals(this.description, updateWebhook.description) &&
-    ObjectUtils.equals(this.events, updateWebhook.events);
+    return Objects.equals(this.url, updateWebhook.url) &&
+        Objects.equals(this.description, updateWebhook.description) &&
+        Objects.equals(this.events, updateWebhook.events) &&
+        Objects.equals(this.domain, updateWebhook.domain);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(url, description, events);
+    return Objects.hash(url, description, events, domain);
   }
 
 
@@ -203,6 +230,7 @@ public class UpdateWebhook {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

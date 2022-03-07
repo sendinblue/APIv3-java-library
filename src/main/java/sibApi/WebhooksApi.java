@@ -426,12 +426,13 @@ public class WebhooksApi {
     /**
      * Build call for getWebhooks
      * @param type Filter on webhook type (optional, default to transactional)
+     * @param sort Sort the results in the ascending/descending order of webhook creation (optional, default to desc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWebhooksCall(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getWebhooksCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -441,6 +442,8 @@ public class WebhooksApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (type != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+        if (sort != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -475,10 +478,10 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWebhooksValidateBeforeCall(String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getWebhooksValidateBeforeCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getWebhooksCall(type, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWebhooksCall(type, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -487,11 +490,12 @@ public class WebhooksApi {
      * Get all webhooks
      * 
      * @param type Filter on webhook type (optional, default to transactional)
+     * @param sort Sort the results in the ascending/descending order of webhook creation (optional, default to desc)
      * @return GetWebhooks
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetWebhooks getWebhooks(String type) throws ApiException {
-        ApiResponse<GetWebhooks> resp = getWebhooksWithHttpInfo(type);
+    public GetWebhooks getWebhooks(String type, String sort) throws ApiException {
+        ApiResponse<GetWebhooks> resp = getWebhooksWithHttpInfo(type, sort);
         return resp.getData();
     }
 
@@ -499,11 +503,12 @@ public class WebhooksApi {
      * Get all webhooks
      * 
      * @param type Filter on webhook type (optional, default to transactional)
+     * @param sort Sort the results in the ascending/descending order of webhook creation (optional, default to desc)
      * @return ApiResponse&lt;GetWebhooks&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetWebhooks> getWebhooksWithHttpInfo(String type) throws ApiException {
-        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, null, null);
+    public ApiResponse<GetWebhooks> getWebhooksWithHttpInfo(String type, String sort) throws ApiException {
+        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, sort, null, null);
         Type localVarReturnType = new TypeToken<GetWebhooks>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -512,11 +517,12 @@ public class WebhooksApi {
      * Get all webhooks (asynchronously)
      * 
      * @param type Filter on webhook type (optional, default to transactional)
+     * @param sort Sort the results in the ascending/descending order of webhook creation (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWebhooksAsync(String type, final ApiCallback<GetWebhooks> callback) throws ApiException {
+    public com.squareup.okhttp.Call getWebhooksAsync(String type, String sort, final ApiCallback<GetWebhooks> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -537,7 +543,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetWebhooks>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

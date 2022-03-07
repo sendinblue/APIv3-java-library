@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,13 +30,10 @@ import sibModel.RequestContactExportCustomContactFilter;
 /**
  * RequestContactExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class RequestContactExport {
   @SerializedName("exportAttributes")
   private List<String> exportAttributes = null;
-
-  @SerializedName("contactFilter")
-  private Object contactFilter = null;
 
   @SerializedName("customContactFilter")
   private RequestContactExportCustomContactFilter customContactFilter = null;
@@ -69,24 +67,6 @@ public class RequestContactExport {
     this.exportAttributes = exportAttributes;
   }
 
-  public RequestContactExport contactFilter(Object contactFilter) {
-    this.contactFilter = contactFilter;
-    return this;
-  }
-
-   /**
-   * This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {&quot;blacklisted&quot;:true} will export all the blacklisted contacts. 
-   * @return contactFilter
-  **/
-  @ApiModelProperty(example = "{\"blacklisted\":true,\"listid.id\":32}", value = "This attribute has been deprecated and will be removed by January 1st, 2021. Only one of the two filter options (contactFilter or customContactFilter) can be passed in the request. Set the filter for the contacts to be exported. For example, {\"blacklisted\":true} will export all the blacklisted contacts. ")
-  public Object getContactFilter() {
-    return contactFilter;
-  }
-
-  public void setContactFilter(Object contactFilter) {
-    this.contactFilter = contactFilter;
-  }
-
   public RequestContactExport customContactFilter(RequestContactExportCustomContactFilter customContactFilter) {
     this.customContactFilter = customContactFilter;
     return this;
@@ -96,7 +76,7 @@ public class RequestContactExport {
    * Get customContactFilter
    * @return customContactFilter
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public RequestContactExportCustomContactFilter getCustomContactFilter() {
     return customContactFilter;
   }
@@ -126,22 +106,21 @@ public class RequestContactExport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     RequestContactExport requestContactExport = (RequestContactExport) o;
-    return ObjectUtils.equals(this.exportAttributes, requestContactExport.exportAttributes) &&
-    ObjectUtils.equals(this.contactFilter, requestContactExport.contactFilter) &&
-    ObjectUtils.equals(this.customContactFilter, requestContactExport.customContactFilter) &&
-    ObjectUtils.equals(this.notifyUrl, requestContactExport.notifyUrl);
+    return Objects.equals(this.exportAttributes, requestContactExport.exportAttributes) &&
+        Objects.equals(this.customContactFilter, requestContactExport.customContactFilter) &&
+        Objects.equals(this.notifyUrl, requestContactExport.notifyUrl);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(exportAttributes, contactFilter, customContactFilter, notifyUrl);
+    return Objects.hash(exportAttributes, customContactFilter, notifyUrl);
   }
 
 
@@ -151,7 +130,6 @@ public class RequestContactExport {
     sb.append("class RequestContactExport {\n");
     
     sb.append("    exportAttributes: ").append(toIndentedString(exportAttributes)).append("\n");
-    sb.append("    contactFilter: ").append(toIndentedString(contactFilter)).append("\n");
     sb.append("    customContactFilter: ").append(toIndentedString(customContactFilter)).append("\n");
     sb.append("    notifyUrl: ").append(toIndentedString(notifyUrl)).append("\n");
     sb.append("}");

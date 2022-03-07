@@ -33,7 +33,6 @@ import sibModel.CreatedProcessId;
 import sibModel.ErrorModel;
 import sibModel.GetSmsCampaign;
 import sibModel.GetSmsCampaigns;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendSmsTestFailed;
 import sibModel.RequestSmsRecipientExport;
 import sibModel.SendReport;

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **opened** | [**List&lt;GetContactCampaignStatsOpened&gt;**](GetContactCampaignStatsOpened.md) |  |  [optional]
 **clicked** | [**List&lt;GetContactCampaignStatsClicked&gt;**](GetContactCampaignStatsClicked.md) |  |  [optional]
 **transacAttributes** | [**List&lt;GetContactCampaignStatsTransacAttributes&gt;**](GetContactCampaignStatsTransacAttributes.md) |  |  [optional]
+**delivered** | [**List&lt;GetExtendedContactDetailsStatisticsMessagesSent&gt;**](GetExtendedContactDetailsStatisticsMessagesSent.md) |  |  [optional]
 
 
 
