@@ -71,7 +71,7 @@ public class ApiClient {
     private KeyManager[] keyManagers;
 
     private OkHttpClient httpClient;
-    private JSON json;
+    private Json json;
 
     private HttpLoggingInterceptor loggingInterceptor;
 
@@ -84,7 +84,7 @@ public class ApiClient {
 
         verifyingSsl = true;
 
-        json = new JSON();
+        json = new Json();
 
         // Set default User-Agent.
         setUserAgent("Swagger-Codegen/6.0.0/java");
@@ -142,7 +142,7 @@ public class ApiClient {
      *
      * @return JSON object
      */
-    public JSON getJSON() {
+    public Json getJSON() {
         return json;
     }
 
@@ -152,7 +152,7 @@ public class ApiClient {
      * @param json JSON object
      * @return Api client
      */
-    public ApiClient setJSON(JSON json) {
+    public ApiClient setJSON(Json json) {
         this.json = json;
         return this;
     }
