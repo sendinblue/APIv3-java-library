@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * GetEmailCampaigns
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetEmailCampaigns {
   @SerializedName("campaigns")
   private List<Object> campaigns = null;
@@ -83,20 +84,20 @@ public class GetEmailCampaigns {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetEmailCampaigns getEmailCampaigns = (GetEmailCampaigns) o;
-    return ObjectUtils.equals(this.campaigns, getEmailCampaigns.campaigns) &&
-    ObjectUtils.equals(this.count, getEmailCampaigns.count);
+    return Objects.equals(this.campaigns, getEmailCampaigns.campaigns) &&
+        Objects.equals(this.count, getEmailCampaigns.count);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(campaigns, count);
+    return Objects.hash(campaigns, count);
   }
 
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {&quot;email&quot;:&quot;ann6533@example.com&quot;, &quot;name&quot;:&quot;Ann&quot;}
  */
 @ApiModel(description = "Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\"email\":\"ann6533@example.com\", \"name\":\"Ann\"}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendSmtpEmailReplyTo1 {
   @SerializedName("email")
   private String email = null;
@@ -74,20 +75,20 @@ public class SendSmtpEmailReplyTo1 {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendSmtpEmailReplyTo1 sendSmtpEmailReplyTo1 = (SendSmtpEmailReplyTo1) o;
-    return ObjectUtils.equals(this.email, sendSmtpEmailReplyTo1.email) &&
-    ObjectUtils.equals(this.name, sendSmtpEmailReplyTo1.name);
+    return Objects.equals(this.email, sendSmtpEmailReplyTo1.email) &&
+        Objects.equals(this.name, sendSmtpEmailReplyTo1.name);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, name);
+    return Objects.hash(email, name);
   }
 
 

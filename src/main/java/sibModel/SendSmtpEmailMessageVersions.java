@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,7 +35,7 @@ import sibModel.SendSmtpEmailTo1;
 /**
  * SendSmtpEmailMessageVersions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendSmtpEmailMessageVersions {
   @SerializedName("to")
   private List<SendSmtpEmailTo1> to = new ArrayList<SendSmtpEmailTo1>();
@@ -194,24 +195,24 @@ public class SendSmtpEmailMessageVersions {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendSmtpEmailMessageVersions sendSmtpEmailMessageVersions = (SendSmtpEmailMessageVersions) o;
-    return ObjectUtils.equals(this.to, sendSmtpEmailMessageVersions.to) &&
-    ObjectUtils.equals(this.params, sendSmtpEmailMessageVersions.params) &&
-    ObjectUtils.equals(this.bcc, sendSmtpEmailMessageVersions.bcc) &&
-    ObjectUtils.equals(this.cc, sendSmtpEmailMessageVersions.cc) &&
-    ObjectUtils.equals(this.replyTo, sendSmtpEmailMessageVersions.replyTo) &&
-    ObjectUtils.equals(this.subject, sendSmtpEmailMessageVersions.subject);
+    return Objects.equals(this.to, sendSmtpEmailMessageVersions.to) &&
+        Objects.equals(this.params, sendSmtpEmailMessageVersions.params) &&
+        Objects.equals(this.bcc, sendSmtpEmailMessageVersions.bcc) &&
+        Objects.equals(this.cc, sendSmtpEmailMessageVersions.cc) &&
+        Objects.equals(this.replyTo, sendSmtpEmailMessageVersions.replyTo) &&
+        Objects.equals(this.subject, sendSmtpEmailMessageVersions.subject);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(to, params, bcc, cc, replyTo, subject);
+    return Objects.hash(to, params, bcc, cc, replyTo, subject);
   }
 
 

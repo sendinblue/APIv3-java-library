@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * GetAggregatedReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetAggregatedReport {
   @SerializedName("range")
   private String range = null;
@@ -304,31 +305,31 @@ public class GetAggregatedReport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetAggregatedReport getAggregatedReport = (GetAggregatedReport) o;
-    return ObjectUtils.equals(this.range, getAggregatedReport.range) &&
-    ObjectUtils.equals(this.requests, getAggregatedReport.requests) &&
-    ObjectUtils.equals(this.delivered, getAggregatedReport.delivered) &&
-    ObjectUtils.equals(this.hardBounces, getAggregatedReport.hardBounces) &&
-    ObjectUtils.equals(this.softBounces, getAggregatedReport.softBounces) &&
-    ObjectUtils.equals(this.clicks, getAggregatedReport.clicks) &&
-    ObjectUtils.equals(this.uniqueClicks, getAggregatedReport.uniqueClicks) &&
-    ObjectUtils.equals(this.opens, getAggregatedReport.opens) &&
-    ObjectUtils.equals(this.uniqueOpens, getAggregatedReport.uniqueOpens) &&
-    ObjectUtils.equals(this.spamReports, getAggregatedReport.spamReports) &&
-    ObjectUtils.equals(this.blocked, getAggregatedReport.blocked) &&
-    ObjectUtils.equals(this.invalid, getAggregatedReport.invalid) &&
-    ObjectUtils.equals(this.unsubscribed, getAggregatedReport.unsubscribed);
+    return Objects.equals(this.range, getAggregatedReport.range) &&
+        Objects.equals(this.requests, getAggregatedReport.requests) &&
+        Objects.equals(this.delivered, getAggregatedReport.delivered) &&
+        Objects.equals(this.hardBounces, getAggregatedReport.hardBounces) &&
+        Objects.equals(this.softBounces, getAggregatedReport.softBounces) &&
+        Objects.equals(this.clicks, getAggregatedReport.clicks) &&
+        Objects.equals(this.uniqueClicks, getAggregatedReport.uniqueClicks) &&
+        Objects.equals(this.opens, getAggregatedReport.opens) &&
+        Objects.equals(this.uniqueOpens, getAggregatedReport.uniqueOpens) &&
+        Objects.equals(this.spamReports, getAggregatedReport.spamReports) &&
+        Objects.equals(this.blocked, getAggregatedReport.blocked) &&
+        Objects.equals(this.invalid, getAggregatedReport.invalid) &&
+        Objects.equals(this.unsubscribed, getAggregatedReport.unsubscribed);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(range, requests, delivered, hardBounces, softBounces, clicks, uniqueClicks, opens, uniqueOpens, spamReports, blocked, invalid, unsubscribed);
+    return Objects.hash(range, requests, delivered, hardBounces, softBounces, clicks, uniqueClicks, opens, uniqueOpens, spamReports, blocked, invalid, unsubscribed);
   }
 
 

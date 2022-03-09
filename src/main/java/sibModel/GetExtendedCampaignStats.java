@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import sibModel.GetExtendedCampaignStatsGlobalStats;
 import sibModel.GetStatsByBrowser;
 import sibModel.GetStatsByDevice;
 import sibModel.GetStatsByDomain;
@@ -31,10 +33,10 @@ import sibModel.GetStatsByDomain;
 /**
  * GetExtendedCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetExtendedCampaignStats {
   @SerializedName("globalStats")
-  private Object globalStats = null;
+  private GetExtendedCampaignStatsGlobalStats globalStats = null;
 
   @SerializedName("campaignStats")
   private List<Object> campaignStats = new ArrayList<Object>();
@@ -57,21 +59,21 @@ public class GetExtendedCampaignStats {
   @SerializedName("statsByBrowser")
   private GetStatsByBrowser statsByBrowser = null;
 
-  public GetExtendedCampaignStats globalStats(Object globalStats) {
+  public GetExtendedCampaignStats globalStats(GetExtendedCampaignStatsGlobalStats globalStats) {
     this.globalStats = globalStats;
     return this;
   }
 
    /**
-   * Overall statistics of the campaign
+   * Get globalStats
    * @return globalStats
   **/
-  @ApiModelProperty(required = true, value = "Overall statistics of the campaign")
-  public Object getGlobalStats() {
+  @ApiModelProperty(required = true, value = "")
+  public GetExtendedCampaignStatsGlobalStats getGlobalStats() {
     return globalStats;
   }
 
-  public void setGlobalStats(Object globalStats) {
+  public void setGlobalStats(GetExtendedCampaignStatsGlobalStats globalStats) {
     this.globalStats = globalStats;
   }
 
@@ -209,26 +211,26 @@ public class GetExtendedCampaignStats {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedCampaignStats getExtendedCampaignStats = (GetExtendedCampaignStats) o;
-    return ObjectUtils.equals(this.globalStats, getExtendedCampaignStats.globalStats) &&
-    ObjectUtils.equals(this.campaignStats, getExtendedCampaignStats.campaignStats) &&
-    ObjectUtils.equals(this.mirrorClick, getExtendedCampaignStats.mirrorClick) &&
-    ObjectUtils.equals(this.remaining, getExtendedCampaignStats.remaining) &&
-    ObjectUtils.equals(this.linksStats, getExtendedCampaignStats.linksStats) &&
-    ObjectUtils.equals(this.statsByDomain, getExtendedCampaignStats.statsByDomain) &&
-    ObjectUtils.equals(this.statsByDevice, getExtendedCampaignStats.statsByDevice) &&
-    ObjectUtils.equals(this.statsByBrowser, getExtendedCampaignStats.statsByBrowser);
+    return Objects.equals(this.globalStats, getExtendedCampaignStats.globalStats) &&
+        Objects.equals(this.campaignStats, getExtendedCampaignStats.campaignStats) &&
+        Objects.equals(this.mirrorClick, getExtendedCampaignStats.mirrorClick) &&
+        Objects.equals(this.remaining, getExtendedCampaignStats.remaining) &&
+        Objects.equals(this.linksStats, getExtendedCampaignStats.linksStats) &&
+        Objects.equals(this.statsByDomain, getExtendedCampaignStats.statsByDomain) &&
+        Objects.equals(this.statsByDevice, getExtendedCampaignStats.statsByDevice) &&
+        Objects.equals(this.statsByBrowser, getExtendedCampaignStats.statsByBrowser);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(globalStats, campaignStats, mirrorClick, remaining, linksStats, statsByDomain, statsByDevice, statsByBrowser);
+    return Objects.hash(globalStats, campaignStats, mirrorClick, remaining, linksStats, statsByDomain, statsByDevice, statsByBrowser);
   }
 
 

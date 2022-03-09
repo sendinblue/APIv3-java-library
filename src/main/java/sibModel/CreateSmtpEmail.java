@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * CreateSmtpEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class CreateSmtpEmail {
   @SerializedName("messageId")
   private String messageId = null;
@@ -83,20 +84,20 @@ public class CreateSmtpEmail {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     CreateSmtpEmail createSmtpEmail = (CreateSmtpEmail) o;
-    return ObjectUtils.equals(this.messageId, createSmtpEmail.messageId) &&
-    ObjectUtils.equals(this.messageIds, createSmtpEmail.messageIds);
+    return Objects.equals(this.messageId, createSmtpEmail.messageId) &&
+        Objects.equals(this.messageIds, createSmtpEmail.messageIds);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(messageId, messageIds);
+    return Objects.hash(messageId, messageIds);
   }
 
 

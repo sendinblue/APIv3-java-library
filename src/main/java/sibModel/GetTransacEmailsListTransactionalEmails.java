@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,12 +25,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetTransacEmailsListTransactionalEmails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetTransacEmailsListTransactionalEmails {
   @SerializedName("email")
   private String email = null;
@@ -210,26 +210,26 @@ public class GetTransacEmailsListTransactionalEmails {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetTransacEmailsListTransactionalEmails getTransacEmailsListTransactionalEmails = (GetTransacEmailsListTransactionalEmails) o;
-    return ObjectUtils.equals(this.email, getTransacEmailsListTransactionalEmails.email) &&
-    ObjectUtils.equals(this.subject, getTransacEmailsListTransactionalEmails.subject) &&
-    ObjectUtils.equals(this.templateId, getTransacEmailsListTransactionalEmails.templateId) &&
-    ObjectUtils.equals(this.messageId, getTransacEmailsListTransactionalEmails.messageId) &&
-    ObjectUtils.equals(this.uuid, getTransacEmailsListTransactionalEmails.uuid) &&
-    ObjectUtils.equals(this.date, getTransacEmailsListTransactionalEmails.date) &&
-    ObjectUtils.equals(this.from, getTransacEmailsListTransactionalEmails.from) &&
-    ObjectUtils.equals(this.tags, getTransacEmailsListTransactionalEmails.tags);
+    return Objects.equals(this.email, getTransacEmailsListTransactionalEmails.email) &&
+        Objects.equals(this.subject, getTransacEmailsListTransactionalEmails.subject) &&
+        Objects.equals(this.templateId, getTransacEmailsListTransactionalEmails.templateId) &&
+        Objects.equals(this.messageId, getTransacEmailsListTransactionalEmails.messageId) &&
+        Objects.equals(this.uuid, getTransacEmailsListTransactionalEmails.uuid) &&
+        Objects.equals(this.date, getTransacEmailsListTransactionalEmails.date) &&
+        Objects.equals(this.from, getTransacEmailsListTransactionalEmails.from) &&
+        Objects.equals(this.tags, getTransacEmailsListTransactionalEmails.tags);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, subject, templateId, messageId, uuid, date, from, tags);
+    return Objects.hash(email, subject, templateId, messageId, uuid, date, from, tags);
   }
 
 

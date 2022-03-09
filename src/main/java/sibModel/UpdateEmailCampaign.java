@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,14 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.UpdateEmailCampaignRecipients;
 import sibModel.UpdateEmailCampaignSender;
 
 /**
  * UpdateEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class UpdateEmailCampaign {
   @SerializedName("tag")
   private String tag = null;
@@ -225,7 +225,7 @@ public class UpdateEmailCampaign {
    * Body of the message (HTML version). REQUIRED if htmlUrl is empty
    * @return htmlContent
   **/
-  @ApiModelProperty(example = "Spring is here, discover my new collection", value = "Body of the message (HTML version). REQUIRED if htmlUrl is empty")
+  @ApiModelProperty(example = "<!DOCTYPE html> <html> <body> <h1>Confirm you email</h1> <p>Please confirm your email address by clicking on the link below</p> </body> </html>", value = "Body of the message (HTML version). REQUIRED if htmlUrl is empty")
   public String getHtmlContent() {
     return htmlContent;
   }
@@ -675,46 +675,46 @@ public class UpdateEmailCampaign {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     UpdateEmailCampaign updateEmailCampaign = (UpdateEmailCampaign) o;
-    return ObjectUtils.equals(this.tag, updateEmailCampaign.tag) &&
-    ObjectUtils.equals(this.sender, updateEmailCampaign.sender) &&
-    ObjectUtils.equals(this.name, updateEmailCampaign.name) &&
-    ObjectUtils.equals(this.htmlContent, updateEmailCampaign.htmlContent) &&
-    ObjectUtils.equals(this.htmlUrl, updateEmailCampaign.htmlUrl) &&
-    ObjectUtils.equals(this.scheduledAt, updateEmailCampaign.scheduledAt) &&
-    ObjectUtils.equals(this.subject, updateEmailCampaign.subject) &&
-    ObjectUtils.equals(this.replyTo, updateEmailCampaign.replyTo) &&
-    ObjectUtils.equals(this.toField, updateEmailCampaign.toField) &&
-    ObjectUtils.equals(this.recipients, updateEmailCampaign.recipients) &&
-    ObjectUtils.equals(this.attachmentUrl, updateEmailCampaign.attachmentUrl) &&
-    ObjectUtils.equals(this.inlineImageActivation, updateEmailCampaign.inlineImageActivation) &&
-    ObjectUtils.equals(this.mirrorActive, updateEmailCampaign.mirrorActive) &&
-    ObjectUtils.equals(this.recurring, updateEmailCampaign.recurring) &&
-    ObjectUtils.equals(this.footer, updateEmailCampaign.footer) &&
-    ObjectUtils.equals(this.header, updateEmailCampaign.header) &&
-    ObjectUtils.equals(this.utmCampaign, updateEmailCampaign.utmCampaign) &&
-    ObjectUtils.equals(this.params, updateEmailCampaign.params) &&
-    ObjectUtils.equals(this.sendAtBestTime, updateEmailCampaign.sendAtBestTime) &&
-    ObjectUtils.equals(this.abTesting, updateEmailCampaign.abTesting) &&
-    ObjectUtils.equals(this.subjectA, updateEmailCampaign.subjectA) &&
-    ObjectUtils.equals(this.subjectB, updateEmailCampaign.subjectB) &&
-    ObjectUtils.equals(this.splitRule, updateEmailCampaign.splitRule) &&
-    ObjectUtils.equals(this.winnerCriteria, updateEmailCampaign.winnerCriteria) &&
-    ObjectUtils.equals(this.winnerDelay, updateEmailCampaign.winnerDelay) &&
-    ObjectUtils.equals(this.ipWarmupEnable, updateEmailCampaign.ipWarmupEnable) &&
-    ObjectUtils.equals(this.initialQuota, updateEmailCampaign.initialQuota) &&
-    ObjectUtils.equals(this.increaseRate, updateEmailCampaign.increaseRate);
+    return Objects.equals(this.tag, updateEmailCampaign.tag) &&
+        Objects.equals(this.sender, updateEmailCampaign.sender) &&
+        Objects.equals(this.name, updateEmailCampaign.name) &&
+        Objects.equals(this.htmlContent, updateEmailCampaign.htmlContent) &&
+        Objects.equals(this.htmlUrl, updateEmailCampaign.htmlUrl) &&
+        Objects.equals(this.scheduledAt, updateEmailCampaign.scheduledAt) &&
+        Objects.equals(this.subject, updateEmailCampaign.subject) &&
+        Objects.equals(this.replyTo, updateEmailCampaign.replyTo) &&
+        Objects.equals(this.toField, updateEmailCampaign.toField) &&
+        Objects.equals(this.recipients, updateEmailCampaign.recipients) &&
+        Objects.equals(this.attachmentUrl, updateEmailCampaign.attachmentUrl) &&
+        Objects.equals(this.inlineImageActivation, updateEmailCampaign.inlineImageActivation) &&
+        Objects.equals(this.mirrorActive, updateEmailCampaign.mirrorActive) &&
+        Objects.equals(this.recurring, updateEmailCampaign.recurring) &&
+        Objects.equals(this.footer, updateEmailCampaign.footer) &&
+        Objects.equals(this.header, updateEmailCampaign.header) &&
+        Objects.equals(this.utmCampaign, updateEmailCampaign.utmCampaign) &&
+        Objects.equals(this.params, updateEmailCampaign.params) &&
+        Objects.equals(this.sendAtBestTime, updateEmailCampaign.sendAtBestTime) &&
+        Objects.equals(this.abTesting, updateEmailCampaign.abTesting) &&
+        Objects.equals(this.subjectA, updateEmailCampaign.subjectA) &&
+        Objects.equals(this.subjectB, updateEmailCampaign.subjectB) &&
+        Objects.equals(this.splitRule, updateEmailCampaign.splitRule) &&
+        Objects.equals(this.winnerCriteria, updateEmailCampaign.winnerCriteria) &&
+        Objects.equals(this.winnerDelay, updateEmailCampaign.winnerDelay) &&
+        Objects.equals(this.ipWarmupEnable, updateEmailCampaign.ipWarmupEnable) &&
+        Objects.equals(this.initialQuota, updateEmailCampaign.initialQuota) &&
+        Objects.equals(this.increaseRate, updateEmailCampaign.increaseRate);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(tag, sender, name, htmlContent, htmlUrl, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, recurring, footer, header, utmCampaign, params, sendAtBestTime, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, ipWarmupEnable, initialQuota, increaseRate);
+    return Objects.hash(tag, sender, name, htmlContent, htmlUrl, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, recurring, footer, header, utmCampaign, params, sendAtBestTime, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, ipWarmupEnable, initialQuota, increaseRate);
   }
 
 

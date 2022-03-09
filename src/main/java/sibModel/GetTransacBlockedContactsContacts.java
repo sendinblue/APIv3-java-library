@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,13 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.GetTransacBlockedContactsReason;
 
 /**
  * GetTransacBlockedContactsContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetTransacBlockedContactsContacts {
   @SerializedName("email")
   private String email = null;
@@ -117,22 +117,22 @@ public class GetTransacBlockedContactsContacts {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetTransacBlockedContactsContacts getTransacBlockedContactsContacts = (GetTransacBlockedContactsContacts) o;
-    return ObjectUtils.equals(this.email, getTransacBlockedContactsContacts.email) &&
-    ObjectUtils.equals(this.senderEmail, getTransacBlockedContactsContacts.senderEmail) &&
-    ObjectUtils.equals(this.reason, getTransacBlockedContactsContacts.reason) &&
-    ObjectUtils.equals(this.blockedAt, getTransacBlockedContactsContacts.blockedAt);
+    return Objects.equals(this.email, getTransacBlockedContactsContacts.email) &&
+        Objects.equals(this.senderEmail, getTransacBlockedContactsContacts.senderEmail) &&
+        Objects.equals(this.reason, getTransacBlockedContactsContacts.reason) &&
+        Objects.equals(this.blockedAt, getTransacBlockedContactsContacts.blockedAt);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, senderEmail, reason, blockedAt);
+    return Objects.hash(email, senderEmail, reason, blockedAt);
   }
 
 

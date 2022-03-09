@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import sibModel.SendReportEmail;
 /**
  * SendReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendReport {
   /**
    * Language of email content for campaign report sending.
@@ -129,20 +130,20 @@ public class SendReport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendReport sendReport = (SendReport) o;
-    return ObjectUtils.equals(this.language, sendReport.language) &&
-    ObjectUtils.equals(this.email, sendReport.email);
+    return Objects.equals(this.language, sendReport.language) &&
+        Objects.equals(this.email, sendReport.email);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(language, email);
+    return Objects.hash(language, email);
   }
 
 

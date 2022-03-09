@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 <a name="getWebhooks"></a>
 # **getWebhooks**
-> GetWebhooks getWebhooks(type)
+> GetWebhooks getWebhooks(type, sort)
 
 Get all webhooks
 
@@ -218,8 +218,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 WebhooksApi apiInstance = new WebhooksApi();
 String type = "transactional"; // String | Filter on webhook type
+String sort = "desc"; // String | Sort the results in the ascending/descending order of webhook creation
 try {
-    GetWebhooks result = apiInstance.getWebhooks(type);
+    GetWebhooks result = apiInstance.getWebhooks(type, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhooksApi#getWebhooks");
@@ -231,7 +232,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Filter on webhook type | [optional] [default to transactional] [enum: marketing, transactional]
+ **type** | **String**| Filter on webhook type | [optional] [default to transactional] [enum: marketing, transactional, inbound]
+ **sort** | **String**| Sort the results in the ascending/descending order of webhook creation | [optional] [default to desc] [enum: asc, desc]
 
 ### Return type
 

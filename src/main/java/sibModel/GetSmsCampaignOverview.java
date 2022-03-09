@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +23,11 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * GetSmsCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetSmsCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -255,26 +255,26 @@ public class GetSmsCampaignOverview {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetSmsCampaignOverview getSmsCampaignOverview = (GetSmsCampaignOverview) o;
-    return ObjectUtils.equals(this.id, getSmsCampaignOverview.id) &&
-    ObjectUtils.equals(this.name, getSmsCampaignOverview.name) &&
-    ObjectUtils.equals(this.status, getSmsCampaignOverview.status) &&
-    ObjectUtils.equals(this.content, getSmsCampaignOverview.content) &&
-    ObjectUtils.equals(this.scheduledAt, getSmsCampaignOverview.scheduledAt) &&
-    ObjectUtils.equals(this.sender, getSmsCampaignOverview.sender) &&
-    ObjectUtils.equals(this.createdAt, getSmsCampaignOverview.createdAt) &&
-    ObjectUtils.equals(this.modifiedAt, getSmsCampaignOverview.modifiedAt);
+    return Objects.equals(this.id, getSmsCampaignOverview.id) &&
+        Objects.equals(this.name, getSmsCampaignOverview.name) &&
+        Objects.equals(this.status, getSmsCampaignOverview.status) &&
+        Objects.equals(this.content, getSmsCampaignOverview.content) &&
+        Objects.equals(this.scheduledAt, getSmsCampaignOverview.scheduledAt) &&
+        Objects.equals(this.sender, getSmsCampaignOverview.sender) &&
+        Objects.equals(this.createdAt, getSmsCampaignOverview.createdAt) &&
+        Objects.equals(this.modifiedAt, getSmsCampaignOverview.modifiedAt);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(id, name, status, content, scheduledAt, sender, createdAt, modifiedAt);
+    return Objects.hash(id, name, status, content, scheduledAt, sender, createdAt, modifiedAt);
   }
 
 

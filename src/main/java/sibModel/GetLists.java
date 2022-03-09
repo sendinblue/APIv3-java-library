@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * GetLists
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetLists {
   @SerializedName("lists")
   private List<Object> lists = null;
@@ -83,20 +84,20 @@ public class GetLists {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetLists getLists = (GetLists) o;
-    return ObjectUtils.equals(this.lists, getLists.lists) &&
-    ObjectUtils.equals(this.count, getLists.count);
+    return Objects.equals(this.lists, getLists.lists) &&
+        Objects.equals(this.count, getLists.count);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(lists, count);
+    return Objects.hash(lists, count);
   }
 
 

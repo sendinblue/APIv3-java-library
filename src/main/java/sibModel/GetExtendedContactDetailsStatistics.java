@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import sibModel.GetExtendedContactDetailsStatisticsClicked;
+import sibModel.GetExtendedContactDetailsStatisticsDelivered;
 import sibModel.GetExtendedContactDetailsStatisticsMessagesSent;
 import sibModel.GetExtendedContactDetailsStatisticsOpened;
 import sibModel.GetExtendedContactDetailsStatisticsUnsubscriptions;
@@ -33,7 +35,7 @@ import sibModel.GetExtendedContactDetailsStatisticsUnsubscriptions;
  * Campaign statistics of the contact
  */
 @ApiModel(description = "Campaign statistics of the contact")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetExtendedContactDetailsStatistics {
   @SerializedName("messagesSent")
   private List<GetExtendedContactDetailsStatisticsMessagesSent> messagesSent = null;
@@ -58,6 +60,9 @@ public class GetExtendedContactDetailsStatistics {
 
   @SerializedName("transacAttributes")
   private List<Object> transacAttributes = null;
+
+  @SerializedName("delivered")
+  private List<GetExtendedContactDetailsStatisticsDelivered> delivered = null;
 
   public GetExtendedContactDetailsStatistics messagesSent(List<GetExtendedContactDetailsStatisticsMessagesSent> messagesSent) {
     this.messagesSent = messagesSent;
@@ -259,29 +264,56 @@ public class GetExtendedContactDetailsStatistics {
     this.transacAttributes = transacAttributes;
   }
 
+  public GetExtendedContactDetailsStatistics delivered(List<GetExtendedContactDetailsStatisticsDelivered> delivered) {
+    this.delivered = delivered;
+    return this;
+  }
+
+  public GetExtendedContactDetailsStatistics addDeliveredItem(GetExtendedContactDetailsStatisticsDelivered deliveredItem) {
+    if (this.delivered == null) {
+      this.delivered = new ArrayList<GetExtendedContactDetailsStatisticsDelivered>();
+    }
+    this.delivered.add(deliveredItem);
+    return this;
+  }
+
+   /**
+   * Listing of the delivered campaign for the contact
+   * @return delivered
+  **/
+  @ApiModelProperty(value = "Listing of the delivered campaign for the contact")
+  public List<GetExtendedContactDetailsStatisticsDelivered> getDelivered() {
+    return delivered;
+  }
+
+  public void setDelivered(List<GetExtendedContactDetailsStatisticsDelivered> delivered) {
+    this.delivered = delivered;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetExtendedContactDetailsStatistics getExtendedContactDetailsStatistics = (GetExtendedContactDetailsStatistics) o;
-    return ObjectUtils.equals(this.messagesSent, getExtendedContactDetailsStatistics.messagesSent) &&
-    ObjectUtils.equals(this.hardBounces, getExtendedContactDetailsStatistics.hardBounces) &&
-    ObjectUtils.equals(this.softBounces, getExtendedContactDetailsStatistics.softBounces) &&
-    ObjectUtils.equals(this.complaints, getExtendedContactDetailsStatistics.complaints) &&
-    ObjectUtils.equals(this.unsubscriptions, getExtendedContactDetailsStatistics.unsubscriptions) &&
-    ObjectUtils.equals(this.opened, getExtendedContactDetailsStatistics.opened) &&
-    ObjectUtils.equals(this.clicked, getExtendedContactDetailsStatistics.clicked) &&
-    ObjectUtils.equals(this.transacAttributes, getExtendedContactDetailsStatistics.transacAttributes);
+    return Objects.equals(this.messagesSent, getExtendedContactDetailsStatistics.messagesSent) &&
+        Objects.equals(this.hardBounces, getExtendedContactDetailsStatistics.hardBounces) &&
+        Objects.equals(this.softBounces, getExtendedContactDetailsStatistics.softBounces) &&
+        Objects.equals(this.complaints, getExtendedContactDetailsStatistics.complaints) &&
+        Objects.equals(this.unsubscriptions, getExtendedContactDetailsStatistics.unsubscriptions) &&
+        Objects.equals(this.opened, getExtendedContactDetailsStatistics.opened) &&
+        Objects.equals(this.clicked, getExtendedContactDetailsStatistics.clicked) &&
+        Objects.equals(this.transacAttributes, getExtendedContactDetailsStatistics.transacAttributes) &&
+        Objects.equals(this.delivered, getExtendedContactDetailsStatistics.delivered);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(messagesSent, hardBounces, softBounces, complaints, unsubscriptions, opened, clicked, transacAttributes);
+    return Objects.hash(messagesSent, hardBounces, softBounces, complaints, unsubscriptions, opened, clicked, transacAttributes, delivered);
   }
 
 
@@ -298,6 +330,7 @@ public class GetExtendedContactDetailsStatistics {
     sb.append("    opened: ").append(toIndentedString(opened)).append("\n");
     sb.append("    clicked: ").append(toIndentedString(clicked)).append("\n");
     sb.append("    transacAttributes: ").append(toIndentedString(transacAttributes)).append("\n");
+    sb.append("    delivered: ").append(toIndentedString(delivered)).append("\n");
     sb.append("}");
     return sb.toString();
   }

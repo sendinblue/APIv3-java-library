@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,13 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.CreateSmsCampaignRecipients;
 
 /**
  * CreateSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class CreateSmsCampaign {
   @SerializedName("name")
   private String name = null;
@@ -44,6 +44,9 @@ public class CreateSmsCampaign {
 
   @SerializedName("scheduledAt")
   private String scheduledAt = null;
+
+  @SerializedName("unicodeEnabled")
+  private Boolean unicodeEnabled = false;
 
   public CreateSmsCampaign name(String name) {
     this.name = name;
@@ -135,26 +138,45 @@ public class CreateSmsCampaign {
     this.scheduledAt = scheduledAt;
   }
 
+  public CreateSmsCampaign unicodeEnabled(Boolean unicodeEnabled) {
+    this.unicodeEnabled = unicodeEnabled;
+    return this;
+  }
+
+   /**
+   * Format of the message. It indicates whether the content should be treated as unicode or not.
+   * @return unicodeEnabled
+  **/
+  @ApiModelProperty(example = "true", value = "Format of the message. It indicates whether the content should be treated as unicode or not.")
+  public Boolean isUnicodeEnabled() {
+    return unicodeEnabled;
+  }
+
+  public void setUnicodeEnabled(Boolean unicodeEnabled) {
+    this.unicodeEnabled = unicodeEnabled;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     CreateSmsCampaign createSmsCampaign = (CreateSmsCampaign) o;
-    return ObjectUtils.equals(this.name, createSmsCampaign.name) &&
-    ObjectUtils.equals(this.sender, createSmsCampaign.sender) &&
-    ObjectUtils.equals(this.content, createSmsCampaign.content) &&
-    ObjectUtils.equals(this.recipients, createSmsCampaign.recipients) &&
-    ObjectUtils.equals(this.scheduledAt, createSmsCampaign.scheduledAt);
+    return Objects.equals(this.name, createSmsCampaign.name) &&
+        Objects.equals(this.sender, createSmsCampaign.sender) &&
+        Objects.equals(this.content, createSmsCampaign.content) &&
+        Objects.equals(this.recipients, createSmsCampaign.recipients) &&
+        Objects.equals(this.scheduledAt, createSmsCampaign.scheduledAt) &&
+        Objects.equals(this.unicodeEnabled, createSmsCampaign.unicodeEnabled);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(name, sender, content, recipients, scheduledAt);
+    return Objects.hash(name, sender, content, recipients, scheduledAt, unicodeEnabled);
   }
 
 
@@ -168,6 +190,7 @@ public class CreateSmsCampaign {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
+    sb.append("    unicodeEnabled: ").append(toIndentedString(unicodeEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

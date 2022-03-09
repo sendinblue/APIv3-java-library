@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,23 +34,8 @@ import sibModel.GetExtendedClientAddress;
 /**
  * GetAccount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
-public class GetAccount {
-  @SerializedName("email")
-  private String email = null;
-
-  @SerializedName("firstName")
-  private String firstName = null;
-
-  @SerializedName("lastName")
-  private String lastName = null;
-
-  @SerializedName("companyName")
-  private String companyName = null;
-
-  @SerializedName("address")
-  private GetExtendedClientAddress address = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+public class GetAccount extends GetExtendedClient {
   @SerializedName("plan")
   private List<GetAccountPlan> plan = new ArrayList<GetAccountPlan>();
 
@@ -58,96 +44,6 @@ public class GetAccount {
 
   @SerializedName("marketingAutomation")
   private GetAccountMarketingAutomation marketingAutomation = null;
-
-  public GetAccount email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Login Email
-   * @return email
-  **/
-  @ApiModelProperty(example = "john.smith@example.com", required = true, value = "Login Email")
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public GetAccount firstName(String firstName) {
-    this.firstName = firstName;
-    return this;
-  }
-
-   /**
-   * First Name
-   * @return firstName
-  **/
-  @ApiModelProperty(example = "John", required = true, value = "First Name")
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  public GetAccount lastName(String lastName) {
-    this.lastName = lastName;
-    return this;
-  }
-
-   /**
-   * Last Name
-   * @return lastName
-  **/
-  @ApiModelProperty(example = "Smith", required = true, value = "Last Name")
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-  public GetAccount companyName(String companyName) {
-    this.companyName = companyName;
-    return this;
-  }
-
-   /**
-   * Name of the company
-   * @return companyName
-  **/
-  @ApiModelProperty(example = "MyCompany", required = true, value = "Name of the company")
-  public String getCompanyName() {
-    return companyName;
-  }
-
-  public void setCompanyName(String companyName) {
-    this.companyName = companyName;
-  }
-
-  public GetAccount address(GetExtendedClientAddress address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * Get address
-   * @return address
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public GetExtendedClientAddress getAddress() {
-    return address;
-  }
-
-  public void setAddress(GetExtendedClientAddress address) {
-    this.address = address;
-  }
 
   public GetAccount plan(List<GetAccountPlan> plan) {
     this.plan = plan;
@@ -211,26 +107,22 @@ public class GetAccount {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetAccount getAccount = (GetAccount) o;
-    return ObjectUtils.equals(this.email, getAccount.email) &&
-    ObjectUtils.equals(this.firstName, getAccount.firstName) &&
-    ObjectUtils.equals(this.lastName, getAccount.lastName) &&
-    ObjectUtils.equals(this.companyName, getAccount.companyName) &&
-    ObjectUtils.equals(this.address, getAccount.address) &&
-    ObjectUtils.equals(this.plan, getAccount.plan) &&
-    ObjectUtils.equals(this.relay, getAccount.relay) &&
-    ObjectUtils.equals(this.marketingAutomation, getAccount.marketingAutomation);
+    return Objects.equals(this.plan, getAccount.plan) &&
+        Objects.equals(this.relay, getAccount.relay) &&
+        Objects.equals(this.marketingAutomation, getAccount.marketingAutomation) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, address, plan, relay, marketingAutomation);
+    return Objects.hash(plan, relay, marketingAutomation, super.hashCode());
   }
 
 
@@ -238,12 +130,7 @@ public class GetAccount {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAccount {\n");
-    
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
     sb.append("    relay: ").append(toIndentedString(relay)).append("\n");
     sb.append("    marketingAutomation: ").append(toIndentedString(marketingAutomation)).append("\n");

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * UpdateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class UpdateContact {
   @SerializedName("attributes")
   private Object attributes = null;
@@ -183,24 +184,24 @@ public class UpdateContact {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     UpdateContact updateContact = (UpdateContact) o;
-    return ObjectUtils.equals(this.attributes, updateContact.attributes) &&
-    ObjectUtils.equals(this.emailBlacklisted, updateContact.emailBlacklisted) &&
-    ObjectUtils.equals(this.smsBlacklisted, updateContact.smsBlacklisted) &&
-    ObjectUtils.equals(this.listIds, updateContact.listIds) &&
-    ObjectUtils.equals(this.unlinkListIds, updateContact.unlinkListIds) &&
-    ObjectUtils.equals(this.smtpBlacklistSender, updateContact.smtpBlacklistSender);
+    return Objects.equals(this.attributes, updateContact.attributes) &&
+        Objects.equals(this.emailBlacklisted, updateContact.emailBlacklisted) &&
+        Objects.equals(this.smsBlacklisted, updateContact.smsBlacklisted) &&
+        Objects.equals(this.listIds, updateContact.listIds) &&
+        Objects.equals(this.unlinkListIds, updateContact.unlinkListIds) &&
+        Objects.equals(this.smtpBlacklistSender, updateContact.smtpBlacklistSender);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(attributes, emailBlacklisted, smsBlacklisted, listIds, unlinkListIds, smtpBlacklistSender);
+    return Objects.hash(attributes, emailBlacklisted, smsBlacklisted, listIds, unlinkListIds, smtpBlacklistSender);
   }
 
 

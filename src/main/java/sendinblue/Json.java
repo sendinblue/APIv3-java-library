@@ -10,26 +10,26 @@
  * Do not edit the class manually.
  */
 
-        package sendinblue;
+package sendinblue;
 
-        import com.google.gson.*;
-        import com.google.gson.internal.bind.util.ISO8601Utils;
-        import com.google.gson.stream.JsonReader;
-        import com.google.gson.stream.JsonWriter;
-        import io.gsonfire.GsonFireBuilder;
-        import org.threeten.bp.LocalDate;
-        import org.threeten.bp.OffsetDateTime;
-        import org.threeten.bp.format.DateTimeFormatter;
+import com.google.gson.*;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.gsonfire.GsonFireBuilder;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
-        import java.io.IOException;
-        import java.io.StringReader;
-        import java.lang.reflect.Type;
-        import java.text.DateFormat;
-        import java.text.ParseException;
-        import java.text.ParsePosition;
-        import java.util.Base64;
-        import java.util.Date;
-        import java.util.Map;
+import java.io.IOException;
+import java.io.StringReader;
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.util.Base64;
+import java.util.Date;
+import java.util.Map;
 
 public class Json {
     private Gson gson;
@@ -119,7 +119,8 @@ public class Json {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
-                // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
+                // see
+                // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
                 jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
@@ -130,7 +131,8 @@ public class Json {
             // return the response body string directly for the String return type;
             if (returnType.equals(String.class))
                 return (T) body;
-            else throw (e);
+            else
+                throw (e);
         }
     }
 
@@ -199,7 +201,8 @@ public class Json {
     }
 
     public static class ByteArrayToBase64TypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
-        public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
             return Base64.getDecoder().decode(json.getAsString());
         }
 

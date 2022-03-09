@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,7 +27,7 @@ import java.io.IOException;
 /**
  * ErrorModel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class ErrorModel {
   /**
    * Error code displayed in case of a failure
@@ -146,20 +147,20 @@ public class ErrorModel {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     ErrorModel errorModel = (ErrorModel) o;
-    return ObjectUtils.equals(this.code, errorModel.code) &&
-    ObjectUtils.equals(this.message, errorModel.message);
+    return Objects.equals(this.code, errorModel.code) &&
+        Objects.equals(this.message, errorModel.message);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(code, message);
+    return Objects.hash(code, message);
   }
 
 

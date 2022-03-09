@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +30,7 @@ import java.util.List;
  * Custom attributes for the report email.
  */
 @ApiModel(description = "Custom attributes for the report email.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendReportEmail {
   @SerializedName("to")
   private List<String> to = new ArrayList<String>();
@@ -81,20 +82,20 @@ public class SendReportEmail {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendReportEmail sendReportEmail = (SendReportEmail) o;
-    return ObjectUtils.equals(this.to, sendReportEmail.to) &&
-    ObjectUtils.equals(this.body, sendReportEmail.body);
+    return Objects.equals(this.to, sendReportEmail.to) &&
+        Objects.equals(this.body, sendReportEmail.body);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(to, body);
+    return Objects.hash(to, body);
   }
 
 

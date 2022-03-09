@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import sibModel.CreateSmtpTemplateSender;
 /**
  * CreateSmtpTemplate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class CreateSmtpTemplate {
   @SerializedName("tag")
   private String tag = null;
@@ -242,28 +243,28 @@ public class CreateSmtpTemplate {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     CreateSmtpTemplate createSmtpTemplate = (CreateSmtpTemplate) o;
-    return ObjectUtils.equals(this.tag, createSmtpTemplate.tag) &&
-    ObjectUtils.equals(this.sender, createSmtpTemplate.sender) &&
-    ObjectUtils.equals(this.templateName, createSmtpTemplate.templateName) &&
-    ObjectUtils.equals(this.htmlContent, createSmtpTemplate.htmlContent) &&
-    ObjectUtils.equals(this.htmlUrl, createSmtpTemplate.htmlUrl) &&
-    ObjectUtils.equals(this.subject, createSmtpTemplate.subject) &&
-    ObjectUtils.equals(this.replyTo, createSmtpTemplate.replyTo) &&
-    ObjectUtils.equals(this.toField, createSmtpTemplate.toField) &&
-    ObjectUtils.equals(this.attachmentUrl, createSmtpTemplate.attachmentUrl) &&
-    ObjectUtils.equals(this.isActive, createSmtpTemplate.isActive);
+    return Objects.equals(this.tag, createSmtpTemplate.tag) &&
+        Objects.equals(this.sender, createSmtpTemplate.sender) &&
+        Objects.equals(this.templateName, createSmtpTemplate.templateName) &&
+        Objects.equals(this.htmlContent, createSmtpTemplate.htmlContent) &&
+        Objects.equals(this.htmlUrl, createSmtpTemplate.htmlUrl) &&
+        Objects.equals(this.subject, createSmtpTemplate.subject) &&
+        Objects.equals(this.replyTo, createSmtpTemplate.replyTo) &&
+        Objects.equals(this.toField, createSmtpTemplate.toField) &&
+        Objects.equals(this.attachmentUrl, createSmtpTemplate.attachmentUrl) &&
+        Objects.equals(this.isActive, createSmtpTemplate.isActive);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(tag, sender, templateName, htmlContent, htmlUrl, subject, replyTo, toField, attachmentUrl, isActive);
+    return Objects.hash(tag, sender, templateName, htmlContent, htmlUrl, subject, replyTo, toField, attachmentUrl, isActive);
   }
 
 

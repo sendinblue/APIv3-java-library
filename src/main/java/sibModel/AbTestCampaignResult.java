@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import sibModel.AbTestCampaignResultStatistics;
 /**
  * AbTestCampaignResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class AbTestCampaignResult {
   /**
    * Winning Campaign Info. pending &#x3D; Campaign has been picked for sending and winning version is yet to be decided, tie &#x3D; A tie happened between both the versions, notAvailable &#x3D; Campaign has not yet been picked for sending.
@@ -301,26 +302,26 @@ public class AbTestCampaignResult {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     AbTestCampaignResult abTestCampaignResult = (AbTestCampaignResult) o;
-    return ObjectUtils.equals(this.winningVersion, abTestCampaignResult.winningVersion) &&
-    ObjectUtils.equals(this.winningCriteria, abTestCampaignResult.winningCriteria) &&
-    ObjectUtils.equals(this.winningSubjectLine, abTestCampaignResult.winningSubjectLine) &&
-    ObjectUtils.equals(this.openRate, abTestCampaignResult.openRate) &&
-    ObjectUtils.equals(this.clickRate, abTestCampaignResult.clickRate) &&
-    ObjectUtils.equals(this.winningVersionRate, abTestCampaignResult.winningVersionRate) &&
-    ObjectUtils.equals(this.statistics, abTestCampaignResult.statistics) &&
-    ObjectUtils.equals(this.clickedLinks, abTestCampaignResult.clickedLinks);
+    return Objects.equals(this.winningVersion, abTestCampaignResult.winningVersion) &&
+        Objects.equals(this.winningCriteria, abTestCampaignResult.winningCriteria) &&
+        Objects.equals(this.winningSubjectLine, abTestCampaignResult.winningSubjectLine) &&
+        Objects.equals(this.openRate, abTestCampaignResult.openRate) &&
+        Objects.equals(this.clickRate, abTestCampaignResult.clickRate) &&
+        Objects.equals(this.winningVersionRate, abTestCampaignResult.winningVersionRate) &&
+        Objects.equals(this.statistics, abTestCampaignResult.statistics) &&
+        Objects.equals(this.clickedLinks, abTestCampaignResult.clickedLinks);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(winningVersion, winningCriteria, winningSubjectLine, openRate, clickRate, winningVersionRate, statistics, clickedLinks);
+    return Objects.hash(winningVersion, winningCriteria, winningSubjectLine, openRate, clickRate, winningVersionRate, statistics, clickedLinks);
   }
 
 

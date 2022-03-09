@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetAccountPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetAccountPlan {
   /**
    * Displays the plan type of the user
@@ -256,24 +257,24 @@ public class GetAccountPlan {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetAccountPlan getAccountPlan = (GetAccountPlan) o;
-    return ObjectUtils.equals(this.type, getAccountPlan.type) &&
-    ObjectUtils.equals(this.creditsType, getAccountPlan.creditsType) &&
-    ObjectUtils.equals(this.credits, getAccountPlan.credits) &&
-    ObjectUtils.equals(this.startDate, getAccountPlan.startDate) &&
-    ObjectUtils.equals(this.endDate, getAccountPlan.endDate) &&
-    ObjectUtils.equals(this.userLimit, getAccountPlan.userLimit);
+    return Objects.equals(this.type, getAccountPlan.type) &&
+        Objects.equals(this.creditsType, getAccountPlan.creditsType) &&
+        Objects.equals(this.credits, getAccountPlan.credits) &&
+        Objects.equals(this.startDate, getAccountPlan.startDate) &&
+        Objects.equals(this.endDate, getAccountPlan.endDate) &&
+        Objects.equals(this.userLimit, getAccountPlan.userLimit);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(type, creditsType, credits, startDate, endDate, userLimit);
+    return Objects.hash(type, creditsType, credits, startDate, endDate, userLimit);
   }
 
 

@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,10 +30,31 @@ import sibModel.GetTransacEmailsListTransactionalEmails;
 /**
  * GetTransacEmailsList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class GetTransacEmailsList {
+  @SerializedName("count")
+  private Long count = null;
+
   @SerializedName("transactionalEmails")
   private List<GetTransacEmailsListTransactionalEmails> transactionalEmails = null;
+
+  public GetTransacEmailsList count(Long count) {
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Total number of transactional emails available on your account according to the passed filter
+   * @return count
+  **/
+  @ApiModelProperty(example = "5", value = "Total number of transactional emails available on your account according to the passed filter")
+  public Long getCount() {
+    return count;
+  }
+
+  public void setCount(Long count) {
+    this.count = count;
+  }
 
   public GetTransacEmailsList transactionalEmails(List<GetTransacEmailsListTransactionalEmails> transactionalEmails) {
     this.transactionalEmails = transactionalEmails;
@@ -63,19 +85,20 @@ public class GetTransacEmailsList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     GetTransacEmailsList getTransacEmailsList = (GetTransacEmailsList) o;
-    return ObjectUtils.equals(this.transactionalEmails, getTransacEmailsList.transactionalEmails);
+    return Objects.equals(this.count, getTransacEmailsList.count) &&
+        Objects.equals(this.transactionalEmails, getTransacEmailsList.transactionalEmails);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(transactionalEmails);
+    return Objects.hash(count, transactionalEmails);
   }
 
 
@@ -84,6 +107,7 @@ public class GetTransacEmailsList {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTransacEmailsList {\n");
     
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    transactionalEmails: ").append(toIndentedString(transactionalEmails)).append("\n");
     sb.append("}");
     return sb.toString();

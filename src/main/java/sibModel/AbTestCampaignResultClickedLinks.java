@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import sibModel.AbTestVersionClicks;
 /**
  * AbTestCampaignResultClickedLinks
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class AbTestCampaignResultClickedLinks {
   @SerializedName("Version A")
   private AbTestVersionClicks versionA = null;
@@ -74,20 +75,20 @@ public class AbTestCampaignResultClickedLinks {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     AbTestCampaignResultClickedLinks abTestCampaignResultClickedLinks = (AbTestCampaignResultClickedLinks) o;
-    return ObjectUtils.equals(this.versionA, abTestCampaignResultClickedLinks.versionA) &&
-    ObjectUtils.equals(this.versionB, abTestCampaignResultClickedLinks.versionB);
+    return Objects.equals(this.versionA, abTestCampaignResultClickedLinks.versionA) &&
+        Objects.equals(this.versionB, abTestCampaignResultClickedLinks.versionB);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(versionA, versionB);
+    return Objects.hash(versionA, versionB);
   }
 
 

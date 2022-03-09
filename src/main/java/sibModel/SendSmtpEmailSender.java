@@ -13,7 +13,8 @@
 
 package sibModel;
 
-import org.apache.commons.lang3.ObjectUtils;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * Mandatory if &#x60;templateId&#x60; is not passed. Pass &#x60;name&#x60; (optional) and &#x60;email&#x60; OR &#x60;id&#x60; of sender from which emails will be sent. &#x60;name&#x60; will be ignored if passed along with sender &#x60;id&#x60;. For example, {&quot;name&quot;:&quot;Mary from MyShop&quot;, &quot;email&quot;:&quot;no-reply@myshop.com&quot;} or {&quot;id&quot;:2}
  */
 @ApiModel(description = "Mandatory if `templateId` is not passed. Pass `name` (optional) and `email` OR `id` of sender from which emails will be sent. `name` will be ignored if passed along with sender `id`. For example, {\"name\":\"Mary from MyShop\", \"email\":\"no-reply@myshop.com\"} or {\"id\":2}")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-03-12T11:46:32.800+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
 public class SendSmtpEmailSender {
   @SerializedName("name")
   private String name = null;
@@ -95,21 +96,21 @@ public class SendSmtpEmailSender {
 
   @Override
   public boolean equals(java.lang.Object o) {
-  if (this == o) {
-    return true;
-  }
-  if (o == null || getClass() != o.getClass()) {
-    return false;
-  }
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     SendSmtpEmailSender sendSmtpEmailSender = (SendSmtpEmailSender) o;
-    return ObjectUtils.equals(this.name, sendSmtpEmailSender.name) &&
-    ObjectUtils.equals(this.email, sendSmtpEmailSender.email) &&
-    ObjectUtils.equals(this.id, sendSmtpEmailSender.id);
+    return Objects.equals(this.name, sendSmtpEmailSender.name) &&
+        Objects.equals(this.email, sendSmtpEmailSender.email) &&
+        Objects.equals(this.id, sendSmtpEmailSender.id);
   }
 
   @Override
   public int hashCode() {
-    return ObjectUtils.hashCodeMulti(name, email, id);
+    return Objects.hash(name, email, id);
   }
 
 
