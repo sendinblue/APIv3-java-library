@@ -321,9 +321,9 @@ public class TransactionalEmailsApiTest {
     @Test
     public void sendTemplateTest() throws ApiException {
         Long templateId = null;
-        SendTestEmail sendEmail = null;
+        SendEmail sendEmail = null;
         // SendTemplateEmail response =
-        api.sendTestTemplate(templateId, sendEmail);
+        api.sendTemplate(templateId, sendEmail);
 
         // TODO: test validations
     }
