@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.AbTestVersionStats;
 /**
  * AbTestCampaignResultStatistics
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class AbTestCampaignResultStatistics {
   @SerializedName("openers")
   private AbTestVersionStats openers = null;
@@ -159,24 +158,24 @@ public class AbTestCampaignResultStatistics {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     AbTestCampaignResultStatistics abTestCampaignResultStatistics = (AbTestCampaignResultStatistics) o;
-    return Objects.equals(this.openers, abTestCampaignResultStatistics.openers) &&
-        Objects.equals(this.clicks, abTestCampaignResultStatistics.clicks) &&
-        Objects.equals(this.unsubscribed, abTestCampaignResultStatistics.unsubscribed) &&
-        Objects.equals(this.hardBounces, abTestCampaignResultStatistics.hardBounces) &&
-        Objects.equals(this.softBounces, abTestCampaignResultStatistics.softBounces) &&
-        Objects.equals(this.complaints, abTestCampaignResultStatistics.complaints);
+    return ObjectUtils.equals(this.openers, abTestCampaignResultStatistics.openers) &&
+    ObjectUtils.equals(this.clicks, abTestCampaignResultStatistics.clicks) &&
+    ObjectUtils.equals(this.unsubscribed, abTestCampaignResultStatistics.unsubscribed) &&
+    ObjectUtils.equals(this.hardBounces, abTestCampaignResultStatistics.hardBounces) &&
+    ObjectUtils.equals(this.softBounces, abTestCampaignResultStatistics.softBounces) &&
+    ObjectUtils.equals(this.complaints, abTestCampaignResultStatistics.complaints);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(openers, clicks, unsubscribed, hardBounces, softBounces, complaints);
+    return ObjectUtils.hashCodeMulti(openers, clicks, unsubscribed, hardBounces, softBounces, complaints);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Reason for blocking / unsubscribing
  */
 @ApiModel(description = "Reason for blocking / unsubscribing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetTransacBlockedContactsReason {
   /**
    * Reason code for blocking / unsubscribing (This code is safe for comparison)
@@ -130,20 +129,20 @@ public class GetTransacBlockedContactsReason {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetTransacBlockedContactsReason getTransacBlockedContactsReason = (GetTransacBlockedContactsReason) o;
-    return Objects.equals(this.code, getTransacBlockedContactsReason.code) &&
-        Objects.equals(this.message, getTransacBlockedContactsReason.message);
+    return ObjectUtils.equals(this.code, getTransacBlockedContactsReason.code) &&
+    ObjectUtils.equals(this.message, getTransacBlockedContactsReason.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return ObjectUtils.hashCodeMulti(code, message);
   }
 
 

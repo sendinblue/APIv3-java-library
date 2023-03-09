@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.SubAccountDetailsResponsePlanInfoFeatures;
  * Sub-account plan details
  */
 @ApiModel(description = "Sub-account plan details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountDetailsResponsePlanInfo {
   @SerializedName("credits")
   private SubAccountDetailsResponsePlanInfoCredits credits = null;
@@ -98,21 +97,21 @@ public class SubAccountDetailsResponsePlanInfo {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountDetailsResponsePlanInfo subAccountDetailsResponsePlanInfo = (SubAccountDetailsResponsePlanInfo) o;
-    return Objects.equals(this.credits, subAccountDetailsResponsePlanInfo.credits) &&
-        Objects.equals(this.features, subAccountDetailsResponsePlanInfo.features) &&
-        Objects.equals(this.planType, subAccountDetailsResponsePlanInfo.planType);
+    return ObjectUtils.equals(this.credits, subAccountDetailsResponsePlanInfo.credits) &&
+    ObjectUtils.equals(this.features, subAccountDetailsResponsePlanInfo.features) &&
+    ObjectUtils.equals(this.planType, subAccountDetailsResponsePlanInfo.planType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credits, features, planType);
+    return ObjectUtils.hashCodeMulti(credits, features, planType);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +30,7 @@ import sibModel.GetDeviceBrowserStats;
 /**
  * GetStatsByDevice
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetStatsByDevice {
   @SerializedName("desktop")
   private Map<String, GetDeviceBrowserStats> desktop = null;
@@ -152,22 +151,22 @@ public class GetStatsByDevice {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetStatsByDevice getStatsByDevice = (GetStatsByDevice) o;
-    return Objects.equals(this.desktop, getStatsByDevice.desktop) &&
-        Objects.equals(this.mobile, getStatsByDevice.mobile) &&
-        Objects.equals(this.tablet, getStatsByDevice.tablet) &&
-        Objects.equals(this.unknown, getStatsByDevice.unknown);
+    return ObjectUtils.equals(this.desktop, getStatsByDevice.desktop) &&
+    ObjectUtils.equals(this.mobile, getStatsByDevice.mobile) &&
+    ObjectUtils.equals(this.tablet, getStatsByDevice.tablet) &&
+    ObjectUtils.equals(this.unknown, getStatsByDevice.unknown);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(desktop, mobile, tablet, unknown);
+    return ObjectUtils.hashCodeMulti(desktop, mobile, tablet, unknown);
   }
 
 

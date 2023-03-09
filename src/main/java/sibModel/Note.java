@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
  * Note Details
  */
 @ApiModel(description = "Note Details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class Note {
   @SerializedName("id")
   private String id = null;
@@ -199,25 +198,25 @@ public class Note {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     Note note = (Note) o;
-    return Objects.equals(this.id, note.id) &&
-        Objects.equals(this.text, note.text) &&
-        Objects.equals(this.contactIds, note.contactIds) &&
-        Objects.equals(this.dealIds, note.dealIds) &&
-        Objects.equals(this.authorId, note.authorId) &&
-        Objects.equals(this.createdAt, note.createdAt) &&
-        Objects.equals(this.updatedAt, note.updatedAt);
+    return ObjectUtils.equals(this.id, note.id) &&
+    ObjectUtils.equals(this.text, note.text) &&
+    ObjectUtils.equals(this.contactIds, note.contactIds) &&
+    ObjectUtils.equals(this.dealIds, note.dealIds) &&
+    ObjectUtils.equals(this.authorId, note.authorId) &&
+    ObjectUtils.equals(this.createdAt, note.createdAt) &&
+    ObjectUtils.equals(this.updatedAt, note.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, contactIds, dealIds, authorId, createdAt, updatedAt);
+    return ObjectUtils.hashCodeMulti(id, text, contactIds, dealIds, authorId, createdAt, updatedAt);
   }
 
 

@@ -24,6 +24,8 @@ import sibModel.GetAggregatedReport;
 import sibModel.GetBlockedDomains;
 import sibModel.GetEmailEventReport;
 import sibModel.GetReports;
+import sibModel.GetScheduledEmailByBatchId;
+import sibModel.GetScheduledEmailByMessageId;
 import sibModel.GetSmtpTemplateOverview;
 import sibModel.GetSmtpTemplates;
 import sibModel.GetTransacBlockedContacts;
@@ -31,9 +33,8 @@ import sibModel.GetTransacEmailContent;
 import sibModel.GetTransacEmailsList;
 import org.threeten.bp.LocalDate;
 import sibModel.PostSendFailed;
-import sibModel.SendEmail;
+import sibModel.ScheduleSmtpEmail;
 import sibModel.SendSmtpEmail;
-import sibModel.SendTemplateEmail;
 import sibModel.SendTestEmail;
 import sibModel.UpdateSmtpTemplate;
 import org.junit.Test;
@@ -118,6 +119,22 @@ public class TransactionalEmailsApiTest {
     }
     
     /**
+     * Delete scheduled emails by batchId or messageId
+     *
+     * Delete scheduled batch of emails by batchId or single scheduled email by messageId
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteScheduledEmailByIdTest() throws ApiException {
+        String identifier = null;
+        api.deleteScheduledEmailById(identifier);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete an inactive email template
      *
      * 
@@ -136,7 +153,7 @@ public class TransactionalEmailsApiTest {
     /**
      * Get your transactional email activity aggregated over a period of time
      *
-     * 
+     * This endpoint will show the aggregated stats for past 90 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      *
      * @throws ApiException
      *          if the Api call fails
@@ -170,7 +187,7 @@ public class TransactionalEmailsApiTest {
     /**
      * Get all your transactional email activity (unaggregated events)
      *
-     * 
+     * This endpoint will show the aggregated stats for past 30 days by default if &#x60;startDate&#x60; and &#x60;endDate&#x60; OR &#x60;days&#x60; is not passed. The date range can not exceed 90 days
      *
      * @throws ApiException
      *          if the Api call fails
@@ -189,6 +206,46 @@ public class TransactionalEmailsApiTest {
         Long templateId = null;
         String sort = null;
         GetEmailEventReport response = api.getEmailEventReport(limit, offset, startDate, endDate, days, email, event, tags, messageId, templateId, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Fetch scheduled emails by batchId
+     *
+     * Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getScheduledEmailByBatchIdTest() throws ApiException {
+        String batchId = null;
+        LocalDate startDate = null;
+        LocalDate endDate = null;
+        String sort = null;
+        String status = null;
+        Long limit = null;
+        Long offset = null;
+        GetScheduledEmailByBatchId response = api.getScheduledEmailByBatchId(batchId, startDate, endDate, sort, status, limit, offset);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Fetch scheduled email by messageId
+     *
+     * Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getScheduledEmailByMessageIdTest() throws ApiException {
+        String messageId = null;
+        LocalDate startDate = null;
+        LocalDate endDate = null;
+        GetScheduledEmailByMessageId response = api.getScheduledEmailByMessageId(messageId, startDate, endDate);
 
         // TODO: test validations
     }
@@ -306,24 +363,6 @@ public class TransactionalEmailsApiTest {
         Long limit = null;
         Long offset = null;
         GetTransacEmailsList response = api.getTransacEmailsList(email, templateId, messageId, startDate, endDate, sort, limit, offset);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Send a template
-     *
-     * This endpoint is deprecated. Prefer v3/smtp/email instead.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void sendTemplateTest() throws ApiException {
-        Long templateId = null;
-        SendTestEmail sendEmail = null;
-        // SendTemplateEmail response =
-        api.sendTestTemplate(templateId, sendEmail);
 
         // TODO: test validations
     }

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * PostContactInfoContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class PostContactInfoContacts {
   @SerializedName("success")
   private List<String> success = null;
@@ -101,7 +100,7 @@ public class PostContactInfoContacts {
   }
 
    /**
-   * Displays the count of total number of contacts removed from list when user opts for &quot;all&quot; option.
+   * Displays the count of total number of contacts removed from list when user opts for \&quot;all\&quot; option.
    * @return total
   **/
   @ApiModelProperty(example = "27", value = "Displays the count of total number of contacts removed from list when user opts for \"all\" option.")
@@ -119,7 +118,7 @@ public class PostContactInfoContacts {
   }
 
    /**
-   * Id of the process created to remove contacts from list when user opts for &quot;all&quot; option.
+   * Id of the process created to remove contacts from list when user opts for \&quot;all\&quot; option.
    * @return processId
   **/
   @ApiModelProperty(example = "78", value = "Id of the process created to remove contacts from list when user opts for \"all\" option.")
@@ -134,22 +133,22 @@ public class PostContactInfoContacts {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     PostContactInfoContacts postContactInfoContacts = (PostContactInfoContacts) o;
-    return Objects.equals(this.success, postContactInfoContacts.success) &&
-        Objects.equals(this.failure, postContactInfoContacts.failure) &&
-        Objects.equals(this.total, postContactInfoContacts.total) &&
-        Objects.equals(this.processId, postContactInfoContacts.processId);
+    return ObjectUtils.equals(this.success, postContactInfoContacts.success) &&
+    ObjectUtils.equals(this.failure, postContactInfoContacts.failure) &&
+    ObjectUtils.equals(this.total, postContactInfoContacts.total) &&
+    ObjectUtils.equals(this.processId, postContactInfoContacts.processId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, failure, total, processId);
+    return ObjectUtils.hashCodeMulti(success, failure, total, processId);
   }
 
 

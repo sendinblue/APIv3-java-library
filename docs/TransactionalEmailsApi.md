@@ -8,10 +8,13 @@ Method | HTTP request | Description
 [**createSmtpTemplate**](TransactionalEmailsApi.md#createSmtpTemplate) | **POST** /smtp/templates | Create an email template
 [**deleteBlockedDomain**](TransactionalEmailsApi.md#deleteBlockedDomain) | **DELETE** /smtp/blockedDomains/{domain} | Unblock an existing domain from the list of blocked domains
 [**deleteHardbounces**](TransactionalEmailsApi.md#deleteHardbounces) | **POST** /smtp/deleteHardbounces | Delete hardbounces
+[**deleteScheduledEmailById**](TransactionalEmailsApi.md#deleteScheduledEmailById) | **DELETE** /smtp/email/{identifier} | Delete scheduled emails by batchId or messageId
 [**deleteSmtpTemplate**](TransactionalEmailsApi.md#deleteSmtpTemplate) | **DELETE** /smtp/templates/{templateId} | Delete an inactive email template
 [**getAggregatedSmtpReport**](TransactionalEmailsApi.md#getAggregatedSmtpReport) | **GET** /smtp/statistics/aggregatedReport | Get your transactional email activity aggregated over a period of time
 [**getBlockedDomains**](TransactionalEmailsApi.md#getBlockedDomains) | **GET** /smtp/blockedDomains | Get the list of blocked domains
 [**getEmailEventReport**](TransactionalEmailsApi.md#getEmailEventReport) | **GET** /smtp/statistics/events | Get all your transactional email activity (unaggregated events)
+[**getScheduledEmailByBatchId**](TransactionalEmailsApi.md#getScheduledEmailByBatchId) | **GET** /smtp/emailStatus/{batchId} | Fetch scheduled emails by batchId
+[**getScheduledEmailByMessageId**](TransactionalEmailsApi.md#getScheduledEmailByMessageId) | **GET** /smtp/emailStatus/{messageId} | Fetch scheduled email by messageId
 [**getSmtpReport**](TransactionalEmailsApi.md#getSmtpReport) | **GET** /smtp/statistics/reports | Get your transactional email activity aggregated per day
 [**getSmtpTemplate**](TransactionalEmailsApi.md#getSmtpTemplate) | **GET** /smtp/templates/{templateId} | Returns the template information
 [**getSmtpTemplates**](TransactionalEmailsApi.md#getSmtpTemplates) | **GET** /smtp/templates | Get the list of email templates
@@ -264,6 +267,66 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteScheduledEmailById"></a>
+# **deleteScheduledEmailById**
+> deleteScheduledEmailById(identifier)
+
+Delete scheduled emails by batchId or messageId
+
+Delete scheduled batch of emails by batchId or single scheduled email by messageId
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+String identifier = "identifier_example"; // String | The `batchId` of scheduled emails batch (Should be a valid UUIDv4) or the `messageId` of scheduled email.
+try {
+    apiInstance.deleteScheduledEmailById(identifier);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#deleteScheduledEmailById");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| The &#x60;batchId&#x60; of scheduled emails batch (Should be a valid UUIDv4) or the &#x60;messageId&#x60; of scheduled email. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="deleteSmtpTemplate"></a>
 # **deleteSmtpTemplate**
 > deleteSmtpTemplate(templateId)
@@ -478,7 +541,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
-Long limit = 50L; // Long | Number limitation for the result returned
+Long limit = 2500L; // Long | Number limitation for the result returned
 Long offset = 0L; // Long | Beginning point in the list to retrieve from.
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate
@@ -502,7 +565,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Long**| Number limitation for the result returned | [optional] [default to 50]
+ **limit** | **Long**| Number limitation for the result returned | [optional] [default to 2500]
  **offset** | **Long**| Beginning point in the list to retrieve from. | [optional] [default to 0]
  **startDate** | **String**| Mandatory if endDate is used. Starting date of the report (YYYY-MM-DD). Must be lower than equal to endDate | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending date of the report (YYYY-MM-DD). Must be greater than equal to startDate | [optional]
@@ -517,6 +580,144 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetEmailEventReport**](GetEmailEventReport.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getScheduledEmailByBatchId"></a>
+# **getScheduledEmailByBatchId**
+> GetScheduledEmailByBatchId getScheduledEmailByBatchId(batchId, startDate, endDate, sort, status, limit, offset)
+
+Fetch scheduled emails by batchId
+
+Fetch scheduled batch of emails by batchId (Can retrieve data upto 30 days old)
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+String batchId = "batchId_example"; // String | The batchId of scheduled emails batch (Should be a valid UUIDv4)
+LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if `endDate` is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if `startDate` is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
+String status = "status_example"; // String | Filter the records by `status` of the scheduled email batch or message.
+Long limit = 100L; // Long | Number of documents returned per page
+Long offset = 0L; // Long | Index of the first document on the page
+try {
+    GetScheduledEmailByBatchId result = apiInstance.getScheduledEmailByBatchId(batchId, startDate, endDate, sort, status, limit, offset);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#getScheduledEmailByBatchId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchId** | **String**| The batchId of scheduled emails batch (Should be a valid UUIDv4) |
+ **startDate** | **LocalDate**| Mandatory if &#x60;endDate&#x60; is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. | [optional]
+ **endDate** | **LocalDate**| Mandatory if &#x60;startDate&#x60; is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+ **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
+ **status** | **String**| Filter the records by &#x60;status&#x60; of the scheduled email batch or message. | [optional] [enum: processed, inProgress, queued]
+ **limit** | **Long**| Number of documents returned per page | [optional] [default to 100]
+ **offset** | **Long**| Index of the first document on the page | [optional] [default to 0]
+
+### Return type
+
+[**GetScheduledEmailByBatchId**](GetScheduledEmailByBatchId.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getScheduledEmailByMessageId"></a>
+# **getScheduledEmailByMessageId**
+> GetScheduledEmailByMessageId getScheduledEmailByMessageId(messageId, startDate, endDate)
+
+Fetch scheduled email by messageId
+
+Fetch scheduled email by messageId (Can retrieve data upto 30 days old)
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.TransactionalEmailsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+TransactionalEmailsApi apiInstance = new TransactionalEmailsApi();
+String messageId = "messageId_example"; // String | The messageId of scheduled email
+LocalDate startDate = LocalDate.now(); // LocalDate | Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date.
+LocalDate endDate = LocalDate.now(); // LocalDate | Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month.
+try {
+    GetScheduledEmailByMessageId result = apiInstance.getScheduledEmailByMessageId(messageId, startDate, endDate);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling TransactionalEmailsApi#getScheduledEmailByMessageId");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageId** | **String**| The messageId of scheduled email |
+ **startDate** | **LocalDate**| Mandatory if endDate is used. Starting date (YYYY-MM-DD) from which you want to fetch the list. Can be maximum 30 days older tha current date. | [optional]
+ **endDate** | **LocalDate**| Mandatory if startDate is used. Ending date (YYYY-MM-DD) till which you want to fetch the list. Maximum time period that can be selected is one month. | [optional]
+
+### Return type
+
+[**GetScheduledEmailByMessageId**](GetScheduledEmailByMessageId.md)
 
 ### Authorization
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * SendTransacSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SendTransacSms {
   @SerializedName("sender")
   private String sender = null;
@@ -96,6 +95,9 @@ public class SendTransacSms {
 
   @SerializedName("unicodeEnabled")
   private Boolean unicodeEnabled = false;
+
+  @SerializedName("organisationPrefix")
+  private String organisationPrefix = null;
 
   public SendTransacSms sender(String sender) {
     this.sender = sender;
@@ -223,28 +225,47 @@ public class SendTransacSms {
     this.unicodeEnabled = unicodeEnabled;
   }
 
+  public SendTransacSms organisationPrefix(String organisationPrefix) {
+    this.organisationPrefix = organisationPrefix;
+    return this;
+  }
+
+   /**
+   * A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. **Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms.**
+   * @return organisationPrefix
+  **/
+  @ApiModelProperty(example = "MyCompany", value = "A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. **Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms.**")
+  public String getOrganisationPrefix() {
+    return organisationPrefix;
+  }
+
+  public void setOrganisationPrefix(String organisationPrefix) {
+    this.organisationPrefix = organisationPrefix;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SendTransacSms sendTransacSms = (SendTransacSms) o;
-    return Objects.equals(this.sender, sendTransacSms.sender) &&
-        Objects.equals(this.recipient, sendTransacSms.recipient) &&
-        Objects.equals(this.content, sendTransacSms.content) &&
-        Objects.equals(this.type, sendTransacSms.type) &&
-        Objects.equals(this.tag, sendTransacSms.tag) &&
-        Objects.equals(this.webUrl, sendTransacSms.webUrl) &&
-        Objects.equals(this.unicodeEnabled, sendTransacSms.unicodeEnabled);
+    return ObjectUtils.equals(this.sender, sendTransacSms.sender) &&
+    ObjectUtils.equals(this.recipient, sendTransacSms.recipient) &&
+    ObjectUtils.equals(this.content, sendTransacSms.content) &&
+    ObjectUtils.equals(this.type, sendTransacSms.type) &&
+    ObjectUtils.equals(this.tag, sendTransacSms.tag) &&
+    ObjectUtils.equals(this.webUrl, sendTransacSms.webUrl) &&
+    ObjectUtils.equals(this.unicodeEnabled, sendTransacSms.unicodeEnabled) &&
+    ObjectUtils.equals(this.organisationPrefix, sendTransacSms.organisationPrefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sender, recipient, content, type, tag, webUrl, unicodeEnabled);
+    return ObjectUtils.hashCodeMulti(sender, recipient, content, type, tag, webUrl, unicodeEnabled, organisationPrefix);
   }
 
 
@@ -260,6 +281,7 @@ public class SendTransacSms {
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    webUrl: ").append(toIndentedString(webUrl)).append("\n");
     sb.append("    unicodeEnabled: ").append(toIndentedString(unicodeEnabled)).append("\n");
+    sb.append("    organisationPrefix: ").append(toIndentedString(organisationPrefix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

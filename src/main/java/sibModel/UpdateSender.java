@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.CreateSenderIps;
 /**
  * UpdateSender
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class UpdateSender {
   @SerializedName("name")
   private String name = null;
@@ -106,21 +105,21 @@ public class UpdateSender {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     UpdateSender updateSender = (UpdateSender) o;
-    return Objects.equals(this.name, updateSender.name) &&
-        Objects.equals(this.email, updateSender.email) &&
-        Objects.equals(this.ips, updateSender.ips);
+    return ObjectUtils.equals(this.name, updateSender.name) &&
+    ObjectUtils.equals(this.email, updateSender.email) &&
+    ObjectUtils.equals(this.ips, updateSender.ips);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, ips);
+    return ObjectUtils.hashCodeMulti(name, email, ips);
   }
 
 

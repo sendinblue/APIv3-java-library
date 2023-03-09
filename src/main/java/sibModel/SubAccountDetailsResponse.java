@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.SubAccountDetailsResponsePlanInfo;
 /**
  * SubAccountDetailsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountDetailsResponse {
   @SerializedName("name")
   private String name = null;
@@ -117,22 +116,22 @@ public class SubAccountDetailsResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountDetailsResponse subAccountDetailsResponse = (SubAccountDetailsResponse) o;
-    return Objects.equals(this.name, subAccountDetailsResponse.name) &&
-        Objects.equals(this.email, subAccountDetailsResponse.email) &&
-        Objects.equals(this.companyName, subAccountDetailsResponse.companyName) &&
-        Objects.equals(this.planInfo, subAccountDetailsResponse.planInfo);
+    return ObjectUtils.equals(this.name, subAccountDetailsResponse.name) &&
+    ObjectUtils.equals(this.email, subAccountDetailsResponse.email) &&
+    ObjectUtils.equals(this.companyName, subAccountDetailsResponse.companyName) &&
+    ObjectUtils.equals(this.planInfo, subAccountDetailsResponse.planInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, companyName, planInfo);
+    return ObjectUtils.hashCodeMulti(name, email, companyName, planInfo);
   }
 
 

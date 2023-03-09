@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.GetCampaignStats;
 /**
  * GetExtendedListCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetExtendedListCampaignStats {
   @SerializedName("campaignId")
   private Long campaignId = null;
@@ -75,20 +74,20 @@ public class GetExtendedListCampaignStats {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedListCampaignStats getExtendedListCampaignStats = (GetExtendedListCampaignStats) o;
-    return Objects.equals(this.campaignId, getExtendedListCampaignStats.campaignId) &&
-        Objects.equals(this.stats, getExtendedListCampaignStats.stats);
+    return ObjectUtils.equals(this.campaignId, getExtendedListCampaignStats.campaignId) &&
+    ObjectUtils.equals(this.stats, getExtendedListCampaignStats.stats);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignId, stats);
+    return ObjectUtils.hashCodeMulti(campaignId, stats);
   }
 
 

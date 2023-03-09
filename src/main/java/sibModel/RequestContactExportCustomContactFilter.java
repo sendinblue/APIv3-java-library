@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Set the filter for the contacts to be exported.
  */
 @ApiModel(description = "Set the filter for the contacts to be exported.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class RequestContactExportCustomContactFilter {
   /**
    * Mandatory if neither actionForEmailCampaigns nor actionForSmsCampaigns is passed. This will export the contacts on the basis of provided action applied on contacts as per the list id. * allContacts - Fetch the list of all contacts for a particular list. * subscribed &amp; unsubscribed - Fetch the list of subscribed / unsubscribed (blacklisted via any means) contacts for a particular list. * unsubscribedPerList - Fetch the list of contacts that are unsubscribed from a particular list only. 
@@ -316,24 +315,24 @@ public class RequestContactExportCustomContactFilter {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     RequestContactExportCustomContactFilter requestContactExportCustomContactFilter = (RequestContactExportCustomContactFilter) o;
-    return Objects.equals(this.actionForContacts, requestContactExportCustomContactFilter.actionForContacts) &&
-        Objects.equals(this.actionForEmailCampaigns, requestContactExportCustomContactFilter.actionForEmailCampaigns) &&
-        Objects.equals(this.actionForSmsCampaigns, requestContactExportCustomContactFilter.actionForSmsCampaigns) &&
-        Objects.equals(this.listId, requestContactExportCustomContactFilter.listId) &&
-        Objects.equals(this.emailCampaignId, requestContactExportCustomContactFilter.emailCampaignId) &&
-        Objects.equals(this.smsCampaignId, requestContactExportCustomContactFilter.smsCampaignId);
+    return ObjectUtils.equals(this.actionForContacts, requestContactExportCustomContactFilter.actionForContacts) &&
+    ObjectUtils.equals(this.actionForEmailCampaigns, requestContactExportCustomContactFilter.actionForEmailCampaigns) &&
+    ObjectUtils.equals(this.actionForSmsCampaigns, requestContactExportCustomContactFilter.actionForSmsCampaigns) &&
+    ObjectUtils.equals(this.listId, requestContactExportCustomContactFilter.listId) &&
+    ObjectUtils.equals(this.emailCampaignId, requestContactExportCustomContactFilter.emailCampaignId) &&
+    ObjectUtils.equals(this.smsCampaignId, requestContactExportCustomContactFilter.smsCampaignId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionForContacts, actionForEmailCampaigns, actionForSmsCampaigns, listId, emailCampaignId, smsCampaignId);
+    return ObjectUtils.hashCodeMulti(actionForContacts, actionForEmailCampaigns, actionForSmsCampaigns, listId, emailCampaignId, smsCampaignId);
   }
 
 

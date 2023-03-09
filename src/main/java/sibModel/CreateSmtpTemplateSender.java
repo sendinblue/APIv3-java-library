@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Sender details including id or email and name (optional). Only one of either Sender&#39;s email or Sender&#39;s ID shall be passed in one request at a time. For example &#x60;{&quot;name&quot;:&quot;xyz&quot;, &quot;email&quot;:&quot;example@abc.com&quot;}&#x60; , &#x60;{&quot;name&quot;:&quot;xyz&quot;, &quot;id&quot;:123}&#x60;
+ * Sender details including id or email and name (optional). Only one of either Sender&#39;s email or Sender&#39;s ID shall be passed in one request at a time. For example &#x60;{\&quot;name\&quot;:\&quot;xyz\&quot;, \&quot;email\&quot;:\&quot;example@abc.com\&quot;}&#x60; , &#x60;{\&quot;name\&quot;:\&quot;xyz\&quot;, \&quot;id\&quot;:123}&#x60;
  */
 @ApiModel(description = "Sender details including id or email and name (optional). Only one of either Sender's email or Sender's ID shall be passed in one request at a time. For example `{\"name\":\"xyz\", \"email\":\"example@abc.com\"}` , `{\"name\":\"xyz\", \"id\":123}`")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateSmtpTemplateSender {
   @SerializedName("name")
   private String name = null;
@@ -96,21 +95,21 @@ public class CreateSmtpTemplateSender {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateSmtpTemplateSender createSmtpTemplateSender = (CreateSmtpTemplateSender) o;
-    return Objects.equals(this.name, createSmtpTemplateSender.name) &&
-        Objects.equals(this.email, createSmtpTemplateSender.email) &&
-        Objects.equals(this.id, createSmtpTemplateSender.id);
+    return ObjectUtils.equals(this.name, createSmtpTemplateSender.name) &&
+    ObjectUtils.equals(this.email, createSmtpTemplateSender.email) &&
+    ObjectUtils.equals(this.id, createSmtpTemplateSender.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, id);
+    return ObjectUtils.hashCodeMulti(name, email, id);
   }
 
 

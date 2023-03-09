@@ -97,7 +97,7 @@ public class WebhooksApiTest {
     public void getWebhooksTest() throws ApiException {
         String type = null;
         String sort = null;
-        GetWebhooks response = api.getWebhooks(type,sort);
+        GetWebhooks response = api.getWebhooks(type, sort);
 
         // TODO: test validations
     }

@@ -13,8 +13,11 @@
 
 package sibApi;
 
-import sibModel.CreateModel;
+import sendinblue.ApiException;
+import sibModel.CreateApiKeyRequest;
+import sibModel.CreateApiKeyResponse;
 import sibModel.CreateSubAccount;
+import sibModel.CreateSubAccountResponse;
 import sibModel.ErrorModel;
 import sibModel.GetSsoToken;
 import sibModel.MasterDetailsResponse;
@@ -24,7 +27,6 @@ import sibModel.SubAccountUpdatePlanRequest;
 import sibModel.SubAccountsResponse;
 import org.junit.Test;
 import org.junit.Ignore;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,11 +47,11 @@ public class MasterAccountApiTest {
      *
      * This endpoint will provide the details of the master account.
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateMasterAccountGetTest() throws Exception {
+    public void corporateMasterAccountGetTest() throws ApiException {
         MasterDetailsResponse response = api.corporateMasterAccountGet();
 
         // TODO: test validations
@@ -60,11 +62,11 @@ public class MasterAccountApiTest {
      *
      * This endpoint will provide the list all the sub-accounts of the master account.
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountGetTest() throws Exception {
+    public void corporateSubAccountGetTest() throws ApiException {
         Integer offset = null;
         Integer limit = null;
         SubAccountsResponse response = api.corporateSubAccountGet(offset, limit);
@@ -77,11 +79,11 @@ public class MasterAccountApiTest {
      *
      * 
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountIdDeleteTest() throws Exception {
+    public void corporateSubAccountIdDeleteTest() throws ApiException {
         Long id = null;
         api.corporateSubAccountIdDelete(id);
 
@@ -91,13 +93,13 @@ public class MasterAccountApiTest {
     /**
      * Get sub-account details
      *
-     * This endpoint will provide the details of specified sub-account organization
+     * This endpoint will provide the details for the specified sub-account company
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountIdGetTest() throws Exception {
+    public void corporateSubAccountIdGetTest() throws ApiException {
         Long id = null;
         SubAccountDetailsResponse response = api.corporateSubAccountIdGet(id);
 
@@ -109,14 +111,30 @@ public class MasterAccountApiTest {
      *
      * This endpoint will update the sub-account plan
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountIdPlanPutTest() throws Exception {
+    public void corporateSubAccountIdPlanPutTest() throws ApiException {
         Long id = null;
         SubAccountUpdatePlanRequest updatePlanDetails = null;
         api.corporateSubAccountIdPlanPut(id, updatePlanDetails);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an API key for a sub-account
+     *
+     * This endpoint will generate an API v3 key for a sub account
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void corporateSubAccountKeyPostTest() throws ApiException {
+        CreateApiKeyRequest createApiKeyRequest = null;
+        CreateApiKeyResponse response = api.corporateSubAccountKeyPost(createApiKeyRequest);
 
         // TODO: test validations
     }
@@ -126,13 +144,13 @@ public class MasterAccountApiTest {
      *
      * This endpoint will create a new sub-account under a master account
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountPostTest() throws Exception {
+    public void corporateSubAccountPostTest() throws ApiException {
         CreateSubAccount subAccountCreate = null;
-        CreateModel response = api.corporateSubAccountPost(subAccountCreate);
+        CreateSubAccountResponse response = api.corporateSubAccountPost(subAccountCreate);
 
         // TODO: test validations
     }
@@ -140,13 +158,13 @@ public class MasterAccountApiTest {
     /**
      * Generate SSO token to access Sendinblue
      *
-     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void corporateSubAccountSsoTokenPostTest() throws Exception {
+    public void corporateSubAccountSsoTokenPostTest() throws ApiException {
         SsoTokenRequest ssoTokenRequest = null;
         GetSsoToken response = api.corporateSubAccountSsoTokenPost(ssoTokenRequest);
 

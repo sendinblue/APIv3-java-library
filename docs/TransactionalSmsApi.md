@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
  **offset** | **Long**| Index of the first document of the page | [optional] [default to 0]
  **days** | **Long**| Number of days in the past including today (positive integer). Not compatible with &#39;startDate&#39; and &#39;endDate&#39; | [optional]
  **phoneNumber** | **String**| Filter the report for a specific phone number | [optional]
- **event** | **String**| Filter the report for specific events | [optional] [enum: bounces, hardBounces, softBounces, delivered, sent, accepted, unsubscription, replies, blocked]
+ **event** | **String**| Filter the report for specific events | [optional] [enum: bounces, hardBounces, softBounces, delivered, sent, accepted, unsubscription, replies, blocked, rejected]
  **tags** | **String**| Filter the report for specific tags passed as a serialized urlencoded array | [optional]
  **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 

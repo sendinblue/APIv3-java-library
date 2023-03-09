@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetExtendedContactDetailsStatisticsLinks
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetExtendedContactDetailsStatisticsLinks {
   @SerializedName("count")
   private Long count = null;
@@ -116,22 +115,22 @@ public class GetExtendedContactDetailsStatisticsLinks {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedContactDetailsStatisticsLinks getExtendedContactDetailsStatisticsLinks = (GetExtendedContactDetailsStatisticsLinks) o;
-    return Objects.equals(this.count, getExtendedContactDetailsStatisticsLinks.count) &&
-        Objects.equals(this.eventTime, getExtendedContactDetailsStatisticsLinks.eventTime) &&
-        Objects.equals(this.ip, getExtendedContactDetailsStatisticsLinks.ip) &&
-        Objects.equals(this.url, getExtendedContactDetailsStatisticsLinks.url);
+    return ObjectUtils.equals(this.count, getExtendedContactDetailsStatisticsLinks.count) &&
+    ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsLinks.eventTime) &&
+    ObjectUtils.equals(this.ip, getExtendedContactDetailsStatisticsLinks.ip) &&
+    ObjectUtils.equals(this.url, getExtendedContactDetailsStatisticsLinks.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, eventTime, ip, url);
+    return ObjectUtils.hashCodeMulti(count, eventTime, ip, url);
   }
 
 

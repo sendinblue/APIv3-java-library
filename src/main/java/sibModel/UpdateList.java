@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * UpdateList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class UpdateList {
   @SerializedName("name")
   private String name = null;
@@ -74,20 +73,20 @@ public class UpdateList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     UpdateList updateList = (UpdateList) o;
-    return Objects.equals(this.name, updateList.name) &&
-        Objects.equals(this.folderId, updateList.folderId);
+    return ObjectUtils.equals(this.name, updateList.name) &&
+    ObjectUtils.equals(this.folderId, updateList.folderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, folderId);
+    return ObjectUtils.hashCodeMulti(name, folderId);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.GetSmtpTemplateOverviewSender;
 /**
  * GetSmtpTemplateOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetSmtpTemplateOverview {
   @SerializedName("id")
   private Long id = null;
@@ -183,7 +182,7 @@ public class GetSmtpTemplateOverview {
   }
 
    /**
-   * Email defined as the &quot;Reply to&quot; for the template
+   * Email defined as the \&quot;Reply to\&quot; for the template
    * @return replyTo
   **/
   @ApiModelProperty(example = "replyto@domain.com", required = true, value = "Email defined as the \"Reply to\" for the template")
@@ -201,7 +200,7 @@ public class GetSmtpTemplateOverview {
   }
 
    /**
-   * Customisation of the &quot;to&quot; field for the template
+   * Customisation of the \&quot;to\&quot; field for the template
    * @return toField
   **/
   @ApiModelProperty(example = "{FIRSTNAME} {LASTNAME}", required = true, value = "Customisation of the \"to\" field for the template")
@@ -306,31 +305,31 @@ public class GetSmtpTemplateOverview {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetSmtpTemplateOverview getSmtpTemplateOverview = (GetSmtpTemplateOverview) o;
-    return Objects.equals(this.id, getSmtpTemplateOverview.id) &&
-        Objects.equals(this.name, getSmtpTemplateOverview.name) &&
-        Objects.equals(this.subject, getSmtpTemplateOverview.subject) &&
-        Objects.equals(this.isActive, getSmtpTemplateOverview.isActive) &&
-        Objects.equals(this.testSent, getSmtpTemplateOverview.testSent) &&
-        Objects.equals(this.sender, getSmtpTemplateOverview.sender) &&
-        Objects.equals(this.replyTo, getSmtpTemplateOverview.replyTo) &&
-        Objects.equals(this.toField, getSmtpTemplateOverview.toField) &&
-        Objects.equals(this.tag, getSmtpTemplateOverview.tag) &&
-        Objects.equals(this.htmlContent, getSmtpTemplateOverview.htmlContent) &&
-        Objects.equals(this.createdAt, getSmtpTemplateOverview.createdAt) &&
-        Objects.equals(this.modifiedAt, getSmtpTemplateOverview.modifiedAt) &&
-        Objects.equals(this.doiTemplate, getSmtpTemplateOverview.doiTemplate);
+    return ObjectUtils.equals(this.id, getSmtpTemplateOverview.id) &&
+    ObjectUtils.equals(this.name, getSmtpTemplateOverview.name) &&
+    ObjectUtils.equals(this.subject, getSmtpTemplateOverview.subject) &&
+    ObjectUtils.equals(this.isActive, getSmtpTemplateOverview.isActive) &&
+    ObjectUtils.equals(this.testSent, getSmtpTemplateOverview.testSent) &&
+    ObjectUtils.equals(this.sender, getSmtpTemplateOverview.sender) &&
+    ObjectUtils.equals(this.replyTo, getSmtpTemplateOverview.replyTo) &&
+    ObjectUtils.equals(this.toField, getSmtpTemplateOverview.toField) &&
+    ObjectUtils.equals(this.tag, getSmtpTemplateOverview.tag) &&
+    ObjectUtils.equals(this.htmlContent, getSmtpTemplateOverview.htmlContent) &&
+    ObjectUtils.equals(this.createdAt, getSmtpTemplateOverview.createdAt) &&
+    ObjectUtils.equals(this.modifiedAt, getSmtpTemplateOverview.modifiedAt) &&
+    ObjectUtils.equals(this.doiTemplate, getSmtpTemplateOverview.doiTemplate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, subject, isActive, testSent, sender, replyTo, toField, tag, htmlContent, createdAt, modifiedAt, doiTemplate);
+    return ObjectUtils.hashCodeMulti(id, name, subject, isActive, testSent, sender, replyTo, toField, tag, htmlContent, createdAt, modifiedAt, doiTemplate);
   }
 
 

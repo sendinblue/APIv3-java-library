@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetContactCampaignStatsTransacAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetContactCampaignStatsTransacAttributes {
   @SerializedName("orderDate")
   private LocalDate orderDate = null;
@@ -96,21 +95,21 @@ public class GetContactCampaignStatsTransacAttributes {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetContactCampaignStatsTransacAttributes getContactCampaignStatsTransacAttributes = (GetContactCampaignStatsTransacAttributes) o;
-    return Objects.equals(this.orderDate, getContactCampaignStatsTransacAttributes.orderDate) &&
-        Objects.equals(this.orderPrice, getContactCampaignStatsTransacAttributes.orderPrice) &&
-        Objects.equals(this.orderId, getContactCampaignStatsTransacAttributes.orderId);
+    return ObjectUtils.equals(this.orderDate, getContactCampaignStatsTransacAttributes.orderDate) &&
+    ObjectUtils.equals(this.orderPrice, getContactCampaignStatsTransacAttributes.orderPrice) &&
+    ObjectUtils.equals(this.orderId, getContactCampaignStatsTransacAttributes.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderDate, orderPrice, orderId);
+    return ObjectUtils.hashCodeMulti(orderDate, orderPrice, orderId);
   }
 
 

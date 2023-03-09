@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.GetReportsReports;
 /**
  * GetReports
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetReports {
   @SerializedName("reports")
   private List<GetReportsReports> reports = null;
@@ -64,19 +63,19 @@ public class GetReports {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetReports getReports = (GetReports) o;
-    return Objects.equals(this.reports, getReports.reports);
+    return ObjectUtils.equals(this.reports, getReports.reports);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reports);
+    return ObjectUtils.hashCodeMulti(reports);
   }
 
 

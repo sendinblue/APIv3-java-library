@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * BlockDomain
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class BlockDomain {
   @SerializedName("domain")
   private String domain = null;
@@ -53,19 +52,19 @@ public class BlockDomain {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     BlockDomain blockDomain = (BlockDomain) o;
-    return Objects.equals(this.domain, blockDomain.domain);
+    return ObjectUtils.equals(this.domain, blockDomain.domain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domain);
+    return ObjectUtils.hashCodeMulti(domain);
   }
 
 

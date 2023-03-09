@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetSsoToken
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetSsoToken {
   @SerializedName("token")
   private String token = null;
@@ -38,10 +37,10 @@ public class GetSsoToken {
   }
 
    /**
-   * Session token. It will remain valid for a short period of time only.
+   * Session token, it will remain valid for 15 days.
    * @return token
   **/
-  @ApiModelProperty(example = "ede520dxxxxxxxxxxxx76d631fba2", required = true, value = "Session token. It will remain valid for a short period of time only.")
+  @ApiModelProperty(example = "ede520dxxxxxxxxxxxx76d631fba2", required = true, value = "Session token, it will remain valid for 15 days.")
   public String getToken() {
     return token;
   }
@@ -53,19 +52,19 @@ public class GetSsoToken {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetSsoToken getSsoToken = (GetSsoToken) o;
-    return Objects.equals(this.token, getSsoToken.token);
+    return ObjectUtils.equals(this.token, getSsoToken.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token);
+    return ObjectUtils.hashCodeMulti(token);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * AddCredits
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class AddCredits {
   @SerializedName("sms")
   private Long sms = null;
@@ -74,20 +73,20 @@ public class AddCredits {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     AddCredits addCredits = (AddCredits) o;
-    return Objects.equals(this.sms, addCredits.sms) &&
-        Objects.equals(this.email, addCredits.email);
+    return ObjectUtils.equals(this.sms, addCredits.sms) &&
+    ObjectUtils.equals(this.email, addCredits.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sms, email);
+    return ObjectUtils.hashCodeMulti(sms, email);
   }
 
 

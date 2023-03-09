@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * MasterDetailsResponsePlanInfoFeatures
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class MasterDetailsResponsePlanInfoFeatures {
   @SerializedName("name")
   private String name = null;
@@ -137,23 +136,23 @@ public class MasterDetailsResponsePlanInfoFeatures {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     MasterDetailsResponsePlanInfoFeatures masterDetailsResponsePlanInfoFeatures = (MasterDetailsResponsePlanInfoFeatures) o;
-    return Objects.equals(this.name, masterDetailsResponsePlanInfoFeatures.name) &&
-        Objects.equals(this.unitValue, masterDetailsResponsePlanInfoFeatures.unitValue) &&
-        Objects.equals(this.quantity, masterDetailsResponsePlanInfoFeatures.quantity) &&
-        Objects.equals(this.used, masterDetailsResponsePlanInfoFeatures.used) &&
-        Objects.equals(this.remaining, masterDetailsResponsePlanInfoFeatures.remaining);
+    return ObjectUtils.equals(this.name, masterDetailsResponsePlanInfoFeatures.name) &&
+    ObjectUtils.equals(this.unitValue, masterDetailsResponsePlanInfoFeatures.unitValue) &&
+    ObjectUtils.equals(this.quantity, masterDetailsResponsePlanInfoFeatures.quantity) &&
+    ObjectUtils.equals(this.used, masterDetailsResponsePlanInfoFeatures.used) &&
+    ObjectUtils.equals(this.remaining, masterDetailsResponsePlanInfoFeatures.remaining);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, unitValue, quantity, used, remaining);
+    return ObjectUtils.hashCodeMulti(name, unitValue, quantity, used, remaining);
   }
 
 

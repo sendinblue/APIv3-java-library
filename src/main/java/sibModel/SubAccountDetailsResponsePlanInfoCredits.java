@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,10 +25,10 @@ import java.io.IOException;
 import sibModel.SubAccountDetailsResponsePlanInfoCreditsEmails;
 
 /**
- * Sub-account messaging quota details
+ * Credits quota and remaining credits on the sub-account
  */
-@ApiModel(description = "Sub-account messaging quota details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@ApiModel(description = "Credits quota and remaining credits on the sub-account")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountDetailsResponsePlanInfoCredits {
   @SerializedName("sms")
   private Long sms = null;
@@ -43,10 +42,10 @@ public class SubAccountDetailsResponsePlanInfoCredits {
   }
 
    /**
-   * Sms quota of the sub-account
+   * SMS credits remaining on the sub-account
    * @return sms
   **/
-  @ApiModelProperty(value = "Sms quota of the sub-account")
+  @ApiModelProperty(value = "SMS credits remaining on the sub-account")
   public Long getSms() {
     return sms;
   }
@@ -76,20 +75,20 @@ public class SubAccountDetailsResponsePlanInfoCredits {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountDetailsResponsePlanInfoCredits subAccountDetailsResponsePlanInfoCredits = (SubAccountDetailsResponsePlanInfoCredits) o;
-    return Objects.equals(this.sms, subAccountDetailsResponsePlanInfoCredits.sms) &&
-        Objects.equals(this.emails, subAccountDetailsResponsePlanInfoCredits.emails);
+    return ObjectUtils.equals(this.sms, subAccountDetailsResponsePlanInfoCredits.sms) &&
+    ObjectUtils.equals(this.emails, subAccountDetailsResponsePlanInfoCredits.emails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sms, emails);
+    return ObjectUtils.hashCodeMulti(sms, emails);
   }
 
 

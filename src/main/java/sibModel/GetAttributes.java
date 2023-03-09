@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.GetAttributesAttributes;
 /**
  * GetAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetAttributes {
   @SerializedName("attributes")
   private List<GetAttributesAttributes> attributes = new ArrayList<GetAttributesAttributes>();
@@ -61,19 +60,19 @@ public class GetAttributes {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetAttributes getAttributes = (GetAttributes) o;
-    return Objects.equals(this.attributes, getAttributes.attributes);
+    return ObjectUtils.equals(this.attributes, getAttributes.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes);
+    return ObjectUtils.hashCodeMulti(attributes);
   }
 
 

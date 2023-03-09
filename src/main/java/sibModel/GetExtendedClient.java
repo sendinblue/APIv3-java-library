@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,10 +28,94 @@ import sibModel.GetExtendedClientAddress;
 /**
  * GetExtendedClient
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
-public class GetExtendedClient extends GetClient {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
+public class GetExtendedClient {
+  @SerializedName("email")
+  private String email = null;
+
+  @SerializedName("firstName")
+  private String firstName = null;
+
+  @SerializedName("lastName")
+  private String lastName = null;
+
+  @SerializedName("companyName")
+  private String companyName = null;
+
   @SerializedName("address")
   private GetExtendedClientAddress address = null;
+
+  public GetExtendedClient email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Login Email
+   * @return email
+  **/
+  @ApiModelProperty(example = "john.smith@example.com", required = true, value = "Login Email")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public GetExtendedClient firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * First Name
+   * @return firstName
+  **/
+  @ApiModelProperty(example = "John", required = true, value = "First Name")
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public GetExtendedClient lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Last Name
+   * @return lastName
+  **/
+  @ApiModelProperty(example = "Smith", required = true, value = "Last Name")
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public GetExtendedClient companyName(String companyName) {
+    this.companyName = companyName;
+    return this;
+  }
+
+   /**
+   * Name of the company
+   * @return companyName
+  **/
+  @ApiModelProperty(example = "MyCompany", required = true, value = "Name of the company")
+  public String getCompanyName() {
+    return companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
 
   public GetExtendedClient address(GetExtendedClientAddress address) {
     this.address = address;
@@ -55,20 +138,23 @@ public class GetExtendedClient extends GetClient {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedClient getExtendedClient = (GetExtendedClient) o;
-    return Objects.equals(this.address, getExtendedClient.address) &&
-        super.equals(o);
+    return ObjectUtils.equals(this.email, getExtendedClient.email) &&
+    ObjectUtils.equals(this.firstName, getExtendedClient.firstName) &&
+    ObjectUtils.equals(this.lastName, getExtendedClient.lastName) &&
+    ObjectUtils.equals(this.companyName, getExtendedClient.companyName) &&
+    ObjectUtils.equals(this.address, getExtendedClient.address);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, super.hashCode());
+    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, address);
   }
 
 
@@ -76,7 +162,11 @@ public class GetExtendedClient extends GetClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExtendedClient {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * AbTestVersionClicksInner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class AbTestVersionClicksInner {
   @SerializedName("link")
   private String link = null;
@@ -96,21 +95,21 @@ public class AbTestVersionClicksInner {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     AbTestVersionClicksInner abTestVersionClicksInner = (AbTestVersionClicksInner) o;
-    return Objects.equals(this.link, abTestVersionClicksInner.link) &&
-        Objects.equals(this.clicksCount, abTestVersionClicksInner.clicksCount) &&
-        Objects.equals(this.clickRate, abTestVersionClicksInner.clickRate);
+    return ObjectUtils.equals(this.link, abTestVersionClicksInner.link) &&
+    ObjectUtils.equals(this.clicksCount, abTestVersionClicksInner.clicksCount) &&
+    ObjectUtils.equals(this.clickRate, abTestVersionClicksInner.clickRate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, clicksCount, clickRate);
+    return ObjectUtils.hashCodeMulti(link, clicksCount, clickRate);
   }
 
 

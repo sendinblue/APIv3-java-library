@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * GetCampaignRecipients
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetCampaignRecipients {
   @SerializedName("lists")
   private List<Long> lists = new ArrayList<Long>();
@@ -86,20 +85,20 @@ public class GetCampaignRecipients {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetCampaignRecipients getCampaignRecipients = (GetCampaignRecipients) o;
-    return Objects.equals(this.lists, getCampaignRecipients.lists) &&
-        Objects.equals(this.exclusionLists, getCampaignRecipients.exclusionLists);
+    return ObjectUtils.equals(this.lists, getCampaignRecipients.lists) &&
+    ObjectUtils.equals(this.exclusionLists, getCampaignRecipients.exclusionLists);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lists, exclusionLists);
+    return ObjectUtils.hashCodeMulti(lists, exclusionLists);
   }
 
 

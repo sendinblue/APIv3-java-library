@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.UpdateAttributeEnumeration;
 /**
  * UpdateAttribute
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class UpdateAttribute {
   @SerializedName("value")
   private String value = null;
@@ -70,7 +69,7 @@ public class UpdateAttribute {
   }
 
    /**
-   * List of the values and labels that the attribute can take. Use only if the attribute&#39;s category is &quot;category&quot;. For example, [{&quot;value&quot;:1, &quot;label&quot;:&quot;male&quot;}, {&quot;value&quot;:2, &quot;label&quot;:&quot;female&quot;}]
+   * List of the values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{\&quot;value\&quot;:1, \&quot;label\&quot;:\&quot;male\&quot;}, {\&quot;value\&quot;:2, \&quot;label\&quot;:\&quot;female\&quot;}]
    * @return enumeration
   **/
   @ApiModelProperty(value = "List of the values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]")
@@ -85,20 +84,20 @@ public class UpdateAttribute {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     UpdateAttribute updateAttribute = (UpdateAttribute) o;
-    return Objects.equals(this.value, updateAttribute.value) &&
-        Objects.equals(this.enumeration, updateAttribute.enumeration);
+    return ObjectUtils.equals(this.value, updateAttribute.value) &&
+    ObjectUtils.equals(this.enumeration, updateAttribute.enumeration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, enumeration);
+    return ObjectUtils.hashCodeMulti(value, enumeration);
   }
 
 

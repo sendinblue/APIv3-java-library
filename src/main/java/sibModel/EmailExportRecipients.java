@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * EmailExportRecipients
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class EmailExportRecipients {
   @SerializedName("notifyURL")
   private String notifyURL = null;
@@ -133,20 +132,20 @@ public class EmailExportRecipients {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     EmailExportRecipients emailExportRecipients = (EmailExportRecipients) o;
-    return Objects.equals(this.notifyURL, emailExportRecipients.notifyURL) &&
-        Objects.equals(this.recipientsType, emailExportRecipients.recipientsType);
+    return ObjectUtils.equals(this.notifyURL, emailExportRecipients.notifyURL) &&
+    ObjectUtils.equals(this.recipientsType, emailExportRecipients.recipientsType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(notifyURL, recipientsType);
+    return ObjectUtils.hashCodeMulti(notifyURL, recipientsType);
   }
 
 

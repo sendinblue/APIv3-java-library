@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Percentage of a particular event for both versions
  */
 @ApiModel(description = "Percentage of a particular event for both versions")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class AbTestVersionStats {
   @SerializedName("Version A")
   private String versionA = null;
@@ -75,20 +74,20 @@ public class AbTestVersionStats {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     AbTestVersionStats abTestVersionStats = (AbTestVersionStats) o;
-    return Objects.equals(this.versionA, abTestVersionStats.versionA) &&
-        Objects.equals(this.versionB, abTestVersionStats.versionB);
+    return ObjectUtils.equals(this.versionA, abTestVersionStats.versionA) &&
+    ObjectUtils.equals(this.versionB, abTestVersionStats.versionB);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionA, versionB);
+    return ObjectUtils.hashCodeMulti(versionA, versionB);
   }
 
 

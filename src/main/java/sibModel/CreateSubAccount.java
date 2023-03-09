@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * CreateSubAccount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateSubAccount {
   @SerializedName("companyName")
   private String companyName = null;
@@ -36,7 +35,7 @@ public class CreateSubAccount {
   private String email = null;
 
   /**
-   * Language for identifying localization information
+   * Set the language of the sub-account
    */
   @JsonAdapter(LanguageEnum.Adapter.class)
   public enum LanguageEnum {
@@ -102,10 +101,10 @@ public class CreateSubAccount {
   }
 
    /**
-   * Name of the organization
+   * Set the name of the sub-account company
    * @return companyName
   **/
-  @ApiModelProperty(required = true, value = "Name of the organization")
+  @ApiModelProperty(required = true, value = "Set the name of the sub-account company")
   public String getCompanyName() {
     return companyName;
   }
@@ -138,10 +137,10 @@ public class CreateSubAccount {
   }
 
    /**
-   * Language for identifying localization information
+   * Set the language of the sub-account
    * @return language
   **/
-  @ApiModelProperty(value = "Language for identifying localization information")
+  @ApiModelProperty(value = "Set the language of the sub-account")
   public LanguageEnum getLanguage() {
     return language;
   }
@@ -156,10 +155,10 @@ public class CreateSubAccount {
   }
 
    /**
-   * Request timezone of the client
+   * Set the timezone of the sub-account
    * @return timezone
   **/
-  @ApiModelProperty(value = "Request timezone of the client")
+  @ApiModelProperty(value = "Set the timezone of the sub-account")
   public String getTimezone() {
     return timezone;
   }
@@ -171,22 +170,22 @@ public class CreateSubAccount {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateSubAccount createSubAccount = (CreateSubAccount) o;
-    return Objects.equals(this.companyName, createSubAccount.companyName) &&
-        Objects.equals(this.email, createSubAccount.email) &&
-        Objects.equals(this.language, createSubAccount.language) &&
-        Objects.equals(this.timezone, createSubAccount.timezone);
+    return ObjectUtils.equals(this.companyName, createSubAccount.companyName) &&
+    ObjectUtils.equals(this.email, createSubAccount.email) &&
+    ObjectUtils.equals(this.language, createSubAccount.language) &&
+    ObjectUtils.equals(this.timezone, createSubAccount.timezone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyName, email, language, timezone);
+    return ObjectUtils.hashCodeMulti(companyName, email, language, timezone);
   }
 
 

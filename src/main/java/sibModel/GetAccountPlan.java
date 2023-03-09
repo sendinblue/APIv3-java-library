@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetAccountPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetAccountPlan {
   /**
    * Displays the plan type of the user
@@ -87,7 +86,7 @@ public class GetAccountPlan {
   private TypeEnum type = null;
 
   /**
-   * This is the type of the credit, &quot;Send Limit&quot; is one of the possible types of credit of a user. &quot;Send Limit&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
    */
   @JsonAdapter(CreditsTypeEnum.Adapter.class)
   public enum CreditsTypeEnum {
@@ -170,7 +169,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * This is the type of the credit, &quot;Send Limit&quot; is one of the possible types of credit of a user. &quot;Send Limit&quot; implies the total number of emails you can send to the subscribers in your account.
+   * This is the type of the credit, \&quot;Send Limit\&quot; is one of the possible types of credit of a user. \&quot;Send Limit\&quot; implies the total number of emails you can send to the subscribers in your account.
    * @return creditsType
   **/
   @ApiModelProperty(example = "sendLimit", required = true, value = "This is the type of the credit, \"Send Limit\" is one of the possible types of credit of a user. \"Send Limit\" implies the total number of emails you can send to the subscribers in your account.")
@@ -206,7 +205,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will start (only available for &quot;subscription&quot; and &quot;reseller&quot; plan type)
+   * Date of the period from which the plan will start (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
    * @return startDate
   **/
   @ApiModelProperty(example = "2016-12-31", value = "Date of the period from which the plan will start (only available for \"subscription\" and \"reseller\" plan type)")
@@ -224,7 +223,7 @@ public class GetAccountPlan {
   }
 
    /**
-   * Date of the period from which the plan will end (only available for &quot;subscription&quot; and &quot;reseller&quot; plan type)
+   * Date of the period from which the plan will end (only available for \&quot;subscription\&quot; and \&quot;reseller\&quot; plan type)
    * @return endDate
   **/
   @ApiModelProperty(example = "2017-01-31", value = "Date of the period from which the plan will end (only available for \"subscription\" and \"reseller\" plan type)")
@@ -257,24 +256,24 @@ public class GetAccountPlan {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetAccountPlan getAccountPlan = (GetAccountPlan) o;
-    return Objects.equals(this.type, getAccountPlan.type) &&
-        Objects.equals(this.creditsType, getAccountPlan.creditsType) &&
-        Objects.equals(this.credits, getAccountPlan.credits) &&
-        Objects.equals(this.startDate, getAccountPlan.startDate) &&
-        Objects.equals(this.endDate, getAccountPlan.endDate) &&
-        Objects.equals(this.userLimit, getAccountPlan.userLimit);
+    return ObjectUtils.equals(this.type, getAccountPlan.type) &&
+    ObjectUtils.equals(this.creditsType, getAccountPlan.creditsType) &&
+    ObjectUtils.equals(this.credits, getAccountPlan.credits) &&
+    ObjectUtils.equals(this.startDate, getAccountPlan.startDate) &&
+    ObjectUtils.equals(this.endDate, getAccountPlan.endDate) &&
+    ObjectUtils.equals(this.userLimit, getAccountPlan.userLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, creditsType, credits, startDate, endDate, userLimit);
+    return ObjectUtils.hashCodeMulti(type, creditsType, credits, startDate, endDate, userLimit);
   }
 
 

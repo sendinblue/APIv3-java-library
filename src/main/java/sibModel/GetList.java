@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetList
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetList {
   @SerializedName("id")
   private Long id = null;
@@ -137,23 +136,23 @@ public class GetList {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetList getList = (GetList) o;
-    return Objects.equals(this.id, getList.id) &&
-        Objects.equals(this.name, getList.name) &&
-        Objects.equals(this.totalBlacklisted, getList.totalBlacklisted) &&
-        Objects.equals(this.totalSubscribers, getList.totalSubscribers) &&
-        Objects.equals(this.uniqueSubscribers, getList.uniqueSubscribers);
+    return ObjectUtils.equals(this.id, getList.id) &&
+    ObjectUtils.equals(this.name, getList.name) &&
+    ObjectUtils.equals(this.totalBlacklisted, getList.totalBlacklisted) &&
+    ObjectUtils.equals(this.totalSubscribers, getList.totalSubscribers) &&
+    ObjectUtils.equals(this.uniqueSubscribers, getList.uniqueSubscribers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, totalBlacklisted, totalSubscribers, uniqueSubscribers);
+    return ObjectUtils.hashCodeMulti(id, name, totalBlacklisted, totalSubscribers, uniqueSubscribers);
   }
 
 

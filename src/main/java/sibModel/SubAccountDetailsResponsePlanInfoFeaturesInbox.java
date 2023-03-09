@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Inbox details
  */
 @ApiModel(description = "Inbox details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountDetailsResponsePlanInfoFeaturesInbox {
   @SerializedName("quantity")
   private Long quantity = null;
@@ -75,20 +74,20 @@ public class SubAccountDetailsResponsePlanInfoFeaturesInbox {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountDetailsResponsePlanInfoFeaturesInbox subAccountDetailsResponsePlanInfoFeaturesInbox = (SubAccountDetailsResponsePlanInfoFeaturesInbox) o;
-    return Objects.equals(this.quantity, subAccountDetailsResponsePlanInfoFeaturesInbox.quantity) &&
-        Objects.equals(this.remaining, subAccountDetailsResponsePlanInfoFeaturesInbox.remaining);
+    return ObjectUtils.equals(this.quantity, subAccountDetailsResponsePlanInfoFeaturesInbox.quantity) &&
+    ObjectUtils.equals(this.remaining, subAccountDetailsResponsePlanInfoFeaturesInbox.remaining);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(quantity, remaining);
+    return ObjectUtils.hashCodeMulti(quantity, remaining);
   }
 
 

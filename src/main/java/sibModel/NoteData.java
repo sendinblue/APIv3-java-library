@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import java.util.List;
  * Note data to be saved
  */
 @ApiModel(description = "Note data to be saved")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class NoteData {
   @SerializedName("text")
   private String text = null;
@@ -40,6 +39,9 @@ public class NoteData {
 
   @SerializedName("dealIds")
   private List<String> dealIds = null;
+
+  @SerializedName("companyIds")
+  private List<String> companyIds = null;
 
   public NoteData text(String text) {
     this.text = text;
@@ -111,24 +113,51 @@ public class NoteData {
     this.dealIds = dealIds;
   }
 
+  public NoteData companyIds(List<String> companyIds) {
+    this.companyIds = companyIds;
+    return this;
+  }
+
+  public NoteData addCompanyIdsItem(String companyIdsItem) {
+    if (this.companyIds == null) {
+      this.companyIds = new ArrayList<String>();
+    }
+    this.companyIds.add(companyIdsItem);
+    return this;
+  }
+
+   /**
+   * Company Ids linked to a note
+   * @return companyIds
+  **/
+  @ApiModelProperty(example = "[\"61a5ce58c5d4795761045990\",\"61a5ce58c5d4795761045991\"]", value = "Company Ids linked to a note")
+  public List<String> getCompanyIds() {
+    return companyIds;
+  }
+
+  public void setCompanyIds(List<String> companyIds) {
+    this.companyIds = companyIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     NoteData noteData = (NoteData) o;
-    return Objects.equals(this.text, noteData.text) &&
-        Objects.equals(this.contactIds, noteData.contactIds) &&
-        Objects.equals(this.dealIds, noteData.dealIds);
+    return ObjectUtils.equals(this.text, noteData.text) &&
+    ObjectUtils.equals(this.contactIds, noteData.contactIds) &&
+    ObjectUtils.equals(this.dealIds, noteData.dealIds) &&
+    ObjectUtils.equals(this.companyIds, noteData.companyIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, contactIds, dealIds);
+    return ObjectUtils.hashCodeMulti(text, contactIds, dealIds, companyIds);
   }
 
 
@@ -140,6 +169,7 @@ public class NoteData {
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    contactIds: ").append(toIndentedString(contactIds)).append("\n");
     sb.append("    dealIds: ").append(toIndentedString(dealIds)).append("\n");
+    sb.append("    companyIds: ").append(toIndentedString(companyIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

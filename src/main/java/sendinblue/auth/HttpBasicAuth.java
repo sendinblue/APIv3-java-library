@@ -13,9 +13,8 @@
 
 package sendinblue.auth;
 
+import okhttp3.Credentials;
 import sendinblue.Pair;
-
-import com.squareup.okhttp.Credentials;
 
 import java.util.Map;
 import java.util.List;

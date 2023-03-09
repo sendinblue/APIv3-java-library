@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,48 +22,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.threeten.bp.OffsetDateTime;
-import sibModel.TaskReminder;
 
 /**
  * Body
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class Body {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("duration")
-  private Long duration = null;
+  @SerializedName("attributes")
+  private Object attributes = null;
 
-  @SerializedName("taskTypeId")
-  private String taskTypeId = null;
-
-  @SerializedName("date")
-  private OffsetDateTime date = null;
-
-  @SerializedName("notes")
-  private String notes = null;
-
-  @SerializedName("done")
-  private Boolean done = null;
-
-  @SerializedName("assignToId")
-  private String assignToId = null;
-
-  @SerializedName("contactsIds")
-  private List<Integer> contactsIds = null;
-
-  @SerializedName("dealsIds")
-  private List<String> dealsIds = null;
-
-  @SerializedName("companiesIds")
-  private List<String> companiesIds = null;
-
-  @SerializedName("reminder")
-  private TaskReminder reminder = null;
+  @SerializedName("countryCode")
+  private Long countryCode = null;
 
   public Body name(String name) {
     this.name = name;
@@ -72,10 +43,10 @@ public class Body {
   }
 
    /**
-   * Name of task
+   * Name of company
    * @return name
   **/
-  @ApiModelProperty(example = "Task: Connect with client", required = true, value = "Name of task")
+  @ApiModelProperty(example = "company", required = true, value = "Name of company")
   public String getName() {
     return name;
   }
@@ -84,236 +55,60 @@ public class Body {
     this.name = name;
   }
 
-  public Body duration(Long duration) {
-    this.duration = duration;
+  public Body attributes(Object attributes) {
+    this.attributes = attributes;
     return this;
   }
 
    /**
-   * Duration of task
-   * @return duration
+   * Attributes for company creation
+   * @return attributes
   **/
-  @ApiModelProperty(example = "900000", value = "Duration of task")
-  public Long getDuration() {
-    return duration;
+  @ApiModelProperty(example = "{\"domain\":\"https://example.com\",\"industry\":\"Fabric\",\"owner\":\"60e68d60582a3b006f524197\"}", value = "Attributes for company creation")
+  public Object getAttributes() {
+    return attributes;
   }
 
-  public void setDuration(Long duration) {
-    this.duration = duration;
+  public void setAttributes(Object attributes) {
+    this.attributes = attributes;
   }
 
-  public Body taskTypeId(String taskTypeId) {
-    this.taskTypeId = taskTypeId;
+  public Body countryCode(Long countryCode) {
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Id for type of task e.g Call / Email / Meeting etc.
-   * @return taskTypeId
+   * Country code if phone_number is passed in attributes.
+   * @return countryCode
   **/
-  @ApiModelProperty(example = "61a5cd07ca1347c82306ad09", required = true, value = "Id for type of task e.g Call / Email / Meeting etc.")
-  public String getTaskTypeId() {
-    return taskTypeId;
+  @ApiModelProperty(example = "91", value = "Country code if phone_number is passed in attributes.")
+  public Long getCountryCode() {
+    return countryCode;
   }
 
-  public void setTaskTypeId(String taskTypeId) {
-    this.taskTypeId = taskTypeId;
-  }
-
-  public Body date(OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-   /**
-   * Task date/time
-   * @return date
-  **/
-  @ApiModelProperty(example = "2021-11-01T17:44:54.668Z", required = true, value = "Task date/time")
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
-  public void setDate(OffsetDateTime date) {
-    this.date = date;
-  }
-
-  public Body notes(String notes) {
-    this.notes = notes;
-    return this;
-  }
-
-   /**
-   * Notes added to a task
-   * @return notes
-  **/
-  @ApiModelProperty(example = "In communication with client for resolution of queries.", value = "Notes added to a task")
-  public String getNotes() {
-    return notes;
-  }
-
-  public void setNotes(String notes) {
-    this.notes = notes;
-  }
-
-  public Body done(Boolean done) {
-    this.done = done;
-    return this;
-  }
-
-   /**
-   * Task marked as done
-   * @return done
-  **/
-  @ApiModelProperty(example = "false", value = "Task marked as done")
-  public Boolean isDone() {
-    return done;
-  }
-
-  public void setDone(Boolean done) {
-    this.done = done;
-  }
-
-  public Body assignToId(String assignToId) {
-    this.assignToId = assignToId;
-    return this;
-  }
-
-   /**
-   * User id to whom task is assigned
-   * @return assignToId
-  **/
-  @ApiModelProperty(example = "5faab4b7f195bb3c4c31e62a", value = "User id to whom task is assigned")
-  public String getAssignToId() {
-    return assignToId;
-  }
-
-  public void setAssignToId(String assignToId) {
-    this.assignToId = assignToId;
-  }
-
-  public Body contactsIds(List<Integer> contactsIds) {
-    this.contactsIds = contactsIds;
-    return this;
-  }
-
-  public Body addContactsIdsItem(Integer contactsIdsItem) {
-    if (this.contactsIds == null) {
-      this.contactsIds = new ArrayList<Integer>();
-    }
-    this.contactsIds.add(contactsIdsItem);
-    return this;
-  }
-
-   /**
-   * Contact ids for contacts linked to this task
-   * @return contactsIds
-  **/
-  @ApiModelProperty(example = "[1,2,3]", value = "Contact ids for contacts linked to this task")
-  public List<Integer> getContactsIds() {
-    return contactsIds;
-  }
-
-  public void setContactsIds(List<Integer> contactsIds) {
-    this.contactsIds = contactsIds;
-  }
-
-  public Body dealsIds(List<String> dealsIds) {
-    this.dealsIds = dealsIds;
-    return this;
-  }
-
-  public Body addDealsIdsItem(String dealsIdsItem) {
-    if (this.dealsIds == null) {
-      this.dealsIds = new ArrayList<String>();
-    }
-    this.dealsIds.add(dealsIdsItem);
-    return this;
-  }
-
-   /**
-   * Deal ids for deals a task is linked to
-   * @return dealsIds
-  **/
-  @ApiModelProperty(example = "[\"61a5ce58c5d4795761045990\",\"61a5ce58c5d4795761045991\",\"61a5ce58c5d4795761045992\"]", value = "Deal ids for deals a task is linked to")
-  public List<String> getDealsIds() {
-    return dealsIds;
-  }
-
-  public void setDealsIds(List<String> dealsIds) {
-    this.dealsIds = dealsIds;
-  }
-
-  public Body companiesIds(List<String> companiesIds) {
-    this.companiesIds = companiesIds;
-    return this;
-  }
-
-  public Body addCompaniesIdsItem(String companiesIdsItem) {
-    if (this.companiesIds == null) {
-      this.companiesIds = new ArrayList<String>();
-    }
-    this.companiesIds.add(companiesIdsItem);
-    return this;
-  }
-
-   /**
-   * Companies ids for companies a task is linked to
-   * @return companiesIds
-  **/
-  @ApiModelProperty(example = "[\"61a5ce58c5d4795761045990\",\"61a5ce58c5d4795761045991\",\"61a5ce58c5d4795761045992\"]", value = "Companies ids for companies a task is linked to")
-  public List<String> getCompaniesIds() {
-    return companiesIds;
-  }
-
-  public void setCompaniesIds(List<String> companiesIds) {
-    this.companiesIds = companiesIds;
-  }
-
-  public Body reminder(TaskReminder reminder) {
-    this.reminder = reminder;
-    return this;
-  }
-
-   /**
-   * Get reminder
-   * @return reminder
-  **/
-  @ApiModelProperty(value = "")
-  public TaskReminder getReminder() {
-    return reminder;
-  }
-
-  public void setReminder(TaskReminder reminder) {
-    this.reminder = reminder;
+  public void setCountryCode(Long countryCode) {
+    this.countryCode = countryCode;
   }
 
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     Body body = (Body) o;
-    return Objects.equals(this.name, body.name) &&
-        Objects.equals(this.duration, body.duration) &&
-        Objects.equals(this.taskTypeId, body.taskTypeId) &&
-        Objects.equals(this.date, body.date) &&
-        Objects.equals(this.notes, body.notes) &&
-        Objects.equals(this.done, body.done) &&
-        Objects.equals(this.assignToId, body.assignToId) &&
-        Objects.equals(this.contactsIds, body.contactsIds) &&
-        Objects.equals(this.dealsIds, body.dealsIds) &&
-        Objects.equals(this.companiesIds, body.companiesIds) &&
-        Objects.equals(this.reminder, body.reminder);
+    return ObjectUtils.equals(this.name, body.name) &&
+    ObjectUtils.equals(this.attributes, body.attributes) &&
+    ObjectUtils.equals(this.countryCode, body.countryCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, duration, taskTypeId, date, notes, done, assignToId, contactsIds, dealsIds, companiesIds, reminder);
+    return ObjectUtils.hashCodeMulti(name, attributes, countryCode);
   }
 
 
@@ -323,16 +118,8 @@ public class Body {
     sb.append("class Body {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    taskTypeId: ").append(toIndentedString(taskTypeId)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-    sb.append("    done: ").append(toIndentedString(done)).append("\n");
-    sb.append("    assignToId: ").append(toIndentedString(assignToId)).append("\n");
-    sb.append("    contactsIds: ").append(toIndentedString(contactsIds)).append("\n");
-    sb.append("    dealsIds: ").append(toIndentedString(dealsIds)).append("\n");
-    sb.append("    companiesIds: ").append(toIndentedString(companiesIds)).append("\n");
-    sb.append("    reminder: ").append(toIndentedString(reminder)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

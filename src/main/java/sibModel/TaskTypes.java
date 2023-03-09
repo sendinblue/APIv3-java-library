@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,13 +27,10 @@ import java.io.IOException;
  * Task types details
  */
 @ApiModel(description = "Task types details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class TaskTypes {
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("icon")
-  private String icon = null;
 
   @SerializedName("title")
   private String title = null;
@@ -55,24 +51,6 @@ public class TaskTypes {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public TaskTypes icon(String icon) {
-    this.icon = icon;
-    return this;
-  }
-
-   /**
-   * Icon of task type
-   * @return icon
-  **/
-  @ApiModelProperty(example = "PaperPlaneIcon", value = "Icon of task type")
-  public String getIcon() {
-    return icon;
-  }
-
-  public void setIcon(String icon) {
-    this.icon = icon;
   }
 
   public TaskTypes title(String title) {
@@ -96,21 +74,20 @@ public class TaskTypes {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     TaskTypes taskTypes = (TaskTypes) o;
-    return Objects.equals(this.id, taskTypes.id) &&
-        Objects.equals(this.icon, taskTypes.icon) &&
-        Objects.equals(this.title, taskTypes.title);
+    return ObjectUtils.equals(this.id, taskTypes.id) &&
+    ObjectUtils.equals(this.title, taskTypes.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, icon, title);
+    return ObjectUtils.hashCodeMulti(id, title);
   }
 
 
@@ -120,7 +97,6 @@ public class TaskTypes {
     sb.append("class TaskTypes {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();

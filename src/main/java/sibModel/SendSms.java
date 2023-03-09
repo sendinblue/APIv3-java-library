@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * SendSms
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SendSms {
   @SerializedName("reference")
   private String reference = null;
@@ -137,23 +136,23 @@ public class SendSms {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SendSms sendSms = (SendSms) o;
-    return Objects.equals(this.reference, sendSms.reference) &&
-        Objects.equals(this.messageId, sendSms.messageId) &&
-        Objects.equals(this.smsCount, sendSms.smsCount) &&
-        Objects.equals(this.usedCredits, sendSms.usedCredits) &&
-        Objects.equals(this.remainingCredits, sendSms.remainingCredits);
+    return ObjectUtils.equals(this.reference, sendSms.reference) &&
+    ObjectUtils.equals(this.messageId, sendSms.messageId) &&
+    ObjectUtils.equals(this.smsCount, sendSms.smsCount) &&
+    ObjectUtils.equals(this.usedCredits, sendSms.usedCredits) &&
+    ObjectUtils.equals(this.remainingCredits, sendSms.remainingCredits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reference, messageId, smsCount, usedCredits, remainingCredits);
+    return ObjectUtils.hashCodeMulti(reference, messageId, smsCount, usedCredits, remainingCredits);
   }
 
 

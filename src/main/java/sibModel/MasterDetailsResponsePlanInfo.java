@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +31,7 @@ import sibModel.MasterDetailsResponsePlanInfoFeatures;
  * Plan details
  */
 @ApiModel(description = "Plan details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class MasterDetailsResponsePlanInfo {
   @SerializedName("currencyCode")
   private String currencyCode = null;
@@ -218,24 +217,24 @@ public class MasterDetailsResponsePlanInfo {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     MasterDetailsResponsePlanInfo masterDetailsResponsePlanInfo = (MasterDetailsResponsePlanInfo) o;
-    return Objects.equals(this.currencyCode, masterDetailsResponsePlanInfo.currencyCode) &&
-        Objects.equals(this.nextBillingAt, masterDetailsResponsePlanInfo.nextBillingAt) &&
-        Objects.equals(this.price, masterDetailsResponsePlanInfo.price) &&
-        Objects.equals(this.planPeriod, masterDetailsResponsePlanInfo.planPeriod) &&
-        Objects.equals(this.subAccounts, masterDetailsResponsePlanInfo.subAccounts) &&
-        Objects.equals(this.features, masterDetailsResponsePlanInfo.features);
+    return ObjectUtils.equals(this.currencyCode, masterDetailsResponsePlanInfo.currencyCode) &&
+    ObjectUtils.equals(this.nextBillingAt, masterDetailsResponsePlanInfo.nextBillingAt) &&
+    ObjectUtils.equals(this.price, masterDetailsResponsePlanInfo.price) &&
+    ObjectUtils.equals(this.planPeriod, masterDetailsResponsePlanInfo.planPeriod) &&
+    ObjectUtils.equals(this.subAccounts, masterDetailsResponsePlanInfo.subAccounts) &&
+    ObjectUtils.equals(this.features, masterDetailsResponsePlanInfo.features);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(currencyCode, nextBillingAt, price, planPeriod, subAccounts, features);
+    return ObjectUtils.hashCodeMulti(currencyCode, nextBillingAt, price, planPeriod, subAccounts, features);
   }
 
 

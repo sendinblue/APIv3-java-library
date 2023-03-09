@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -78,7 +79,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addCreditsCall(String childIdentifier, AddCredits addCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call addCreditsCall(String childIdentifier, AddCredits addCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = addCredits;
 
         // create path and map variables
@@ -105,10 +106,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -121,7 +122,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addCreditsValidateBeforeCall(String childIdentifier, AddCredits addCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call addCreditsValidateBeforeCall(String childIdentifier, AddCredits addCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -134,7 +135,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = addCreditsCall(childIdentifier, addCredits, progressListener, progressRequestListener);
+        Call call = addCreditsCall(childIdentifier, addCredits, progressListener, progressRequestListener);
         return call;
 
     }
@@ -161,7 +162,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemainingCreditModel> addCreditsWithHttpInfo(String childIdentifier, AddCredits addCredits) throws ApiException {
-        com.squareup.okhttp.Call call = addCreditsValidateBeforeCall(childIdentifier, addCredits, null, null);
+        Call call = addCreditsValidateBeforeCall(childIdentifier, addCredits, null, null);
         Type localVarReturnType = new TypeToken<RemainingCreditModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -175,7 +176,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addCreditsAsync(String childIdentifier, AddCredits addCredits, final ApiCallback<RemainingCreditModel> callback) throws ApiException {
+    public Call addCreditsAsync(String childIdentifier, AddCredits addCredits, final ApiCallback<RemainingCreditModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -196,7 +197,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addCreditsValidateBeforeCall(childIdentifier, addCredits, progressListener, progressRequestListener);
+        Call call = addCreditsValidateBeforeCall(childIdentifier, addCredits, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RemainingCreditModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -210,7 +211,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call associateIpToChildCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call associateIpToChildCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ip;
 
         // create path and map variables
@@ -237,10 +238,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -253,7 +254,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call associateIpToChildValidateBeforeCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call associateIpToChildValidateBeforeCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -266,7 +267,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = associateIpToChildCall(childIdentifier, ip, progressListener, progressRequestListener);
+        Call call = associateIpToChildCall(childIdentifier, ip, progressListener, progressRequestListener);
         return call;
 
     }
@@ -291,7 +292,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> associateIpToChildWithHttpInfo(String childIdentifier, ManageIp ip) throws ApiException {
-        com.squareup.okhttp.Call call = associateIpToChildValidateBeforeCall(childIdentifier, ip, null, null);
+        Call call = associateIpToChildValidateBeforeCall(childIdentifier, ip, null, null);
         return apiClient.execute(call);
     }
 
@@ -304,7 +305,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call associateIpToChildAsync(String childIdentifier, ManageIp ip, final ApiCallback<Void> callback) throws ApiException {
+    public Call associateIpToChildAsync(String childIdentifier, ManageIp ip, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -325,7 +326,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = associateIpToChildValidateBeforeCall(childIdentifier, ip, progressListener, progressRequestListener);
+        Call call = associateIpToChildValidateBeforeCall(childIdentifier, ip, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -338,7 +339,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createChildDomainCall(String childIdentifier, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createChildDomainCall(String childIdentifier, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = addChildDomain;
 
         // create path and map variables
@@ -365,10 +366,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -381,7 +382,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createChildDomainValidateBeforeCall(String childIdentifier, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createChildDomainValidateBeforeCall(String childIdentifier, AddChildDomain addChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -394,7 +395,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = createChildDomainCall(childIdentifier, addChildDomain, progressListener, progressRequestListener);
+        Call call = createChildDomainCall(childIdentifier, addChildDomain, progressListener, progressRequestListener);
         return call;
 
     }
@@ -419,7 +420,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> createChildDomainWithHttpInfo(String childIdentifier, AddChildDomain addChildDomain) throws ApiException {
-        com.squareup.okhttp.Call call = createChildDomainValidateBeforeCall(childIdentifier, addChildDomain, null, null);
+        Call call = createChildDomainValidateBeforeCall(childIdentifier, addChildDomain, null, null);
         return apiClient.execute(call);
     }
 
@@ -432,7 +433,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createChildDomainAsync(String childIdentifier, AddChildDomain addChildDomain, final ApiCallback<Void> callback) throws ApiException {
+    public Call createChildDomainAsync(String childIdentifier, AddChildDomain addChildDomain, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -453,7 +454,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createChildDomainValidateBeforeCall(childIdentifier, addChildDomain, progressListener, progressRequestListener);
+        Call call = createChildDomainValidateBeforeCall(childIdentifier, addChildDomain, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -465,7 +466,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createResellerChildCall(CreateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createResellerChildCall(CreateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = resellerChild;
 
         // create path and map variables
@@ -491,10 +492,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -507,10 +508,10 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createResellerChildValidateBeforeCall(CreateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createResellerChildValidateBeforeCall(CreateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = createResellerChildCall(resellerChild, progressListener, progressRequestListener);
+        Call call = createResellerChildCall(resellerChild, progressListener, progressRequestListener);
         return call;
 
     }
@@ -535,7 +536,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateReseller> createResellerChildWithHttpInfo(CreateChild resellerChild) throws ApiException {
-        com.squareup.okhttp.Call call = createResellerChildValidateBeforeCall(resellerChild, null, null);
+        Call call = createResellerChildValidateBeforeCall(resellerChild, null, null);
         Type localVarReturnType = new TypeToken<CreateReseller>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -548,7 +549,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createResellerChildAsync(CreateChild resellerChild, final ApiCallback<CreateReseller> callback) throws ApiException {
+    public Call createResellerChildAsync(CreateChild resellerChild, final ApiCallback<CreateReseller> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -569,7 +570,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createResellerChildValidateBeforeCall(resellerChild, progressListener, progressRequestListener);
+        Call call = createResellerChildValidateBeforeCall(resellerChild, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateReseller>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -583,7 +584,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteChildDomainCall(String childIdentifier, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteChildDomainCall(String childIdentifier, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -611,10 +612,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -627,7 +628,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteChildDomainValidateBeforeCall(String childIdentifier, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteChildDomainValidateBeforeCall(String childIdentifier, String domainName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -640,7 +641,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteChildDomainCall(childIdentifier, domainName, progressListener, progressRequestListener);
+        Call call = deleteChildDomainCall(childIdentifier, domainName, progressListener, progressRequestListener);
         return call;
 
     }
@@ -665,7 +666,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteChildDomainWithHttpInfo(String childIdentifier, String domainName) throws ApiException {
-        com.squareup.okhttp.Call call = deleteChildDomainValidateBeforeCall(childIdentifier, domainName, null, null);
+        Call call = deleteChildDomainValidateBeforeCall(childIdentifier, domainName, null, null);
         return apiClient.execute(call);
     }
 
@@ -678,7 +679,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteChildDomainAsync(String childIdentifier, String domainName, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteChildDomainAsync(String childIdentifier, String domainName, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -699,7 +700,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteChildDomainValidateBeforeCall(childIdentifier, domainName, progressListener, progressRequestListener);
+        Call call = deleteChildDomainValidateBeforeCall(childIdentifier, domainName, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -711,7 +712,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteResellerChildCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteResellerChildCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -738,10 +739,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -754,7 +755,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteResellerChildValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteResellerChildValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -762,7 +763,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteResellerChildCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = deleteResellerChildCall(childIdentifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -785,7 +786,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteResellerChildWithHttpInfo(String childIdentifier) throws ApiException {
-        com.squareup.okhttp.Call call = deleteResellerChildValidateBeforeCall(childIdentifier, null, null);
+        Call call = deleteResellerChildValidateBeforeCall(childIdentifier, null, null);
         return apiClient.execute(call);
     }
 
@@ -797,7 +798,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteResellerChildAsync(String childIdentifier, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteResellerChildAsync(String childIdentifier, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -818,7 +819,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteResellerChildValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = deleteResellerChildValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -831,7 +832,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call dissociateIpFromChildCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call dissociateIpFromChildCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ip;
 
         // create path and map variables
@@ -858,10 +859,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -874,7 +875,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call dissociateIpFromChildValidateBeforeCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call dissociateIpFromChildValidateBeforeCall(String childIdentifier, ManageIp ip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -887,7 +888,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = dissociateIpFromChildCall(childIdentifier, ip, progressListener, progressRequestListener);
+        Call call = dissociateIpFromChildCall(childIdentifier, ip, progressListener, progressRequestListener);
         return call;
 
     }
@@ -912,7 +913,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> dissociateIpFromChildWithHttpInfo(String childIdentifier, ManageIp ip) throws ApiException {
-        com.squareup.okhttp.Call call = dissociateIpFromChildValidateBeforeCall(childIdentifier, ip, null, null);
+        Call call = dissociateIpFromChildValidateBeforeCall(childIdentifier, ip, null, null);
         return apiClient.execute(call);
     }
 
@@ -925,7 +926,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call dissociateIpFromChildAsync(String childIdentifier, ManageIp ip, final ApiCallback<Void> callback) throws ApiException {
+    public Call dissociateIpFromChildAsync(String childIdentifier, ManageIp ip, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -946,7 +947,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = dissociateIpFromChildValidateBeforeCall(childIdentifier, ip, progressListener, progressRequestListener);
+        Call call = dissociateIpFromChildValidateBeforeCall(childIdentifier, ip, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -958,7 +959,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getChildAccountCreationStatusCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getChildAccountCreationStatusCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -985,10 +986,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1001,7 +1002,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getChildAccountCreationStatusValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getChildAccountCreationStatusValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1009,7 +1010,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = getChildAccountCreationStatusCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildAccountCreationStatusCall(childIdentifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1034,7 +1035,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetChildAccountCreationStatus> getChildAccountCreationStatusWithHttpInfo(String childIdentifier) throws ApiException {
-        com.squareup.okhttp.Call call = getChildAccountCreationStatusValidateBeforeCall(childIdentifier, null, null);
+        Call call = getChildAccountCreationStatusValidateBeforeCall(childIdentifier, null, null);
         Type localVarReturnType = new TypeToken<GetChildAccountCreationStatus>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1047,7 +1048,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getChildAccountCreationStatusAsync(String childIdentifier, final ApiCallback<GetChildAccountCreationStatus> callback) throws ApiException {
+    public Call getChildAccountCreationStatusAsync(String childIdentifier, final ApiCallback<GetChildAccountCreationStatus> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1068,7 +1069,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getChildAccountCreationStatusValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildAccountCreationStatusValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetChildAccountCreationStatus>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1081,7 +1082,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getChildDomainsCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getChildDomainsCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1108,10 +1109,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1124,7 +1125,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getChildDomainsValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getChildDomainsValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1132,7 +1133,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = getChildDomainsCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildDomainsCall(childIdentifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1157,7 +1158,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetChildDomains> getChildDomainsWithHttpInfo(String childIdentifier) throws ApiException {
-        com.squareup.okhttp.Call call = getChildDomainsValidateBeforeCall(childIdentifier, null, null);
+        Call call = getChildDomainsValidateBeforeCall(childIdentifier, null, null);
         Type localVarReturnType = new TypeToken<GetChildDomains>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1170,7 +1171,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getChildDomainsAsync(String childIdentifier, final ApiCallback<GetChildDomains> callback) throws ApiException {
+    public Call getChildDomainsAsync(String childIdentifier, final ApiCallback<GetChildDomains> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1191,7 +1192,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getChildDomainsValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildDomainsValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetChildDomains>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1204,7 +1205,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getChildInfoCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getChildInfoCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1231,10 +1232,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1247,7 +1248,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getChildInfoValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getChildInfoValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1255,7 +1256,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = getChildInfoCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildInfoCall(childIdentifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1280,7 +1281,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetChildInfo> getChildInfoWithHttpInfo(String childIdentifier) throws ApiException {
-        com.squareup.okhttp.Call call = getChildInfoValidateBeforeCall(childIdentifier, null, null);
+        Call call = getChildInfoValidateBeforeCall(childIdentifier, null, null);
         Type localVarReturnType = new TypeToken<GetChildInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1293,7 +1294,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getChildInfoAsync(String childIdentifier, final ApiCallback<GetChildInfo> callback) throws ApiException {
+    public Call getChildInfoAsync(String childIdentifier, final ApiCallback<GetChildInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1314,7 +1315,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getChildInfoValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getChildInfoValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetChildInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1328,7 +1329,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getResellerChildsCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getResellerChildsCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1358,10 +1359,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1374,10 +1375,10 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getResellerChildsValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getResellerChildsValidateBeforeCall(Long limit, Long offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getResellerChildsCall(limit, offset, progressListener, progressRequestListener);
+        Call call = getResellerChildsCall(limit, offset, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1404,7 +1405,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetChildrenList> getResellerChildsWithHttpInfo(Long limit, Long offset) throws ApiException {
-        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(limit, offset, null, null);
+        Call call = getResellerChildsValidateBeforeCall(limit, offset, null, null);
         Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1418,7 +1419,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getResellerChildsAsync(Long limit, Long offset, final ApiCallback<GetChildrenList> callback) throws ApiException {
+    public Call getResellerChildsAsync(Long limit, Long offset, final ApiCallback<GetChildrenList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1439,7 +1440,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getResellerChildsValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
+        Call call = getResellerChildsValidateBeforeCall(limit, offset, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetChildrenList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1452,7 +1453,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSsoTokenCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getSsoTokenCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1479,10 +1480,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1495,7 +1496,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSsoTokenValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getSsoTokenValidateBeforeCall(String childIdentifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1503,7 +1504,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = getSsoTokenCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getSsoTokenCall(childIdentifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1528,7 +1529,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSsoToken> getSsoTokenWithHttpInfo(String childIdentifier) throws ApiException {
-        com.squareup.okhttp.Call call = getSsoTokenValidateBeforeCall(childIdentifier, null, null);
+        Call call = getSsoTokenValidateBeforeCall(childIdentifier, null, null);
         Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1541,7 +1542,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSsoTokenAsync(String childIdentifier, final ApiCallback<GetSsoToken> callback) throws ApiException {
+    public Call getSsoTokenAsync(String childIdentifier, final ApiCallback<GetSsoToken> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1562,7 +1563,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSsoTokenValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
+        Call call = getSsoTokenValidateBeforeCall(childIdentifier, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1576,7 +1577,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeCreditsCall(String childIdentifier, RemoveCredits removeCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call removeCreditsCall(String childIdentifier, RemoveCredits removeCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = removeCredits;
 
         // create path and map variables
@@ -1603,10 +1604,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1619,7 +1620,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeCreditsValidateBeforeCall(String childIdentifier, RemoveCredits removeCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call removeCreditsValidateBeforeCall(String childIdentifier, RemoveCredits removeCredits, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1632,7 +1633,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = removeCreditsCall(childIdentifier, removeCredits, progressListener, progressRequestListener);
+        Call call = removeCreditsCall(childIdentifier, removeCredits, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1659,7 +1660,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemainingCreditModel> removeCreditsWithHttpInfo(String childIdentifier, RemoveCredits removeCredits) throws ApiException {
-        com.squareup.okhttp.Call call = removeCreditsValidateBeforeCall(childIdentifier, removeCredits, null, null);
+        Call call = removeCreditsValidateBeforeCall(childIdentifier, removeCredits, null, null);
         Type localVarReturnType = new TypeToken<RemainingCreditModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1673,7 +1674,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeCreditsAsync(String childIdentifier, RemoveCredits removeCredits, final ApiCallback<RemainingCreditModel> callback) throws ApiException {
+    public Call removeCreditsAsync(String childIdentifier, RemoveCredits removeCredits, final ApiCallback<RemainingCreditModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1694,7 +1695,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeCreditsValidateBeforeCall(childIdentifier, removeCredits, progressListener, progressRequestListener);
+        Call call = removeCreditsValidateBeforeCall(childIdentifier, removeCredits, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RemainingCreditModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1708,7 +1709,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateChildAccountStatusCall(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateChildAccountStatusCall(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateChildAccountStatus;
 
         // create path and map variables
@@ -1735,10 +1736,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1751,7 +1752,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateChildAccountStatusValidateBeforeCall(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateChildAccountStatusValidateBeforeCall(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1764,7 +1765,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateChildAccountStatusCall(childIdentifier, updateChildAccountStatus, progressListener, progressRequestListener);
+        Call call = updateChildAccountStatusCall(childIdentifier, updateChildAccountStatus, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1789,7 +1790,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateChildAccountStatusWithHttpInfo(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus) throws ApiException {
-        com.squareup.okhttp.Call call = updateChildAccountStatusValidateBeforeCall(childIdentifier, updateChildAccountStatus, null, null);
+        Call call = updateChildAccountStatusValidateBeforeCall(childIdentifier, updateChildAccountStatus, null, null);
         return apiClient.execute(call);
     }
 
@@ -1802,7 +1803,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateChildAccountStatusAsync(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateChildAccountStatusAsync(String childIdentifier, UpdateChildAccountStatus updateChildAccountStatus, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1823,7 +1824,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateChildAccountStatusValidateBeforeCall(childIdentifier, updateChildAccountStatus, progressListener, progressRequestListener);
+        Call call = updateChildAccountStatusValidateBeforeCall(childIdentifier, updateChildAccountStatus, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1837,7 +1838,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateChildDomainCall(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateChildDomainCall(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateChildDomain;
 
         // create path and map variables
@@ -1865,10 +1866,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1881,7 +1882,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateChildDomainValidateBeforeCall(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateChildDomainValidateBeforeCall(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -1899,7 +1900,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateChildDomainCall(childIdentifier, domainName, updateChildDomain, progressListener, progressRequestListener);
+        Call call = updateChildDomainCall(childIdentifier, domainName, updateChildDomain, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1926,7 +1927,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateChildDomainWithHttpInfo(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain) throws ApiException {
-        com.squareup.okhttp.Call call = updateChildDomainValidateBeforeCall(childIdentifier, domainName, updateChildDomain, null, null);
+        Call call = updateChildDomainValidateBeforeCall(childIdentifier, domainName, updateChildDomain, null, null);
         return apiClient.execute(call);
     }
 
@@ -1940,7 +1941,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateChildDomainAsync(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateChildDomainAsync(String childIdentifier, String domainName, UpdateChildDomain updateChildDomain, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1961,7 +1962,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateChildDomainValidateBeforeCall(childIdentifier, domainName, updateChildDomain, progressListener, progressRequestListener);
+        Call call = updateChildDomainValidateBeforeCall(childIdentifier, domainName, updateChildDomain, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1974,7 +1975,7 @@ public class ResellerApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateResellerChildCall(String childIdentifier, UpdateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateResellerChildCall(String childIdentifier, UpdateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = resellerChild;
 
         // create path and map variables
@@ -2001,10 +2002,10 @@ public class ResellerApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2017,7 +2018,7 @@ public class ResellerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateResellerChildValidateBeforeCall(String childIdentifier, UpdateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateResellerChildValidateBeforeCall(String childIdentifier, UpdateChild resellerChild, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'childIdentifier' is set
         if (childIdentifier == null) {
@@ -2030,7 +2031,7 @@ public class ResellerApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateResellerChildCall(childIdentifier, resellerChild, progressListener, progressRequestListener);
+        Call call = updateResellerChildCall(childIdentifier, resellerChild, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2055,7 +2056,7 @@ public class ResellerApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateResellerChildWithHttpInfo(String childIdentifier, UpdateChild resellerChild) throws ApiException {
-        com.squareup.okhttp.Call call = updateResellerChildValidateBeforeCall(childIdentifier, resellerChild, null, null);
+        Call call = updateResellerChildValidateBeforeCall(childIdentifier, resellerChild, null, null);
         return apiClient.execute(call);
     }
 
@@ -2068,7 +2069,7 @@ public class ResellerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateResellerChildAsync(String childIdentifier, UpdateChild resellerChild, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateResellerChildAsync(String childIdentifier, UpdateChild resellerChild, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2089,7 +2090,7 @@ public class ResellerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateResellerChildValidateBeforeCall(childIdentifier, resellerChild, progressListener, progressRequestListener);
+        Call call = updateResellerChildValidateBeforeCall(childIdentifier, resellerChild, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

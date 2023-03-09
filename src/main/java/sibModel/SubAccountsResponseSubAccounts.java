@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * SubAccountsResponseSubAccounts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountsResponseSubAccounts {
   @SerializedName("id")
   private Long id = null;
@@ -47,10 +46,10 @@ public class SubAccountsResponseSubAccounts {
   }
 
    /**
-   * client id of sub-account organization
+   * id of the sub-account
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "client id of sub-account organization")
+  @ApiModelProperty(required = true, value = "id of the sub-account")
   public Long getId() {
     return id;
   }
@@ -65,10 +64,10 @@ public class SubAccountsResponseSubAccounts {
   }
 
    /**
-   * Name of sub-account organization
+   * Name of the sub-account company
    * @return companyName
   **/
-  @ApiModelProperty(required = true, value = "Name of sub-account organization")
+  @ApiModelProperty(required = true, value = "Name of the sub-account company")
   public String getCompanyName() {
     return companyName;
   }
@@ -83,10 +82,10 @@ public class SubAccountsResponseSubAccounts {
   }
 
    /**
-   * Whether organization is active or not
+   * Whether the sub-account is active or not
    * @return active
   **/
-  @ApiModelProperty(required = true, value = "Whether organization is active or not")
+  @ApiModelProperty(required = true, value = "Whether the sub-account is active or not")
   public Boolean isActive() {
     return active;
   }
@@ -101,10 +100,10 @@ public class SubAccountsResponseSubAccounts {
   }
 
    /**
-   * timestamp when the organization was created
+   * Timestamp when the sub-account was created
    * @return createdAt
   **/
-  @ApiModelProperty(required = true, value = "timestamp when the organization was created")
+  @ApiModelProperty(required = true, value = "Timestamp when the sub-account was created")
   public Long getCreatedAt() {
     return createdAt;
   }
@@ -116,22 +115,22 @@ public class SubAccountsResponseSubAccounts {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountsResponseSubAccounts subAccountsResponseSubAccounts = (SubAccountsResponseSubAccounts) o;
-    return Objects.equals(this.id, subAccountsResponseSubAccounts.id) &&
-        Objects.equals(this.companyName, subAccountsResponseSubAccounts.companyName) &&
-        Objects.equals(this.active, subAccountsResponseSubAccounts.active) &&
-        Objects.equals(this.createdAt, subAccountsResponseSubAccounts.createdAt);
+    return ObjectUtils.equals(this.id, subAccountsResponseSubAccounts.id) &&
+    ObjectUtils.equals(this.companyName, subAccountsResponseSubAccounts.companyName) &&
+    ObjectUtils.equals(this.active, subAccountsResponseSubAccounts.active) &&
+    ObjectUtils.equals(this.createdAt, subAccountsResponseSubAccounts.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, companyName, active, createdAt);
+    return ObjectUtils.hashCodeMulti(id, companyName, active, createdAt);
   }
 
 

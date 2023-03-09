@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {&quot;email&quot;:&quot;ann6533@example.com&quot;, &quot;name&quot;:&quot;Ann&quot;}.
+ * Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\&quot;email\&quot;:\&quot;ann6533@example.com\&quot;, \&quot;name\&quot;:\&quot;Ann\&quot;}.
  */
 @ApiModel(description = "Email (required), along with name (optional), on which transactional mail recipients will be able to reply back. For example, {\"email\":\"ann6533@example.com\", \"name\":\"Ann\"}.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SendSmtpEmailReplyTo {
   @SerializedName("email")
   private String email = null;
@@ -75,20 +74,20 @@ public class SendSmtpEmailReplyTo {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SendSmtpEmailReplyTo sendSmtpEmailReplyTo = (SendSmtpEmailReplyTo) o;
-    return Objects.equals(this.email, sendSmtpEmailReplyTo.email) &&
-        Objects.equals(this.name, sendSmtpEmailReplyTo.name);
+    return ObjectUtils.equals(this.email, sendSmtpEmailReplyTo.email) &&
+    ObjectUtils.equals(this.name, sendSmtpEmailReplyTo.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name);
+    return ObjectUtils.hashCodeMulti(email, name);
   }
 
 

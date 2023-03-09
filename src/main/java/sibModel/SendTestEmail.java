@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * SendTestEmail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SendTestEmail {
   @SerializedName("emailTo")
   private List<String> emailTo = null;
@@ -63,19 +62,19 @@ public class SendTestEmail {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SendTestEmail sendTestEmail = (SendTestEmail) o;
-    return Objects.equals(this.emailTo, sendTestEmail.emailTo);
+    return ObjectUtils.equals(this.emailTo, sendTestEmail.emailTo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailTo);
+    return ObjectUtils.hashCodeMulti(emailTo);
   }
 
 

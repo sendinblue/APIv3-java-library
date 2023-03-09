@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -52,6 +53,7 @@ import sibModel.RequestContactExport;
 import sibModel.RequestContactImport;
 import sibModel.UpdateAttribute;
 import sibModel.UpdateBatchContacts;
+import sibModel.UpdateBatchContactsModel;
 import sibModel.UpdateContact;
 import sibModel.UpdateList;
 
@@ -89,7 +91,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addContactToListCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call addContactToListCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactEmails;
 
         // create path and map variables
@@ -116,10 +118,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -132,7 +134,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addContactToListValidateBeforeCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call addContactToListValidateBeforeCall(Long listId, AddContactToList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -145,7 +147,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = addContactToListCall(listId, contactEmails, progressListener, progressRequestListener);
+        Call call = addContactToListCall(listId, contactEmails, progressListener, progressRequestListener);
         return call;
 
     }
@@ -172,7 +174,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PostContactInfo> addContactToListWithHttpInfo(Long listId, AddContactToList contactEmails) throws ApiException {
-        com.squareup.okhttp.Call call = addContactToListValidateBeforeCall(listId, contactEmails, null, null);
+        Call call = addContactToListValidateBeforeCall(listId, contactEmails, null, null);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -186,7 +188,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addContactToListAsync(Long listId, AddContactToList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
+    public Call addContactToListAsync(Long listId, AddContactToList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -207,7 +209,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = addContactToListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
+        Call call = addContactToListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -222,7 +224,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createAttributeCall(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createAttributeCall(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createAttribute;
 
         // create path and map variables
@@ -250,10 +252,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -266,7 +268,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createAttributeValidateBeforeCall(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createAttributeValidateBeforeCall(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'attributeCategory' is set
         if (attributeCategory == null) {
@@ -284,7 +286,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createAttributeCall(attributeCategory, attributeName, createAttribute, progressListener, progressRequestListener);
+        Call call = createAttributeCall(attributeCategory, attributeName, createAttribute, progressListener, progressRequestListener);
         return call;
 
     }
@@ -311,7 +313,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> createAttributeWithHttpInfo(String attributeCategory, String attributeName, CreateAttribute createAttribute) throws ApiException {
-        com.squareup.okhttp.Call call = createAttributeValidateBeforeCall(attributeCategory, attributeName, createAttribute, null, null);
+        Call call = createAttributeValidateBeforeCall(attributeCategory, attributeName, createAttribute, null, null);
         return apiClient.execute(call);
     }
 
@@ -325,7 +327,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createAttributeAsync(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ApiCallback<Void> callback) throws ApiException {
+    public Call createAttributeAsync(String attributeCategory, String attributeName, CreateAttribute createAttribute, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -346,7 +348,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createAttributeValidateBeforeCall(attributeCategory, attributeName, createAttribute, progressListener, progressRequestListener);
+        Call call = createAttributeValidateBeforeCall(attributeCategory, attributeName, createAttribute, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -358,7 +360,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createContactCall(CreateContact createContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createContactCall(CreateContact createContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createContact;
 
         // create path and map variables
@@ -384,10 +386,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -400,7 +402,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createContactValidateBeforeCall(CreateContact createContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createContactValidateBeforeCall(CreateContact createContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createContact' is set
         if (createContact == null) {
@@ -408,7 +410,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createContactCall(createContact, progressListener, progressRequestListener);
+        Call call = createContactCall(createContact, progressListener, progressRequestListener);
         return call;
 
     }
@@ -433,7 +435,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateUpdateContactModel> createContactWithHttpInfo(CreateContact createContact) throws ApiException {
-        com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContact, null, null);
+        Call call = createContactValidateBeforeCall(createContact, null, null);
         Type localVarReturnType = new TypeToken<CreateUpdateContactModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -446,7 +448,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createContactAsync(CreateContact createContact, final ApiCallback<CreateUpdateContactModel> callback) throws ApiException {
+    public Call createContactAsync(CreateContact createContact, final ApiCallback<CreateUpdateContactModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -467,7 +469,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createContactValidateBeforeCall(createContact, progressListener, progressRequestListener);
+        Call call = createContactValidateBeforeCall(createContact, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateUpdateContactModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -480,7 +482,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createDoiContactCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createDoiContactCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createDoiContact;
 
         // create path and map variables
@@ -506,10 +508,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -522,7 +524,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createDoiContactValidateBeforeCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createDoiContactValidateBeforeCall(CreateDoiContact createDoiContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createDoiContact' is set
         if (createDoiContact == null) {
@@ -530,7 +532,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createDoiContactCall(createDoiContact, progressListener, progressRequestListener);
+        Call call = createDoiContactCall(createDoiContact, progressListener, progressRequestListener);
         return call;
 
     }
@@ -553,7 +555,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> createDoiContactWithHttpInfo(CreateDoiContact createDoiContact) throws ApiException {
-        com.squareup.okhttp.Call call = createDoiContactValidateBeforeCall(createDoiContact, null, null);
+        Call call = createDoiContactValidateBeforeCall(createDoiContact, null, null);
         return apiClient.execute(call);
     }
 
@@ -565,7 +567,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createDoiContactAsync(CreateDoiContact createDoiContact, final ApiCallback<Void> callback) throws ApiException {
+    public Call createDoiContactAsync(CreateDoiContact createDoiContact, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -586,7 +588,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createDoiContactValidateBeforeCall(createDoiContact, progressListener, progressRequestListener);
+        Call call = createDoiContactValidateBeforeCall(createDoiContact, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -598,7 +600,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createFolderCall(CreateUpdateFolder createFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createFolderCall(CreateUpdateFolder createFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createFolder;
 
         // create path and map variables
@@ -624,10 +626,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -640,7 +642,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createFolderValidateBeforeCall(CreateUpdateFolder createFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createFolderValidateBeforeCall(CreateUpdateFolder createFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createFolder' is set
         if (createFolder == null) {
@@ -648,7 +650,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createFolderCall(createFolder, progressListener, progressRequestListener);
+        Call call = createFolderCall(createFolder, progressListener, progressRequestListener);
         return call;
 
     }
@@ -673,7 +675,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateModel> createFolderWithHttpInfo(CreateUpdateFolder createFolder) throws ApiException {
-        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(createFolder, null, null);
+        Call call = createFolderValidateBeforeCall(createFolder, null, null);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -686,7 +688,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createFolderAsync(CreateUpdateFolder createFolder, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call createFolderAsync(CreateUpdateFolder createFolder, final ApiCallback<CreateModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -707,7 +709,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(createFolder, progressListener, progressRequestListener);
+        Call call = createFolderValidateBeforeCall(createFolder, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -720,7 +722,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createListCall(CreateList createList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createListCall(CreateList createList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createList;
 
         // create path and map variables
@@ -746,10 +748,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -762,7 +764,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createListValidateBeforeCall(CreateList createList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createListValidateBeforeCall(CreateList createList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createList' is set
         if (createList == null) {
@@ -770,7 +772,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createListCall(createList, progressListener, progressRequestListener);
+        Call call = createListCall(createList, progressListener, progressRequestListener);
         return call;
 
     }
@@ -795,7 +797,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateModel> createListWithHttpInfo(CreateList createList) throws ApiException {
-        com.squareup.okhttp.Call call = createListValidateBeforeCall(createList, null, null);
+        Call call = createListValidateBeforeCall(createList, null, null);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -808,7 +810,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createListAsync(CreateList createList, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call createListAsync(CreateList createList, final ApiCallback<CreateModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -829,7 +831,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createListValidateBeforeCall(createList, progressListener, progressRequestListener);
+        Call call = createListValidateBeforeCall(createList, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -843,7 +845,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteAttributeCall(String attributeCategory, String attributeName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteAttributeCall(String attributeCategory, String attributeName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -871,10 +873,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -887,7 +889,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteAttributeValidateBeforeCall(String attributeCategory, String attributeName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteAttributeValidateBeforeCall(String attributeCategory, String attributeName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'attributeCategory' is set
         if (attributeCategory == null) {
@@ -900,7 +902,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteAttributeCall(attributeCategory, attributeName, progressListener, progressRequestListener);
+        Call call = deleteAttributeCall(attributeCategory, attributeName, progressListener, progressRequestListener);
         return call;
 
     }
@@ -925,7 +927,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteAttributeWithHttpInfo(String attributeCategory, String attributeName) throws ApiException {
-        com.squareup.okhttp.Call call = deleteAttributeValidateBeforeCall(attributeCategory, attributeName, null, null);
+        Call call = deleteAttributeValidateBeforeCall(attributeCategory, attributeName, null, null);
         return apiClient.execute(call);
     }
 
@@ -938,7 +940,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteAttributeAsync(String attributeCategory, String attributeName, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteAttributeAsync(String attributeCategory, String attributeName, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -959,7 +961,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteAttributeValidateBeforeCall(attributeCategory, attributeName, progressListener, progressRequestListener);
+        Call call = deleteAttributeValidateBeforeCall(attributeCategory, attributeName, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -971,7 +973,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteContactCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteContactCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -998,10 +1000,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1014,7 +1016,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteContactValidateBeforeCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteContactValidateBeforeCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'identifier' is set
         if (identifier == null) {
@@ -1022,7 +1024,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteContactCall(identifier, progressListener, progressRequestListener);
+        Call call = deleteContactCall(identifier, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1045,7 +1047,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteContactWithHttpInfo(String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(identifier, null, null);
+        Call call = deleteContactValidateBeforeCall(identifier, null, null);
         return apiClient.execute(call);
     }
 
@@ -1057,7 +1059,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteContactAsync(String identifier, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteContactAsync(String identifier, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1078,7 +1080,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteContactValidateBeforeCall(identifier, progressListener, progressRequestListener);
+        Call call = deleteContactValidateBeforeCall(identifier, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1090,7 +1092,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteFolderCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteFolderCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1117,10 +1119,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1133,7 +1135,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteFolderValidateBeforeCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -1141,7 +1143,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteFolderCall(folderId, progressListener, progressRequestListener);
+        Call call = deleteFolderCall(folderId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1164,7 +1166,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteFolderWithHttpInfo(Long folderId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(folderId, null, null);
+        Call call = deleteFolderValidateBeforeCall(folderId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1176,7 +1178,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFolderAsync(Long folderId, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteFolderAsync(Long folderId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1197,7 +1199,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
+        Call call = deleteFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1209,7 +1211,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteListCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteListCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1236,10 +1238,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1252,7 +1254,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteListValidateBeforeCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteListValidateBeforeCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -1260,7 +1262,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteListCall(listId, progressListener, progressRequestListener);
+        Call call = deleteListCall(listId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1283,7 +1285,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteListWithHttpInfo(Long listId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteListValidateBeforeCall(listId, null, null);
+        Call call = deleteListValidateBeforeCall(listId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1295,7 +1297,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteListAsync(Long listId, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteListAsync(Long listId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1316,7 +1318,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteListValidateBeforeCall(listId, progressListener, progressRequestListener);
+        Call call = deleteListValidateBeforeCall(listId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1327,7 +1329,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAttributesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getAttributesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1353,10 +1355,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1369,10 +1371,10 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAttributesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getAttributesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getAttributesCall(progressListener, progressRequestListener);
+        Call call = getAttributesCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -1395,7 +1397,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetAttributes> getAttributesWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getAttributesValidateBeforeCall(null, null);
+        Call call = getAttributesValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<GetAttributes>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1407,7 +1409,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAttributesAsync(final ApiCallback<GetAttributes> callback) throws ApiException {
+    public Call getAttributesAsync(final ApiCallback<GetAttributes> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1428,7 +1430,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAttributesValidateBeforeCall(progressListener, progressRequestListener);
+        Call call = getAttributesValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetAttributes>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1436,12 +1438,14 @@ public class ContactsApi {
     /**
      * Build call for getContactInfo
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
+     * @param startDate **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)
+     * @param endDate **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactInfoCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getContactInfoCall(String identifier, Object startDate, Object endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1450,6 +1454,10 @@ public class ContactsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1468,10 +1476,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1484,7 +1492,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactInfoValidateBeforeCall(String identifier, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getContactInfoValidateBeforeCall(String identifier, Object startDate, Object endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'identifier' is set
         if (identifier == null) {
@@ -1492,7 +1500,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactInfoCall(identifier, progressListener, progressRequestListener);
+        Call call = getContactInfoCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1501,11 +1509,13 @@ public class ContactsApi {
      * Get a contact&#39;s details
      * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
+     * @param startDate **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)
+     * @param endDate **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)
      * @return GetExtendedContactDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetExtendedContactDetails getContactInfo(String identifier) throws ApiException {
-        ApiResponse<GetExtendedContactDetails> resp = getContactInfoWithHttpInfo(identifier);
+    public GetExtendedContactDetails getContactInfo(String identifier, Object startDate, Object endDate) throws ApiException {
+        ApiResponse<GetExtendedContactDetails> resp = getContactInfoWithHttpInfo(identifier, startDate, endDate);
         return resp.getData();
     }
 
@@ -1513,11 +1523,13 @@ public class ContactsApi {
      * Get a contact&#39;s details
      * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
+     * @param startDate **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)
+     * @param endDate **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)
      * @return ApiResponse&lt;GetExtendedContactDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetExtendedContactDetails> getContactInfoWithHttpInfo(String identifier) throws ApiException {
-        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(identifier, null, null);
+    public ApiResponse<GetExtendedContactDetails> getContactInfoWithHttpInfo(String identifier, Object startDate, Object endDate) throws ApiException {
+        Call call = getContactInfoValidateBeforeCall(identifier, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetExtendedContactDetails>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1526,11 +1538,13 @@ public class ContactsApi {
      * Get a contact&#39;s details (asynchronously)
      * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      * @param identifier Email (urlencoded) OR ID of the contact OR its SMS attribute value (required)
+     * @param startDate **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  (optional)
+     * @param endDate **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactInfoAsync(String identifier, final ApiCallback<GetExtendedContactDetails> callback) throws ApiException {
+    public Call getContactInfoAsync(String identifier, Object startDate, Object endDate, final ApiCallback<GetExtendedContactDetails> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1551,7 +1565,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactInfoValidateBeforeCall(identifier, progressListener, progressRequestListener);
+        Call call = getContactInfoValidateBeforeCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetExtendedContactDetails>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1566,7 +1580,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getContactStatsCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1597,10 +1611,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1613,7 +1627,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactStatsValidateBeforeCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getContactStatsValidateBeforeCall(String identifier, String startDate, String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'identifier' is set
         if (identifier == null) {
@@ -1621,7 +1635,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactStatsCall(identifier, startDate, endDate, progressListener, progressRequestListener);
+        Call call = getContactStatsCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1650,7 +1664,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetContactCampaignStats> getContactStatsWithHttpInfo(String identifier, String startDate, String endDate) throws ApiException {
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, null, null);
+        Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, null, null);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1665,7 +1679,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactStatsAsync(String identifier, String startDate, String endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
+    public Call getContactStatsAsync(String identifier, String startDate, String endDate, final ApiCallback<GetContactCampaignStats> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1686,7 +1700,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, progressListener, progressRequestListener);
+        Call call = getContactStatsValidateBeforeCall(identifier, startDate, endDate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContactCampaignStats>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1702,7 +1716,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getContactsCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1736,10 +1750,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1752,10 +1766,10 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsValidateBeforeCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getContactsValidateBeforeCall(Long limit, Long offset, String modifiedSince, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getContactsCall(limit, offset, modifiedSince, sort, progressListener, progressRequestListener);
+        Call call = getContactsCall(limit, offset, modifiedSince, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1786,7 +1800,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetContacts> getContactsWithHttpInfo(Long limit, Long offset, String modifiedSince, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getContactsValidateBeforeCall(limit, offset, modifiedSince, sort, null, null);
+        Call call = getContactsValidateBeforeCall(limit, offset, modifiedSince, sort, null, null);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1802,7 +1816,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsAsync(Long limit, Long offset, String modifiedSince, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
+    public Call getContactsAsync(Long limit, Long offset, String modifiedSince, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1823,7 +1837,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactsValidateBeforeCall(limit, offset, modifiedSince, sort, progressListener, progressRequestListener);
+        Call call = getContactsValidateBeforeCall(limit, offset, modifiedSince, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1840,7 +1854,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getContactsFromListCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1875,10 +1889,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1891,7 +1905,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getContactsFromListValidateBeforeCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getContactsFromListValidateBeforeCall(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -1899,7 +1913,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getContactsFromListCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getContactsFromListCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1932,7 +1946,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetContacts> getContactsFromListWithHttpInfo(Long listId, String modifiedSince, Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, null, null);
+        Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1949,7 +1963,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getContactsFromListAsync(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
+    public Call getContactsFromListAsync(Long listId, String modifiedSince, Long limit, Long offset, String sort, final ApiCallback<GetContacts> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1970,7 +1984,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getContactsFromListValidateBeforeCall(listId, modifiedSince, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetContacts>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1983,7 +1997,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFolderCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getFolderCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2010,10 +2024,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2026,7 +2040,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFolderValidateBeforeCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getFolderValidateBeforeCall(Long folderId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -2034,7 +2048,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFolderCall(folderId, progressListener, progressRequestListener);
+        Call call = getFolderCall(folderId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2059,7 +2073,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetFolder> getFolderWithHttpInfo(Long folderId) throws ApiException {
-        com.squareup.okhttp.Call call = getFolderValidateBeforeCall(folderId, null, null);
+        Call call = getFolderValidateBeforeCall(folderId, null, null);
         Type localVarReturnType = new TypeToken<GetFolder>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2072,7 +2086,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFolderAsync(Long folderId, final ApiCallback<GetFolder> callback) throws ApiException {
+    public Call getFolderAsync(Long folderId, final ApiCallback<GetFolder> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2093,7 +2107,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
+        Call call = getFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolder>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2109,7 +2123,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getFolderListsCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2142,10 +2156,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2158,7 +2172,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getFolderListsValidateBeforeCall(Long folderId, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -2166,7 +2180,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFolderListsCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getFolderListsCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2197,7 +2211,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetFolderLists> getFolderListsWithHttpInfo(Long folderId, Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, null, null);
+        Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2213,7 +2227,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFolderListsAsync(Long folderId, Long limit, Long offset, String sort, final ApiCallback<GetFolderLists> callback) throws ApiException {
+    public Call getFolderListsAsync(Long folderId, Long limit, Long offset, String sort, final ApiCallback<GetFolderLists> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2234,7 +2248,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getFolderListsValidateBeforeCall(folderId, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolderLists>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2249,7 +2263,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFoldersCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getFoldersCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2281,10 +2295,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2297,7 +2311,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFoldersValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getFoldersValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'limit' is set
         if (limit == null) {
@@ -2310,7 +2324,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getFoldersCall(limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getFoldersCall(limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2339,7 +2353,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetFolders> getFoldersWithHttpInfo(Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, sort, null, null);
+        Call call = getFoldersValidateBeforeCall(limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetFolders>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2354,7 +2368,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFoldersAsync(Long limit, Long offset, String sort, final ApiCallback<GetFolders> callback) throws ApiException {
+    public Call getFoldersAsync(Long limit, Long offset, String sort, final ApiCallback<GetFolders> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2375,7 +2389,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFoldersValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getFoldersValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetFolders>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2388,7 +2402,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getListCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2415,10 +2429,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2431,7 +2445,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getListValidateBeforeCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getListValidateBeforeCall(Long listId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -2439,7 +2453,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getListCall(listId, progressListener, progressRequestListener);
+        Call call = getListCall(listId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2464,7 +2478,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetExtendedList> getListWithHttpInfo(Long listId) throws ApiException {
-        com.squareup.okhttp.Call call = getListValidateBeforeCall(listId, null, null);
+        Call call = getListValidateBeforeCall(listId, null, null);
         Type localVarReturnType = new TypeToken<GetExtendedList>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2477,7 +2491,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getListAsync(Long listId, final ApiCallback<GetExtendedList> callback) throws ApiException {
+    public Call getListAsync(Long listId, final ApiCallback<GetExtendedList> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2498,7 +2512,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getListValidateBeforeCall(listId, progressListener, progressRequestListener);
+        Call call = getListValidateBeforeCall(listId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetExtendedList>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2513,7 +2527,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getListsCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getListsCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2545,10 +2559,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2561,10 +2575,10 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getListsValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getListsValidateBeforeCall(Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getListsCall(limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getListsCall(limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2593,7 +2607,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetLists> getListsWithHttpInfo(Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, sort, null, null);
+        Call call = getListsValidateBeforeCall(limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetLists>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2608,7 +2622,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getListsAsync(Long limit, Long offset, String sort, final ApiCallback<GetLists> callback) throws ApiException {
+    public Call getListsAsync(Long limit, Long offset, String sort, final ApiCallback<GetLists> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2629,7 +2643,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getListsValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getListsValidateBeforeCall(limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetLists>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2642,7 +2656,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call importContactsCall(RequestContactImport requestContactImport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call importContactsCall(RequestContactImport requestContactImport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = requestContactImport;
 
         // create path and map variables
@@ -2668,10 +2682,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2684,7 +2698,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call importContactsValidateBeforeCall(RequestContactImport requestContactImport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call importContactsValidateBeforeCall(RequestContactImport requestContactImport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'requestContactImport' is set
         if (requestContactImport == null) {
@@ -2692,7 +2706,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = importContactsCall(requestContactImport, progressListener, progressRequestListener);
+        Call call = importContactsCall(requestContactImport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2717,7 +2731,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreatedProcessId> importContactsWithHttpInfo(RequestContactImport requestContactImport) throws ApiException {
-        com.squareup.okhttp.Call call = importContactsValidateBeforeCall(requestContactImport, null, null);
+        Call call = importContactsValidateBeforeCall(requestContactImport, null, null);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2730,7 +2744,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call importContactsAsync(RequestContactImport requestContactImport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
+    public Call importContactsAsync(RequestContactImport requestContactImport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2751,7 +2765,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = importContactsValidateBeforeCall(requestContactImport, progressListener, progressRequestListener);
+        Call call = importContactsValidateBeforeCall(requestContactImport, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2765,7 +2779,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call removeContactFromListCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call removeContactFromListCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = contactEmails;
 
         // create path and map variables
@@ -2792,10 +2806,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2808,7 +2822,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeContactFromListValidateBeforeCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call removeContactFromListValidateBeforeCall(Long listId, RemoveContactFromList contactEmails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -2821,7 +2835,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = removeContactFromListCall(listId, contactEmails, progressListener, progressRequestListener);
+        Call call = removeContactFromListCall(listId, contactEmails, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2848,7 +2862,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PostContactInfo> removeContactFromListWithHttpInfo(Long listId, RemoveContactFromList contactEmails) throws ApiException {
-        com.squareup.okhttp.Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, null, null);
+        Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, null, null);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2862,7 +2876,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeContactFromListAsync(Long listId, RemoveContactFromList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
+    public Call removeContactFromListAsync(Long listId, RemoveContactFromList contactEmails, final ApiCallback<PostContactInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2883,7 +2897,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
+        Call call = removeContactFromListValidateBeforeCall(listId, contactEmails, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PostContactInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2896,7 +2910,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call requestContactExportCall(RequestContactExport requestContactExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call requestContactExportCall(RequestContactExport requestContactExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = requestContactExport;
 
         // create path and map variables
@@ -2922,10 +2936,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -2938,7 +2952,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call requestContactExportValidateBeforeCall(RequestContactExport requestContactExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call requestContactExportValidateBeforeCall(RequestContactExport requestContactExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'requestContactExport' is set
         if (requestContactExport == null) {
@@ -2946,7 +2960,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = requestContactExportCall(requestContactExport, progressListener, progressRequestListener);
+        Call call = requestContactExportCall(requestContactExport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -2971,7 +2985,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreatedProcessId> requestContactExportWithHttpInfo(RequestContactExport requestContactExport) throws ApiException {
-        com.squareup.okhttp.Call call = requestContactExportValidateBeforeCall(requestContactExport, null, null);
+        Call call = requestContactExportValidateBeforeCall(requestContactExport, null, null);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2984,7 +2998,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call requestContactExportAsync(RequestContactExport requestContactExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
+    public Call requestContactExportAsync(RequestContactExport requestContactExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3005,7 +3019,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = requestContactExportValidateBeforeCall(requestContactExport, progressListener, progressRequestListener);
+        Call call = requestContactExportValidateBeforeCall(requestContactExport, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -3020,7 +3034,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateAttributeCall(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateAttributeCall(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateAttribute;
 
         // create path and map variables
@@ -3048,10 +3062,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3064,7 +3078,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateAttributeValidateBeforeCall(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateAttributeValidateBeforeCall(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'attributeCategory' is set
         if (attributeCategory == null) {
@@ -3082,7 +3096,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateAttributeCall(attributeCategory, attributeName, updateAttribute, progressListener, progressRequestListener);
+        Call call = updateAttributeCall(attributeCategory, attributeName, updateAttribute, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3109,7 +3123,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateAttributeWithHttpInfo(String attributeCategory, String attributeName, UpdateAttribute updateAttribute) throws ApiException {
-        com.squareup.okhttp.Call call = updateAttributeValidateBeforeCall(attributeCategory, attributeName, updateAttribute, null, null);
+        Call call = updateAttributeValidateBeforeCall(attributeCategory, attributeName, updateAttribute, null, null);
         return apiClient.execute(call);
     }
 
@@ -3123,7 +3137,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateAttributeAsync(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateAttributeAsync(String attributeCategory, String attributeName, UpdateAttribute updateAttribute, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3144,7 +3158,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateAttributeValidateBeforeCall(attributeCategory, attributeName, updateAttribute, progressListener, progressRequestListener);
+        Call call = updateAttributeValidateBeforeCall(attributeCategory, attributeName, updateAttribute, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -3156,7 +3170,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateBatchContactsCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateBatchContactsCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateBatchContacts;
 
         // create path and map variables
@@ -3182,10 +3196,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3198,7 +3212,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateBatchContactsValidateBeforeCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateBatchContactsValidateBeforeCall(UpdateBatchContacts updateBatchContacts, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'updateBatchContacts' is set
         if (updateBatchContacts == null) {
@@ -3206,7 +3220,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateBatchContactsCall(updateBatchContacts, progressListener, progressRequestListener);
+        Call call = updateBatchContactsCall(updateBatchContacts, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3229,7 +3243,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateBatchContactsWithHttpInfo(UpdateBatchContacts updateBatchContacts) throws ApiException {
-        com.squareup.okhttp.Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, null, null);
+        Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, null, null);
         return apiClient.execute(call);
     }
 
@@ -3241,7 +3255,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateBatchContactsAsync(UpdateBatchContacts updateBatchContacts, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateBatchContactsAsync(UpdateBatchContacts updateBatchContacts, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3262,7 +3276,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, progressListener, progressRequestListener);
+        Call call = updateBatchContactsValidateBeforeCall(updateBatchContacts, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -3275,7 +3289,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateContactCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateContactCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateContact;
 
         // create path and map variables
@@ -3302,10 +3316,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3318,7 +3332,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateContactValidateBeforeCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateContactValidateBeforeCall(String identifier, UpdateContact updateContact, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'identifier' is set
         if (identifier == null) {
@@ -3331,7 +3345,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateContactCall(identifier, updateContact, progressListener, progressRequestListener);
+        Call call = updateContactCall(identifier, updateContact, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3356,7 +3370,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateContactWithHttpInfo(String identifier, UpdateContact updateContact) throws ApiException {
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(identifier, updateContact, null, null);
+        Call call = updateContactValidateBeforeCall(identifier, updateContact, null, null);
         return apiClient.execute(call);
     }
 
@@ -3369,7 +3383,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateContactAsync(String identifier, UpdateContact updateContact, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateContactAsync(String identifier, UpdateContact updateContact, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3390,7 +3404,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateContactValidateBeforeCall(identifier, updateContact, progressListener, progressRequestListener);
+        Call call = updateContactValidateBeforeCall(identifier, updateContact, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -3403,7 +3417,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateFolderCall(Long folderId, CreateUpdateFolder updateFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateFolderCall(Long folderId, CreateUpdateFolder updateFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateFolder;
 
         // create path and map variables
@@ -3430,10 +3444,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3446,7 +3460,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFolderValidateBeforeCall(Long folderId, CreateUpdateFolder updateFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateFolderValidateBeforeCall(Long folderId, CreateUpdateFolder updateFolder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'folderId' is set
         if (folderId == null) {
@@ -3459,7 +3473,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateFolderCall(folderId, updateFolder, progressListener, progressRequestListener);
+        Call call = updateFolderCall(folderId, updateFolder, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3484,7 +3498,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateFolderWithHttpInfo(Long folderId, CreateUpdateFolder updateFolder) throws ApiException {
-        com.squareup.okhttp.Call call = updateFolderValidateBeforeCall(folderId, updateFolder, null, null);
+        Call call = updateFolderValidateBeforeCall(folderId, updateFolder, null, null);
         return apiClient.execute(call);
     }
 
@@ -3497,7 +3511,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFolderAsync(Long folderId, CreateUpdateFolder updateFolder, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateFolderAsync(Long folderId, CreateUpdateFolder updateFolder, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3518,7 +3532,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateFolderValidateBeforeCall(folderId, updateFolder, progressListener, progressRequestListener);
+        Call call = updateFolderValidateBeforeCall(folderId, updateFolder, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -3531,7 +3545,7 @@ public class ContactsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateListCall(Long listId, UpdateList updateList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateListCall(Long listId, UpdateList updateList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateList;
 
         // create path and map variables
@@ -3558,10 +3572,10 @@ public class ContactsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -3574,7 +3588,7 @@ public class ContactsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateListValidateBeforeCall(Long listId, UpdateList updateList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateListValidateBeforeCall(Long listId, UpdateList updateList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'listId' is set
         if (listId == null) {
@@ -3587,7 +3601,7 @@ public class ContactsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateListCall(listId, updateList, progressListener, progressRequestListener);
+        Call call = updateListCall(listId, updateList, progressListener, progressRequestListener);
         return call;
 
     }
@@ -3612,7 +3626,7 @@ public class ContactsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateListWithHttpInfo(Long listId, UpdateList updateList) throws ApiException {
-        com.squareup.okhttp.Call call = updateListValidateBeforeCall(listId, updateList, null, null);
+        Call call = updateListValidateBeforeCall(listId, updateList, null, null);
         return apiClient.execute(call);
     }
 
@@ -3625,7 +3639,7 @@ public class ContactsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateListAsync(Long listId, UpdateList updateList, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateListAsync(Long listId, UpdateList updateList, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3646,7 +3660,7 @@ public class ContactsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateListValidateBeforeCall(listId, updateList, progressListener, progressRequestListener);
+        Call call = updateListValidateBeforeCall(listId, updateList, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

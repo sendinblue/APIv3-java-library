@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetProcess
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetProcess {
   @SerializedName("id")
   private Long id = null;
@@ -165,22 +164,22 @@ public class GetProcess {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetProcess getProcess = (GetProcess) o;
-    return Objects.equals(this.id, getProcess.id) &&
-        Objects.equals(this.status, getProcess.status) &&
-        Objects.equals(this.name, getProcess.name) &&
-        Objects.equals(this.exportUrl, getProcess.exportUrl);
+    return ObjectUtils.equals(this.id, getProcess.id) &&
+    ObjectUtils.equals(this.status, getProcess.status) &&
+    ObjectUtils.equals(this.name, getProcess.name) &&
+    ObjectUtils.equals(this.exportUrl, getProcess.exportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, name, exportUrl);
+    return ObjectUtils.hashCodeMulti(id, status, name, exportUrl);
   }
 
 

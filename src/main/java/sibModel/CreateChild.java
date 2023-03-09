@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * CreateChild
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateChild {
   @SerializedName("email")
   private String email = null;
@@ -213,24 +212,24 @@ public class CreateChild {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateChild createChild = (CreateChild) o;
-    return Objects.equals(this.email, createChild.email) &&
-        Objects.equals(this.firstName, createChild.firstName) &&
-        Objects.equals(this.lastName, createChild.lastName) &&
-        Objects.equals(this.companyName, createChild.companyName) &&
-        Objects.equals(this.password, createChild.password) &&
-        Objects.equals(this.language, createChild.language);
+    return ObjectUtils.equals(this.email, createChild.email) &&
+    ObjectUtils.equals(this.firstName, createChild.firstName) &&
+    ObjectUtils.equals(this.lastName, createChild.lastName) &&
+    ObjectUtils.equals(this.companyName, createChild.companyName) &&
+    ObjectUtils.equals(this.password, createChild.password) &&
+    ObjectUtils.equals(this.language, createChild.language);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstName, lastName, companyName, password, language);
+    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, password, language);
   }
 
 

@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -41,6 +42,7 @@ import sibModel.SendReport;
 import sibModel.SendTestEmail;
 import sibModel.UpdateCampaignStatus;
 import sibModel.UpdateEmailCampaign;
+import sibModel.UploadImageModel;
 import sibModel.UploadImageToGallery;
 
 import java.lang.reflect.Type;
@@ -76,7 +78,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createEmailCampaignCall(CreateEmailCampaign emailCampaigns, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createEmailCampaignCall(CreateEmailCampaign emailCampaigns, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCampaigns;
 
         // create path and map variables
@@ -102,10 +104,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -118,7 +120,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createEmailCampaignValidateBeforeCall(CreateEmailCampaign emailCampaigns, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createEmailCampaignValidateBeforeCall(CreateEmailCampaign emailCampaigns, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'emailCampaigns' is set
         if (emailCampaigns == null) {
@@ -126,7 +128,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createEmailCampaignCall(emailCampaigns, progressListener, progressRequestListener);
+        Call call = createEmailCampaignCall(emailCampaigns, progressListener, progressRequestListener);
         return call;
 
     }
@@ -151,7 +153,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateModel> createEmailCampaignWithHttpInfo(CreateEmailCampaign emailCampaigns) throws ApiException {
-        com.squareup.okhttp.Call call = createEmailCampaignValidateBeforeCall(emailCampaigns, null, null);
+        Call call = createEmailCampaignValidateBeforeCall(emailCampaigns, null, null);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -164,7 +166,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createEmailCampaignAsync(CreateEmailCampaign emailCampaigns, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call createEmailCampaignAsync(CreateEmailCampaign emailCampaigns, final ApiCallback<CreateModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -185,7 +187,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createEmailCampaignValidateBeforeCall(emailCampaigns, progressListener, progressRequestListener);
+        Call call = createEmailCampaignValidateBeforeCall(emailCampaigns, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -198,7 +200,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteEmailCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -225,10 +227,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -241,7 +243,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteEmailCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteEmailCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -249,7 +251,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteEmailCampaignCall(campaignId, progressListener, progressRequestListener);
+        Call call = deleteEmailCampaignCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -272,7 +274,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteEmailCampaignWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteEmailCampaignValidateBeforeCall(campaignId, null, null);
+        Call call = deleteEmailCampaignValidateBeforeCall(campaignId, null, null);
         return apiClient.execute(call);
     }
 
@@ -284,7 +286,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteEmailCampaignAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteEmailCampaignAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -305,7 +307,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteEmailCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = deleteEmailCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -318,7 +320,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call emailExportRecipientsCall(Long campaignId, EmailExportRecipients recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call emailExportRecipientsCall(Long campaignId, EmailExportRecipients recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = recipientExport;
 
         // create path and map variables
@@ -345,10 +347,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -361,7 +363,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call emailExportRecipientsValidateBeforeCall(Long campaignId, EmailExportRecipients recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call emailExportRecipientsValidateBeforeCall(Long campaignId, EmailExportRecipients recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -369,7 +371,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = emailExportRecipientsCall(campaignId, recipientExport, progressListener, progressRequestListener);
+        Call call = emailExportRecipientsCall(campaignId, recipientExport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -396,7 +398,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreatedProcessId> emailExportRecipientsWithHttpInfo(Long campaignId, EmailExportRecipients recipientExport) throws ApiException {
-        com.squareup.okhttp.Call call = emailExportRecipientsValidateBeforeCall(campaignId, recipientExport, null, null);
+        Call call = emailExportRecipientsValidateBeforeCall(campaignId, recipientExport, null, null);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -410,7 +412,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call emailExportRecipientsAsync(Long campaignId, EmailExportRecipients recipientExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
+    public Call emailExportRecipientsAsync(Long campaignId, EmailExportRecipients recipientExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -431,7 +433,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = emailExportRecipientsValidateBeforeCall(campaignId, recipientExport, progressListener, progressRequestListener);
+        Call call = emailExportRecipientsValidateBeforeCall(campaignId, recipientExport, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -444,7 +446,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getAbTestCampaignResultCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getAbTestCampaignResultCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -471,10 +473,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -487,7 +489,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAbTestCampaignResultValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getAbTestCampaignResultValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -495,7 +497,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getAbTestCampaignResultCall(campaignId, progressListener, progressRequestListener);
+        Call call = getAbTestCampaignResultCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -520,7 +522,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AbTestCampaignResult> getAbTestCampaignResultWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, null, null);
+        Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, null, null);
         Type localVarReturnType = new TypeToken<AbTestCampaignResult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -533,7 +535,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAbTestCampaignResultAsync(Long campaignId, final ApiCallback<AbTestCampaignResult> callback) throws ApiException {
+    public Call getAbTestCampaignResultAsync(Long campaignId, final ApiCallback<AbTestCampaignResult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -554,7 +556,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = getAbTestCampaignResultValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AbTestCampaignResult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -562,12 +564,13 @@ public class EmailCampaignsApi {
     /**
      * Build call for getEmailCampaign
      * @param campaignId Id of the campaign (required)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getEmailCampaignCall(Long campaignId, String statistics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -576,6 +579,8 @@ public class EmailCampaignsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (statistics != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("statistics", statistics));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -594,10 +599,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -610,7 +615,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getEmailCampaignValidateBeforeCall(Long campaignId, String statistics, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -618,7 +623,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getEmailCampaignCall(campaignId, progressListener, progressRequestListener);
+        Call call = getEmailCampaignCall(campaignId, statistics, progressListener, progressRequestListener);
         return call;
 
     }
@@ -627,11 +632,12 @@ public class EmailCampaignsApi {
      * Get an email campaign report
      * 
      * @param campaignId Id of the campaign (required)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @return GetEmailCampaign
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailCampaign getEmailCampaign(Long campaignId) throws ApiException {
-        ApiResponse<GetEmailCampaign> resp = getEmailCampaignWithHttpInfo(campaignId);
+    public GetEmailCampaign getEmailCampaign(Long campaignId, String statistics) throws ApiException {
+        ApiResponse<GetEmailCampaign> resp = getEmailCampaignWithHttpInfo(campaignId, statistics);
         return resp.getData();
     }
 
@@ -639,11 +645,12 @@ public class EmailCampaignsApi {
      * Get an email campaign report
      * 
      * @param campaignId Id of the campaign (required)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @return ApiResponse&lt;GetEmailCampaign&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailCampaign> getEmailCampaignWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = getEmailCampaignValidateBeforeCall(campaignId, null, null);
+    public ApiResponse<GetEmailCampaign> getEmailCampaignWithHttpInfo(Long campaignId, String statistics) throws ApiException {
+        Call call = getEmailCampaignValidateBeforeCall(campaignId, statistics, null, null);
         Type localVarReturnType = new TypeToken<GetEmailCampaign>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -652,11 +659,12 @@ public class EmailCampaignsApi {
      * Get an email campaign report (asynchronously)
      * 
      * @param campaignId Id of the campaign (required)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignAsync(Long campaignId, final ApiCallback<GetEmailCampaign> callback) throws ApiException {
+    public Call getEmailCampaignAsync(Long campaignId, String statistics, final ApiCallback<GetEmailCampaign> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -677,7 +685,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getEmailCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = getEmailCampaignValidateBeforeCall(campaignId, statistics, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetEmailCampaign>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -686,9 +694,10 @@ public class EmailCampaignsApi {
      * Build call for getEmailCampaigns
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
-     * @param limit Number of documents per page (optional, default to 500)
+     * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param progressListener Progress listener
@@ -696,7 +705,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsCall(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getEmailCampaignsCall(String type, String status, String statistics, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -708,6 +717,8 @@ public class EmailCampaignsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
         if (status != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (statistics != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("statistics", statistics));
         if (startDate != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
         if (endDate != null)
@@ -736,10 +747,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -752,10 +763,10 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailCampaignsValidateBeforeCall(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getEmailCampaignsValidateBeforeCall(String type, String status, String statistics, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getEmailCampaignsCall(type, status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getEmailCampaignsCall(type, status, statistics, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -765,16 +776,17 @@ public class EmailCampaignsApi {
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
-     * @param limit Number of documents per page (optional, default to 500)
+     * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return GetEmailCampaigns
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailCampaigns getEmailCampaigns(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
-        ApiResponse<GetEmailCampaigns> resp = getEmailCampaignsWithHttpInfo(type, status, startDate, endDate, limit, offset, sort);
+    public GetEmailCampaigns getEmailCampaigns(String type, String status, String statistics, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
+        ApiResponse<GetEmailCampaigns> resp = getEmailCampaignsWithHttpInfo(type, status, statistics, startDate, endDate, limit, offset, sort);
         return resp.getData();
     }
 
@@ -783,16 +795,17 @@ public class EmailCampaignsApi {
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
-     * @param limit Number of documents per page (optional, default to 500)
+     * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @return ApiResponse&lt;GetEmailCampaigns&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailCampaigns> getEmailCampaignsWithHttpInfo(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getEmailCampaignsValidateBeforeCall(type, status, startDate, endDate, limit, offset, sort, null, null);
+    public ApiResponse<GetEmailCampaigns> getEmailCampaignsWithHttpInfo(String type, String status, String statistics, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
+        Call call = getEmailCampaignsValidateBeforeCall(type, status, statistics, startDate, endDate, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetEmailCampaigns>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -802,16 +815,17 @@ public class EmailCampaignsApi {
      * 
      * @param type Filter on the type of the campaigns (optional)
      * @param status Filter on the status of the campaign (optional)
+     * @param statistics Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. (optional)
      * @param startDate Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
      * @param endDate Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) (optional)
-     * @param limit Number of documents per page (optional, default to 500)
+     * @param limit Number of documents per page (optional, default to 50)
      * @param offset Index of the first document in the page (optional, default to 0)
      * @param sort Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed (optional, default to desc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailCampaignsAsync(String type, String status, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetEmailCampaigns> callback) throws ApiException {
+    public Call getEmailCampaignsAsync(String type, String status, String statistics, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetEmailCampaigns> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -832,7 +846,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getEmailCampaignsValidateBeforeCall(type, status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getEmailCampaignsValidateBeforeCall(type, status, statistics, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetEmailCampaigns>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -845,7 +859,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSharedTemplateUrlCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getSharedTemplateUrlCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -872,10 +886,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -888,7 +902,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSharedTemplateUrlValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getSharedTemplateUrlValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -896,7 +910,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getSharedTemplateUrlCall(campaignId, progressListener, progressRequestListener);
+        Call call = getSharedTemplateUrlCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -921,7 +935,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSharedTemplateUrl> getSharedTemplateUrlWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, null, null);
+        Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, null, null);
         Type localVarReturnType = new TypeToken<GetSharedTemplateUrl>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -934,7 +948,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSharedTemplateUrlAsync(Long campaignId, final ApiCallback<GetSharedTemplateUrl> callback) throws ApiException {
+    public Call getSharedTemplateUrlAsync(Long campaignId, final ApiCallback<GetSharedTemplateUrl> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -955,7 +969,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = getSharedTemplateUrlValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSharedTemplateUrl>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -968,7 +982,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendEmailCampaignNowCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendEmailCampaignNowCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -995,10 +1009,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1011,7 +1025,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendEmailCampaignNowValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendEmailCampaignNowValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1019,7 +1033,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendEmailCampaignNowCall(campaignId, progressListener, progressRequestListener);
+        Call call = sendEmailCampaignNowCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1042,7 +1056,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendEmailCampaignNowWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = sendEmailCampaignNowValidateBeforeCall(campaignId, null, null);
+        Call call = sendEmailCampaignNowValidateBeforeCall(campaignId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1054,7 +1068,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendEmailCampaignNowAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendEmailCampaignNowAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1075,7 +1089,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendEmailCampaignNowValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = sendEmailCampaignNowValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1088,7 +1102,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendReportCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendReportCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendReport;
 
         // create path and map variables
@@ -1115,10 +1129,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1131,7 +1145,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendReportValidateBeforeCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendReportValidateBeforeCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1144,7 +1158,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendReportCall(campaignId, sendReport, progressListener, progressRequestListener);
+        Call call = sendReportCall(campaignId, sendReport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1169,7 +1183,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendReportWithHttpInfo(Long campaignId, SendReport sendReport) throws ApiException {
-        com.squareup.okhttp.Call call = sendReportValidateBeforeCall(campaignId, sendReport, null, null);
+        Call call = sendReportValidateBeforeCall(campaignId, sendReport, null, null);
         return apiClient.execute(call);
     }
 
@@ -1182,7 +1196,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendReportAsync(Long campaignId, SendReport sendReport, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendReportAsync(Long campaignId, SendReport sendReport, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1203,7 +1217,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendReportValidateBeforeCall(campaignId, sendReport, progressListener, progressRequestListener);
+        Call call = sendReportValidateBeforeCall(campaignId, sendReport, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1216,7 +1230,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendTestEmailCall(Long campaignId, SendTestEmail emailTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendTestEmailCall(Long campaignId, SendTestEmail emailTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailTo;
 
         // create path and map variables
@@ -1243,10 +1257,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1259,7 +1273,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendTestEmailValidateBeforeCall(Long campaignId, SendTestEmail emailTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendTestEmailValidateBeforeCall(Long campaignId, SendTestEmail emailTo, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1272,7 +1286,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendTestEmailCall(campaignId, emailTo, progressListener, progressRequestListener);
+        Call call = sendTestEmailCall(campaignId, emailTo, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1297,7 +1311,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendTestEmailWithHttpInfo(Long campaignId, SendTestEmail emailTo) throws ApiException {
-        com.squareup.okhttp.Call call = sendTestEmailValidateBeforeCall(campaignId, emailTo, null, null);
+        Call call = sendTestEmailValidateBeforeCall(campaignId, emailTo, null, null);
         return apiClient.execute(call);
     }
 
@@ -1310,7 +1324,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendTestEmailAsync(Long campaignId, SendTestEmail emailTo, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendTestEmailAsync(Long campaignId, SendTestEmail emailTo, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1331,7 +1345,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendTestEmailValidateBeforeCall(campaignId, emailTo, progressListener, progressRequestListener);
+        Call call = sendTestEmailValidateBeforeCall(campaignId, emailTo, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1344,7 +1358,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateCampaignStatusCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateCampaignStatusCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = status;
 
         // create path and map variables
@@ -1371,10 +1385,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1387,7 +1401,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateCampaignStatusValidateBeforeCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateCampaignStatusValidateBeforeCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1400,7 +1414,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateCampaignStatusCall(campaignId, status, progressListener, progressRequestListener);
+        Call call = updateCampaignStatusCall(campaignId, status, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1425,7 +1439,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateCampaignStatusWithHttpInfo(Long campaignId, UpdateCampaignStatus status) throws ApiException {
-        com.squareup.okhttp.Call call = updateCampaignStatusValidateBeforeCall(campaignId, status, null, null);
+        Call call = updateCampaignStatusValidateBeforeCall(campaignId, status, null, null);
         return apiClient.execute(call);
     }
 
@@ -1438,7 +1452,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateCampaignStatusAsync(Long campaignId, UpdateCampaignStatus status, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateCampaignStatusAsync(Long campaignId, UpdateCampaignStatus status, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1459,7 +1473,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateCampaignStatusValidateBeforeCall(campaignId, status, progressListener, progressRequestListener);
+        Call call = updateCampaignStatusValidateBeforeCall(campaignId, status, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1472,7 +1486,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCampaignCall(Long campaignId, UpdateEmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateEmailCampaignCall(Long campaignId, UpdateEmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = emailCampaign;
 
         // create path and map variables
@@ -1499,10 +1513,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1515,7 +1529,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateEmailCampaignValidateBeforeCall(Long campaignId, UpdateEmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateEmailCampaignValidateBeforeCall(Long campaignId, UpdateEmailCampaign emailCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1528,7 +1542,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateEmailCampaignCall(campaignId, emailCampaign, progressListener, progressRequestListener);
+        Call call = updateEmailCampaignCall(campaignId, emailCampaign, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1553,7 +1567,7 @@ public class EmailCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateEmailCampaignWithHttpInfo(Long campaignId, UpdateEmailCampaign emailCampaign) throws ApiException {
-        com.squareup.okhttp.Call call = updateEmailCampaignValidateBeforeCall(campaignId, emailCampaign, null, null);
+        Call call = updateEmailCampaignValidateBeforeCall(campaignId, emailCampaign, null, null);
         return apiClient.execute(call);
     }
 
@@ -1566,7 +1580,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateEmailCampaignAsync(Long campaignId, UpdateEmailCampaign emailCampaign, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateEmailCampaignAsync(Long campaignId, UpdateEmailCampaign emailCampaign, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1587,7 +1601,7 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateEmailCampaignValidateBeforeCall(campaignId, emailCampaign, progressListener, progressRequestListener);
+        Call call = updateEmailCampaignValidateBeforeCall(campaignId, emailCampaign, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1599,7 +1613,7 @@ public class EmailCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call uploadImageToGalleryCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call uploadImageToGalleryCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = uploadImage;
 
         // create path and map variables
@@ -1625,10 +1639,10 @@ public class EmailCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1641,7 +1655,7 @@ public class EmailCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call uploadImageToGalleryValidateBeforeCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call uploadImageToGalleryValidateBeforeCall(UploadImageToGallery uploadImage, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'uploadImage' is set
         if (uploadImage == null) {
@@ -1649,7 +1663,7 @@ public class EmailCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = uploadImageToGalleryCall(uploadImage, progressListener, progressRequestListener);
+        Call call = uploadImageToGalleryCall(uploadImage, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1658,22 +1672,25 @@ public class EmailCampaignsApi {
      * Upload an image to your account&#39;s image gallery
      * 
      * @param uploadImage Parameters to upload an image (required)
+     * @return UploadImageModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void uploadImageToGallery(UploadImageToGallery uploadImage) throws ApiException {
-        uploadImageToGalleryWithHttpInfo(uploadImage);
+    public UploadImageModel uploadImageToGallery(UploadImageToGallery uploadImage) throws ApiException {
+        ApiResponse<UploadImageModel> resp = uploadImageToGalleryWithHttpInfo(uploadImage);
+        return resp.getData();
     }
 
     /**
      * Upload an image to your account&#39;s image gallery
      * 
      * @param uploadImage Parameters to upload an image (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;UploadImageModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> uploadImageToGalleryWithHttpInfo(UploadImageToGallery uploadImage) throws ApiException {
-        com.squareup.okhttp.Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, null, null);
-        return apiClient.execute(call);
+    public ApiResponse<UploadImageModel> uploadImageToGalleryWithHttpInfo(UploadImageToGallery uploadImage) throws ApiException {
+        Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, null, null);
+        Type localVarReturnType = new TypeToken<UploadImageModel>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -1684,7 +1701,7 @@ public class EmailCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call uploadImageToGalleryAsync(UploadImageToGallery uploadImage, final ApiCallback<Void> callback) throws ApiException {
+    public Call uploadImageToGalleryAsync(UploadImageToGallery uploadImage, final ApiCallback<UploadImageModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1705,8 +1722,9 @@ public class EmailCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Call call = uploadImageToGalleryValidateBeforeCall(uploadImage, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<UploadImageModel>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
 }

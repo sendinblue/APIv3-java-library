@@ -13,7 +13,7 @@
 
 package sendinblue;
 
-import com.squareup.okhttp.*;
+import okhttp3.*;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.GzipSink;

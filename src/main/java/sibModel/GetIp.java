@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetIp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetIp {
   @SerializedName("id")
   private Long id = null;
@@ -116,22 +115,22 @@ public class GetIp {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetIp getIp = (GetIp) o;
-    return Objects.equals(this.id, getIp.id) &&
-        Objects.equals(this.ip, getIp.ip) &&
-        Objects.equals(this.active, getIp.active) &&
-        Objects.equals(this.domain, getIp.domain);
+    return ObjectUtils.equals(this.id, getIp.id) &&
+    ObjectUtils.equals(this.ip, getIp.ip) &&
+    ObjectUtils.equals(this.active, getIp.active) &&
+    ObjectUtils.equals(this.domain, getIp.domain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, ip, active, domain);
+    return ObjectUtils.hashCodeMulti(id, ip, active, domain);
   }
 
 

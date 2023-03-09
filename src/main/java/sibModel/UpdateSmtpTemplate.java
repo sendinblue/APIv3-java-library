@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.UpdateSmtpTemplateSender;
 /**
  * UpdateSmtpTemplate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class UpdateSmtpTemplate {
   @SerializedName("tag")
   private String tag = null;
@@ -120,10 +119,10 @@ public class UpdateSmtpTemplate {
   }
 
    /**
-   * Required if htmlUrl is empty. Body of the message (HTML must have more than 10 characters)
+   * Required if htmlUrl is empty. If the template is designed using Drag &amp; Drop editor via HTML content, then the design page will not have Drag &amp; Drop editor access for that template. Body of the message (HTML must have more than 10 characters)
    * @return htmlContent
   **/
-  @ApiModelProperty(example = "The order n°xxxxx has been confirmed. Thanks for your purchase", value = "Required if htmlUrl is empty. Body of the message (HTML must have more than 10 characters)")
+  @ApiModelProperty(example = "The order n°xxxxx has been confirmed. Thanks for your purchase", value = "Required if htmlUrl is empty. If the template is designed using Drag & Drop editor via HTML content, then the design page will not have Drag & Drop editor access for that template. Body of the message (HTML must have more than 10 characters)")
   public String getHtmlContent() {
     return htmlContent;
   }
@@ -243,28 +242,28 @@ public class UpdateSmtpTemplate {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     UpdateSmtpTemplate updateSmtpTemplate = (UpdateSmtpTemplate) o;
-    return Objects.equals(this.tag, updateSmtpTemplate.tag) &&
-        Objects.equals(this.sender, updateSmtpTemplate.sender) &&
-        Objects.equals(this.templateName, updateSmtpTemplate.templateName) &&
-        Objects.equals(this.htmlContent, updateSmtpTemplate.htmlContent) &&
-        Objects.equals(this.htmlUrl, updateSmtpTemplate.htmlUrl) &&
-        Objects.equals(this.subject, updateSmtpTemplate.subject) &&
-        Objects.equals(this.replyTo, updateSmtpTemplate.replyTo) &&
-        Objects.equals(this.toField, updateSmtpTemplate.toField) &&
-        Objects.equals(this.attachmentUrl, updateSmtpTemplate.attachmentUrl) &&
-        Objects.equals(this.isActive, updateSmtpTemplate.isActive);
+    return ObjectUtils.equals(this.tag, updateSmtpTemplate.tag) &&
+    ObjectUtils.equals(this.sender, updateSmtpTemplate.sender) &&
+    ObjectUtils.equals(this.templateName, updateSmtpTemplate.templateName) &&
+    ObjectUtils.equals(this.htmlContent, updateSmtpTemplate.htmlContent) &&
+    ObjectUtils.equals(this.htmlUrl, updateSmtpTemplate.htmlUrl) &&
+    ObjectUtils.equals(this.subject, updateSmtpTemplate.subject) &&
+    ObjectUtils.equals(this.replyTo, updateSmtpTemplate.replyTo) &&
+    ObjectUtils.equals(this.toField, updateSmtpTemplate.toField) &&
+    ObjectUtils.equals(this.attachmentUrl, updateSmtpTemplate.attachmentUrl) &&
+    ObjectUtils.equals(this.isActive, updateSmtpTemplate.isActive);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tag, sender, templateName, htmlContent, htmlUrl, subject, replyTo, toField, attachmentUrl, isActive);
+    return ObjectUtils.hashCodeMulti(tag, sender, templateName, htmlContent, htmlUrl, subject, replyTo, toField, attachmentUrl, isActive);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * CreateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateContact {
   @SerializedName("email")
   private String email = null;
@@ -58,7 +57,7 @@ public class CreateContact {
   }
 
    /**
-   * Email address of the user. Mandatory if &quot;SMS&quot; field is not passed in &quot;attributes&quot; parameter. Mobile Number in &quot;SMS&quot; field should be passed with proper country code. For example {&quot;SMS&quot;:&quot;+91xxxxxxxxxx&quot;} or {&quot;SMS&quot;:&quot;0091xxxxxxxxxx&quot;}
+   * Email address of the user. Mandatory if \&quot;SMS\&quot; field is not passed in \&quot;attributes\&quot; parameter. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
    * @return email
   **/
   @ApiModelProperty(example = "elly@example.com", value = "Email address of the user. Mandatory if \"SMS\" field is not passed in \"attributes\" parameter. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}")
@@ -76,10 +75,10 @@ public class CreateContact {
   }
 
    /**
-   * Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {&quot;FNAME&quot;:&quot;Elly&quot;, &quot;LNAME&quot;:&quot;Roger&quot;}
+   * Pass the set of attributes and their values. The attribute&#39;s parameter should be passed in capital letter while creating a contact. These attributes must be present in your SendinBlue account. For eg. {\&quot;FNAME\&quot;:\&quot;Elly\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}
    * @return attributes
   **/
-  @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. These attributes must be present in your SendinBlue account. For eg. {\"FNAME\":\"Elly\", \"LNAME\":\"Roger\"}")
+  @ApiModelProperty(example = "{\"FNAME\":\"Elly\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes and their values. The attribute's parameter should be passed in capital letter while creating a contact. These attributes must be present in your SendinBlue account. For eg. {\"FNAME\":\"Elly\", \"LNAME\":\"Roger\"}")
   public Object getAttributes() {
     return attributes;
   }
@@ -197,25 +196,25 @@ public class CreateContact {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateContact createContact = (CreateContact) o;
-    return Objects.equals(this.email, createContact.email) &&
-        Objects.equals(this.attributes, createContact.attributes) &&
-        Objects.equals(this.emailBlacklisted, createContact.emailBlacklisted) &&
-        Objects.equals(this.smsBlacklisted, createContact.smsBlacklisted) &&
-        Objects.equals(this.listIds, createContact.listIds) &&
-        Objects.equals(this.updateEnabled, createContact.updateEnabled) &&
-        Objects.equals(this.smtpBlacklistSender, createContact.smtpBlacklistSender);
+    return ObjectUtils.equals(this.email, createContact.email) &&
+    ObjectUtils.equals(this.attributes, createContact.attributes) &&
+    ObjectUtils.equals(this.emailBlacklisted, createContact.emailBlacklisted) &&
+    ObjectUtils.equals(this.smsBlacklisted, createContact.smsBlacklisted) &&
+    ObjectUtils.equals(this.listIds, createContact.listIds) &&
+    ObjectUtils.equals(this.updateEnabled, createContact.updateEnabled) &&
+    ObjectUtils.equals(this.smtpBlacklistSender, createContact.smtpBlacklistSender);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, attributes, emailBlacklisted, smsBlacklisted, listIds, updateEnabled, smtpBlacklistSender);
+    return ObjectUtils.hashCodeMulti(email, attributes, emailBlacklisted, smsBlacklisted, listIds, updateEnabled, smtpBlacklistSender);
   }
 
 

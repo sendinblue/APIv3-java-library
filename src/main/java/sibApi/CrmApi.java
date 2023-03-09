@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -70,7 +71,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdDataGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmFilesIdDataGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -97,10 +98,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -113,7 +114,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmFilesIdDataGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmFilesIdDataGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -121,7 +122,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmFilesIdDataGetCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdDataGetCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -146,7 +147,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FileData> crmFilesIdDataGetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmFilesIdDataGetValidateBeforeCall(id, null, null);
+        Call call = crmFilesIdDataGetValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<FileData>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -159,7 +160,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdDataGetAsync(String id, final ApiCallback<FileData> callback) throws ApiException {
+    public Call crmFilesIdDataGetAsync(String id, final ApiCallback<FileData> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,7 +181,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmFilesIdDataGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdDataGetValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileData>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -193,7 +194,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmFilesIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -220,10 +221,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -236,7 +237,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmFilesIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmFilesIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -244,7 +245,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmFilesIdDeleteCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdDeleteCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -267,7 +268,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> crmFilesIdDeleteWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmFilesIdDeleteValidateBeforeCall(id, null, null);
+        Call call = crmFilesIdDeleteValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
@@ -279,7 +280,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
+    public Call crmFilesIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -300,7 +301,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmFilesIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -312,7 +313,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmFilesIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -339,10 +340,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -355,7 +356,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmFilesIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmFilesIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -363,7 +364,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmFilesIdGetCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdGetCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -386,7 +387,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> crmFilesIdGetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmFilesIdGetValidateBeforeCall(id, null, null);
+        Call call = crmFilesIdGetValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
@@ -398,7 +399,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmFilesIdGetAsync(String id, final ApiCallback<Void> callback) throws ApiException {
+    public Call crmFilesIdGetAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -419,7 +420,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmFilesIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmFilesIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -432,7 +433,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmFilesPostCall(File file, List<String> dealsIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmFilesPostCall(File file, List<String> dealsIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -462,10 +463,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -478,7 +479,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmFilesPostValidateBeforeCall(File file, List<String> dealsIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmFilesPostValidateBeforeCall(File file, List<String> dealsIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'file' is set
         if (file == null) {
@@ -486,7 +487,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmFilesPostCall(file, dealsIds, progressListener, progressRequestListener);
+        Call call = crmFilesPostCall(file, dealsIds, progressListener, progressRequestListener);
         return call;
 
     }
@@ -513,7 +514,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FileData> crmFilesPostWithHttpInfo(File file, List<String> dealsIds) throws ApiException {
-        com.squareup.okhttp.Call call = crmFilesPostValidateBeforeCall(file, dealsIds, null, null);
+        Call call = crmFilesPostValidateBeforeCall(file, dealsIds, null, null);
         Type localVarReturnType = new TypeToken<FileData>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -527,7 +528,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmFilesPostAsync(File file, List<String> dealsIds, final ApiCallback<FileData> callback) throws ApiException {
+    public Call crmFilesPostAsync(File file, List<String> dealsIds, final ApiCallback<FileData> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -548,7 +549,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmFilesPostValidateBeforeCall(file, dealsIds, progressListener, progressRequestListener);
+        Call call = crmFilesPostValidateBeforeCall(file, dealsIds, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FileData>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -561,7 +562,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmNotesIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -588,10 +589,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -604,7 +605,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmNotesIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmNotesIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -612,7 +613,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmNotesIdDeleteCall(id, progressListener, progressRequestListener);
+        Call call = crmNotesIdDeleteCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -635,7 +636,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> crmNotesIdDeleteWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmNotesIdDeleteValidateBeforeCall(id, null, null);
+        Call call = crmNotesIdDeleteValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
@@ -647,7 +648,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
+    public Call crmNotesIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -668,7 +669,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmNotesIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmNotesIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -680,7 +681,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmNotesIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -707,10 +708,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -723,7 +724,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmNotesIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmNotesIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -731,7 +732,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmNotesIdGetCall(id, progressListener, progressRequestListener);
+        Call call = crmNotesIdGetCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -756,7 +757,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Note> crmNotesIdGetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmNotesIdGetValidateBeforeCall(id, null, null);
+        Call call = crmNotesIdGetValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -769,7 +770,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdGetAsync(String id, final ApiCallback<Note> callback) throws ApiException {
+    public Call crmNotesIdGetAsync(String id, final ApiCallback<Note> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -790,7 +791,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmNotesIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmNotesIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -804,7 +805,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdPatchCall(String id, NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmNotesIdPatchCall(String id, NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -831,10 +832,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -847,7 +848,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmNotesIdPatchValidateBeforeCall(String id, NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmNotesIdPatchValidateBeforeCall(String id, NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -860,7 +861,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmNotesIdPatchCall(id, body, progressListener, progressRequestListener);
+        Call call = crmNotesIdPatchCall(id, body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -887,7 +888,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Note> crmNotesIdPatchWithHttpInfo(String id, NoteData body) throws ApiException {
-        com.squareup.okhttp.Call call = crmNotesIdPatchValidateBeforeCall(id, body, null, null);
+        Call call = crmNotesIdPatchValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -901,7 +902,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmNotesIdPatchAsync(String id, NoteData body, final ApiCallback<Note> callback) throws ApiException {
+    public Call crmNotesIdPatchAsync(String id, NoteData body, final ApiCallback<Note> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -922,7 +923,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmNotesIdPatchValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        Call call = crmNotesIdPatchValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -935,7 +936,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmNotesPostCall(NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmNotesPostCall(NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -961,10 +962,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -977,7 +978,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmNotesPostValidateBeforeCall(NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmNotesPostValidateBeforeCall(NoteData body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -985,7 +986,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmNotesPostCall(body, progressListener, progressRequestListener);
+        Call call = crmNotesPostCall(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1010,7 +1011,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Note> crmNotesPostWithHttpInfo(NoteData body) throws ApiException {
-        com.squareup.okhttp.Call call = crmNotesPostValidateBeforeCall(body, null, null);
+        Call call = crmNotesPostValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1023,7 +1024,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmNotesPostAsync(NoteData body, final ApiCallback<Note> callback) throws ApiException {
+    public Call crmNotesPostAsync(NoteData body, final ApiCallback<Note> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1044,7 +1045,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmNotesPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Call call = crmNotesPostValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Note>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1057,7 +1058,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmTasksIdDeleteCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1084,10 +1085,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1100,7 +1101,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmTasksIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmTasksIdDeleteValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1108,7 +1109,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmTasksIdDeleteCall(id, progressListener, progressRequestListener);
+        Call call = crmTasksIdDeleteCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1131,7 +1132,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> crmTasksIdDeleteWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmTasksIdDeleteValidateBeforeCall(id, null, null);
+        Call call = crmTasksIdDeleteValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
@@ -1143,7 +1144,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
+    public Call crmTasksIdDeleteAsync(String id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1164,7 +1165,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmTasksIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmTasksIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1176,7 +1177,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmTasksIdGetCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1203,10 +1204,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1219,7 +1220,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmTasksIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmTasksIdGetValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1227,7 +1228,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmTasksIdGetCall(id, progressListener, progressRequestListener);
+        Call call = crmTasksIdGetCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1252,7 +1253,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Task> crmTasksIdGetWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = crmTasksIdGetValidateBeforeCall(id, null, null);
+        Call call = crmTasksIdGetValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1265,7 +1266,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdGetAsync(String id, final ApiCallback<Task> callback) throws ApiException {
+    public Call crmTasksIdGetAsync(String id, final ApiCallback<Task> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1286,7 +1287,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmTasksIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = crmTasksIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1300,7 +1301,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdPatchCall(String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmTasksIdPatchCall(String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1327,10 +1328,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1343,7 +1344,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmTasksIdPatchValidateBeforeCall(String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmTasksIdPatchValidateBeforeCall(String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1356,7 +1357,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmTasksIdPatchCall(id, body, progressListener, progressRequestListener);
+        Call call = crmTasksIdPatchCall(id, body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1383,7 +1384,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Task> crmTasksIdPatchWithHttpInfo(String id, Body1 body) throws ApiException {
-        com.squareup.okhttp.Call call = crmTasksIdPatchValidateBeforeCall(id, body, null, null);
+        Call call = crmTasksIdPatchValidateBeforeCall(id, body, null, null);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1397,7 +1398,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmTasksIdPatchAsync(String id, Body1 body, final ApiCallback<Task> callback) throws ApiException {
+    public Call crmTasksIdPatchAsync(String id, Body1 body, final ApiCallback<Task> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1418,7 +1419,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmTasksIdPatchValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        Call call = crmTasksIdPatchValidateBeforeCall(id, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1431,7 +1432,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmTasksPostCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmTasksPostCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1457,10 +1458,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1473,7 +1474,7 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmTasksPostValidateBeforeCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmTasksPostValidateBeforeCall(Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'body' is set
         if (body == null) {
@@ -1481,7 +1482,7 @@ public class CrmApi {
         }
         
 
-        com.squareup.okhttp.Call call = crmTasksPostCall(body, progressListener, progressRequestListener);
+        Call call = crmTasksPostCall(body, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1506,7 +1507,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Task> crmTasksPostWithHttpInfo(Body body) throws ApiException {
-        com.squareup.okhttp.Call call = crmTasksPostValidateBeforeCall(body, null, null);
+        Call call = crmTasksPostValidateBeforeCall(body, null, null);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1519,7 +1520,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmTasksPostAsync(Body body, final ApiCallback<Task> callback) throws ApiException {
+    public Call crmTasksPostAsync(Body body, final ApiCallback<Task> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1540,7 +1541,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmTasksPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Call call = crmTasksPostValidateBeforeCall(body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Task>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1552,7 +1553,7 @@ public class CrmApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call crmTasktypesGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call crmTasktypesGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1578,10 +1579,10 @@ public class CrmApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1594,10 +1595,10 @@ public class CrmApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call crmTasktypesGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call crmTasktypesGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = crmTasktypesGetCall(progressListener, progressRequestListener);
+        Call call = crmTasktypesGetCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -1620,7 +1621,7 @@ public class CrmApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TaskTypes> crmTasktypesGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = crmTasktypesGetValidateBeforeCall(null, null);
+        Call call = crmTasktypesGetValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<TaskTypes>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1632,7 +1633,7 @@ public class CrmApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call crmTasktypesGetAsync(final ApiCallback<TaskTypes> callback) throws ApiException {
+    public Call crmTasktypesGetAsync(final ApiCallback<TaskTypes> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1653,7 +1654,7 @@ public class CrmApi {
             };
         }
 
-        com.squareup.okhttp.Call call = crmTasktypesGetValidateBeforeCall(progressListener, progressRequestListener);
+        Call call = crmTasktypesGetValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TaskTypes>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -73,7 +74,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSmsCampaignCall(CreateSmsCampaign createSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createSmsCampaignCall(CreateSmsCampaign createSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createSmsCampaign;
 
         // create path and map variables
@@ -99,10 +100,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -115,7 +116,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSmsCampaignValidateBeforeCall(CreateSmsCampaign createSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createSmsCampaignValidateBeforeCall(CreateSmsCampaign createSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createSmsCampaign' is set
         if (createSmsCampaign == null) {
@@ -123,7 +124,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = createSmsCampaignCall(createSmsCampaign, progressListener, progressRequestListener);
+        Call call = createSmsCampaignCall(createSmsCampaign, progressListener, progressRequestListener);
         return call;
 
     }
@@ -148,7 +149,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateModel> createSmsCampaignWithHttpInfo(CreateSmsCampaign createSmsCampaign) throws ApiException {
-        com.squareup.okhttp.Call call = createSmsCampaignValidateBeforeCall(createSmsCampaign, null, null);
+        Call call = createSmsCampaignValidateBeforeCall(createSmsCampaign, null, null);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -161,7 +162,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSmsCampaignAsync(CreateSmsCampaign createSmsCampaign, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call createSmsCampaignAsync(CreateSmsCampaign createSmsCampaign, final ApiCallback<CreateModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -182,7 +183,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createSmsCampaignValidateBeforeCall(createSmsCampaign, progressListener, progressRequestListener);
+        Call call = createSmsCampaignValidateBeforeCall(createSmsCampaign, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -195,7 +196,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteSmsCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteSmsCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -222,10 +223,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -238,7 +239,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteSmsCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteSmsCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -246,7 +247,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteSmsCampaignCall(campaignId, progressListener, progressRequestListener);
+        Call call = deleteSmsCampaignCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -269,7 +270,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteSmsCampaignWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteSmsCampaignValidateBeforeCall(campaignId, null, null);
+        Call call = deleteSmsCampaignValidateBeforeCall(campaignId, null, null);
         return apiClient.execute(call);
     }
 
@@ -281,7 +282,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteSmsCampaignAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteSmsCampaignAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -302,7 +303,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteSmsCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = deleteSmsCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -314,7 +315,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getSmsCampaignCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -341,10 +342,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -357,7 +358,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getSmsCampaignValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -365,7 +366,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getSmsCampaignCall(campaignId, progressListener, progressRequestListener);
+        Call call = getSmsCampaignCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -390,7 +391,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSmsCampaign> getSmsCampaignWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, null, null);
+        Call call = getSmsCampaignValidateBeforeCall(campaignId, null, null);
         Type localVarReturnType = new TypeToken<GetSmsCampaign>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -403,7 +404,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignAsync(Long campaignId, final ApiCallback<GetSmsCampaign> callback) throws ApiException {
+    public Call getSmsCampaignAsync(Long campaignId, final ApiCallback<GetSmsCampaign> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -424,7 +425,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = getSmsCampaignValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsCampaign>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -442,7 +443,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getSmsCampaignsCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -480,10 +481,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -496,10 +497,10 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsCampaignsValidateBeforeCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getSmsCampaignsValidateBeforeCall(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getSmsCampaignsCall(status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getSmsCampaignsCall(status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -534,7 +535,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSmsCampaigns> getSmsCampaignsWithHttpInfo(String status, String startDate, String endDate, Long limit, Long offset, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, sort, null, null);
+        Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, sort, null, null);
         Type localVarReturnType = new TypeToken<GetSmsCampaigns>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -552,7 +553,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsCampaignsAsync(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
+    public Call getSmsCampaignsAsync(String status, String startDate, String endDate, Long limit, Long offset, String sort, final ApiCallback<GetSmsCampaigns> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -573,7 +574,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
+        Call call = getSmsCampaignsValidateBeforeCall(status, startDate, endDate, limit, offset, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsCampaigns>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -587,7 +588,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call requestSmsRecipientExportCall(Long campaignId, RequestSmsRecipientExport recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call requestSmsRecipientExportCall(Long campaignId, RequestSmsRecipientExport recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = recipientExport;
 
         // create path and map variables
@@ -614,10 +615,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -630,7 +631,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call requestSmsRecipientExportValidateBeforeCall(Long campaignId, RequestSmsRecipientExport recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call requestSmsRecipientExportValidateBeforeCall(Long campaignId, RequestSmsRecipientExport recipientExport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -638,7 +639,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = requestSmsRecipientExportCall(campaignId, recipientExport, progressListener, progressRequestListener);
+        Call call = requestSmsRecipientExportCall(campaignId, recipientExport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -665,7 +666,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreatedProcessId> requestSmsRecipientExportWithHttpInfo(Long campaignId, RequestSmsRecipientExport recipientExport) throws ApiException {
-        com.squareup.okhttp.Call call = requestSmsRecipientExportValidateBeforeCall(campaignId, recipientExport, null, null);
+        Call call = requestSmsRecipientExportValidateBeforeCall(campaignId, recipientExport, null, null);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -679,7 +680,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call requestSmsRecipientExportAsync(Long campaignId, RequestSmsRecipientExport recipientExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
+    public Call requestSmsRecipientExportAsync(Long campaignId, RequestSmsRecipientExport recipientExport, final ApiCallback<CreatedProcessId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -700,7 +701,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = requestSmsRecipientExportValidateBeforeCall(campaignId, recipientExport, progressListener, progressRequestListener);
+        Call call = requestSmsRecipientExportValidateBeforeCall(campaignId, recipientExport, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreatedProcessId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -713,7 +714,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendSmsCampaignNowCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendSmsCampaignNowCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -740,10 +741,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -756,7 +757,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendSmsCampaignNowValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendSmsCampaignNowValidateBeforeCall(Long campaignId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -764,7 +765,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendSmsCampaignNowCall(campaignId, progressListener, progressRequestListener);
+        Call call = sendSmsCampaignNowCall(campaignId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -787,7 +788,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendSmsCampaignNowWithHttpInfo(Long campaignId) throws ApiException {
-        com.squareup.okhttp.Call call = sendSmsCampaignNowValidateBeforeCall(campaignId, null, null);
+        Call call = sendSmsCampaignNowValidateBeforeCall(campaignId, null, null);
         return apiClient.execute(call);
     }
 
@@ -799,7 +800,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendSmsCampaignNowAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendSmsCampaignNowAsync(Long campaignId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -820,7 +821,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendSmsCampaignNowValidateBeforeCall(campaignId, progressListener, progressRequestListener);
+        Call call = sendSmsCampaignNowValidateBeforeCall(campaignId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -833,7 +834,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendSmsReportCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendSmsReportCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendReport;
 
         // create path and map variables
@@ -860,10 +861,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -876,7 +877,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendSmsReportValidateBeforeCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendSmsReportValidateBeforeCall(Long campaignId, SendReport sendReport, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -889,7 +890,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendSmsReportCall(campaignId, sendReport, progressListener, progressRequestListener);
+        Call call = sendSmsReportCall(campaignId, sendReport, progressListener, progressRequestListener);
         return call;
 
     }
@@ -914,7 +915,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendSmsReportWithHttpInfo(Long campaignId, SendReport sendReport) throws ApiException {
-        com.squareup.okhttp.Call call = sendSmsReportValidateBeforeCall(campaignId, sendReport, null, null);
+        Call call = sendSmsReportValidateBeforeCall(campaignId, sendReport, null, null);
         return apiClient.execute(call);
     }
 
@@ -927,7 +928,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendSmsReportAsync(Long campaignId, SendReport sendReport, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendSmsReportAsync(Long campaignId, SendReport sendReport, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -948,7 +949,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendSmsReportValidateBeforeCall(campaignId, sendReport, progressListener, progressRequestListener);
+        Call call = sendSmsReportValidateBeforeCall(campaignId, sendReport, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -961,7 +962,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendTestSmsCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendTestSmsCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = phoneNumber;
 
         // create path and map variables
@@ -988,10 +989,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1004,7 +1005,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendTestSmsValidateBeforeCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendTestSmsValidateBeforeCall(Long campaignId, SendTestSms phoneNumber, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1017,7 +1018,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendTestSmsCall(campaignId, phoneNumber, progressListener, progressRequestListener);
+        Call call = sendTestSmsCall(campaignId, phoneNumber, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1042,7 +1043,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> sendTestSmsWithHttpInfo(Long campaignId, SendTestSms phoneNumber) throws ApiException {
-        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, null, null);
+        Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, null, null);
         return apiClient.execute(call);
     }
 
@@ -1055,7 +1056,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendTestSmsAsync(Long campaignId, SendTestSms phoneNumber, final ApiCallback<Void> callback) throws ApiException {
+    public Call sendTestSmsAsync(Long campaignId, SendTestSms phoneNumber, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1076,7 +1077,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, progressListener, progressRequestListener);
+        Call call = sendTestSmsValidateBeforeCall(campaignId, phoneNumber, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1089,7 +1090,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSmsCampaignCall(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateSmsCampaignCall(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateSmsCampaign;
 
         // create path and map variables
@@ -1116,10 +1117,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1132,7 +1133,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateSmsCampaignValidateBeforeCall(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateSmsCampaignValidateBeforeCall(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1145,7 +1146,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateSmsCampaignCall(campaignId, updateSmsCampaign, progressListener, progressRequestListener);
+        Call call = updateSmsCampaignCall(campaignId, updateSmsCampaign, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1170,7 +1171,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateSmsCampaignWithHttpInfo(Long campaignId, UpdateSmsCampaign updateSmsCampaign) throws ApiException {
-        com.squareup.okhttp.Call call = updateSmsCampaignValidateBeforeCall(campaignId, updateSmsCampaign, null, null);
+        Call call = updateSmsCampaignValidateBeforeCall(campaignId, updateSmsCampaign, null, null);
         return apiClient.execute(call);
     }
 
@@ -1183,7 +1184,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateSmsCampaignAsync(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateSmsCampaignAsync(Long campaignId, UpdateSmsCampaign updateSmsCampaign, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1204,7 +1205,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateSmsCampaignValidateBeforeCall(campaignId, updateSmsCampaign, progressListener, progressRequestListener);
+        Call call = updateSmsCampaignValidateBeforeCall(campaignId, updateSmsCampaign, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1217,7 +1218,7 @@ public class SmsCampaignsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateSmsCampaignStatusCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateSmsCampaignStatusCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = status;
 
         // create path and map variables
@@ -1244,10 +1245,10 @@ public class SmsCampaignsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -1260,7 +1261,7 @@ public class SmsCampaignsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateSmsCampaignStatusValidateBeforeCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateSmsCampaignStatusValidateBeforeCall(Long campaignId, UpdateCampaignStatus status, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
@@ -1273,7 +1274,7 @@ public class SmsCampaignsApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateSmsCampaignStatusCall(campaignId, status, progressListener, progressRequestListener);
+        Call call = updateSmsCampaignStatusCall(campaignId, status, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1298,7 +1299,7 @@ public class SmsCampaignsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateSmsCampaignStatusWithHttpInfo(Long campaignId, UpdateCampaignStatus status) throws ApiException {
-        com.squareup.okhttp.Call call = updateSmsCampaignStatusValidateBeforeCall(campaignId, status, null, null);
+        Call call = updateSmsCampaignStatusValidateBeforeCall(campaignId, status, null, null);
         return apiClient.execute(call);
     }
 
@@ -1311,7 +1312,7 @@ public class SmsCampaignsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateSmsCampaignStatusAsync(Long campaignId, UpdateCampaignStatus status, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateSmsCampaignStatusAsync(Long campaignId, UpdateCampaignStatus status, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1332,7 +1333,7 @@ public class SmsCampaignsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateSmsCampaignStatusValidateBeforeCall(campaignId, status, progressListener, progressRequestListener);
+        Call call = updateSmsCampaignStatusValidateBeforeCall(campaignId, status, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

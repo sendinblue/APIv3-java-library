@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetCampaignStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetCampaignStats {
   @SerializedName("listId")
   private Long listId = null;
@@ -58,6 +57,12 @@ public class GetCampaignStats {
 
   @SerializedName("trackableViews")
   private Long trackableViews = null;
+
+  @SerializedName("trackableViewsRate")
+  private Float trackableViewsRate = null;
+
+  @SerializedName("estimatedViews")
+  private Long estimatedViews = null;
 
   @SerializedName("unsubscriptions")
   private Long unsubscriptions = null;
@@ -251,6 +256,42 @@ public class GetCampaignStats {
     this.trackableViews = trackableViews;
   }
 
+  public GetCampaignStats trackableViewsRate(Float trackableViewsRate) {
+    this.trackableViewsRate = trackableViewsRate;
+    return this;
+  }
+
+   /**
+   * Rate of recipients without any privacy protection option enabled in their email client
+   * @return trackableViewsRate
+  **/
+  @ApiModelProperty(example = "23.45", value = "Rate of recipients without any privacy protection option enabled in their email client")
+  public Float getTrackableViewsRate() {
+    return trackableViewsRate;
+  }
+
+  public void setTrackableViewsRate(Float trackableViewsRate) {
+    this.trackableViewsRate = trackableViewsRate;
+  }
+
+  public GetCampaignStats estimatedViews(Long estimatedViews) {
+    this.estimatedViews = estimatedViews;
+    return this;
+  }
+
+   /**
+   * Rate of recipients without any privacy protection option enabled in their email client, applied to all delivered emails
+   * @return estimatedViews
+  **/
+  @ApiModelProperty(example = "560", value = "Rate of recipients without any privacy protection option enabled in their email client, applied to all delivered emails")
+  public Long getEstimatedViews() {
+    return estimatedViews;
+  }
+
+  public void setEstimatedViews(Long estimatedViews) {
+    this.estimatedViews = estimatedViews;
+  }
+
   public GetCampaignStats unsubscriptions(Long unsubscriptions) {
     this.unsubscriptions = unsubscriptions;
     return this;
@@ -326,32 +367,34 @@ public class GetCampaignStats {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetCampaignStats getCampaignStats = (GetCampaignStats) o;
-    return Objects.equals(this.listId, getCampaignStats.listId) &&
-        Objects.equals(this.uniqueClicks, getCampaignStats.uniqueClicks) &&
-        Objects.equals(this.clickers, getCampaignStats.clickers) &&
-        Objects.equals(this.complaints, getCampaignStats.complaints) &&
-        Objects.equals(this.delivered, getCampaignStats.delivered) &&
-        Objects.equals(this.sent, getCampaignStats.sent) &&
-        Objects.equals(this.softBounces, getCampaignStats.softBounces) &&
-        Objects.equals(this.hardBounces, getCampaignStats.hardBounces) &&
-        Objects.equals(this.uniqueViews, getCampaignStats.uniqueViews) &&
-        Objects.equals(this.trackableViews, getCampaignStats.trackableViews) &&
-        Objects.equals(this.unsubscriptions, getCampaignStats.unsubscriptions) &&
-        Objects.equals(this.viewed, getCampaignStats.viewed) &&
-        Objects.equals(this.deferred, getCampaignStats.deferred) &&
-        Objects.equals(this.returnBounce, getCampaignStats.returnBounce);
+    return ObjectUtils.equals(this.listId, getCampaignStats.listId) &&
+    ObjectUtils.equals(this.uniqueClicks, getCampaignStats.uniqueClicks) &&
+    ObjectUtils.equals(this.clickers, getCampaignStats.clickers) &&
+    ObjectUtils.equals(this.complaints, getCampaignStats.complaints) &&
+    ObjectUtils.equals(this.delivered, getCampaignStats.delivered) &&
+    ObjectUtils.equals(this.sent, getCampaignStats.sent) &&
+    ObjectUtils.equals(this.softBounces, getCampaignStats.softBounces) &&
+    ObjectUtils.equals(this.hardBounces, getCampaignStats.hardBounces) &&
+    ObjectUtils.equals(this.uniqueViews, getCampaignStats.uniqueViews) &&
+    ObjectUtils.equals(this.trackableViews, getCampaignStats.trackableViews) &&
+    ObjectUtils.equals(this.trackableViewsRate, getCampaignStats.trackableViewsRate) &&
+    ObjectUtils.equals(this.estimatedViews, getCampaignStats.estimatedViews) &&
+    ObjectUtils.equals(this.unsubscriptions, getCampaignStats.unsubscriptions) &&
+    ObjectUtils.equals(this.viewed, getCampaignStats.viewed) &&
+    ObjectUtils.equals(this.deferred, getCampaignStats.deferred) &&
+    ObjectUtils.equals(this.returnBounce, getCampaignStats.returnBounce);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listId, uniqueClicks, clickers, complaints, delivered, sent, softBounces, hardBounces, uniqueViews, trackableViews, unsubscriptions, viewed, deferred, returnBounce);
+    return ObjectUtils.hashCodeMulti(listId, uniqueClicks, clickers, complaints, delivered, sent, softBounces, hardBounces, uniqueViews, trackableViews, trackableViewsRate, estimatedViews, unsubscriptions, viewed, deferred, returnBounce);
   }
 
 
@@ -370,6 +413,8 @@ public class GetCampaignStats {
     sb.append("    hardBounces: ").append(toIndentedString(hardBounces)).append("\n");
     sb.append("    uniqueViews: ").append(toIndentedString(uniqueViews)).append("\n");
     sb.append("    trackableViews: ").append(toIndentedString(trackableViews)).append("\n");
+    sb.append("    trackableViewsRate: ").append(toIndentedString(trackableViewsRate)).append("\n");
+    sb.append("    estimatedViews: ").append(toIndentedString(estimatedViews)).append("\n");
     sb.append("    unsubscriptions: ").append(toIndentedString(unsubscriptions)).append("\n");
     sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
     sb.append("    deferred: ").append(toIndentedString(deferred)).append("\n");

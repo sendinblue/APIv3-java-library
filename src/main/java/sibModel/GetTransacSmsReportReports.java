@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import org.threeten.bp.LocalDate;
 /**
  * GetTransacSmsReportReports
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetTransacSmsReportReports {
   @SerializedName("date")
   private LocalDate date = null;
@@ -243,28 +242,28 @@ public class GetTransacSmsReportReports {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetTransacSmsReportReports getTransacSmsReportReports = (GetTransacSmsReportReports) o;
-    return Objects.equals(this.date, getTransacSmsReportReports.date) &&
-        Objects.equals(this.requests, getTransacSmsReportReports.requests) &&
-        Objects.equals(this.delivered, getTransacSmsReportReports.delivered) &&
-        Objects.equals(this.hardBounces, getTransacSmsReportReports.hardBounces) &&
-        Objects.equals(this.softBounces, getTransacSmsReportReports.softBounces) &&
-        Objects.equals(this.blocked, getTransacSmsReportReports.blocked) &&
-        Objects.equals(this.unsubscribed, getTransacSmsReportReports.unsubscribed) &&
-        Objects.equals(this.replied, getTransacSmsReportReports.replied) &&
-        Objects.equals(this.accepted, getTransacSmsReportReports.accepted) &&
-        Objects.equals(this.rejected, getTransacSmsReportReports.rejected);
+    return ObjectUtils.equals(this.date, getTransacSmsReportReports.date) &&
+    ObjectUtils.equals(this.requests, getTransacSmsReportReports.requests) &&
+    ObjectUtils.equals(this.delivered, getTransacSmsReportReports.delivered) &&
+    ObjectUtils.equals(this.hardBounces, getTransacSmsReportReports.hardBounces) &&
+    ObjectUtils.equals(this.softBounces, getTransacSmsReportReports.softBounces) &&
+    ObjectUtils.equals(this.blocked, getTransacSmsReportReports.blocked) &&
+    ObjectUtils.equals(this.unsubscribed, getTransacSmsReportReports.unsubscribed) &&
+    ObjectUtils.equals(this.replied, getTransacSmsReportReports.replied) &&
+    ObjectUtils.equals(this.accepted, getTransacSmsReportReports.accepted) &&
+    ObjectUtils.equals(this.rejected, getTransacSmsReportReports.rejected);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, requests, delivered, hardBounces, softBounces, blocked, unsubscribed, replied, accepted, rejected);
+    return ObjectUtils.hashCodeMulti(date, requests, delivered, hardBounces, softBounces, blocked, unsubscribed, replied, accepted, rejected);
   }
 
 

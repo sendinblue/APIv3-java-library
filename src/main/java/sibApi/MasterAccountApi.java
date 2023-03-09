@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -27,8 +28,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import sibModel.CreateModel;
+import sibModel.CreateApiKeyRequest;
+import sibModel.CreateApiKeyResponse;
 import sibModel.CreateSubAccount;
+import sibModel.CreateSubAccountResponse;
 import sibModel.ErrorModel;
 import sibModel.GetSsoToken;
 import sibModel.MasterDetailsResponse;
@@ -69,7 +72,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateMasterAccountGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateMasterAccountGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -95,10 +98,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -111,10 +114,10 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateMasterAccountGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateMasterAccountGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = corporateMasterAccountGetCall(progressListener, progressRequestListener);
+        Call call = corporateMasterAccountGetCall(progressListener, progressRequestListener);
         return call;
 
     }
@@ -137,7 +140,7 @@ public class MasterAccountApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<MasterDetailsResponse> corporateMasterAccountGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = corporateMasterAccountGetValidateBeforeCall(null, null);
+        Call call = corporateMasterAccountGetValidateBeforeCall(null, null);
         Type localVarReturnType = new TypeToken<MasterDetailsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -149,7 +152,7 @@ public class MasterAccountApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateMasterAccountGetAsync(final ApiCallback<MasterDetailsResponse> callback) throws ApiException {
+    public Call corporateMasterAccountGetAsync(final ApiCallback<MasterDetailsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,21 +173,21 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateMasterAccountGetValidateBeforeCall(progressListener, progressRequestListener);
+        Call call = corporateMasterAccountGetValidateBeforeCall(progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<MasterDetailsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for corporateSubAccountGet
-     * @param offset Page number of sub-accounts listing (required)
+     * @param offset Index of the first sub-account in the page (required)
      * @param limit Number of sub-accounts to be displayed on each page (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountGetCall(Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountGetCall(Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -214,10 +217,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -230,7 +233,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountGetValidateBeforeCall(Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountGetValidateBeforeCall(Integer offset, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'offset' is set
         if (offset == null) {
@@ -243,7 +246,7 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountGetCall(offset, limit, progressListener, progressRequestListener);
+        Call call = corporateSubAccountGetCall(offset, limit, progressListener, progressRequestListener);
         return call;
 
     }
@@ -251,7 +254,7 @@ public class MasterAccountApi {
     /**
      * Get the list of all the sub-accounts of the master account.
      * This endpoint will provide the list all the sub-accounts of the master account.
-     * @param offset Page number of sub-accounts listing (required)
+     * @param offset Index of the first sub-account in the page (required)
      * @param limit Number of sub-accounts to be displayed on each page (required)
      * @return SubAccountsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -264,13 +267,13 @@ public class MasterAccountApi {
     /**
      * Get the list of all the sub-accounts of the master account.
      * This endpoint will provide the list all the sub-accounts of the master account.
-     * @param offset Page number of sub-accounts listing (required)
+     * @param offset Index of the first sub-account in the page (required)
      * @param limit Number of sub-accounts to be displayed on each page (required)
      * @return ApiResponse&lt;SubAccountsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SubAccountsResponse> corporateSubAccountGetWithHttpInfo(Integer offset, Integer limit) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountGetValidateBeforeCall(offset, limit, null, null);
+        Call call = corporateSubAccountGetValidateBeforeCall(offset, limit, null, null);
         Type localVarReturnType = new TypeToken<SubAccountsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -278,13 +281,13 @@ public class MasterAccountApi {
     /**
      * Get the list of all the sub-accounts of the master account. (asynchronously)
      * This endpoint will provide the list all the sub-accounts of the master account.
-     * @param offset Page number of sub-accounts listing (required)
+     * @param offset Index of the first sub-account in the page (required)
      * @param limit Number of sub-accounts to be displayed on each page (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountGetAsync(Integer offset, Integer limit, final ApiCallback<SubAccountsResponse> callback) throws ApiException {
+    public Call corporateSubAccountGetAsync(Integer offset, Integer limit, final ApiCallback<SubAccountsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -305,7 +308,7 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountGetValidateBeforeCall(offset, limit, progressListener, progressRequestListener);
+        Call call = corporateSubAccountGetValidateBeforeCall(offset, limit, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SubAccountsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -318,7 +321,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdDeleteCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountIdDeleteCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -345,10 +348,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -361,7 +364,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountIdDeleteValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountIdDeleteValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -369,7 +372,7 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdDeleteCall(id, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdDeleteCall(id, progressListener, progressRequestListener);
         return call;
 
     }
@@ -392,7 +395,7 @@ public class MasterAccountApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> corporateSubAccountIdDeleteWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountIdDeleteValidateBeforeCall(id, null, null);
+        Call call = corporateSubAccountIdDeleteValidateBeforeCall(id, null, null);
         return apiClient.execute(call);
     }
 
@@ -404,7 +407,7 @@ public class MasterAccountApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdDeleteAsync(Long id, final ApiCallback<Void> callback) throws ApiException {
+    public Call corporateSubAccountIdDeleteAsync(Long id, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -425,7 +428,7 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdDeleteValidateBeforeCall(id, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -437,7 +440,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdGetCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountIdGetCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -464,10 +467,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -480,7 +483,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountIdGetValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountIdGetValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -488,14 +491,14 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdGetCall(id, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdGetCall(id, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Get sub-account details
-     * This endpoint will provide the details of specified sub-account organization
+     * This endpoint will provide the details for the specified sub-account company
      * @param id Id of the sub-account organization (required)
      * @return SubAccountDetailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -507,26 +510,26 @@ public class MasterAccountApi {
 
     /**
      * Get sub-account details
-     * This endpoint will provide the details of specified sub-account organization
+     * This endpoint will provide the details for the specified sub-account company
      * @param id Id of the sub-account organization (required)
      * @return ApiResponse&lt;SubAccountDetailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SubAccountDetailsResponse> corporateSubAccountIdGetWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountIdGetValidateBeforeCall(id, null, null);
+        Call call = corporateSubAccountIdGetValidateBeforeCall(id, null, null);
         Type localVarReturnType = new TypeToken<SubAccountDetailsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get sub-account details (asynchronously)
-     * This endpoint will provide the details of specified sub-account organization
+     * This endpoint will provide the details for the specified sub-account company
      * @param id Id of the sub-account organization (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdGetAsync(Long id, final ApiCallback<SubAccountDetailsResponse> callback) throws ApiException {
+    public Call corporateSubAccountIdGetAsync(Long id, final ApiCallback<SubAccountDetailsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -547,7 +550,7 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdGetValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SubAccountDetailsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -561,7 +564,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdPlanPutCall(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountIdPlanPutCall(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updatePlanDetails;
 
         // create path and map variables
@@ -588,10 +591,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -604,7 +607,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountIdPlanPutValidateBeforeCall(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountIdPlanPutValidateBeforeCall(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -617,7 +620,7 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdPlanPutCall(id, updatePlanDetails, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdPlanPutCall(id, updatePlanDetails, progressListener, progressRequestListener);
         return call;
 
     }
@@ -642,7 +645,7 @@ public class MasterAccountApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> corporateSubAccountIdPlanPutWithHttpInfo(Long id, SubAccountUpdatePlanRequest updatePlanDetails) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountIdPlanPutValidateBeforeCall(id, updatePlanDetails, null, null);
+        Call call = corporateSubAccountIdPlanPutValidateBeforeCall(id, updatePlanDetails, null, null);
         return apiClient.execute(call);
     }
 
@@ -655,7 +658,7 @@ public class MasterAccountApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountIdPlanPutAsync(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ApiCallback<Void> callback) throws ApiException {
+    public Call corporateSubAccountIdPlanPutAsync(Long id, SubAccountUpdatePlanRequest updatePlanDetails, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -676,8 +679,130 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountIdPlanPutValidateBeforeCall(id, updatePlanDetails, progressListener, progressRequestListener);
+        Call call = corporateSubAccountIdPlanPutValidateBeforeCall(id, updatePlanDetails, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for corporateSubAccountKeyPost
+     * @param createApiKeyRequest Values to generate API key for sub-account (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public Call corporateSubAccountKeyPostCall(CreateApiKeyRequest createApiKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = createApiKeyRequest;
+
+        // create path and map variables
+        String localVarPath = "/corporate/subAccount/key";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "api-key", "partner-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private Call corporateSubAccountKeyPostValidateBeforeCall(CreateApiKeyRequest createApiKeyRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'createApiKeyRequest' is set
+        if (createApiKeyRequest == null) {
+            throw new ApiException("Missing the required parameter 'createApiKeyRequest' when calling corporateSubAccountKeyPost(Async)");
+        }
+        
+
+        Call call = corporateSubAccountKeyPostCall(createApiKeyRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create an API key for a sub-account
+     * This endpoint will generate an API v3 key for a sub account
+     * @param createApiKeyRequest Values to generate API key for sub-account (required)
+     * @return CreateApiKeyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CreateApiKeyResponse corporateSubAccountKeyPost(CreateApiKeyRequest createApiKeyRequest) throws ApiException {
+        ApiResponse<CreateApiKeyResponse> resp = corporateSubAccountKeyPostWithHttpInfo(createApiKeyRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Create an API key for a sub-account
+     * This endpoint will generate an API v3 key for a sub account
+     * @param createApiKeyRequest Values to generate API key for sub-account (required)
+     * @return ApiResponse&lt;CreateApiKeyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<CreateApiKeyResponse> corporateSubAccountKeyPostWithHttpInfo(CreateApiKeyRequest createApiKeyRequest) throws ApiException {
+        Call call = corporateSubAccountKeyPostValidateBeforeCall(createApiKeyRequest, null, null);
+        Type localVarReturnType = new TypeToken<CreateApiKeyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create an API key for a sub-account (asynchronously)
+     * This endpoint will generate an API v3 key for a sub account
+     * @param createApiKeyRequest Values to generate API key for sub-account (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public Call corporateSubAccountKeyPostAsync(CreateApiKeyRequest createApiKeyRequest, final ApiCallback<CreateApiKeyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        Call call = corporateSubAccountKeyPostValidateBeforeCall(createApiKeyRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateApiKeyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
@@ -688,7 +813,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountPostCall(CreateSubAccount subAccountCreate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountPostCall(CreateSubAccount subAccountCreate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = subAccountCreate;
 
         // create path and map variables
@@ -714,10 +839,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -730,7 +855,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountPostValidateBeforeCall(CreateSubAccount subAccountCreate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountPostValidateBeforeCall(CreateSubAccount subAccountCreate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'subAccountCreate' is set
         if (subAccountCreate == null) {
@@ -738,7 +863,7 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountPostCall(subAccountCreate, progressListener, progressRequestListener);
+        Call call = corporateSubAccountPostCall(subAccountCreate, progressListener, progressRequestListener);
         return call;
 
     }
@@ -747,11 +872,11 @@ public class MasterAccountApi {
      * Create a new sub-account under a master account.
      * This endpoint will create a new sub-account under a master account
      * @param subAccountCreate values to create new sub-account (required)
-     * @return CreateModel
+     * @return CreateSubAccountResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateModel corporateSubAccountPost(CreateSubAccount subAccountCreate) throws ApiException {
-        ApiResponse<CreateModel> resp = corporateSubAccountPostWithHttpInfo(subAccountCreate);
+    public CreateSubAccountResponse corporateSubAccountPost(CreateSubAccount subAccountCreate) throws ApiException {
+        ApiResponse<CreateSubAccountResponse> resp = corporateSubAccountPostWithHttpInfo(subAccountCreate);
         return resp.getData();
     }
 
@@ -759,12 +884,12 @@ public class MasterAccountApi {
      * Create a new sub-account under a master account.
      * This endpoint will create a new sub-account under a master account
      * @param subAccountCreate values to create new sub-account (required)
-     * @return ApiResponse&lt;CreateModel&gt;
+     * @return ApiResponse&lt;CreateSubAccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateModel> corporateSubAccountPostWithHttpInfo(CreateSubAccount subAccountCreate) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountPostValidateBeforeCall(subAccountCreate, null, null);
-        Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
+    public ApiResponse<CreateSubAccountResponse> corporateSubAccountPostWithHttpInfo(CreateSubAccount subAccountCreate) throws ApiException {
+        Call call = corporateSubAccountPostValidateBeforeCall(subAccountCreate, null, null);
+        Type localVarReturnType = new TypeToken<CreateSubAccountResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -776,7 +901,7 @@ public class MasterAccountApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountPostAsync(CreateSubAccount subAccountCreate, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call corporateSubAccountPostAsync(CreateSubAccount subAccountCreate, final ApiCallback<CreateSubAccountResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -797,8 +922,8 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountPostValidateBeforeCall(subAccountCreate, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
+        Call call = corporateSubAccountPostValidateBeforeCall(subAccountCreate, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CreateSubAccountResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -810,7 +935,7 @@ public class MasterAccountApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountSsoTokenPostCall(SsoTokenRequest ssoTokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call corporateSubAccountSsoTokenPostCall(SsoTokenRequest ssoTokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = ssoTokenRequest;
 
         // create path and map variables
@@ -836,10 +961,10 @@ public class MasterAccountApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -852,7 +977,7 @@ public class MasterAccountApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call corporateSubAccountSsoTokenPostValidateBeforeCall(SsoTokenRequest ssoTokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call corporateSubAccountSsoTokenPostValidateBeforeCall(SsoTokenRequest ssoTokenRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ssoTokenRequest' is set
         if (ssoTokenRequest == null) {
@@ -860,14 +985,14 @@ public class MasterAccountApi {
         }
         
 
-        com.squareup.okhttp.Call call = corporateSubAccountSsoTokenPostCall(ssoTokenRequest, progressListener, progressRequestListener);
+        Call call = corporateSubAccountSsoTokenPostCall(ssoTokenRequest, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Generate SSO token to access Sendinblue
-     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
      * @param ssoTokenRequest Values to generate SSO token for sub-account (required)
      * @return GetSsoToken
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -879,26 +1004,26 @@ public class MasterAccountApi {
 
     /**
      * Generate SSO token to access Sendinblue
-     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
      * @param ssoTokenRequest Values to generate SSO token for sub-account (required)
      * @return ApiResponse&lt;GetSsoToken&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSsoToken> corporateSubAccountSsoTokenPostWithHttpInfo(SsoTokenRequest ssoTokenRequest) throws ApiException {
-        com.squareup.okhttp.Call call = corporateSubAccountSsoTokenPostValidateBeforeCall(ssoTokenRequest, null, null);
+        Call call = corporateSubAccountSsoTokenPostValidateBeforeCall(ssoTokenRequest, null, null);
         Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Generate SSO token to access Sendinblue (asynchronously)
-     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+     * This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
      * @param ssoTokenRequest Values to generate SSO token for sub-account (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call corporateSubAccountSsoTokenPostAsync(SsoTokenRequest ssoTokenRequest, final ApiCallback<GetSsoToken> callback) throws ApiException {
+    public Call corporateSubAccountSsoTokenPostAsync(SsoTokenRequest ssoTokenRequest, final ApiCallback<GetSsoToken> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -919,7 +1044,7 @@ public class MasterAccountApi {
             };
         }
 
-        com.squareup.okhttp.Call call = corporateSubAccountSsoTokenPostValidateBeforeCall(ssoTokenRequest, progressListener, progressRequestListener);
+        Call call = corporateSubAccountSsoTokenPostValidateBeforeCall(ssoTokenRequest, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSsoToken>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
