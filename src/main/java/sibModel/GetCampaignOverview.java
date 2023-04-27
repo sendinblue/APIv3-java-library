@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetCampaignOverview {
   @SerializedName("id")
   private Long id = null;
@@ -407,31 +406,31 @@ public class GetCampaignOverview {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetCampaignOverview getCampaignOverview = (GetCampaignOverview) o;
-    return Objects.equals(this.id, getCampaignOverview.id) &&
-        Objects.equals(this.name, getCampaignOverview.name) &&
-        Objects.equals(this.subject, getCampaignOverview.subject) &&
-        Objects.equals(this.type, getCampaignOverview.type) &&
-        Objects.equals(this.status, getCampaignOverview.status) &&
-        Objects.equals(this.scheduledAt, getCampaignOverview.scheduledAt) &&
-        Objects.equals(this.abTesting, getCampaignOverview.abTesting) &&
-        Objects.equals(this.subjectA, getCampaignOverview.subjectA) &&
-        Objects.equals(this.subjectB, getCampaignOverview.subjectB) &&
-        Objects.equals(this.splitRule, getCampaignOverview.splitRule) &&
-        Objects.equals(this.winnerCriteria, getCampaignOverview.winnerCriteria) &&
-        Objects.equals(this.winnerDelay, getCampaignOverview.winnerDelay) &&
-        Objects.equals(this.sendAtBestTime, getCampaignOverview.sendAtBestTime);
+    return ObjectUtils.equals(this.id, getCampaignOverview.id) &&
+    ObjectUtils.equals(this.name, getCampaignOverview.name) &&
+    ObjectUtils.equals(this.subject, getCampaignOverview.subject) &&
+    ObjectUtils.equals(this.type, getCampaignOverview.type) &&
+    ObjectUtils.equals(this.status, getCampaignOverview.status) &&
+    ObjectUtils.equals(this.scheduledAt, getCampaignOverview.scheduledAt) &&
+    ObjectUtils.equals(this.abTesting, getCampaignOverview.abTesting) &&
+    ObjectUtils.equals(this.subjectA, getCampaignOverview.subjectA) &&
+    ObjectUtils.equals(this.subjectB, getCampaignOverview.subjectB) &&
+    ObjectUtils.equals(this.splitRule, getCampaignOverview.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, getCampaignOverview.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, getCampaignOverview.winnerDelay) &&
+    ObjectUtils.equals(this.sendAtBestTime, getCampaignOverview.sendAtBestTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime);
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime);
   }
 
 

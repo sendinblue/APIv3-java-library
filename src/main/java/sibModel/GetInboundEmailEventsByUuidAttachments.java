@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetInboundEmailEventsByUuidAttachments
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetInboundEmailEventsByUuidAttachments {
   @SerializedName("name")
   private String name = null;
@@ -116,22 +115,22 @@ public class GetInboundEmailEventsByUuidAttachments {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetInboundEmailEventsByUuidAttachments getInboundEmailEventsByUuidAttachments = (GetInboundEmailEventsByUuidAttachments) o;
-    return Objects.equals(this.name, getInboundEmailEventsByUuidAttachments.name) &&
-        Objects.equals(this.contentType, getInboundEmailEventsByUuidAttachments.contentType) &&
-        Objects.equals(this.contentId, getInboundEmailEventsByUuidAttachments.contentId) &&
-        Objects.equals(this.contentLength, getInboundEmailEventsByUuidAttachments.contentLength);
+    return ObjectUtils.equals(this.name, getInboundEmailEventsByUuidAttachments.name) &&
+    ObjectUtils.equals(this.contentType, getInboundEmailEventsByUuidAttachments.contentType) &&
+    ObjectUtils.equals(this.contentId, getInboundEmailEventsByUuidAttachments.contentId) &&
+    ObjectUtils.equals(this.contentLength, getInboundEmailEventsByUuidAttachments.contentLength);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, contentType, contentId, contentLength);
+    return ObjectUtils.hashCodeMulti(name, contentType, contentId, contentLength);
   }
 
 

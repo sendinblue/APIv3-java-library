@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,8 +28,149 @@ import sibModel.GetExtendedCampaignOverviewSender;
 /**
  * GetExtendedCampaignOverview
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
-public class GetExtendedCampaignOverview extends GetCampaignOverview {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
+public class GetExtendedCampaignOverview {
+  @SerializedName("id")
+  private Long id = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("subject")
+  private String subject = null;
+
+  /**
+   * Type of campaign
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CLASSIC("classic"),
+    
+    TRIGGER("trigger");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("type")
+  private TypeEnum type = null;
+
+  /**
+   * Status of the campaign
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    DRAFT("draft"),
+    
+    SENT("sent"),
+    
+    ARCHIVE("archive"),
+    
+    QUEUED("queued"),
+    
+    SUSPENDED("suspended"),
+    
+    IN_PROCESS("in_process");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("status")
+  private StatusEnum status = null;
+
+  @SerializedName("scheduledAt")
+  private String scheduledAt = null;
+
+  @SerializedName("abTesting")
+  private Boolean abTesting = null;
+
+  @SerializedName("subjectA")
+  private String subjectA = null;
+
+  @SerializedName("subjectB")
+  private String subjectB = null;
+
+  @SerializedName("splitRule")
+  private Integer splitRule = null;
+
+  @SerializedName("winnerCriteria")
+  private String winnerCriteria = null;
+
+  @SerializedName("winnerDelay")
+  private Integer winnerDelay = null;
+
+  @SerializedName("sendAtBestTime")
+  private Boolean sendAtBestTime = null;
+
   @SerializedName("testSent")
   private Boolean testSent = null;
 
@@ -78,6 +218,240 @@ public class GetExtendedCampaignOverview extends GetCampaignOverview {
 
   @SerializedName("returnBounce")
   private Long returnBounce = null;
+
+  public GetExtendedCampaignOverview id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ID of the campaign
+   * @return id
+  **/
+  @ApiModelProperty(example = "12", required = true, value = "ID of the campaign")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public GetExtendedCampaignOverview name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the campaign
+   * @return name
+  **/
+  @ApiModelProperty(example = "EN - Sales Summer 2017", required = true, value = "Name of the campaign")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public GetExtendedCampaignOverview subject(String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+   /**
+   * Subject of the campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;false&#x60;
+   * @return subject
+  **/
+  @ApiModelProperty(example = "20% OFF for 2017 Summer Sales", value = "Subject of the campaign. Only available if `abTesting` flag of the campaign is `false`")
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public GetExtendedCampaignOverview type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of campaign
+   * @return type
+  **/
+  @ApiModelProperty(example = "classic", required = true, value = "Type of campaign")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  public GetExtendedCampaignOverview status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Status of the campaign
+   * @return status
+  **/
+  @ApiModelProperty(example = "sent", required = true, value = "Status of the campaign")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+  public GetExtendedCampaignOverview scheduledAt(String scheduledAt) {
+    this.scheduledAt = scheduledAt;
+    return this;
+  }
+
+   /**
+   * UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
+   * @return scheduledAt
+  **/
+  @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)")
+  public String getScheduledAt() {
+    return scheduledAt;
+  }
+
+  public void setScheduledAt(String scheduledAt) {
+    this.scheduledAt = scheduledAt;
+  }
+
+  public GetExtendedCampaignOverview abTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+    return this;
+  }
+
+   /**
+   * Status of A/B Test for the campaign. abTesting &#x3D; false means it is disabled, &amp; abTesting &#x3D; true means it is enabled.
+   * @return abTesting
+  **/
+  @ApiModelProperty(example = "true", value = "Status of A/B Test for the campaign. abTesting = false means it is disabled, & abTesting = true means it is enabled.")
+  public Boolean isAbTesting() {
+    return abTesting;
+  }
+
+  public void setAbTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+  }
+
+  public GetExtendedCampaignOverview subjectA(String subjectA) {
+    this.subjectA = subjectA;
+    return this;
+  }
+
+   /**
+   * Subject A of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectA
+  **/
+  @ApiModelProperty(example = "Discover the New Collection!", value = "Subject A of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectA() {
+    return subjectA;
+  }
+
+  public void setSubjectA(String subjectA) {
+    this.subjectA = subjectA;
+  }
+
+  public GetExtendedCampaignOverview subjectB(String subjectB) {
+    this.subjectB = subjectB;
+    return this;
+  }
+
+   /**
+   * Subject B of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectB
+  **/
+  @ApiModelProperty(example = "Want to discover the New Collection?", value = "Subject B of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectB() {
+    return subjectB;
+  }
+
+  public void setSubjectB(String subjectB) {
+    this.subjectB = subjectB;
+  }
+
+  public GetExtendedCampaignOverview splitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+    return this;
+  }
+
+   /**
+   * The size of your ab-test groups. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return splitRule
+  **/
+  @ApiModelProperty(example = "25", value = "The size of your ab-test groups. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getSplitRule() {
+    return splitRule;
+  }
+
+  public void setSplitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+  }
+
+  public GetExtendedCampaignOverview winnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+    return this;
+  }
+
+   /**
+   * Criteria for the winning version. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerCriteria
+  **/
+  @ApiModelProperty(example = "open", value = "Criteria for the winning version. Only available if `abTesting` flag of the campaign is `true`")
+  public String getWinnerCriteria() {
+    return winnerCriteria;
+  }
+
+  public void setWinnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+  }
+
+  public GetExtendedCampaignOverview winnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+    return this;
+  }
+
+   /**
+   * The duration of the test in hours at the end of which the winning version will be sent. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerDelay
+  **/
+  @ApiModelProperty(example = "50", value = "The duration of the test in hours at the end of which the winning version will be sent. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getWinnerDelay() {
+    return winnerDelay;
+  }
+
+  public void setWinnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+  }
+
+  public GetExtendedCampaignOverview sendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+    return this;
+  }
+
+   /**
+   * It is true if you have chosen to send your campaign at best time, otherwise it is false
+   * @return sendAtBestTime
+  **/
+  @ApiModelProperty(example = "true", value = "It is true if you have chosen to send your campaign at best time, otherwise it is false")
+  public Boolean isSendAtBestTime() {
+    return sendAtBestTime;
+  }
+
+  public void setSendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+  }
 
   public GetExtendedCampaignOverview testSent(Boolean testSent) {
     this.testSent = testSent;
@@ -157,7 +531,7 @@ public class GetExtendedCampaignOverview extends GetCampaignOverview {
   }
 
    /**
-   * Email defined as the &quot;Reply to&quot; of the campaign
+   * Email defined as the \&quot;Reply to\&quot; of the campaign
    * @return replyTo
   **/
   @ApiModelProperty(example = "replyto@domain.com", required = true, value = "Email defined as the \"Reply to\" of the campaign")
@@ -175,7 +549,7 @@ public class GetExtendedCampaignOverview extends GetCampaignOverview {
   }
 
    /**
-   * Customisation of the &quot;to&quot; field of the campaign
+   * Customisation of the \&quot;to\&quot; field of the campaign
    * @return toField
   **/
   @ApiModelProperty(example = "{FNAME} {LNAME}", value = "Customisation of the \"to\" field of the campaign")
@@ -370,35 +744,47 @@ public class GetExtendedCampaignOverview extends GetCampaignOverview {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedCampaignOverview getExtendedCampaignOverview = (GetExtendedCampaignOverview) o;
-    return Objects.equals(this.testSent, getExtendedCampaignOverview.testSent) &&
-        Objects.equals(this.header, getExtendedCampaignOverview.header) &&
-        Objects.equals(this.footer, getExtendedCampaignOverview.footer) &&
-        Objects.equals(this.sender, getExtendedCampaignOverview.sender) &&
-        Objects.equals(this.replyTo, getExtendedCampaignOverview.replyTo) &&
-        Objects.equals(this.toField, getExtendedCampaignOverview.toField) &&
-        Objects.equals(this.htmlContent, getExtendedCampaignOverview.htmlContent) &&
-        Objects.equals(this.shareLink, getExtendedCampaignOverview.shareLink) &&
-        Objects.equals(this.tag, getExtendedCampaignOverview.tag) &&
-        Objects.equals(this.createdAt, getExtendedCampaignOverview.createdAt) &&
-        Objects.equals(this.modifiedAt, getExtendedCampaignOverview.modifiedAt) &&
-        Objects.equals(this.inlineImageActivation, getExtendedCampaignOverview.inlineImageActivation) &&
-        Objects.equals(this.mirrorActive, getExtendedCampaignOverview.mirrorActive) &&
-        Objects.equals(this.recurring, getExtendedCampaignOverview.recurring) &&
-        Objects.equals(this.sentDate, getExtendedCampaignOverview.sentDate) &&
-        Objects.equals(this.returnBounce, getExtendedCampaignOverview.returnBounce) &&
-        super.equals(o);
+    return ObjectUtils.equals(this.id, getExtendedCampaignOverview.id) &&
+    ObjectUtils.equals(this.name, getExtendedCampaignOverview.name) &&
+    ObjectUtils.equals(this.subject, getExtendedCampaignOverview.subject) &&
+    ObjectUtils.equals(this.type, getExtendedCampaignOverview.type) &&
+    ObjectUtils.equals(this.status, getExtendedCampaignOverview.status) &&
+    ObjectUtils.equals(this.scheduledAt, getExtendedCampaignOverview.scheduledAt) &&
+    ObjectUtils.equals(this.abTesting, getExtendedCampaignOverview.abTesting) &&
+    ObjectUtils.equals(this.subjectA, getExtendedCampaignOverview.subjectA) &&
+    ObjectUtils.equals(this.subjectB, getExtendedCampaignOverview.subjectB) &&
+    ObjectUtils.equals(this.splitRule, getExtendedCampaignOverview.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, getExtendedCampaignOverview.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, getExtendedCampaignOverview.winnerDelay) &&
+    ObjectUtils.equals(this.sendAtBestTime, getExtendedCampaignOverview.sendAtBestTime) &&
+    ObjectUtils.equals(this.testSent, getExtendedCampaignOverview.testSent) &&
+    ObjectUtils.equals(this.header, getExtendedCampaignOverview.header) &&
+    ObjectUtils.equals(this.footer, getExtendedCampaignOverview.footer) &&
+    ObjectUtils.equals(this.sender, getExtendedCampaignOverview.sender) &&
+    ObjectUtils.equals(this.replyTo, getExtendedCampaignOverview.replyTo) &&
+    ObjectUtils.equals(this.toField, getExtendedCampaignOverview.toField) &&
+    ObjectUtils.equals(this.htmlContent, getExtendedCampaignOverview.htmlContent) &&
+    ObjectUtils.equals(this.shareLink, getExtendedCampaignOverview.shareLink) &&
+    ObjectUtils.equals(this.tag, getExtendedCampaignOverview.tag) &&
+    ObjectUtils.equals(this.createdAt, getExtendedCampaignOverview.createdAt) &&
+    ObjectUtils.equals(this.modifiedAt, getExtendedCampaignOverview.modifiedAt) &&
+    ObjectUtils.equals(this.inlineImageActivation, getExtendedCampaignOverview.inlineImageActivation) &&
+    ObjectUtils.equals(this.mirrorActive, getExtendedCampaignOverview.mirrorActive) &&
+    ObjectUtils.equals(this.recurring, getExtendedCampaignOverview.recurring) &&
+    ObjectUtils.equals(this.sentDate, getExtendedCampaignOverview.sentDate) &&
+    ObjectUtils.equals(this.returnBounce, getExtendedCampaignOverview.returnBounce);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, returnBounce, super.hashCode());
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, returnBounce);
   }
 
 
@@ -406,7 +792,20 @@ public class GetExtendedCampaignOverview extends GetCampaignOverview {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExtendedCampaignOverview {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
+    sb.append("    abTesting: ").append(toIndentedString(abTesting)).append("\n");
+    sb.append("    subjectA: ").append(toIndentedString(subjectA)).append("\n");
+    sb.append("    subjectB: ").append(toIndentedString(subjectB)).append("\n");
+    sb.append("    splitRule: ").append(toIndentedString(splitRule)).append("\n");
+    sb.append("    winnerCriteria: ").append(toIndentedString(winnerCriteria)).append("\n");
+    sb.append("    winnerDelay: ").append(toIndentedString(winnerDelay)).append("\n");
+    sb.append("    sendAtBestTime: ").append(toIndentedString(sendAtBestTime)).append("\n");
     sb.append("    testSent: ").append(toIndentedString(testSent)).append("\n");
     sb.append("    header: ").append(toIndentedString(header)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");

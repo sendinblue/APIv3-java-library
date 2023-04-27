@@ -33,13 +33,13 @@ import sibModel.GetFolder;
 import sibModel.GetFolderLists;
 import sibModel.GetFolders;
 import sibModel.GetLists;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.PostContactInfo;
 import sibModel.RemoveContactFromList;
 import sibModel.RequestContactExport;
 import sibModel.RequestContactImport;
 import sibModel.UpdateAttribute;
+import sibModel.UpdateBatchContacts;
+import sibModel.UpdateBatchContactsModel;
 import sibModel.UpdateContact;
 import sibModel.UpdateList;
 import org.junit.Test;
@@ -241,7 +241,7 @@ public class ContactsApiTest {
     /**
      * Get a contact&#39;s details
      *
-     * 
+     * Along with the contact details, this endpoint will show the statistics of contact for the recent 90 days by default. To fetch the earlier statistics, please use Get contact campaign stats (https://developers.sendinblue.com/reference/contacts-7#getcontactstats) endpoint with the appropriate date ranges.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -249,7 +249,9 @@ public class ContactsApiTest {
     @Test
     public void getContactInfoTest() throws ApiException {
         String identifier = null;
-        GetExtendedContactDetails response = api.getContactInfo(identifier);
+        Object startDate = null;
+        Object endDate = null;
+        GetExtendedContactDetails response = api.getContactInfo(identifier, startDate, endDate);
 
         // TODO: test validations
     }
@@ -461,6 +463,22 @@ public class ContactsApiTest {
         String attributeName = null;
         UpdateAttribute updateAttribute = null;
         api.updateAttribute(attributeCategory, attributeName, updateAttribute);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update multiple contacts
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateBatchContactsTest() throws ApiException {
+        UpdateBatchContacts updateBatchContacts = null;
+        api.updateBatchContacts(updateBatchContacts);
 
         // TODO: test validations
     }

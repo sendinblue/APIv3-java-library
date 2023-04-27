@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,20 +24,730 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import sibModel.GetExtendedCampaignOverview;
 import sibModel.GetExtendedCampaignOverviewSender;
-import sibModel.GetSmsCampaignRecipients;
 
 /**
  * GetEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
-public class GetEmailCampaign extends GetExtendedCampaignOverview {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
+public class GetEmailCampaign {
+  @SerializedName("id")
+  private Long id = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("subject")
+  private String subject = null;
+
+  /**
+   * Type of campaign
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CLASSIC("classic"),
+    
+    TRIGGER("trigger");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("type")
+  private TypeEnum type = null;
+
+  /**
+   * Status of the campaign
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    DRAFT("draft"),
+    
+    SENT("sent"),
+    
+    ARCHIVE("archive"),
+    
+    QUEUED("queued"),
+    
+    SUSPENDED("suspended"),
+    
+    IN_PROCESS("in_process");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String text) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StatusEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("status")
+  private StatusEnum status = null;
+
+  @SerializedName("scheduledAt")
+  private String scheduledAt = null;
+
+  @SerializedName("abTesting")
+  private Boolean abTesting = null;
+
+  @SerializedName("subjectA")
+  private String subjectA = null;
+
+  @SerializedName("subjectB")
+  private String subjectB = null;
+
+  @SerializedName("splitRule")
+  private Integer splitRule = null;
+
+  @SerializedName("winnerCriteria")
+  private String winnerCriteria = null;
+
+  @SerializedName("winnerDelay")
+  private Integer winnerDelay = null;
+
+  @SerializedName("sendAtBestTime")
+  private Boolean sendAtBestTime = null;
+
+  @SerializedName("testSent")
+  private Boolean testSent = null;
+
+  @SerializedName("header")
+  private String header = null;
+
+  @SerializedName("footer")
+  private String footer = null;
+
+  @SerializedName("sender")
+  private GetExtendedCampaignOverviewSender sender = null;
+
+  @SerializedName("replyTo")
+  private String replyTo = null;
+
+  @SerializedName("toField")
+  private String toField = null;
+
+  @SerializedName("htmlContent")
+  private String htmlContent = null;
+
+  @SerializedName("shareLink")
+  private String shareLink = null;
+
+  @SerializedName("tag")
+  private String tag = null;
+
+  @SerializedName("createdAt")
+  private String createdAt = null;
+
+  @SerializedName("modifiedAt")
+  private String modifiedAt = null;
+
+  @SerializedName("inlineImageActivation")
+  private Boolean inlineImageActivation = null;
+
+  @SerializedName("mirrorActive")
+  private Boolean mirrorActive = null;
+
+  @SerializedName("recurring")
+  private Boolean recurring = null;
+
+  @SerializedName("sentDate")
+  private String sentDate = null;
+
+  @SerializedName("returnBounce")
+  private Long returnBounce = null;
+
   @SerializedName("recipients")
-  private GetSmsCampaignRecipients recipients = null;
+  private Object recipients = null;
 
   @SerializedName("statistics")
-  private GetSmsCampaignRecipients statistics = null;
+  private Object statistics = null;
 
-  public GetEmailCampaign recipients(GetSmsCampaignRecipients recipients) {
+  public GetEmailCampaign id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ID of the campaign
+   * @return id
+  **/
+  @ApiModelProperty(example = "12", required = true, value = "ID of the campaign")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public GetEmailCampaign name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Name of the campaign
+   * @return name
+  **/
+  @ApiModelProperty(example = "EN - Sales Summer 2017", required = true, value = "Name of the campaign")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public GetEmailCampaign subject(String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+   /**
+   * Subject of the campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;false&#x60;
+   * @return subject
+  **/
+  @ApiModelProperty(example = "20% OFF for 2017 Summer Sales", value = "Subject of the campaign. Only available if `abTesting` flag of the campaign is `false`")
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public GetEmailCampaign type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of campaign
+   * @return type
+  **/
+  @ApiModelProperty(example = "classic", required = true, value = "Type of campaign")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  public GetEmailCampaign status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Status of the campaign
+   * @return status
+  **/
+  @ApiModelProperty(example = "sent", required = true, value = "Status of the campaign")
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+  public GetEmailCampaign scheduledAt(String scheduledAt) {
+    this.scheduledAt = scheduledAt;
+    return this;
+  }
+
+   /**
+   * UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)
+   * @return scheduledAt
+  **/
+  @ApiModelProperty(example = "2017-06-01T12:30:00Z", value = "UTC date-time on which campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ)")
+  public String getScheduledAt() {
+    return scheduledAt;
+  }
+
+  public void setScheduledAt(String scheduledAt) {
+    this.scheduledAt = scheduledAt;
+  }
+
+  public GetEmailCampaign abTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+    return this;
+  }
+
+   /**
+   * Status of A/B Test for the campaign. abTesting &#x3D; false means it is disabled, &amp; abTesting &#x3D; true means it is enabled.
+   * @return abTesting
+  **/
+  @ApiModelProperty(example = "true", value = "Status of A/B Test for the campaign. abTesting = false means it is disabled, & abTesting = true means it is enabled.")
+  public Boolean isAbTesting() {
+    return abTesting;
+  }
+
+  public void setAbTesting(Boolean abTesting) {
+    this.abTesting = abTesting;
+  }
+
+  public GetEmailCampaign subjectA(String subjectA) {
+    this.subjectA = subjectA;
+    return this;
+  }
+
+   /**
+   * Subject A of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectA
+  **/
+  @ApiModelProperty(example = "Discover the New Collection!", value = "Subject A of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectA() {
+    return subjectA;
+  }
+
+  public void setSubjectA(String subjectA) {
+    this.subjectA = subjectA;
+  }
+
+  public GetEmailCampaign subjectB(String subjectB) {
+    this.subjectB = subjectB;
+    return this;
+  }
+
+   /**
+   * Subject B of the ab-test campaign. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return subjectB
+  **/
+  @ApiModelProperty(example = "Want to discover the New Collection?", value = "Subject B of the ab-test campaign. Only available if `abTesting` flag of the campaign is `true`")
+  public String getSubjectB() {
+    return subjectB;
+  }
+
+  public void setSubjectB(String subjectB) {
+    this.subjectB = subjectB;
+  }
+
+  public GetEmailCampaign splitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+    return this;
+  }
+
+   /**
+   * The size of your ab-test groups. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return splitRule
+  **/
+  @ApiModelProperty(example = "25", value = "The size of your ab-test groups. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getSplitRule() {
+    return splitRule;
+  }
+
+  public void setSplitRule(Integer splitRule) {
+    this.splitRule = splitRule;
+  }
+
+  public GetEmailCampaign winnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+    return this;
+  }
+
+   /**
+   * Criteria for the winning version. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerCriteria
+  **/
+  @ApiModelProperty(example = "open", value = "Criteria for the winning version. Only available if `abTesting` flag of the campaign is `true`")
+  public String getWinnerCriteria() {
+    return winnerCriteria;
+  }
+
+  public void setWinnerCriteria(String winnerCriteria) {
+    this.winnerCriteria = winnerCriteria;
+  }
+
+  public GetEmailCampaign winnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+    return this;
+  }
+
+   /**
+   * The duration of the test in hours at the end of which the winning version will be sent. Only available if &#x60;abTesting&#x60; flag of the campaign is &#x60;true&#x60;
+   * @return winnerDelay
+  **/
+  @ApiModelProperty(example = "50", value = "The duration of the test in hours at the end of which the winning version will be sent. Only available if `abTesting` flag of the campaign is `true`")
+  public Integer getWinnerDelay() {
+    return winnerDelay;
+  }
+
+  public void setWinnerDelay(Integer winnerDelay) {
+    this.winnerDelay = winnerDelay;
+  }
+
+  public GetEmailCampaign sendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+    return this;
+  }
+
+   /**
+   * It is true if you have chosen to send your campaign at best time, otherwise it is false
+   * @return sendAtBestTime
+  **/
+  @ApiModelProperty(example = "true", value = "It is true if you have chosen to send your campaign at best time, otherwise it is false")
+  public Boolean isSendAtBestTime() {
+    return sendAtBestTime;
+  }
+
+  public void setSendAtBestTime(Boolean sendAtBestTime) {
+    this.sendAtBestTime = sendAtBestTime;
+  }
+
+  public GetEmailCampaign testSent(Boolean testSent) {
+    this.testSent = testSent;
+    return this;
+  }
+
+   /**
+   * Retrieved the status of test email sending. (true&#x3D;Test email has been sent  false&#x3D;Test email has not been sent)
+   * @return testSent
+  **/
+  @ApiModelProperty(example = "true", required = true, value = "Retrieved the status of test email sending. (true=Test email has been sent  false=Test email has not been sent)")
+  public Boolean isTestSent() {
+    return testSent;
+  }
+
+  public void setTestSent(Boolean testSent) {
+    this.testSent = testSent;
+  }
+
+  public GetEmailCampaign header(String header) {
+    this.header = header;
+    return this;
+  }
+
+   /**
+   * Header of the campaign
+   * @return header
+  **/
+  @ApiModelProperty(example = "[DEFAULT_HEADER]", required = true, value = "Header of the campaign")
+  public String getHeader() {
+    return header;
+  }
+
+  public void setHeader(String header) {
+    this.header = header;
+  }
+
+  public GetEmailCampaign footer(String footer) {
+    this.footer = footer;
+    return this;
+  }
+
+   /**
+   * Footer of the campaign
+   * @return footer
+  **/
+  @ApiModelProperty(example = "[DEFAULT_FOOTER]", required = true, value = "Footer of the campaign")
+  public String getFooter() {
+    return footer;
+  }
+
+  public void setFooter(String footer) {
+    this.footer = footer;
+  }
+
+  public GetEmailCampaign sender(GetExtendedCampaignOverviewSender sender) {
+    this.sender = sender;
+    return this;
+  }
+
+   /**
+   * Get sender
+   * @return sender
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public GetExtendedCampaignOverviewSender getSender() {
+    return sender;
+  }
+
+  public void setSender(GetExtendedCampaignOverviewSender sender) {
+    this.sender = sender;
+  }
+
+  public GetEmailCampaign replyTo(String replyTo) {
+    this.replyTo = replyTo;
+    return this;
+  }
+
+   /**
+   * Email defined as the \&quot;Reply to\&quot; of the campaign
+   * @return replyTo
+  **/
+  @ApiModelProperty(example = "replyto@domain.com", required = true, value = "Email defined as the \"Reply to\" of the campaign")
+  public String getReplyTo() {
+    return replyTo;
+  }
+
+  public void setReplyTo(String replyTo) {
+    this.replyTo = replyTo;
+  }
+
+  public GetEmailCampaign toField(String toField) {
+    this.toField = toField;
+    return this;
+  }
+
+   /**
+   * Customisation of the \&quot;to\&quot; field of the campaign
+   * @return toField
+  **/
+  @ApiModelProperty(example = "{FNAME} {LNAME}", value = "Customisation of the \"to\" field of the campaign")
+  public String getToField() {
+    return toField;
+  }
+
+  public void setToField(String toField) {
+    this.toField = toField;
+  }
+
+  public GetEmailCampaign htmlContent(String htmlContent) {
+    this.htmlContent = htmlContent;
+    return this;
+  }
+
+   /**
+   * HTML content of the campaign
+   * @return htmlContent
+  **/
+  @ApiModelProperty(example = "This is my HTML Content", required = true, value = "HTML content of the campaign")
+  public String getHtmlContent() {
+    return htmlContent;
+  }
+
+  public void setHtmlContent(String htmlContent) {
+    this.htmlContent = htmlContent;
+  }
+
+  public GetEmailCampaign shareLink(String shareLink) {
+    this.shareLink = shareLink;
+    return this;
+  }
+
+   /**
+   * Link to share the campaign on social medias
+   * @return shareLink
+  **/
+  @ApiModelProperty(example = "http://dhh.sendinblue.com/fhsgccc.html?t=9865448900", value = "Link to share the campaign on social medias")
+  public String getShareLink() {
+    return shareLink;
+  }
+
+  public void setShareLink(String shareLink) {
+    this.shareLink = shareLink;
+  }
+
+  public GetEmailCampaign tag(String tag) {
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Tag of the campaign
+   * @return tag
+  **/
+  @ApiModelProperty(example = "Newsletter", value = "Tag of the campaign")
+  public String getTag() {
+    return tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public GetEmailCampaign createdAt(String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+   * @return createdAt
+  **/
+  @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public GetEmailCampaign modifiedAt(String modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+   /**
+   * UTC date-time of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)
+   * @return modifiedAt
+  **/
+  @ApiModelProperty(example = "2017-05-01T12:30:00Z", required = true, value = "UTC date-time of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)")
+  public String getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(String modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+  public GetEmailCampaign inlineImageActivation(Boolean inlineImageActivation) {
+    this.inlineImageActivation = inlineImageActivation;
+    return this;
+  }
+
+   /**
+   * Status of inline image. inlineImageActivation &#x3D; false means image can’t be embedded, &amp; inlineImageActivation &#x3D; true means image can be embedded, in the email.
+   * @return inlineImageActivation
+  **/
+  @ApiModelProperty(example = "true", value = "Status of inline image. inlineImageActivation = false means image can’t be embedded, & inlineImageActivation = true means image can be embedded, in the email.")
+  public Boolean isInlineImageActivation() {
+    return inlineImageActivation;
+  }
+
+  public void setInlineImageActivation(Boolean inlineImageActivation) {
+    this.inlineImageActivation = inlineImageActivation;
+  }
+
+  public GetEmailCampaign mirrorActive(Boolean mirrorActive) {
+    this.mirrorActive = mirrorActive;
+    return this;
+  }
+
+   /**
+   * Status of mirror links in campaign. mirrorActive &#x3D; false means mirror links are deactivated, &amp; mirrorActive &#x3D; true means mirror links are activated, in the campaign
+   * @return mirrorActive
+  **/
+  @ApiModelProperty(example = "true", value = "Status of mirror links in campaign. mirrorActive = false means mirror links are deactivated, & mirrorActive = true means mirror links are activated, in the campaign")
+  public Boolean isMirrorActive() {
+    return mirrorActive;
+  }
+
+  public void setMirrorActive(Boolean mirrorActive) {
+    this.mirrorActive = mirrorActive;
+  }
+
+  public GetEmailCampaign recurring(Boolean recurring) {
+    this.recurring = recurring;
+    return this;
+  }
+
+   /**
+   * FOR TRIGGER ONLY ! Type of trigger campaign.recurring &#x3D; false means contact can receive the same Trigger campaign only once, &amp; recurring &#x3D; true means contact can receive the same Trigger campaign several times
+   * @return recurring
+  **/
+  @ApiModelProperty(example = "true", value = "FOR TRIGGER ONLY ! Type of trigger campaign.recurring = false means contact can receive the same Trigger campaign only once, & recurring = true means contact can receive the same Trigger campaign several times")
+  public Boolean isRecurring() {
+    return recurring;
+  }
+
+  public void setRecurring(Boolean recurring) {
+    this.recurring = recurring;
+  }
+
+  public GetEmailCampaign sentDate(String sentDate) {
+    this.sentDate = sentDate;
+    return this;
+  }
+
+   /**
+   * Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if &#39;status&#39; of the campaign is &#39;sent&#39;
+   * @return sentDate
+  **/
+  @ApiModelProperty(example = "2018-12-01T16:30:00Z", value = "Sent UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ). Only available if 'status' of the campaign is 'sent'")
+  public String getSentDate() {
+    return sentDate;
+  }
+
+  public void setSentDate(String sentDate) {
+    this.sentDate = sentDate;
+  }
+
+  public GetEmailCampaign returnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+    return this;
+  }
+
+   /**
+   * Total number of non-delivered campaigns for a particular campaign id.
+   * @return returnBounce
+  **/
+  @ApiModelProperty(example = "5", value = "Total number of non-delivered campaigns for a particular campaign id.")
+  public Long getReturnBounce() {
+    return returnBounce;
+  }
+
+  public void setReturnBounce(Long returnBounce) {
+    this.returnBounce = returnBounce;
+  }
+
+  public GetEmailCampaign recipients(Object recipients) {
     this.recipients = recipients;
     return this;
   }
@@ -48,15 +757,15 @@ public class GetEmailCampaign extends GetExtendedCampaignOverview {
    * @return recipients
   **/
   @ApiModelProperty(required = true, value = "")
-  public GetSmsCampaignRecipients getRecipients() {
+  public Object getRecipients() {
     return recipients;
   }
 
-  public void setRecipients(GetSmsCampaignRecipients recipients) {
+  public void setRecipients(Object recipients) {
     this.recipients = recipients;
   }
 
-  public GetEmailCampaign statistics(GetSmsCampaignRecipients statistics) {
+  public GetEmailCampaign statistics(Object statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -66,32 +775,60 @@ public class GetEmailCampaign extends GetExtendedCampaignOverview {
    * @return statistics
   **/
   @ApiModelProperty(required = true, value = "")
-  public GetSmsCampaignRecipients getStatistics() {
+  public Object getStatistics() {
     return statistics;
   }
 
-  public void setStatistics(GetSmsCampaignRecipients statistics) {
+  public void setStatistics(Object statistics) {
     this.statistics = statistics;
   }
 
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetEmailCampaign getEmailCampaign = (GetEmailCampaign) o;
-    return Objects.equals(this.recipients, getEmailCampaign.recipients) &&
-        Objects.equals(this.statistics, getEmailCampaign.statistics) &&
-        super.equals(o);
+    return ObjectUtils.equals(this.id, getEmailCampaign.id) &&
+    ObjectUtils.equals(this.name, getEmailCampaign.name) &&
+    ObjectUtils.equals(this.subject, getEmailCampaign.subject) &&
+    ObjectUtils.equals(this.type, getEmailCampaign.type) &&
+    ObjectUtils.equals(this.status, getEmailCampaign.status) &&
+    ObjectUtils.equals(this.scheduledAt, getEmailCampaign.scheduledAt) &&
+    ObjectUtils.equals(this.abTesting, getEmailCampaign.abTesting) &&
+    ObjectUtils.equals(this.subjectA, getEmailCampaign.subjectA) &&
+    ObjectUtils.equals(this.subjectB, getEmailCampaign.subjectB) &&
+    ObjectUtils.equals(this.splitRule, getEmailCampaign.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, getEmailCampaign.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, getEmailCampaign.winnerDelay) &&
+    ObjectUtils.equals(this.sendAtBestTime, getEmailCampaign.sendAtBestTime) &&
+    ObjectUtils.equals(this.testSent, getEmailCampaign.testSent) &&
+    ObjectUtils.equals(this.header, getEmailCampaign.header) &&
+    ObjectUtils.equals(this.footer, getEmailCampaign.footer) &&
+    ObjectUtils.equals(this.sender, getEmailCampaign.sender) &&
+    ObjectUtils.equals(this.replyTo, getEmailCampaign.replyTo) &&
+    ObjectUtils.equals(this.toField, getEmailCampaign.toField) &&
+    ObjectUtils.equals(this.htmlContent, getEmailCampaign.htmlContent) &&
+    ObjectUtils.equals(this.shareLink, getEmailCampaign.shareLink) &&
+    ObjectUtils.equals(this.tag, getEmailCampaign.tag) &&
+    ObjectUtils.equals(this.createdAt, getEmailCampaign.createdAt) &&
+    ObjectUtils.equals(this.modifiedAt, getEmailCampaign.modifiedAt) &&
+    ObjectUtils.equals(this.inlineImageActivation, getEmailCampaign.inlineImageActivation) &&
+    ObjectUtils.equals(this.mirrorActive, getEmailCampaign.mirrorActive) &&
+    ObjectUtils.equals(this.recurring, getEmailCampaign.recurring) &&
+    ObjectUtils.equals(this.sentDate, getEmailCampaign.sentDate) &&
+    ObjectUtils.equals(this.returnBounce, getEmailCampaign.returnBounce) &&
+    ObjectUtils.equals(this.recipients, getEmailCampaign.recipients) &&
+    ObjectUtils.equals(this.statistics, getEmailCampaign.statistics);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recipients, statistics, super.hashCode());
+    return ObjectUtils.hashCodeMulti(id, name, subject, type, status, scheduledAt, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, sendAtBestTime, testSent, header, footer, sender, replyTo, toField, htmlContent, shareLink, tag, createdAt, modifiedAt, inlineImageActivation, mirrorActive, recurring, sentDate, returnBounce, recipients, statistics);
   }
 
 
@@ -99,7 +836,36 @@ public class GetEmailCampaign extends GetExtendedCampaignOverview {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetEmailCampaign {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
+    sb.append("    abTesting: ").append(toIndentedString(abTesting)).append("\n");
+    sb.append("    subjectA: ").append(toIndentedString(subjectA)).append("\n");
+    sb.append("    subjectB: ").append(toIndentedString(subjectB)).append("\n");
+    sb.append("    splitRule: ").append(toIndentedString(splitRule)).append("\n");
+    sb.append("    winnerCriteria: ").append(toIndentedString(winnerCriteria)).append("\n");
+    sb.append("    winnerDelay: ").append(toIndentedString(winnerDelay)).append("\n");
+    sb.append("    sendAtBestTime: ").append(toIndentedString(sendAtBestTime)).append("\n");
+    sb.append("    testSent: ").append(toIndentedString(testSent)).append("\n");
+    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
+    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
+    sb.append("    replyTo: ").append(toIndentedString(replyTo)).append("\n");
+    sb.append("    toField: ").append(toIndentedString(toField)).append("\n");
+    sb.append("    htmlContent: ").append(toIndentedString(htmlContent)).append("\n");
+    sb.append("    shareLink: ").append(toIndentedString(shareLink)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    inlineImageActivation: ").append(toIndentedString(inlineImageActivation)).append("\n");
+    sb.append("    mirrorActive: ").append(toIndentedString(mirrorActive)).append("\n");
+    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
+    sb.append("    returnBounce: ").append(toIndentedString(returnBounce)).append("\n");
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("}");

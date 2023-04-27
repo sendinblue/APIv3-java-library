@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetAttributesEnumeration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetAttributesEnumeration {
   @SerializedName("value")
   private Long value = null;
@@ -41,7 +40,7 @@ public class GetAttributesEnumeration {
   }
 
    /**
-   * ID of Value of the &quot;category&quot; type attribute
+   * ID of Value of the \&quot;category\&quot; type attribute
    * @return value
   **/
   @ApiModelProperty(example = "1", required = true, value = "ID of Value of the \"category\" type attribute")
@@ -59,7 +58,7 @@ public class GetAttributesEnumeration {
   }
 
    /**
-   * Label of the &quot;category&quot; type attribute
+   * Label of the \&quot;category\&quot; type attribute
    * @return label
   **/
   @ApiModelProperty(example = "Women", required = true, value = "Label of the \"category\" type attribute")
@@ -74,20 +73,20 @@ public class GetAttributesEnumeration {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetAttributesEnumeration getAttributesEnumeration = (GetAttributesEnumeration) o;
-    return Objects.equals(this.value, getAttributesEnumeration.value) &&
-        Objects.equals(this.label, getAttributesEnumeration.label);
+    return ObjectUtils.equals(this.value, getAttributesEnumeration.value) &&
+    ObjectUtils.equals(this.label, getAttributesEnumeration.label);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, label);
+    return ObjectUtils.hashCodeMulti(value, label);
   }
 
 

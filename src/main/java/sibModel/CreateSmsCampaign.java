@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import sibModel.CreateSmsCampaignRecipients;
 /**
  * CreateSmsCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateSmsCampaign {
   @SerializedName("name")
   private String name = null;
@@ -47,6 +46,12 @@ public class CreateSmsCampaign {
 
   @SerializedName("unicodeEnabled")
   private Boolean unicodeEnabled = false;
+
+  @SerializedName("organisationPrefix")
+  private String organisationPrefix = null;
+
+  @SerializedName("unsubscribeInstruction")
+  private String unsubscribeInstruction = null;
 
   public CreateSmsCampaign name(String name) {
     this.name = name;
@@ -156,27 +161,65 @@ public class CreateSmsCampaign {
     this.unicodeEnabled = unicodeEnabled;
   }
 
+  public CreateSmsCampaign organisationPrefix(String organisationPrefix) {
+    this.organisationPrefix = organisationPrefix;
+    return this;
+  }
+
+   /**
+   * A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. **Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms.**
+   * @return organisationPrefix
+  **/
+  @ApiModelProperty(example = "MyCompany", value = "A recognizable prefix will ensure your audience knows who you are. Recommended by U.S. carriers. This will be added as your Brand Name before the message content. **Prefer verifying maximum length of 160 characters including this prefix in message content to avoid multiple sending of same sms.**")
+  public String getOrganisationPrefix() {
+    return organisationPrefix;
+  }
+
+  public void setOrganisationPrefix(String organisationPrefix) {
+    this.organisationPrefix = organisationPrefix;
+  }
+
+  public CreateSmsCampaign unsubscribeInstruction(String unsubscribeInstruction) {
+    this.unsubscribeInstruction = unsubscribeInstruction;
+    return this;
+  }
+
+   /**
+   * Instructions to unsubscribe from future communications. Recommended by U.S. carriers. Must include **STOP** keyword. This will be added as instructions after the end of message content. **Prefer verifying maximum length of 160 characters including this instructions in message content to avoid multiple sending of same sms.**
+   * @return unsubscribeInstruction
+  **/
+  @ApiModelProperty(example = "send Stop if you want to unsubscribe.", value = "Instructions to unsubscribe from future communications. Recommended by U.S. carriers. Must include **STOP** keyword. This will be added as instructions after the end of message content. **Prefer verifying maximum length of 160 characters including this instructions in message content to avoid multiple sending of same sms.**")
+  public String getUnsubscribeInstruction() {
+    return unsubscribeInstruction;
+  }
+
+  public void setUnsubscribeInstruction(String unsubscribeInstruction) {
+    this.unsubscribeInstruction = unsubscribeInstruction;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateSmsCampaign createSmsCampaign = (CreateSmsCampaign) o;
-    return Objects.equals(this.name, createSmsCampaign.name) &&
-        Objects.equals(this.sender, createSmsCampaign.sender) &&
-        Objects.equals(this.content, createSmsCampaign.content) &&
-        Objects.equals(this.recipients, createSmsCampaign.recipients) &&
-        Objects.equals(this.scheduledAt, createSmsCampaign.scheduledAt) &&
-        Objects.equals(this.unicodeEnabled, createSmsCampaign.unicodeEnabled);
+    return ObjectUtils.equals(this.name, createSmsCampaign.name) &&
+    ObjectUtils.equals(this.sender, createSmsCampaign.sender) &&
+    ObjectUtils.equals(this.content, createSmsCampaign.content) &&
+    ObjectUtils.equals(this.recipients, createSmsCampaign.recipients) &&
+    ObjectUtils.equals(this.scheduledAt, createSmsCampaign.scheduledAt) &&
+    ObjectUtils.equals(this.unicodeEnabled, createSmsCampaign.unicodeEnabled) &&
+    ObjectUtils.equals(this.organisationPrefix, createSmsCampaign.organisationPrefix) &&
+    ObjectUtils.equals(this.unsubscribeInstruction, createSmsCampaign.unsubscribeInstruction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, sender, content, recipients, scheduledAt, unicodeEnabled);
+    return ObjectUtils.hashCodeMulti(name, sender, content, recipients, scheduledAt, unicodeEnabled, organisationPrefix, unsubscribeInstruction);
   }
 
 
@@ -191,6 +234,8 @@ public class CreateSmsCampaign {
     sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
     sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
     sb.append("    unicodeEnabled: ").append(toIndentedString(unicodeEnabled)).append("\n");
+    sb.append("    organisationPrefix: ").append(toIndentedString(organisationPrefix)).append("\n");
+    sb.append("    unsubscribeInstruction: ").append(toIndentedString(unsubscribeInstruction)).append("\n");
     sb.append("}");
     return sb.toString();
   }

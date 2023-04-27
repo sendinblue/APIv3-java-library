@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,81 +22,34 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * File data that is uploaded
  */
 @ApiModel(description = "File data that is uploaded")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class FileData {
-  @SerializedName("url")
-  private String url = null;
-
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("name")
   private String name = null;
 
   @SerializedName("authorId")
   private String authorId = null;
 
-  @SerializedName("author")
-  private Object author = null;
-
   @SerializedName("contactId")
   private Long contactId = null;
 
-  @SerializedName("dealIds")
-  private List<String> dealIds = null;
+  @SerializedName("dealId")
+  private String dealId = null;
+
+  @SerializedName("companyId")
+  private String companyId = null;
 
   @SerializedName("size")
   private Long size = null;
 
   @SerializedName("createdAt")
   private OffsetDateTime createdAt = null;
-
-  @SerializedName("updatedAt")
-  private OffsetDateTime updatedAt = null;
-
-  public FileData url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * Url of uploaded file
-   * @return url
-  **/
-  @ApiModelProperty(example = "/api/v1/files/61a88a2eb7a574180261234", value = "Url of uploaded file")
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public FileData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Id of uploaded file
-   * @return id
-  **/
-  @ApiModelProperty(example = "61a88a2eb7a574180261234", value = "Id of uploaded file")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public FileData name(String name) {
     this.name = name;
@@ -135,24 +87,6 @@ public class FileData {
     this.authorId = authorId;
   }
 
-  public FileData author(Object author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Account details of user which created the file
-   * @return author
-  **/
-  @ApiModelProperty(example = "{\"id\":\"61a5ce58y5d4795761045991\",\"email\":\"johndoe@example.com\",\"locale\":\"en_GB\",\"timezone\":\"Asia/Kolkata\",\"name\":{\"fullName\":\"John Doe\"}}", value = "Account details of user which created the file")
-  public Object getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(Object author) {
-    this.author = author;
-  }
-
   public FileData contactId(Long contactId) {
     this.contactId = contactId;
     return this;
@@ -171,30 +105,40 @@ public class FileData {
     this.contactId = contactId;
   }
 
-  public FileData dealIds(List<String> dealIds) {
-    this.dealIds = dealIds;
-    return this;
-  }
-
-  public FileData addDealIdsItem(String dealIdsItem) {
-    if (this.dealIds == null) {
-      this.dealIds = new ArrayList<String>();
-    }
-    this.dealIds.add(dealIdsItem);
+  public FileData dealId(String dealId) {
+    this.dealId = dealId;
     return this;
   }
 
    /**
-   * Deal ids linked to a file
-   * @return dealIds
+   * Deal id linked to a file
+   * @return dealId
   **/
-  @ApiModelProperty(example = "[\"61a5ce58c5d4795761045990\",\"61a5ce58c5d4795761045991\"]", value = "Deal ids linked to a file")
-  public List<String> getDealIds() {
-    return dealIds;
+  @ApiModelProperty(example = "61a5ce58c5d4795761045991", value = "Deal id linked to a file")
+  public String getDealId() {
+    return dealId;
   }
 
-  public void setDealIds(List<String> dealIds) {
-    this.dealIds = dealIds;
+  public void setDealId(String dealId) {
+    this.dealId = dealId;
+  }
+
+  public FileData companyId(String companyId) {
+    this.companyId = companyId;
+    return this;
+  }
+
+   /**
+   * Company id linked to a file
+   * @return companyId
+  **/
+  @ApiModelProperty(example = "61a5ce58c5d4795761045991", value = "Company id linked to a file")
+  public String getCompanyId() {
+    return companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
   }
 
   public FileData size(Long size) {
@@ -203,10 +147,10 @@ public class FileData {
   }
 
    /**
-   * Size of file uploaded
+   * Size of file in bytes
    * @return size
   **/
-  @ApiModelProperty(example = "10", value = "Size of file uploaded")
+  @ApiModelProperty(example = "10", value = "Size of file in bytes")
   public Long getSize() {
     return size;
   }
@@ -233,49 +177,28 @@ public class FileData {
     this.createdAt = createdAt;
   }
 
-  public FileData updatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * File updated date/time
-   * @return updatedAt
-  **/
-  @ApiModelProperty(example = "2017-05-01T17:05:03.000Z", value = "File updated date/time")
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     FileData fileData = (FileData) o;
-    return Objects.equals(this.url, fileData.url) &&
-        Objects.equals(this.id, fileData.id) &&
-        Objects.equals(this.name, fileData.name) &&
-        Objects.equals(this.authorId, fileData.authorId) &&
-        Objects.equals(this.author, fileData.author) &&
-        Objects.equals(this.contactId, fileData.contactId) &&
-        Objects.equals(this.dealIds, fileData.dealIds) &&
-        Objects.equals(this.size, fileData.size) &&
-        Objects.equals(this.createdAt, fileData.createdAt) &&
-        Objects.equals(this.updatedAt, fileData.updatedAt);
+    return ObjectUtils.equals(this.name, fileData.name) &&
+    ObjectUtils.equals(this.authorId, fileData.authorId) &&
+    ObjectUtils.equals(this.contactId, fileData.contactId) &&
+    ObjectUtils.equals(this.dealId, fileData.dealId) &&
+    ObjectUtils.equals(this.companyId, fileData.companyId) &&
+    ObjectUtils.equals(this.size, fileData.size) &&
+    ObjectUtils.equals(this.createdAt, fileData.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, id, name, authorId, author, contactId, dealIds, size, createdAt, updatedAt);
+    return ObjectUtils.hashCodeMulti(name, authorId, contactId, dealId, companyId, size, createdAt);
   }
 
 
@@ -284,16 +207,13 @@ public class FileData {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileData {\n");
     
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    contactId: ").append(toIndentedString(contactId)).append("\n");
-    sb.append("    dealIds: ").append(toIndentedString(dealIds)).append("\n");
+    sb.append("    dealId: ").append(toIndentedString(dealId)).append("\n");
+    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

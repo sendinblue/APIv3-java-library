@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,8 +32,20 @@ import sibModel.GetClient;
 /**
  * GetChildInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
-public class GetChildInfo extends GetClient {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
+public class GetChildInfo {
+  @SerializedName("email")
+  private String email = null;
+
+  @SerializedName("firstName")
+  private String firstName = null;
+
+  @SerializedName("lastName")
+  private String lastName = null;
+
+  @SerializedName("companyName")
+  private String companyName = null;
+
   @SerializedName("credits")
   private GetChildInfoCredits credits = null;
 
@@ -49,6 +60,78 @@ public class GetChildInfo extends GetClient {
 
   @SerializedName("apiKeys")
   private GetChildInfoApiKeys apiKeys = null;
+
+  public GetChildInfo email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Login Email
+   * @return email
+  **/
+  @ApiModelProperty(example = "john.smith@example.com", required = true, value = "Login Email")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public GetChildInfo firstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * First Name
+   * @return firstName
+  **/
+  @ApiModelProperty(example = "John", required = true, value = "First Name")
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public GetChildInfo lastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Last Name
+   * @return lastName
+  **/
+  @ApiModelProperty(example = "Smith", required = true, value = "Last Name")
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public GetChildInfo companyName(String companyName) {
+    this.companyName = companyName;
+    return this;
+  }
+
+   /**
+   * Name of the company
+   * @return companyName
+  **/
+  @ApiModelProperty(example = "MyCompany", required = true, value = "Name of the company")
+  public String getCompanyName() {
+    return companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
 
   public GetChildInfo credits(GetChildInfoCredits credits) {
     this.credits = credits;
@@ -151,24 +234,27 @@ public class GetChildInfo extends GetClient {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetChildInfo getChildInfo = (GetChildInfo) o;
-    return Objects.equals(this.credits, getChildInfo.credits) &&
-        Objects.equals(this.statistics, getChildInfo.statistics) &&
-        Objects.equals(this.password, getChildInfo.password) &&
-        Objects.equals(this.ips, getChildInfo.ips) &&
-        Objects.equals(this.apiKeys, getChildInfo.apiKeys) &&
-        super.equals(o);
+    return ObjectUtils.equals(this.email, getChildInfo.email) &&
+    ObjectUtils.equals(this.firstName, getChildInfo.firstName) &&
+    ObjectUtils.equals(this.lastName, getChildInfo.lastName) &&
+    ObjectUtils.equals(this.companyName, getChildInfo.companyName) &&
+    ObjectUtils.equals(this.credits, getChildInfo.credits) &&
+    ObjectUtils.equals(this.statistics, getChildInfo.statistics) &&
+    ObjectUtils.equals(this.password, getChildInfo.password) &&
+    ObjectUtils.equals(this.ips, getChildInfo.ips) &&
+    ObjectUtils.equals(this.apiKeys, getChildInfo.apiKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credits, statistics, password, ips, apiKeys, super.hashCode());
+    return ObjectUtils.hashCodeMulti(email, firstName, lastName, companyName, credits, statistics, password, ips, apiKeys);
   }
 
 
@@ -176,7 +262,11 @@ public class GetChildInfo extends GetClient {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetChildInfo {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    credits: ").append(toIndentedString(credits)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.sendinblue",
     name := "sib-api-v3-sdk",
-    version := "6.0.0",
+    version := "7.0.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
@@ -10,8 +10,8 @@ lazy val root = (project in file(".")).
     resolvers += Resolver.mavenLocal,
     libraryDependencies ++= Seq(
       "io.swagger" % "swagger-annotations" % "1.5.17",
-      "com.squareup.okhttp" % "okhttp" % "2.7.5",
-      "com.squareup.okhttp" % "logging-interceptor" % "2.7.5",
+      "okhttp3" % "okhttp" % "2.7.5",
+      "okhttp3" % "logging-interceptor" % "2.7.5",
       "com.google.code.gson" % "gson" % "2.8.1",
       "org.threeten" % "threetenbp" % "1.3.5" % "compile",
       "io.gsonfire" % "gson-fire" % "1.8.0" % "compile",

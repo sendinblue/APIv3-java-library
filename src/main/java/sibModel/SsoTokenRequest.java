@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,13 +26,75 @@ import java.io.IOException;
 /**
  * SsoTokenRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SsoTokenRequest {
   @SerializedName("id")
   private Long id = null;
 
   @SerializedName("email")
   private String email = null;
+
+  /**
+   * Set target after login success * automation - Redirect to Automation after login * email_campaign - Redirect to Email Campaign after login * contacts - Redirect to Contacts after login * landing_pages - Redirect to Landing Pages after login * email_transactional - Redirect to Email Transactional after login * senders - Redirect to Contacts after login * sms_campaign - Redirect to Sms Campaign after login * sms_transactional - Redirect to Sms Transactional after login 
+   */
+  @JsonAdapter(TargetEnum.Adapter.class)
+  public enum TargetEnum {
+    AUTOMATION("automation"),
+    
+    EMAIL_CAMPAIGN("email_campaign"),
+    
+    CONTACTS("contacts"),
+    
+    LANDING_PAGES("landing_pages"),
+    
+    EMAIL_TRANSACTIONAL("email_transactional"),
+    
+    SENDERS("senders"),
+    
+    SMS_CAMPAIGN("sms_campaign"),
+    
+    SMS_TRANSACTIONAL("sms_transactional");
+
+    private String value;
+
+    TargetEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TargetEnum fromValue(String text) {
+      for (TargetEnum b : TargetEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TargetEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TargetEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TargetEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TargetEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("target")
+  private TargetEnum target = null;
 
   public SsoTokenRequest id(Long id) {
     this.id = id;
@@ -71,23 +132,42 @@ public class SsoTokenRequest {
     this.email = email;
   }
 
+  public SsoTokenRequest target(TargetEnum target) {
+    this.target = target;
+    return this;
+  }
+
+   /**
+   * Set target after login success * automation - Redirect to Automation after login * email_campaign - Redirect to Email Campaign after login * contacts - Redirect to Contacts after login * landing_pages - Redirect to Landing Pages after login * email_transactional - Redirect to Email Transactional after login * senders - Redirect to Contacts after login * sms_campaign - Redirect to Sms Campaign after login * sms_transactional - Redirect to Sms Transactional after login 
+   * @return target
+  **/
+  @ApiModelProperty(example = "contacts", value = "Set target after login success * automation - Redirect to Automation after login * email_campaign - Redirect to Email Campaign after login * contacts - Redirect to Contacts after login * landing_pages - Redirect to Landing Pages after login * email_transactional - Redirect to Email Transactional after login * senders - Redirect to Contacts after login * sms_campaign - Redirect to Sms Campaign after login * sms_transactional - Redirect to Sms Transactional after login ")
+  public TargetEnum getTarget() {
+    return target;
+  }
+
+  public void setTarget(TargetEnum target) {
+    this.target = target;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SsoTokenRequest ssoTokenRequest = (SsoTokenRequest) o;
-    return Objects.equals(this.id, ssoTokenRequest.id) &&
-        Objects.equals(this.email, ssoTokenRequest.email);
+    return ObjectUtils.equals(this.id, ssoTokenRequest.id) &&
+    ObjectUtils.equals(this.email, ssoTokenRequest.email) &&
+    ObjectUtils.equals(this.target, ssoTokenRequest.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email);
+    return ObjectUtils.hashCodeMulti(id, email, target);
   }
 
 
@@ -98,6 +178,7 @@ public class SsoTokenRequest {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("}");
     return sb.toString();
   }

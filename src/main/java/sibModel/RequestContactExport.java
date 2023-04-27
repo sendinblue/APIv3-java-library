@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.RequestContactExportCustomContactFilter;
 /**
  * RequestContactExport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class RequestContactExport {
   @SerializedName("exportAttributes")
   private List<String> exportAttributes = null;
@@ -106,21 +105,21 @@ public class RequestContactExport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     RequestContactExport requestContactExport = (RequestContactExport) o;
-    return Objects.equals(this.exportAttributes, requestContactExport.exportAttributes) &&
-        Objects.equals(this.customContactFilter, requestContactExport.customContactFilter) &&
-        Objects.equals(this.notifyUrl, requestContactExport.notifyUrl);
+    return ObjectUtils.equals(this.exportAttributes, requestContactExport.exportAttributes) &&
+    ObjectUtils.equals(this.customContactFilter, requestContactExport.customContactFilter) &&
+    ObjectUtils.equals(this.notifyUrl, requestContactExport.notifyUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportAttributes, customContactFilter, notifyUrl);
+    return ObjectUtils.hashCodeMulti(exportAttributes, customContactFilter, notifyUrl);
   }
 
 

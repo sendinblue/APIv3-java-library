@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,23 +23,23 @@ import sibModel.AbTestVersionClicksInner;
  * Information on clicked links for a particular version
  */
 @ApiModel(description = "Information on clicked links for a particular version")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class AbTestVersionClicks extends ArrayList<AbTestVersionClicksInner> {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return super.equals(o);
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return ObjectUtils.hashCodeMulti(super.hashCode());
   }
 
 

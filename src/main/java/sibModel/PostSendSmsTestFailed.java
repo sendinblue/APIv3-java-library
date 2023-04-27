@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * PostSendSmsTestFailed
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class PostSendSmsTestFailed {
   @SerializedName("code")
   private Long code = null;
@@ -134,22 +133,22 @@ public class PostSendSmsTestFailed {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     PostSendSmsTestFailed postSendSmsTestFailed = (PostSendSmsTestFailed) o;
-    return Objects.equals(this.code, postSendSmsTestFailed.code) &&
-        Objects.equals(this.message, postSendSmsTestFailed.message) &&
-        Objects.equals(this.unexistingSms, postSendSmsTestFailed.unexistingSms) &&
-        Objects.equals(this.withoutListSms, postSendSmsTestFailed.withoutListSms);
+    return ObjectUtils.equals(this.code, postSendSmsTestFailed.code) &&
+    ObjectUtils.equals(this.message, postSendSmsTestFailed.message) &&
+    ObjectUtils.equals(this.unexistingSms, postSendSmsTestFailed.unexistingSms) &&
+    ObjectUtils.equals(this.withoutListSms, postSendSmsTestFailed.withoutListSms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, unexistingSms, withoutListSms);
+    return ObjectUtils.hashCodeMulti(code, message, unexistingSms, withoutListSms);
   }
 
 

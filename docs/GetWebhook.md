@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **Long** | ID of the webhook | 
 **description** | **String** | Description of the webhook | 
 **events** | **List&lt;String&gt;** |  | 
-**type** | [**TypeEnum**](#TypeEnum) | Type of webhook (marketing or transac) | 
+**type** | [**TypeEnum**](#TypeEnum) | Type of webhook (marketing or transactional) | 
 **createdAt** | **String** | Creation UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 **modifiedAt** | **String** | Last modification UTC date-time of the webhook (YYYY-MM-DDTHH:mm:ss.SSSZ) | 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 Name | Value
 ---- | -----
 MARKETING | &quot;marketing&quot;
-TRANSAC | &quot;transac&quot;
+TRANSACTIONAL | &quot;transactional&quot;
 
 
 

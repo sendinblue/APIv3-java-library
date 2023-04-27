@@ -26,6 +26,7 @@ ACCEPTED | &quot;accepted&quot;
 UNSUBSCRIPTION | &quot;unsubscription&quot;
 REPLIES | &quot;replies&quot;
 BLOCKED | &quot;blocked&quot;
+REJECTED | &quot;rejected&quot;
 
 
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**corporateSubAccountIdDelete**](MasterAccountApi.md#corporateSubAccountIdDelete) | **DELETE** /corporate/subAccount/{id} | Delete a sub-account
 [**corporateSubAccountIdGet**](MasterAccountApi.md#corporateSubAccountIdGet) | **GET** /corporate/subAccount/{id} | Get sub-account details
 [**corporateSubAccountIdPlanPut**](MasterAccountApi.md#corporateSubAccountIdPlanPut) | **PUT** /corporate/subAccount/{id}/plan | Update sub-account plan
+[**corporateSubAccountKeyPost**](MasterAccountApi.md#corporateSubAccountKeyPost) | **POST** /corporate/subAccount/key | Create an API key for a sub-account
 [**corporateSubAccountPost**](MasterAccountApi.md#corporateSubAccountPost) | **POST** /corporate/subAccount | Create a new sub-account under a master account.
 [**corporateSubAccountSsoTokenPost**](MasterAccountApi.md#corporateSubAccountSsoTokenPost) | **POST** /corporate/subAccount/ssoToken | Generate SSO token to access Sendinblue
 
@@ -102,7 +103,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 //partnerKey.setApiKeyPrefix("Token");
 
 MasterAccountApi apiInstance = new MasterAccountApi();
-Integer offset = 56; // Integer | Page number of sub-accounts listing
+Integer offset = 56; // Integer | Index of the first sub-account in the page
 Integer limit = 56; // Integer | Number of sub-accounts to be displayed on each page
 try {
     SubAccountsResponse result = apiInstance.corporateSubAccountGet(offset, limit);
@@ -117,7 +118,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **Integer**| Page number of sub-accounts listing |
+ **offset** | **Integer**| Index of the first sub-account in the page |
  **limit** | **Integer**| Number of sub-accounts to be displayed on each page |
 
 ### Return type
@@ -197,7 +198,7 @@ null (empty response body)
 
 Get sub-account details
 
-This endpoint will provide the details of specified sub-account organization
+This endpoint will provide the details for the specified sub-account company
 
 ### Example
 ```java
@@ -314,9 +315,70 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="corporateSubAccountKeyPost"></a>
+# **corporateSubAccountKeyPost**
+> CreateApiKeyResponse corporateSubAccountKeyPost(createApiKeyRequest)
+
+Create an API key for a sub-account
+
+This endpoint will generate an API v3 key for a sub account
+
+### Example
+```java
+// Import classes:
+//import sendinblue.ApiClient;
+//import sendinblue.ApiException;
+//import sendinblue.Configuration;
+//import sendinblue.auth.*;
+//import sibApi.MasterAccountApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: api-key
+ApiKeyAuth apiKey = (ApiKeyAuth) defaultClient.getAuthentication("api-key");
+apiKey.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//apiKey.setApiKeyPrefix("Token");
+
+// Configure API key authorization: partner-key
+ApiKeyAuth partnerKey = (ApiKeyAuth) defaultClient.getAuthentication("partner-key");
+partnerKey.setApiKey("YOUR PARTNER KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//partnerKey.setApiKeyPrefix("Token");
+
+MasterAccountApi apiInstance = new MasterAccountApi();
+CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | Values to generate API key for sub-account
+try {
+    CreateApiKeyResponse result = apiInstance.corporateSubAccountKeyPost(createApiKeyRequest);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling MasterAccountApi#corporateSubAccountKeyPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createApiKeyRequest** | [**CreateApiKeyRequest**](CreateApiKeyRequest.md)| Values to generate API key for sub-account |
+
+### Return type
+
+[**CreateApiKeyResponse**](CreateApiKeyResponse.md)
+
+### Authorization
+
+[api-key](../README.md#api-key), [partner-key](../README.md#partner-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="corporateSubAccountPost"></a>
 # **corporateSubAccountPost**
-> CreateModel corporateSubAccountPost(subAccountCreate)
+> CreateSubAccountResponse corporateSubAccountPost(subAccountCreate)
 
 Create a new sub-account under a master account.
 
@@ -348,7 +410,7 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 MasterAccountApi apiInstance = new MasterAccountApi();
 CreateSubAccount subAccountCreate = new CreateSubAccount(); // CreateSubAccount | values to create new sub-account
 try {
-    CreateModel result = apiInstance.corporateSubAccountPost(subAccountCreate);
+    CreateSubAccountResponse result = apiInstance.corporateSubAccountPost(subAccountCreate);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MasterAccountApi#corporateSubAccountPost");
@@ -364,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateModel**](CreateModel.md)
+[**CreateSubAccountResponse**](CreateSubAccountResponse.md)
 
 ### Authorization
 
@@ -381,7 +443,7 @@ Name | Type | Description  | Notes
 
 Generate SSO token to access Sendinblue
 
-This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced with actual token.
+This endpoint generates an sso token to authenticate and access a sub-account of the master using the account endpoint https://account-app.sendinblue.com/account/login/sub-account/sso/[token], where [token] will be replaced by the actual token.
 
 ### Example
 ```java

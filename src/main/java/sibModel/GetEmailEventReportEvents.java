@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetEmailEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetEmailEventReportEvents {
   @SerializedName("email")
   private String email = null;
@@ -334,29 +333,29 @@ public class GetEmailEventReportEvents {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetEmailEventReportEvents getEmailEventReportEvents = (GetEmailEventReportEvents) o;
-    return Objects.equals(this.email, getEmailEventReportEvents.email) &&
-        Objects.equals(this.date, getEmailEventReportEvents.date) &&
-        Objects.equals(this.subject, getEmailEventReportEvents.subject) &&
-        Objects.equals(this.messageId, getEmailEventReportEvents.messageId) &&
-        Objects.equals(this.event, getEmailEventReportEvents.event) &&
-        Objects.equals(this.reason, getEmailEventReportEvents.reason) &&
-        Objects.equals(this.tag, getEmailEventReportEvents.tag) &&
-        Objects.equals(this.ip, getEmailEventReportEvents.ip) &&
-        Objects.equals(this.link, getEmailEventReportEvents.link) &&
-        Objects.equals(this.from, getEmailEventReportEvents.from) &&
-        Objects.equals(this.templateId, getEmailEventReportEvents.templateId);
+    return ObjectUtils.equals(this.email, getEmailEventReportEvents.email) &&
+    ObjectUtils.equals(this.date, getEmailEventReportEvents.date) &&
+    ObjectUtils.equals(this.subject, getEmailEventReportEvents.subject) &&
+    ObjectUtils.equals(this.messageId, getEmailEventReportEvents.messageId) &&
+    ObjectUtils.equals(this.event, getEmailEventReportEvents.event) &&
+    ObjectUtils.equals(this.reason, getEmailEventReportEvents.reason) &&
+    ObjectUtils.equals(this.tag, getEmailEventReportEvents.tag) &&
+    ObjectUtils.equals(this.ip, getEmailEventReportEvents.ip) &&
+    ObjectUtils.equals(this.link, getEmailEventReportEvents.link) &&
+    ObjectUtils.equals(this.from, getEmailEventReportEvents.from) &&
+    ObjectUtils.equals(this.templateId, getEmailEventReportEvents.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, date, subject, messageId, event, reason, tag, ip, link, from, templateId);
+    return ObjectUtils.hashCodeMulti(email, date, subject, messageId, event, reason, tag, ip, link, from, templateId);
   }
 
 

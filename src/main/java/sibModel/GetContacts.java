@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * GetContacts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetContacts {
   @SerializedName("contacts")
   private List<Object> contacts = new ArrayList<Object>();
@@ -81,20 +80,20 @@ public class GetContacts {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetContacts getContacts = (GetContacts) o;
-    return Objects.equals(this.contacts, getContacts.contacts) &&
-        Objects.equals(this.count, getContacts.count);
+    return ObjectUtils.equals(this.contacts, getContacts.contacts) &&
+    ObjectUtils.equals(this.count, getContacts.count);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contacts, count);
+    return ObjectUtils.hashCodeMulti(contacts, count);
   }
 
 

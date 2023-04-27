@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import sibModel.CreateEmailCampaignSender;
 /**
  * CreateEmailCampaign
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateEmailCampaign {
   @SerializedName("tag")
   private String tag = null;
@@ -161,6 +160,12 @@ public class CreateEmailCampaign {
 
   @SerializedName("increaseRate")
   private Long increaseRate = null;
+
+  @SerializedName("unsubscriptionPageId")
+  private String unsubscriptionPageId = null;
+
+  @SerializedName("updateFormId")
+  private String updateFormId = null;
 
   public CreateEmailCampaign tag(String tag) {
     this.tag = tag;
@@ -474,7 +479,7 @@ public class CreateEmailCampaign {
   }
 
    /**
-   * Pass the set of attributes to customize the type classic campaign. For example, {&quot;FNAME&quot;:&quot;Joe&quot;, &quot;LNAME&quot;:&quot;Doe&quot;}. Only available if &#39;type&#39; is &#39;classic&#39;. It&#39;s considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of &#39;subject&#39;, &#39;htmlContent/htmlUrl&#39;, &#39;sender.name&#39; &amp; &#39;toField&#39;
+   * Pass the set of attributes to customize the type classic campaign. For example, {\&quot;FNAME\&quot;:\&quot;Joe\&quot;, \&quot;LNAME\&quot;:\&quot;Doe\&quot;}. Only available if &#39;type&#39; is &#39;classic&#39;. It&#39;s considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of &#39;subject&#39;, &#39;htmlContent/htmlUrl&#39;, &#39;sender.name&#39; &amp; &#39;toField&#39;
    * @return params
   **/
   @ApiModelProperty(example = "{\"FNAME\":\"Joe\",\"LNAME\":\"Doe\"}", value = "Pass the set of attributes to customize the type classic campaign. For example, {\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}. Only available if 'type' is 'classic'. It's considered only if campaign is in New Template Language format. The New Template Language is dependent on the values of 'subject', 'htmlContent/htmlUrl', 'sender.name' & 'toField'")
@@ -672,49 +677,87 @@ public class CreateEmailCampaign {
     this.increaseRate = increaseRate;
   }
 
+  public CreateEmailCampaign unsubscriptionPageId(String unsubscriptionPageId) {
+    this.unsubscriptionPageId = unsubscriptionPageId;
+    return this;
+  }
+
+   /**
+   * Enter an unsubscription page id. The page id is a 24 digit alphanumeric id that can be found in the URL when editing the page. If not entered, then the default unsubscription page will be used.
+   * @return unsubscriptionPageId
+  **/
+  @ApiModelProperty(example = "62cbb7fabbe85021021aac52", value = "Enter an unsubscription page id. The page id is a 24 digit alphanumeric id that can be found in the URL when editing the page. If not entered, then the default unsubscription page will be used.")
+  public String getUnsubscriptionPageId() {
+    return unsubscriptionPageId;
+  }
+
+  public void setUnsubscriptionPageId(String unsubscriptionPageId) {
+    this.unsubscriptionPageId = unsubscriptionPageId;
+  }
+
+  public CreateEmailCampaign updateFormId(String updateFormId) {
+    this.updateFormId = updateFormId;
+    return this;
+  }
+
+   /**
+   * Mandatory if templateId is used containing the {{ update_profile }} tag. Enter an update profile form id. The form id is a 24 digit alphanumeric id that can be found in the URL when editing the form. If not entered, then the default update profile form will be used.
+   * @return updateFormId
+  **/
+  @ApiModelProperty(example = "6313436b9ad40e23b371d095", value = "Mandatory if templateId is used containing the {{ update_profile }} tag. Enter an update profile form id. The form id is a 24 digit alphanumeric id that can be found in the URL when editing the form. If not entered, then the default update profile form will be used.")
+  public String getUpdateFormId() {
+    return updateFormId;
+  }
+
+  public void setUpdateFormId(String updateFormId) {
+    this.updateFormId = updateFormId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateEmailCampaign createEmailCampaign = (CreateEmailCampaign) o;
-    return Objects.equals(this.tag, createEmailCampaign.tag) &&
-        Objects.equals(this.sender, createEmailCampaign.sender) &&
-        Objects.equals(this.name, createEmailCampaign.name) &&
-        Objects.equals(this.htmlContent, createEmailCampaign.htmlContent) &&
-        Objects.equals(this.htmlUrl, createEmailCampaign.htmlUrl) &&
-        Objects.equals(this.templateId, createEmailCampaign.templateId) &&
-        Objects.equals(this.scheduledAt, createEmailCampaign.scheduledAt) &&
-        Objects.equals(this.subject, createEmailCampaign.subject) &&
-        Objects.equals(this.replyTo, createEmailCampaign.replyTo) &&
-        Objects.equals(this.toField, createEmailCampaign.toField) &&
-        Objects.equals(this.recipients, createEmailCampaign.recipients) &&
-        Objects.equals(this.attachmentUrl, createEmailCampaign.attachmentUrl) &&
-        Objects.equals(this.inlineImageActivation, createEmailCampaign.inlineImageActivation) &&
-        Objects.equals(this.mirrorActive, createEmailCampaign.mirrorActive) &&
-        Objects.equals(this.footer, createEmailCampaign.footer) &&
-        Objects.equals(this.header, createEmailCampaign.header) &&
-        Objects.equals(this.utmCampaign, createEmailCampaign.utmCampaign) &&
-        Objects.equals(this.params, createEmailCampaign.params) &&
-        Objects.equals(this.sendAtBestTime, createEmailCampaign.sendAtBestTime) &&
-        Objects.equals(this.abTesting, createEmailCampaign.abTesting) &&
-        Objects.equals(this.subjectA, createEmailCampaign.subjectA) &&
-        Objects.equals(this.subjectB, createEmailCampaign.subjectB) &&
-        Objects.equals(this.splitRule, createEmailCampaign.splitRule) &&
-        Objects.equals(this.winnerCriteria, createEmailCampaign.winnerCriteria) &&
-        Objects.equals(this.winnerDelay, createEmailCampaign.winnerDelay) &&
-        Objects.equals(this.ipWarmupEnable, createEmailCampaign.ipWarmupEnable) &&
-        Objects.equals(this.initialQuota, createEmailCampaign.initialQuota) &&
-        Objects.equals(this.increaseRate, createEmailCampaign.increaseRate);
+    return ObjectUtils.equals(this.tag, createEmailCampaign.tag) &&
+    ObjectUtils.equals(this.sender, createEmailCampaign.sender) &&
+    ObjectUtils.equals(this.name, createEmailCampaign.name) &&
+    ObjectUtils.equals(this.htmlContent, createEmailCampaign.htmlContent) &&
+    ObjectUtils.equals(this.htmlUrl, createEmailCampaign.htmlUrl) &&
+    ObjectUtils.equals(this.templateId, createEmailCampaign.templateId) &&
+    ObjectUtils.equals(this.scheduledAt, createEmailCampaign.scheduledAt) &&
+    ObjectUtils.equals(this.subject, createEmailCampaign.subject) &&
+    ObjectUtils.equals(this.replyTo, createEmailCampaign.replyTo) &&
+    ObjectUtils.equals(this.toField, createEmailCampaign.toField) &&
+    ObjectUtils.equals(this.recipients, createEmailCampaign.recipients) &&
+    ObjectUtils.equals(this.attachmentUrl, createEmailCampaign.attachmentUrl) &&
+    ObjectUtils.equals(this.inlineImageActivation, createEmailCampaign.inlineImageActivation) &&
+    ObjectUtils.equals(this.mirrorActive, createEmailCampaign.mirrorActive) &&
+    ObjectUtils.equals(this.footer, createEmailCampaign.footer) &&
+    ObjectUtils.equals(this.header, createEmailCampaign.header) &&
+    ObjectUtils.equals(this.utmCampaign, createEmailCampaign.utmCampaign) &&
+    ObjectUtils.equals(this.params, createEmailCampaign.params) &&
+    ObjectUtils.equals(this.sendAtBestTime, createEmailCampaign.sendAtBestTime) &&
+    ObjectUtils.equals(this.abTesting, createEmailCampaign.abTesting) &&
+    ObjectUtils.equals(this.subjectA, createEmailCampaign.subjectA) &&
+    ObjectUtils.equals(this.subjectB, createEmailCampaign.subjectB) &&
+    ObjectUtils.equals(this.splitRule, createEmailCampaign.splitRule) &&
+    ObjectUtils.equals(this.winnerCriteria, createEmailCampaign.winnerCriteria) &&
+    ObjectUtils.equals(this.winnerDelay, createEmailCampaign.winnerDelay) &&
+    ObjectUtils.equals(this.ipWarmupEnable, createEmailCampaign.ipWarmupEnable) &&
+    ObjectUtils.equals(this.initialQuota, createEmailCampaign.initialQuota) &&
+    ObjectUtils.equals(this.increaseRate, createEmailCampaign.increaseRate) &&
+    ObjectUtils.equals(this.unsubscriptionPageId, createEmailCampaign.unsubscriptionPageId) &&
+    ObjectUtils.equals(this.updateFormId, createEmailCampaign.updateFormId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tag, sender, name, htmlContent, htmlUrl, templateId, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, footer, header, utmCampaign, params, sendAtBestTime, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, ipWarmupEnable, initialQuota, increaseRate);
+    return ObjectUtils.hashCodeMulti(tag, sender, name, htmlContent, htmlUrl, templateId, scheduledAt, subject, replyTo, toField, recipients, attachmentUrl, inlineImageActivation, mirrorActive, footer, header, utmCampaign, params, sendAtBestTime, abTesting, subjectA, subjectB, splitRule, winnerCriteria, winnerDelay, ipWarmupEnable, initialQuota, increaseRate, unsubscriptionPageId, updateFormId);
   }
 
 
@@ -751,6 +794,8 @@ public class CreateEmailCampaign {
     sb.append("    ipWarmupEnable: ").append(toIndentedString(ipWarmupEnable)).append("\n");
     sb.append("    initialQuota: ").append(toIndentedString(initialQuota)).append("\n");
     sb.append("    increaseRate: ").append(toIndentedString(increaseRate)).append("\n");
+    sb.append("    unsubscriptionPageId: ").append(toIndentedString(unsubscriptionPageId)).append("\n");
+    sb.append("    updateFormId: ").append(toIndentedString(updateFormId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

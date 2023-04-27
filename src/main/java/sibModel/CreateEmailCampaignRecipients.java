@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,16 +26,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * List ids to include/exclude from campaign
+ * Segment ids and List ids to include/exclude from campaign
  */
-@ApiModel(description = "List ids to include/exclude from campaign")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@ApiModel(description = "Segment ids and List ids to include/exclude from campaign")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateEmailCampaignRecipients {
   @SerializedName("exclusionListIds")
   private List<Long> exclusionListIds = null;
 
   @SerializedName("listIds")
   private List<Long> listIds = null;
+
+  @SerializedName("segmentIds")
+  private List<Long> segmentIds = null;
 
   public CreateEmailCampaignRecipients exclusionListIds(List<Long> exclusionListIds) {
     this.exclusionListIds = exclusionListIds;
@@ -90,23 +92,50 @@ public class CreateEmailCampaignRecipients {
     this.listIds = listIds;
   }
 
+  public CreateEmailCampaignRecipients segmentIds(List<Long> segmentIds) {
+    this.segmentIds = segmentIds;
+    return this;
+  }
+
+  public CreateEmailCampaignRecipients addSegmentIdsItem(Long segmentIdsItem) {
+    if (this.segmentIds == null) {
+      this.segmentIds = new ArrayList<Long>();
+    }
+    this.segmentIds.add(segmentIdsItem);
+    return this;
+  }
+
+   /**
+   * Mandatory if listIds are not used. Segment ids to send the campaign to.
+   * @return segmentIds
+  **/
+  @ApiModelProperty(value = "Mandatory if listIds are not used. Segment ids to send the campaign to.")
+  public List<Long> getSegmentIds() {
+    return segmentIds;
+  }
+
+  public void setSegmentIds(List<Long> segmentIds) {
+    this.segmentIds = segmentIds;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateEmailCampaignRecipients createEmailCampaignRecipients = (CreateEmailCampaignRecipients) o;
-    return Objects.equals(this.exclusionListIds, createEmailCampaignRecipients.exclusionListIds) &&
-        Objects.equals(this.listIds, createEmailCampaignRecipients.listIds);
+    return ObjectUtils.equals(this.exclusionListIds, createEmailCampaignRecipients.exclusionListIds) &&
+    ObjectUtils.equals(this.listIds, createEmailCampaignRecipients.listIds) &&
+    ObjectUtils.equals(this.segmentIds, createEmailCampaignRecipients.segmentIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exclusionListIds, listIds);
+    return ObjectUtils.hashCodeMulti(exclusionListIds, listIds, segmentIds);
   }
 
 
@@ -117,6 +146,7 @@ public class CreateEmailCampaignRecipients {
     
     sb.append("    exclusionListIds: ").append(toIndentedString(exclusionListIds)).append("\n");
     sb.append("    listIds: ").append(toIndentedString(listIds)).append("\n");
+    sb.append("    segmentIds: ").append(toIndentedString(segmentIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

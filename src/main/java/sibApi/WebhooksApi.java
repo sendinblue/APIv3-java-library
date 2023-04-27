@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -67,7 +68,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createWebhookCall(CreateWebhook createWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call createWebhookCall(CreateWebhook createWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = createWebhook;
 
         // create path and map variables
@@ -93,10 +94,10 @@ public class WebhooksApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -109,7 +110,7 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createWebhookValidateBeforeCall(CreateWebhook createWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call createWebhookValidateBeforeCall(CreateWebhook createWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'createWebhook' is set
         if (createWebhook == null) {
@@ -117,7 +118,7 @@ public class WebhooksApi {
         }
         
 
-        com.squareup.okhttp.Call call = createWebhookCall(createWebhook, progressListener, progressRequestListener);
+        Call call = createWebhookCall(createWebhook, progressListener, progressRequestListener);
         return call;
 
     }
@@ -142,7 +143,7 @@ public class WebhooksApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CreateModel> createWebhookWithHttpInfo(CreateWebhook createWebhook) throws ApiException {
-        com.squareup.okhttp.Call call = createWebhookValidateBeforeCall(createWebhook, null, null);
+        Call call = createWebhookValidateBeforeCall(createWebhook, null, null);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -155,7 +156,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createWebhookAsync(CreateWebhook createWebhook, final ApiCallback<CreateModel> callback) throws ApiException {
+    public Call createWebhookAsync(CreateWebhook createWebhook, final ApiCallback<CreateModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -176,7 +177,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createWebhookValidateBeforeCall(createWebhook, progressListener, progressRequestListener);
+        Call call = createWebhookValidateBeforeCall(createWebhook, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<CreateModel>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -189,7 +190,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call deleteWebhookCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call deleteWebhookCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -216,10 +217,10 @@ public class WebhooksApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -232,7 +233,7 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteWebhookValidateBeforeCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call deleteWebhookValidateBeforeCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
@@ -240,7 +241,7 @@ public class WebhooksApi {
         }
         
 
-        com.squareup.okhttp.Call call = deleteWebhookCall(webhookId, progressListener, progressRequestListener);
+        Call call = deleteWebhookCall(webhookId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -263,7 +264,7 @@ public class WebhooksApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> deleteWebhookWithHttpInfo(Long webhookId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteWebhookValidateBeforeCall(webhookId, null, null);
+        Call call = deleteWebhookValidateBeforeCall(webhookId, null, null);
         return apiClient.execute(call);
     }
 
@@ -275,7 +276,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteWebhookAsync(Long webhookId, final ApiCallback<Void> callback) throws ApiException {
+    public Call deleteWebhookAsync(Long webhookId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -296,7 +297,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteWebhookValidateBeforeCall(webhookId, progressListener, progressRequestListener);
+        Call call = deleteWebhookValidateBeforeCall(webhookId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -308,7 +309,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWebhookCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getWebhookCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -335,10 +336,10 @@ public class WebhooksApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -351,7 +352,7 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWebhookValidateBeforeCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getWebhookValidateBeforeCall(Long webhookId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
@@ -359,7 +360,7 @@ public class WebhooksApi {
         }
         
 
-        com.squareup.okhttp.Call call = getWebhookCall(webhookId, progressListener, progressRequestListener);
+        Call call = getWebhookCall(webhookId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -384,7 +385,7 @@ public class WebhooksApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetWebhook> getWebhookWithHttpInfo(Long webhookId) throws ApiException {
-        com.squareup.okhttp.Call call = getWebhookValidateBeforeCall(webhookId, null, null);
+        Call call = getWebhookValidateBeforeCall(webhookId, null, null);
         Type localVarReturnType = new TypeToken<GetWebhook>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -397,7 +398,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWebhookAsync(Long webhookId, final ApiCallback<GetWebhook> callback) throws ApiException {
+    public Call getWebhookAsync(Long webhookId, final ApiCallback<GetWebhook> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -418,7 +419,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWebhookValidateBeforeCall(webhookId, progressListener, progressRequestListener);
+        Call call = getWebhookValidateBeforeCall(webhookId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetWebhook>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -432,7 +433,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getWebhooksCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getWebhooksCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -462,10 +463,10 @@ public class WebhooksApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -478,10 +479,10 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getWebhooksValidateBeforeCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getWebhooksValidateBeforeCall(String type, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getWebhooksCall(type, sort, progressListener, progressRequestListener);
+        Call call = getWebhooksCall(type, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -508,7 +509,7 @@ public class WebhooksApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetWebhooks> getWebhooksWithHttpInfo(String type, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, sort, null, null);
+        Call call = getWebhooksValidateBeforeCall(type, sort, null, null);
         Type localVarReturnType = new TypeToken<GetWebhooks>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -522,7 +523,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getWebhooksAsync(String type, String sort, final ApiCallback<GetWebhooks> callback) throws ApiException {
+    public Call getWebhooksAsync(String type, String sort, final ApiCallback<GetWebhooks> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -543,7 +544,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getWebhooksValidateBeforeCall(type, sort, progressListener, progressRequestListener);
+        Call call = getWebhooksValidateBeforeCall(type, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetWebhooks>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -557,7 +558,7 @@ public class WebhooksApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call updateWebhookCall(Long webhookId, UpdateWebhook updateWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call updateWebhookCall(Long webhookId, UpdateWebhook updateWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = updateWebhook;
 
         // create path and map variables
@@ -584,10 +585,10 @@ public class WebhooksApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -600,7 +601,7 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateWebhookValidateBeforeCall(Long webhookId, UpdateWebhook updateWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call updateWebhookValidateBeforeCall(Long webhookId, UpdateWebhook updateWebhook, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
@@ -613,7 +614,7 @@ public class WebhooksApi {
         }
         
 
-        com.squareup.okhttp.Call call = updateWebhookCall(webhookId, updateWebhook, progressListener, progressRequestListener);
+        Call call = updateWebhookCall(webhookId, updateWebhook, progressListener, progressRequestListener);
         return call;
 
     }
@@ -638,7 +639,7 @@ public class WebhooksApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Void> updateWebhookWithHttpInfo(Long webhookId, UpdateWebhook updateWebhook) throws ApiException {
-        com.squareup.okhttp.Call call = updateWebhookValidateBeforeCall(webhookId, updateWebhook, null, null);
+        Call call = updateWebhookValidateBeforeCall(webhookId, updateWebhook, null, null);
         return apiClient.execute(call);
     }
 
@@ -651,7 +652,7 @@ public class WebhooksApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateWebhookAsync(Long webhookId, UpdateWebhook updateWebhook, final ApiCallback<Void> callback) throws ApiException {
+    public Call updateWebhookAsync(Long webhookId, UpdateWebhook updateWebhook, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -672,7 +673,7 @@ public class WebhooksApi {
             };
         }
 
-        com.squareup.okhttp.Call call = updateWebhookValidateBeforeCall(webhookId, updateWebhook, progressListener, progressRequestListener);
+        Call call = updateWebhookValidateBeforeCall(webhookId, updateWebhook, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

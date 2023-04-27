@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -35,7 +34,7 @@ import sibModel.GetExtendedContactDetailsStatisticsUnsubscriptions;
  * Campaign statistics of the contact
  */
 @ApiModel(description = "Campaign statistics of the contact")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetExtendedContactDetailsStatistics {
   @SerializedName("messagesSent")
   private List<GetExtendedContactDetailsStatisticsMessagesSent> messagesSent = null;
@@ -293,27 +292,27 @@ public class GetExtendedContactDetailsStatistics {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedContactDetailsStatistics getExtendedContactDetailsStatistics = (GetExtendedContactDetailsStatistics) o;
-    return Objects.equals(this.messagesSent, getExtendedContactDetailsStatistics.messagesSent) &&
-        Objects.equals(this.hardBounces, getExtendedContactDetailsStatistics.hardBounces) &&
-        Objects.equals(this.softBounces, getExtendedContactDetailsStatistics.softBounces) &&
-        Objects.equals(this.complaints, getExtendedContactDetailsStatistics.complaints) &&
-        Objects.equals(this.unsubscriptions, getExtendedContactDetailsStatistics.unsubscriptions) &&
-        Objects.equals(this.opened, getExtendedContactDetailsStatistics.opened) &&
-        Objects.equals(this.clicked, getExtendedContactDetailsStatistics.clicked) &&
-        Objects.equals(this.transacAttributes, getExtendedContactDetailsStatistics.transacAttributes) &&
-        Objects.equals(this.delivered, getExtendedContactDetailsStatistics.delivered);
+    return ObjectUtils.equals(this.messagesSent, getExtendedContactDetailsStatistics.messagesSent) &&
+    ObjectUtils.equals(this.hardBounces, getExtendedContactDetailsStatistics.hardBounces) &&
+    ObjectUtils.equals(this.softBounces, getExtendedContactDetailsStatistics.softBounces) &&
+    ObjectUtils.equals(this.complaints, getExtendedContactDetailsStatistics.complaints) &&
+    ObjectUtils.equals(this.unsubscriptions, getExtendedContactDetailsStatistics.unsubscriptions) &&
+    ObjectUtils.equals(this.opened, getExtendedContactDetailsStatistics.opened) &&
+    ObjectUtils.equals(this.clicked, getExtendedContactDetailsStatistics.clicked) &&
+    ObjectUtils.equals(this.transacAttributes, getExtendedContactDetailsStatistics.transacAttributes) &&
+    ObjectUtils.equals(this.delivered, getExtendedContactDetailsStatistics.delivered);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(messagesSent, hardBounces, softBounces, complaints, unsubscriptions, opened, clicked, transacAttributes, delivered);
+    return ObjectUtils.hashCodeMulti(messagesSent, hardBounces, softBounces, complaints, unsubscriptions, opened, clicked, transacAttributes, delivered);
   }
 
 

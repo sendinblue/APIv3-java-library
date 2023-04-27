@@ -23,12 +23,12 @@ import sibModel.ErrorModel;
 import sibModel.GetEmailCampaign;
 import sibModel.GetEmailCampaigns;
 import sibModel.GetSharedTemplateUrl;
-import org.threeten.bp.OffsetDateTime;
 import sibModel.PostSendFailed;
 import sibModel.SendReport;
 import sibModel.SendTestEmail;
 import sibModel.UpdateCampaignStatus;
 import sibModel.UpdateEmailCampaign;
+import sibModel.UploadImageModel;
 import sibModel.UploadImageToGallery;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -123,7 +123,8 @@ public class EmailCampaignsApiTest {
     @Test
     public void getEmailCampaignTest() throws ApiException {
         Long campaignId = null;
-        GetEmailCampaign response = api.getEmailCampaign(campaignId);
+        String statistics = null;
+        GetEmailCampaign response = api.getEmailCampaign(campaignId, statistics);
 
         // TODO: test validations
     }
@@ -140,12 +141,13 @@ public class EmailCampaignsApiTest {
     public void getEmailCampaignsTest() throws ApiException {
         String type = null;
         String status = null;
+        String statistics = null;
         String startDate = null;
         String endDate = null;
         Long limit = null;
         Long offset = null;
         String sort = null;
-        GetEmailCampaigns response = api.getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort);
+        GetEmailCampaigns response = api.getEmailCampaigns(type, status, statistics, startDate, endDate, limit, offset, sort);
 
         // TODO: test validations
     }
@@ -261,7 +263,7 @@ public class EmailCampaignsApiTest {
     @Test
     public void uploadImageToGalleryTest() throws ApiException {
         UploadImageToGallery uploadImage = null;
-        api.uploadImageToGallery(uploadImage);
+        UploadImageModel response = api.uploadImageToGallery(uploadImage);
 
         // TODO: test validations
     }

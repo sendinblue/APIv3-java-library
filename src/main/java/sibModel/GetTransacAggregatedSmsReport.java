@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetTransacAggregatedSmsReport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetTransacAggregatedSmsReport {
   @SerializedName("range")
   private String range = null;
@@ -242,28 +241,28 @@ public class GetTransacAggregatedSmsReport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetTransacAggregatedSmsReport getTransacAggregatedSmsReport = (GetTransacAggregatedSmsReport) o;
-    return Objects.equals(this.range, getTransacAggregatedSmsReport.range) &&
-        Objects.equals(this.requests, getTransacAggregatedSmsReport.requests) &&
-        Objects.equals(this.delivered, getTransacAggregatedSmsReport.delivered) &&
-        Objects.equals(this.hardBounces, getTransacAggregatedSmsReport.hardBounces) &&
-        Objects.equals(this.softBounces, getTransacAggregatedSmsReport.softBounces) &&
-        Objects.equals(this.blocked, getTransacAggregatedSmsReport.blocked) &&
-        Objects.equals(this.unsubscribed, getTransacAggregatedSmsReport.unsubscribed) &&
-        Objects.equals(this.replied, getTransacAggregatedSmsReport.replied) &&
-        Objects.equals(this.accepted, getTransacAggregatedSmsReport.accepted) &&
-        Objects.equals(this.rejected, getTransacAggregatedSmsReport.rejected);
+    return ObjectUtils.equals(this.range, getTransacAggregatedSmsReport.range) &&
+    ObjectUtils.equals(this.requests, getTransacAggregatedSmsReport.requests) &&
+    ObjectUtils.equals(this.delivered, getTransacAggregatedSmsReport.delivered) &&
+    ObjectUtils.equals(this.hardBounces, getTransacAggregatedSmsReport.hardBounces) &&
+    ObjectUtils.equals(this.softBounces, getTransacAggregatedSmsReport.softBounces) &&
+    ObjectUtils.equals(this.blocked, getTransacAggregatedSmsReport.blocked) &&
+    ObjectUtils.equals(this.unsubscribed, getTransacAggregatedSmsReport.unsubscribed) &&
+    ObjectUtils.equals(this.replied, getTransacAggregatedSmsReport.replied) &&
+    ObjectUtils.equals(this.accepted, getTransacAggregatedSmsReport.accepted) &&
+    ObjectUtils.equals(this.rejected, getTransacAggregatedSmsReport.rejected);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(range, requests, delivered, hardBounces, softBounces, blocked, unsubscribed, replied, accepted, rejected);
+    return ObjectUtils.hashCodeMulti(range, requests, delivered, hardBounces, softBounces, blocked, unsubscribed, replied, accepted, rejected);
   }
 
 

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * UpdateContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class UpdateContact {
   @SerializedName("attributes")
   private Object attributes = null;
@@ -55,10 +54,10 @@ public class UpdateContact {
   }
 
    /**
-   * Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, &#x60;{ &quot;EMAIL&quot;:&quot;newemail@domain.com&quot;, &quot;FNAME&quot;:&quot;Ellie&quot;, &quot;LNAME&quot;:&quot;Roger&quot;}&#x60;. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in &quot;SMS&quot; field should be passed with proper country code. For example {&quot;SMS&quot;:&quot;+91xxxxxxxxxx&quot;} or {&quot;SMS&quot;:&quot;0091xxxxxxxxxx&quot;}
+   * Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, &#x60;{ \&quot;EMAIL\&quot;:\&quot;newemail@domain.com\&quot;, \&quot;FNAME\&quot;:\&quot;Ellie\&quot;, \&quot;LNAME\&quot;:\&quot;Roger\&quot;}&#x60;. The attribute&#39;s parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \&quot;SMS\&quot; field should be passed with proper country code. For example {\&quot;SMS\&quot;:\&quot;+91xxxxxxxxxx\&quot;} or {\&quot;SMS\&quot;:\&quot;0091xxxxxxxxxx\&quot;}
    * @return attributes
   **/
-  @ApiModelProperty(example = "{\"EMAIL\":\"newemail@domain.com\",\"FNAME\":\"Ellie\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attribtes. For example, `{ \"EMAIL\":\"newemail@domain.com\", \"FNAME\":\"Ellie\", \"LNAME\":\"Roger\"}`. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}")
+  @ApiModelProperty(example = "{\"EMAIL\":\"newemail@domain.com\",\"FNAME\":\"Ellie\",\"LNAME\":\"Roger\"}", value = "Pass the set of attributes to be updated. These attributes must be present in your account. To update existing email address of a contact with the new one please pass EMAIL in attributes. For example, `{ \"EMAIL\":\"newemail@domain.com\", \"FNAME\":\"Ellie\", \"LNAME\":\"Roger\"}`. The attribute's parameter should be passed in capital letter while updating a contact. Keep in mind transactional attributes can be updated the same way as normal attributes. Mobile Number in \"SMS\" field should be passed with proper country code. For example {\"SMS\":\"+91xxxxxxxxxx\"} or {\"SMS\":\"0091xxxxxxxxxx\"}")
   public Object getAttributes() {
     return attributes;
   }
@@ -184,24 +183,24 @@ public class UpdateContact {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     UpdateContact updateContact = (UpdateContact) o;
-    return Objects.equals(this.attributes, updateContact.attributes) &&
-        Objects.equals(this.emailBlacklisted, updateContact.emailBlacklisted) &&
-        Objects.equals(this.smsBlacklisted, updateContact.smsBlacklisted) &&
-        Objects.equals(this.listIds, updateContact.listIds) &&
-        Objects.equals(this.unlinkListIds, updateContact.unlinkListIds) &&
-        Objects.equals(this.smtpBlacklistSender, updateContact.smtpBlacklistSender);
+    return ObjectUtils.equals(this.attributes, updateContact.attributes) &&
+    ObjectUtils.equals(this.emailBlacklisted, updateContact.emailBlacklisted) &&
+    ObjectUtils.equals(this.smsBlacklisted, updateContact.smsBlacklisted) &&
+    ObjectUtils.equals(this.listIds, updateContact.listIds) &&
+    ObjectUtils.equals(this.unlinkListIds, updateContact.unlinkListIds) &&
+    ObjectUtils.equals(this.smtpBlacklistSender, updateContact.smtpBlacklistSender);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, emailBlacklisted, smsBlacklisted, listIds, unlinkListIds, smtpBlacklistSender);
+    return ObjectUtils.hashCodeMulti(attributes, emailBlacklisted, smsBlacklisted, listIds, unlinkListIds, smtpBlacklistSender);
   }
 
 

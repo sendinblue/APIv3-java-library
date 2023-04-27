@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetSmtpTemplateOverviewSender
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetSmtpTemplateOverviewSender {
   @SerializedName("name")
   private String name = null;
@@ -95,21 +94,21 @@ public class GetSmtpTemplateOverviewSender {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetSmtpTemplateOverviewSender getSmtpTemplateOverviewSender = (GetSmtpTemplateOverviewSender) o;
-    return Objects.equals(this.name, getSmtpTemplateOverviewSender.name) &&
-        Objects.equals(this.email, getSmtpTemplateOverviewSender.email) &&
-        Objects.equals(this.id, getSmtpTemplateOverviewSender.id);
+    return ObjectUtils.equals(this.name, getSmtpTemplateOverviewSender.name) &&
+    ObjectUtils.equals(this.email, getSmtpTemplateOverviewSender.email) &&
+    ObjectUtils.equals(this.id, getSmtpTemplateOverviewSender.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, id);
+    return ObjectUtils.hashCodeMulti(name, email, id);
   }
 
 

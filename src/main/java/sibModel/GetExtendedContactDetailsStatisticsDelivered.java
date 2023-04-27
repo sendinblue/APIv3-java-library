@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetExtendedContactDetailsStatisticsDelivered
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetExtendedContactDetailsStatisticsDelivered {
   @SerializedName("campaignId")
   private Long campaignId = null;
@@ -62,7 +61,7 @@ public class GetExtendedContactDetailsStatisticsDelivered {
    * UTC date-time of the event
    * @return eventTime
   **/
-  @ApiModelProperty(example = "2017-03-12T20:15:13.000+00:00", required = true, value = "UTC date-time of the event")
+  @ApiModelProperty(example = "2017-03-12T20:15:13.000+0000", required = true, value = "UTC date-time of the event")
   public String getEventTime() {
     return eventTime;
   }
@@ -74,20 +73,20 @@ public class GetExtendedContactDetailsStatisticsDelivered {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetExtendedContactDetailsStatisticsDelivered getExtendedContactDetailsStatisticsDelivered = (GetExtendedContactDetailsStatisticsDelivered) o;
-    return Objects.equals(this.campaignId, getExtendedContactDetailsStatisticsDelivered.campaignId) &&
-        Objects.equals(this.eventTime, getExtendedContactDetailsStatisticsDelivered.eventTime);
+    return ObjectUtils.equals(this.campaignId, getExtendedContactDetailsStatisticsDelivered.campaignId) &&
+    ObjectUtils.equals(this.eventTime, getExtendedContactDetailsStatisticsDelivered.eventTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignId, eventTime);
+    return ObjectUtils.hashCodeMulti(campaignId, eventTime);
   }
 
 

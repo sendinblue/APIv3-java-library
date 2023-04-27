@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +30,7 @@ import sibModel.RequestContactImportNewList;
 /**
  * RequestContactImport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class RequestContactImport {
   @SerializedName("fileUrl")
   private String fileUrl = null;
@@ -90,7 +89,7 @@ public class RequestContactImport {
    * Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.
    * @return fileBody
   **/
-  @ApiModelProperty(example = "NAME;SURNAME;EMAIL\\n\"Smith\";\"John\";\"john.smith@example.com\"\\n\"Roger\";\"Ellie\";\"ellie36@example.com", value = "Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.")
+  @ApiModelProperty(example = "NAME;SURNAME;EMAIL Smith;John;john.smith@example.com Roger;Ellie;ellie36@example.com", value = "Mandatory if fileUrl and jsonBody is not defined. CSV content to be imported. Use semicolon to separate multiple attributes. Maximum allowed file body size is 10MB . However we recommend a safe limit of around 8 MB to avoid the issues caused due to increase of file body size while parsing. Please use fileUrl instead to import bigger files.")
   public String getFileBody() {
     return fileBody;
   }
@@ -262,28 +261,28 @@ public class RequestContactImport {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     RequestContactImport requestContactImport = (RequestContactImport) o;
-    return Objects.equals(this.fileUrl, requestContactImport.fileUrl) &&
-        Objects.equals(this.fileBody, requestContactImport.fileBody) &&
-        Objects.equals(this.jsonBody, requestContactImport.jsonBody) &&
-        Objects.equals(this.listIds, requestContactImport.listIds) &&
-        Objects.equals(this.notifyUrl, requestContactImport.notifyUrl) &&
-        Objects.equals(this.newList, requestContactImport.newList) &&
-        Objects.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
-        Objects.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
-        Objects.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts) &&
-        Objects.equals(this.emptyContactsAttributes, requestContactImport.emptyContactsAttributes);
+    return ObjectUtils.equals(this.fileUrl, requestContactImport.fileUrl) &&
+    ObjectUtils.equals(this.fileBody, requestContactImport.fileBody) &&
+    ObjectUtils.equals(this.jsonBody, requestContactImport.jsonBody) &&
+    ObjectUtils.equals(this.listIds, requestContactImport.listIds) &&
+    ObjectUtils.equals(this.notifyUrl, requestContactImport.notifyUrl) &&
+    ObjectUtils.equals(this.newList, requestContactImport.newList) &&
+    ObjectUtils.equals(this.emailBlacklist, requestContactImport.emailBlacklist) &&
+    ObjectUtils.equals(this.smsBlacklist, requestContactImport.smsBlacklist) &&
+    ObjectUtils.equals(this.updateExistingContacts, requestContactImport.updateExistingContacts) &&
+    ObjectUtils.equals(this.emptyContactsAttributes, requestContactImport.emptyContactsAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileUrl, fileBody, jsonBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts, emptyContactsAttributes);
+    return ObjectUtils.hashCodeMulti(fileUrl, fileBody, jsonBody, listIds, notifyUrl, newList, emailBlacklist, smsBlacklist, updateExistingContacts, emptyContactsAttributes);
   }
 
 

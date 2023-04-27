@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Features details to update
  */
 @ApiModel(description = "Features details to update")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountUpdatePlanRequestFeatures {
   @SerializedName("users")
   private Long users = null;
@@ -96,21 +95,21 @@ public class SubAccountUpdatePlanRequestFeatures {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountUpdatePlanRequestFeatures subAccountUpdatePlanRequestFeatures = (SubAccountUpdatePlanRequestFeatures) o;
-    return Objects.equals(this.users, subAccountUpdatePlanRequestFeatures.users) &&
-        Objects.equals(this.landingPage, subAccountUpdatePlanRequestFeatures.landingPage) &&
-        Objects.equals(this.inbox, subAccountUpdatePlanRequestFeatures.inbox);
+    return ObjectUtils.equals(this.users, subAccountUpdatePlanRequestFeatures.users) &&
+    ObjectUtils.equals(this.landingPage, subAccountUpdatePlanRequestFeatures.landingPage) &&
+    ObjectUtils.equals(this.inbox, subAccountUpdatePlanRequestFeatures.inbox);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(users, landingPage, inbox);
+    return ObjectUtils.hashCodeMulti(users, landingPage, inbox);
   }
 
 

@@ -683,7 +683,7 @@ This endpoint does not need any parameter.
 
 <a name="getContactInfo"></a>
 # **getContactInfo**
-> GetExtendedContactDetails getContactInfo(identifier)
+> GetExtendedContactDetails getContactInfo(identifier, startDate, endDate)
 
 Get a contact&#39;s details
 
@@ -714,8 +714,10 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 ContactsApi apiInstance = new ContactsApi();
 String identifier = "identifier_example"; // String | Email (urlencoded) OR ID of the contact OR its SMS attribute value
+Object startDate = null; // Object | **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate 
+Object endDate = null; // Object | **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. 
 try {
-    GetExtendedContactDetails result = apiInstance.getContactInfo(identifier);
+    GetExtendedContactDetails result = apiInstance.getContactInfo(identifier, startDate, endDate);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContactsApi#getContactInfo");
@@ -728,6 +730,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Email (urlencoded) OR ID of the contact OR its SMS attribute value |
+ **startDate** | [**Object**](.md)| **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  | [optional]
+ **endDate** | [**Object**](.md)| **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  | [optional]
 
 ### Return type
 

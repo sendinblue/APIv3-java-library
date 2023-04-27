@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 <a name="getEmailCampaign"></a>
 # **getEmailCampaign**
-> GetEmailCampaign getEmailCampaign(campaignId)
+> GetEmailCampaign getEmailCampaign(campaignId, statistics)
 
 Get an email campaign report
 
@@ -289,8 +289,9 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 
 EmailCampaignsApi apiInstance = new EmailCampaignsApi();
 Long campaignId = 789L; // Long | Id of the campaign
+String statistics = "statistics_example"; // String | Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response.
 try {
-    GetEmailCampaign result = apiInstance.getEmailCampaign(campaignId);
+    GetEmailCampaign result = apiInstance.getEmailCampaign(campaignId, statistics);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EmailCampaignsApi#getEmailCampaign");
@@ -303,6 +304,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Long**| Id of the campaign |
+ **statistics** | **String**| Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. | [optional] [enum: globalStats, linksStats, statsByDomain, statsByDevice, statsByBrowser]
 
 ### Return type
 
@@ -319,7 +321,7 @@ Name | Type | Description  | Notes
 
 <a name="getEmailCampaigns"></a>
 # **getEmailCampaigns**
-> GetEmailCampaigns getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort)
+> GetEmailCampaigns getEmailCampaigns(type, status, statistics, startDate, endDate, limit, offset, sort)
 
 Return all your created email campaigns
 
@@ -349,13 +351,14 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 EmailCampaignsApi apiInstance = new EmailCampaignsApi();
 String type = "type_example"; // String | Filter on the type of the campaigns
 String status = "status_example"; // String | Filter on the status of the campaign
+String statistics = "statistics_example"; // String | Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response.
 String startDate = "startDate_example"; // String | Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
 String endDate = "endDate_example"; // String | Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either 'status' not passed and if passed is set to 'sent' )
-Long limit = 500L; // Long | Number of documents per page
+Long limit = 50L; // Long | Number of documents per page
 Long offset = 0L; // Long | Index of the first document in the page
 String sort = "desc"; // String | Sort the results in the ascending/descending order of record creation. Default order is **descending** if `sort` is not passed
 try {
-    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, startDate, endDate, limit, offset, sort);
+    GetEmailCampaigns result = apiInstance.getEmailCampaigns(type, status, statistics, startDate, endDate, limit, offset, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EmailCampaignsApi#getEmailCampaigns");
@@ -369,9 +372,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **String**| Filter on the type of the campaigns | [optional] [enum: classic, trigger]
  **status** | **String**| Filter on the status of the campaign | [optional] [enum: suspended, archive, sent, queued, draft, inProcess]
+ **statistics** | **String**| Filter on the type of statistics required. Example **globalStats** value will only fetch globalStats info of the campaign in returned response. | [optional] [enum: globalStats, linksStats, statsByDomain]
  **startDate** | **String**| Mandatory if endDate is used. Starting (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
  **endDate** | **String**| Mandatory if startDate is used. Ending (urlencoded) UTC date-time (YYYY-MM-DDTHH:mm:ss.SSSZ) to filter the sent email campaigns. Prefer to pass your timezone in date-time format for accurate result ( only available if either &#39;status&#39; not passed and if passed is set to &#39;sent&#39; ) | [optional]
- **limit** | **Long**| Number of documents per page | [optional] [default to 500]
+ **limit** | **Long**| Number of documents per page | [optional] [default to 50]
  **offset** | **Long**| Index of the first document in the page | [optional] [default to 0]
  **sort** | **String**| Sort the results in the ascending/descending order of record creation. Default order is **descending** if &#x60;sort&#x60; is not passed | [optional] [default to desc] [enum: asc, desc]
 
@@ -751,7 +755,7 @@ null (empty response body)
 
 <a name="uploadImageToGallery"></a>
 # **uploadImageToGallery**
-> uploadImageToGallery(uploadImage)
+> UploadImageModel uploadImageToGallery(uploadImage)
 
 Upload an image to your account&#39;s image gallery
 
@@ -781,7 +785,8 @@ partnerKey.setApiKey("YOUR PARTNER KEY");
 EmailCampaignsApi apiInstance = new EmailCampaignsApi();
 UploadImageToGallery uploadImage = new UploadImageToGallery(); // UploadImageToGallery | Parameters to upload an image
 try {
-    apiInstance.uploadImageToGallery(uploadImage);
+    UploadImageModel result = apiInstance.uploadImageToGallery(uploadImage);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EmailCampaignsApi#uploadImageToGallery");
     e.printStackTrace();
@@ -796,7 +801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UploadImageModel**](UploadImageModel.md)
 
 ### Authorization
 

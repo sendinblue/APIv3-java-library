@@ -13,13 +13,14 @@
 
 package sibApi;
 
+import sendinblue.ApiException;
 import sibModel.ErrorModel;
+import java.io.File;
 import sibModel.GetInboundEmailEvents;
 import sibModel.GetInboundEmailEventsByUuid;
 import org.threeten.bp.LocalDate;
 import org.junit.Test;
 import org.junit.Ignore;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,15 +37,31 @@ public class InboundParsingApiTest {
 
     
     /**
+     * Retrieve inbound attachment with download token.
+     *
+     * This endpoint will retrieve inbound attachment with download token.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getInboundEmailAttachmentTest() throws ApiException {
+        String downloadToken = null;
+        File response = api.getInboundEmailAttachment(downloadToken);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get the list of all the events for the received emails.
      *
      * This endpoint will show the list of all the events for the received emails.
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getInboundEmailEventsTest() throws Exception {
+    public void getInboundEmailEventsTest() throws ApiException {
         String sender = null;
         LocalDate startDate = null;
         LocalDate endDate = null;
@@ -61,11 +78,11 @@ public class InboundParsingApiTest {
      *
      * This endpoint will show the list of all events history for one particular received email.
      *
-     * @throws Exception
+     * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void getInboundEmailEventsByUuidTest() throws Exception {
+    public void getInboundEmailEventsByUuidTest() throws ApiException {
         String uuid = null;
         GetInboundEmailEventsByUuid response = api.getInboundEmailEventsByUuid(uuid);
 

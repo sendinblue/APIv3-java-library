@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,10 +29,13 @@ import sibModel.CreateAttributeEnumeration;
 /**
  * CreateAttribute
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class CreateAttribute {
   @SerializedName("value")
   private String value = null;
+
+  @SerializedName("isRecurring")
+  private Boolean isRecurring = null;
 
   @SerializedName("enumeration")
   private List<CreateAttributeEnumeration> enumeration = null;
@@ -114,6 +116,24 @@ public class CreateAttribute {
     this.value = value;
   }
 
+  public CreateAttribute isRecurring(Boolean isRecurring) {
+    this.isRecurring = isRecurring;
+    return this;
+  }
+
+   /**
+   * Type of the attribute. Use only if the attribute&#39;s category is &#39;calculated&#39; or &#39;global&#39;
+   * @return isRecurring
+  **/
+  @ApiModelProperty(example = "true", value = "Type of the attribute. Use only if the attribute's category is 'calculated' or 'global'")
+  public Boolean isIsRecurring() {
+    return isRecurring;
+  }
+
+  public void setIsRecurring(Boolean isRecurring) {
+    this.isRecurring = isRecurring;
+  }
+
   public CreateAttribute enumeration(List<CreateAttributeEnumeration> enumeration) {
     this.enumeration = enumeration;
     return this;
@@ -128,7 +148,7 @@ public class CreateAttribute {
   }
 
    /**
-   * List of values and labels that the attribute can take. Use only if the attribute&#39;s category is &quot;category&quot;. For example, [{&quot;value&quot;:1, &quot;label&quot;:&quot;male&quot;}, {&quot;value&quot;:2, &quot;label&quot;:&quot;female&quot;}]
+   * List of values and labels that the attribute can take. Use only if the attribute&#39;s category is \&quot;category\&quot;. For example, [{\&quot;value\&quot;:1, \&quot;label\&quot;:\&quot;male\&quot;}, {\&quot;value\&quot;:2, \&quot;label\&quot;:\&quot;female\&quot;}]
    * @return enumeration
   **/
   @ApiModelProperty(value = "List of values and labels that the attribute can take. Use only if the attribute's category is \"category\". For example, [{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]")
@@ -161,21 +181,22 @@ public class CreateAttribute {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     CreateAttribute createAttribute = (CreateAttribute) o;
-    return Objects.equals(this.value, createAttribute.value) &&
-        Objects.equals(this.enumeration, createAttribute.enumeration) &&
-        Objects.equals(this.type, createAttribute.type);
+    return ObjectUtils.equals(this.value, createAttribute.value) &&
+    ObjectUtils.equals(this.isRecurring, createAttribute.isRecurring) &&
+    ObjectUtils.equals(this.enumeration, createAttribute.enumeration) &&
+    ObjectUtils.equals(this.type, createAttribute.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, enumeration, type);
+    return ObjectUtils.hashCodeMulti(value, isRecurring, enumeration, type);
   }
 
 
@@ -185,6 +206,7 @@ public class CreateAttribute {
     sb.append("class CreateAttribute {\n");
     
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    isRecurring: ").append(toIndentedString(isRecurring)).append("\n");
     sb.append("    enumeration: ").append(toIndentedString(enumeration)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

@@ -1,5 +1,6 @@
 /*
- * SendinBlue API * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
+ * SendinBlue API
+ * SendinBlue provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/sendinblue  **Possible responses**   | Code | Message |   | :-------------: | ------------- |   | 200  | OK. Successful Request  |   | 201  | OK. Successful Creation |   | 202  | OK. Request accepted |   | 204  | OK. Successful Update/Deletion  |   | 400  | Error. Bad Request  |   | 401  | Error. Authentication Needed  |   | 402  | Error. Not enough credit, plan upgrade needed  |   | 403  | Error. Permission denied  |   | 404  | Error. Object does not exist |   | 405  | Error. Method not allowed  |   | 406  | Error. Not Acceptable  | 
  *
  * OpenAPI spec version: 3.0.0
  * Contact: contact@sendinblue.com
@@ -12,10 +13,9 @@
 
 package sendinblue;
 
-import com.squareup.okhttp.*;
-import com.squareup.okhttp.internal.http.HttpMethod;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
+import okhttp3.*;
+import okhttp3.internal.http.HttpMethod;
+import okhttp3.logging.HttpLoggingInterceptor;
 import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
@@ -55,7 +55,7 @@ public class ApiClient {
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
-    private String defaultUserAgent = "sendinblue_clientAPI/v5.3.0/java";
+    private String defaultUserAgent = "sendinblue_clientAPI/v7.0.0/java";
 
     private Map<String, Authentication> authentications;
 
@@ -385,7 +385,7 @@ public class ApiClient {
         if (debugging != this.debugging) {
             if (debugging) {
                 loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
+                loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
                 httpClient.interceptors().add(loggingInterceptor);
             } else {
                 httpClient.interceptors().remove(loggingInterceptor);
@@ -425,7 +425,7 @@ public class ApiClient {
      * @return Timeout in milliseconds
      */
     public int getConnectTimeout() {
-        return httpClient.getConnectTimeout();
+        return httpClient.connectTimeoutMillis();
     }
 
     /**
@@ -437,7 +437,7 @@ public class ApiClient {
      * @return Api client
      */
     public ApiClient setConnectTimeout(int connectionTimeout) {
-        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
+        httpClient.newBuilder().connectTimeout(connectionTimeout, TimeUnit.MILLISECONDS).build();
         return this;
     }
 
@@ -447,7 +447,7 @@ public class ApiClient {
      * @return Timeout in milliseconds
      */
     public int getReadTimeout() {
-        return httpClient.getReadTimeout();
+        return httpClient.readTimeoutMillis();
     }
 
     /**
@@ -459,7 +459,7 @@ public class ApiClient {
      * @return Api client
      */
     public ApiClient setReadTimeout(int readTimeout) {
-        httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
+        httpClient.newBuilder().readTimeout(readTimeout, TimeUnit.MILLISECONDS).build();
         return this;
     }
 
@@ -469,7 +469,7 @@ public class ApiClient {
      * @return Timeout in milliseconds
      */
     public int getWriteTimeout() {
-        return httpClient.getWriteTimeout();
+        return httpClient.writeTimeoutMillis();
     }
 
     /**
@@ -481,7 +481,7 @@ public class ApiClient {
      * @return Api client
      */
     public ApiClient setWriteTimeout(int writeTimeout) {
-        httpClient.setWriteTimeout(writeTimeout, TimeUnit.MILLISECONDS);
+        httpClient.newBuilder().writeTimeout(writeTimeout, TimeUnit.MILLISECONDS).build();
         return this;
     }
 
@@ -876,12 +876,12 @@ public class ApiClient {
     public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Request request, IOException e) {
+            public void onFailure(Call call, IOException e) {
                 callback.onFailure(new ApiException(e), 0, null);
             }
 
             @Override
-            public void onResponse(Response response) throws IOException {
+            public void onResponse(Call call, Response response) throws IOException {
                 T result;
                 try {
                     result = (T) handleResponse(response, returnType);
@@ -910,11 +910,7 @@ public class ApiClient {
                 // returning null if the returnType is not defined,
                 // or the status code is 204 (No Content)
                 if (response.body() != null) {
-                    try {
-                        response.body().close();
-                    } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
+                    response.body().close();
                 }
                 return null;
             } else {
@@ -1101,7 +1097,7 @@ public class ApiClient {
      * @return RequestBody
      */
     public RequestBody buildRequestBodyFormEncoding(Map<String, Object> formParams) {
-        FormEncodingBuilder formBuilder  = new FormEncodingBuilder();
+        FormBody.Builder formBuilder = new FormBody.Builder();
         for (Entry<String, Object> param : formParams.entrySet()) {
             formBuilder.add(param.getKey(), parameterToString(param.getValue()));
         }
@@ -1116,7 +1112,8 @@ public class ApiClient {
      * @return RequestBody
      */
     public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) {
-        MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
+        MultipartBody.Builder mpBuilder = new MultipartBody.Builder();
+        mpBuilder.setType(MultipartBody.FORM);
         for (Entry<String, Object> param : formParams.entrySet()) {
             if (param.getValue() instanceof File) {
                 File file = (File) param.getValue();
@@ -1198,11 +1195,15 @@ public class ApiClient {
             if (keyManagers != null || trustManagers != null) {
                 SSLContext sslContext = SSLContext.getInstance("TLS");
                 sslContext.init(keyManagers, trustManagers, new SecureRandom());
-                httpClient.setSslSocketFactory(sslContext.getSocketFactory());
-            } else {
-                httpClient.setSslSocketFactory(null);
+                httpClient = httpClient.newBuilder()
+                        .sslSocketFactory(sslContext.getSocketFactory())
+                        .build();
             }
-            httpClient.setHostnameVerifier(hostnameVerifier);
+            if (hostnameVerifier != null) {
+                httpClient = httpClient.newBuilder()
+                        .hostnameVerifier(hostnameVerifier)
+                        .build();
+            }
         } catch (GeneralSecurityException e) {
             throw new RuntimeException(e);
         }

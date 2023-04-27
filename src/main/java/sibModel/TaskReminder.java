@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import java.util.List;
  * Task reminder date/time for a task
  */
 @ApiModel(description = "Task reminder date/time for a task")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class TaskReminder {
   @SerializedName("value")
   private Integer value = null;
@@ -119,7 +118,7 @@ public class TaskReminder {
    * Unit of time before reminder is to be sent
    * @return unit
   **/
-  @ApiModelProperty(example = "minutes", required = true, value = "Unit of time before reminder is to be sent")
+  @ApiModelProperty(required = true, value = "Unit of time before reminder is to be sent")
   public UnitEnum getUnit() {
     return unit;
   }
@@ -139,10 +138,10 @@ public class TaskReminder {
   }
 
    /**
-   * Type of task reminder
+   * Type of task reminder e.g email, push
    * @return types
   **/
-  @ApiModelProperty(example = "[\"email\"]", required = true, value = "Type of task reminder")
+  @ApiModelProperty(example = "[\"email\"]", required = true, value = "Type of task reminder e.g email, push")
   public List<String> getTypes() {
     return types;
   }
@@ -154,21 +153,21 @@ public class TaskReminder {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     TaskReminder taskReminder = (TaskReminder) o;
-    return Objects.equals(this.value, taskReminder.value) &&
-        Objects.equals(this.unit, taskReminder.unit) &&
-        Objects.equals(this.types, taskReminder.types);
+    return ObjectUtils.equals(this.value, taskReminder.value) &&
+    ObjectUtils.equals(this.unit, taskReminder.unit) &&
+    ObjectUtils.equals(this.types, taskReminder.types);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, unit, types);
+    return ObjectUtils.hashCodeMulti(value, unit, types);
   }
 
 

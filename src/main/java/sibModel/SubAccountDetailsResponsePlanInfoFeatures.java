@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,10 +27,10 @@ import sibModel.SubAccountDetailsResponsePlanInfoFeaturesLandingPage;
 import sibModel.SubAccountDetailsResponsePlanInfoFeaturesUsers;
 
 /**
- * Sub-account features and addons quota details
+ * Features available on the sub-account
  */
-@ApiModel(description = "Sub-account features and addons quota details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@ApiModel(description = "Features available on the sub-account")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class SubAccountDetailsResponsePlanInfoFeatures {
   @SerializedName("inbox")
   private SubAccountDetailsResponsePlanInfoFeaturesInbox inbox = null;
@@ -99,21 +98,21 @@ public class SubAccountDetailsResponsePlanInfoFeatures {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     SubAccountDetailsResponsePlanInfoFeatures subAccountDetailsResponsePlanInfoFeatures = (SubAccountDetailsResponsePlanInfoFeatures) o;
-    return Objects.equals(this.inbox, subAccountDetailsResponsePlanInfoFeatures.inbox) &&
-        Objects.equals(this.landingPage, subAccountDetailsResponsePlanInfoFeatures.landingPage) &&
-        Objects.equals(this.users, subAccountDetailsResponsePlanInfoFeatures.users);
+    return ObjectUtils.equals(this.inbox, subAccountDetailsResponsePlanInfoFeatures.inbox) &&
+    ObjectUtils.equals(this.landingPage, subAccountDetailsResponsePlanInfoFeatures.landingPage) &&
+    ObjectUtils.equals(this.users, subAccountDetailsResponsePlanInfoFeatures.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inbox, landingPage, users);
+    return ObjectUtils.hashCodeMulti(inbox, landingPage, users);
   }
 
 

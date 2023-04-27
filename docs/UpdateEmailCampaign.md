@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **tag** | **String** | Tag of the campaign |  [optional]
 **sender** | [**UpdateEmailCampaignSender**](UpdateEmailCampaignSender.md) |  |  [optional]
 **name** | **String** | Name of the campaign |  [optional]
-**htmlContent** | **String** | Body of the message (HTML version). REQUIRED if htmlUrl is empty |  [optional]
+**htmlContent** | **String** | Body of the message (HTML version). If the campaign is designed using Drag &amp; Drop editor via HTML content, then the design page will not have Drag &amp; Drop editor access for that campaign. REQUIRED if htmlUrl is empty |  [optional]
 **htmlUrl** | **String** | Url which contents the body of the email message. REQUIRED if htmlContent is empty |  [optional]
 **scheduledAt** | **String** | UTC date-time on which the campaign has to run (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for accurate result. If sendAtBestTime is set to true, your campaign will be sent according to the date passed (ignoring the time part). |  [optional]
 **subject** | **String** | Subject of the campaign |  [optional]
@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **ipWarmupEnable** | **Boolean** | Available for dedicated ip clients. Set this to true if you wish to warm up your ip. |  [optional]
 **initialQuota** | **Long** | Set an initial quota greater than 1 for warming up your ip. We recommend you set a value of 3000. |  [optional]
 **increaseRate** | **Long** | Set a percentage increase rate for warming up your ip. We recommend you set the increase rate to 30% per day. If you want to send the same number of emails every day, set the daily increase value to 0%. |  [optional]
+**unsubscriptionPageId** | **String** | Enter an unsubscription page id. The page id is a 24 digit alphanumeric id that can be found in the URL when editing the page. |  [optional]
+**updateFormId** | **String** | Mandatory if templateId is used containing the {{ update_profile }} tag. Enter an update profile form id. The form id is a 24 digit alphanumeric id that can be found in the URL when editing the form. |  [optional]
 
 
 <a name="WinnerCriteriaEnum"></a>

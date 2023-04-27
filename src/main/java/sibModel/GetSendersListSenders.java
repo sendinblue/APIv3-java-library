@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.GetSendersListIps;
 /**
  * GetSendersListSenders
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetSendersListSenders {
   @SerializedName("id")
   private Long id = null;
@@ -148,23 +147,23 @@ public class GetSendersListSenders {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetSendersListSenders getSendersListSenders = (GetSendersListSenders) o;
-    return Objects.equals(this.id, getSendersListSenders.id) &&
-        Objects.equals(this.name, getSendersListSenders.name) &&
-        Objects.equals(this.email, getSendersListSenders.email) &&
-        Objects.equals(this.active, getSendersListSenders.active) &&
-        Objects.equals(this.ips, getSendersListSenders.ips);
+    return ObjectUtils.equals(this.id, getSendersListSenders.id) &&
+    ObjectUtils.equals(this.name, getSendersListSenders.name) &&
+    ObjectUtils.equals(this.email, getSendersListSenders.email) &&
+    ObjectUtils.equals(this.active, getSendersListSenders.active) &&
+    ObjectUtils.equals(this.ips, getSendersListSenders.ips);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, active, ips);
+    return ObjectUtils.hashCodeMulti(id, name, email, active, ips);
   }
 
 

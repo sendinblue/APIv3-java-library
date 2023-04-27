@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,7 +29,7 @@ import sibModel.GetAttributesEnumeration;
 /**
  * GetAttributesAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetAttributesAttributes {
   @SerializedName("name")
   private String name = null;
@@ -221,7 +220,7 @@ public class GetAttributesAttributes {
   }
 
    /**
-   * Parameter only available for &quot;category&quot; type attributes.
+   * Parameter only available for \&quot;category\&quot; type attributes.
    * @return enumeration
   **/
   @ApiModelProperty(value = "Parameter only available for \"category\" type attributes.")
@@ -254,23 +253,23 @@ public class GetAttributesAttributes {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetAttributesAttributes getAttributesAttributes = (GetAttributesAttributes) o;
-    return Objects.equals(this.name, getAttributesAttributes.name) &&
-        Objects.equals(this.category, getAttributesAttributes.category) &&
-        Objects.equals(this.type, getAttributesAttributes.type) &&
-        Objects.equals(this.enumeration, getAttributesAttributes.enumeration) &&
-        Objects.equals(this.calculatedValue, getAttributesAttributes.calculatedValue);
+    return ObjectUtils.equals(this.name, getAttributesAttributes.name) &&
+    ObjectUtils.equals(this.category, getAttributesAttributes.category) &&
+    ObjectUtils.equals(this.type, getAttributesAttributes.type) &&
+    ObjectUtils.equals(this.enumeration, getAttributesAttributes.enumeration) &&
+    ObjectUtils.equals(this.calculatedValue, getAttributesAttributes.calculatedValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, category, type, enumeration, calculatedValue);
+    return ObjectUtils.hashCodeMulti(name, category, type, enumeration, calculatedValue);
   }
 
 

@@ -13,6 +13,7 @@
 
 package sibApi;
 
+import okhttp3.Call;
 import sendinblue.ApiCallback;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
@@ -75,7 +76,7 @@ public class TransactionalSmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsEventsCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getSmsEventsCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -119,10 +120,10 @@ public class TransactionalSmsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -135,10 +136,10 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsEventsValidateBeforeCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getSmsEventsValidateBeforeCall(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getSmsEventsCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, progressListener, progressRequestListener);
+        Call call = getSmsEventsCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -179,7 +180,7 @@ public class TransactionalSmsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetSmsEventReport> getSmsEventsWithHttpInfo(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsEventsValidateBeforeCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, null, null);
+        Call call = getSmsEventsValidateBeforeCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, null, null);
         Type localVarReturnType = new TypeToken<GetSmsEventReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -200,7 +201,7 @@ public class TransactionalSmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsEventsAsync(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ApiCallback<GetSmsEventReport> callback) throws ApiException {
+    public Call getSmsEventsAsync(Long limit, String startDate, String endDate, Long offset, Long days, String phoneNumber, String event, String tags, String sort, final ApiCallback<GetSmsEventReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -221,7 +222,7 @@ public class TransactionalSmsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsEventsValidateBeforeCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, progressListener, progressRequestListener);
+        Call call = getSmsEventsValidateBeforeCall(limit, startDate, endDate, offset, days, phoneNumber, event, tags, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsEventReport>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -237,7 +238,7 @@ public class TransactionalSmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacAggregatedSmsReportCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getTransacAggregatedSmsReportCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -271,10 +272,10 @@ public class TransactionalSmsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -287,10 +288,10 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacAggregatedSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getTransacAggregatedSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTransacAggregatedSmsReportCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
+        Call call = getTransacAggregatedSmsReportCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
         return call;
 
     }
@@ -321,7 +322,7 @@ public class TransactionalSmsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetTransacAggregatedSmsReport> getTransacAggregatedSmsReportWithHttpInfo(String startDate, String endDate, Long days, String tag) throws ApiException {
-        com.squareup.okhttp.Call call = getTransacAggregatedSmsReportValidateBeforeCall(startDate, endDate, days, tag, null, null);
+        Call call = getTransacAggregatedSmsReportValidateBeforeCall(startDate, endDate, days, tag, null, null);
         Type localVarReturnType = new TypeToken<GetTransacAggregatedSmsReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -337,7 +338,7 @@ public class TransactionalSmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacAggregatedSmsReportAsync(String startDate, String endDate, Long days, String tag, final ApiCallback<GetTransacAggregatedSmsReport> callback) throws ApiException {
+    public Call getTransacAggregatedSmsReportAsync(String startDate, String endDate, Long days, String tag, final ApiCallback<GetTransacAggregatedSmsReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -358,7 +359,7 @@ public class TransactionalSmsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTransacAggregatedSmsReportValidateBeforeCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
+        Call call = getTransacAggregatedSmsReportValidateBeforeCall(startDate, endDate, days, tag, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetTransacAggregatedSmsReport>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -375,7 +376,7 @@ public class TransactionalSmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTransacSmsReportCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call getTransacSmsReportCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -411,10 +412,10 @@ public class TransactionalSmsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -427,10 +428,10 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTransacSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call getTransacSmsReportValidateBeforeCall(String startDate, String endDate, Long days, String tag, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getTransacSmsReportCall(startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
+        Call call = getTransacSmsReportCall(startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -463,7 +464,7 @@ public class TransactionalSmsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<GetTransacSmsReport> getTransacSmsReportWithHttpInfo(String startDate, String endDate, Long days, String tag, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = getTransacSmsReportValidateBeforeCall(startDate, endDate, days, tag, sort, null, null);
+        Call call = getTransacSmsReportValidateBeforeCall(startDate, endDate, days, tag, sort, null, null);
         Type localVarReturnType = new TypeToken<GetTransacSmsReport>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -480,7 +481,7 @@ public class TransactionalSmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTransacSmsReportAsync(String startDate, String endDate, Long days, String tag, String sort, final ApiCallback<GetTransacSmsReport> callback) throws ApiException {
+    public Call getTransacSmsReportAsync(String startDate, String endDate, Long days, String tag, String sort, final ApiCallback<GetTransacSmsReport> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -501,7 +502,7 @@ public class TransactionalSmsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTransacSmsReportValidateBeforeCall(startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
+        Call call = getTransacSmsReportValidateBeforeCall(startDate, endDate, days, tag, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetTransacSmsReport>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -514,7 +515,7 @@ public class TransactionalSmsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sendTransacSmsCall(SendTransacSms sendTransacSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call sendTransacSmsCall(SendTransacSms sendTransacSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = sendTransacSms;
 
         // create path and map variables
@@ -540,10 +541,10 @@ public class TransactionalSmsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -556,7 +557,7 @@ public class TransactionalSmsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sendTransacSmsValidateBeforeCall(SendTransacSms sendTransacSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private Call sendTransacSmsValidateBeforeCall(SendTransacSms sendTransacSms, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'sendTransacSms' is set
         if (sendTransacSms == null) {
@@ -564,7 +565,7 @@ public class TransactionalSmsApi {
         }
         
 
-        com.squareup.okhttp.Call call = sendTransacSmsCall(sendTransacSms, progressListener, progressRequestListener);
+        Call call = sendTransacSmsCall(sendTransacSms, progressListener, progressRequestListener);
         return call;
 
     }
@@ -589,7 +590,7 @@ public class TransactionalSmsApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SendSms> sendTransacSmsWithHttpInfo(SendTransacSms sendTransacSms) throws ApiException {
-        com.squareup.okhttp.Call call = sendTransacSmsValidateBeforeCall(sendTransacSms, null, null);
+        Call call = sendTransacSmsValidateBeforeCall(sendTransacSms, null, null);
         Type localVarReturnType = new TypeToken<SendSms>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -602,7 +603,7 @@ public class TransactionalSmsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sendTransacSmsAsync(SendTransacSms sendTransacSms, final ApiCallback<SendSms> callback) throws ApiException {
+    public Call sendTransacSmsAsync(SendTransacSms sendTransacSms, final ApiCallback<SendSms> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -623,7 +624,7 @@ public class TransactionalSmsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sendTransacSmsValidateBeforeCall(sendTransacSms, progressListener, progressRequestListener);
+        Call call = sendTransacSmsValidateBeforeCall(sendTransacSms, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SendSms>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +31,7 @@ import sibModel.GetChildInfoApiKeysV3;
  * API Keys associated to child account
  */
 @ApiModel(description = "API Keys associated to child account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetChildInfoApiKeys {
   @SerializedName("v2")
   private List<GetChildInfoApiKeysV2> v2 = new ArrayList<GetChildInfoApiKeysV2>();
@@ -92,20 +91,20 @@ public class GetChildInfoApiKeys {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetChildInfoApiKeys getChildInfoApiKeys = (GetChildInfoApiKeys) o;
-    return Objects.equals(this.v2, getChildInfoApiKeys.v2) &&
-        Objects.equals(this.v3, getChildInfoApiKeys.v3);
+    return ObjectUtils.equals(this.v2, getChildInfoApiKeys.v2) &&
+    ObjectUtils.equals(this.v3, getChildInfoApiKeys.v3);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(v2, v3);
+    return ObjectUtils.hashCodeMulti(v2, v3);
   }
 
 

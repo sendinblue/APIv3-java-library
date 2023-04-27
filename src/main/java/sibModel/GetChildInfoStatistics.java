@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +27,7 @@ import java.io.IOException;
  * Statistics about your child account activity
  */
 @ApiModel(description = "Statistics about your child account activity")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetChildInfoStatistics {
   @SerializedName("previousMonthTotalSent")
   private Long previousMonthTotalSent = null;
@@ -96,21 +95,21 @@ public class GetChildInfoStatistics {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetChildInfoStatistics getChildInfoStatistics = (GetChildInfoStatistics) o;
-    return Objects.equals(this.previousMonthTotalSent, getChildInfoStatistics.previousMonthTotalSent) &&
-        Objects.equals(this.currentMonthTotalSent, getChildInfoStatistics.currentMonthTotalSent) &&
-        Objects.equals(this.totalSent, getChildInfoStatistics.totalSent);
+    return ObjectUtils.equals(this.previousMonthTotalSent, getChildInfoStatistics.previousMonthTotalSent) &&
+    ObjectUtils.equals(this.currentMonthTotalSent, getChildInfoStatistics.currentMonthTotalSent) &&
+    ObjectUtils.equals(this.totalSent, getChildInfoStatistics.totalSent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(previousMonthTotalSent, currentMonthTotalSent, totalSent);
+    return ObjectUtils.hashCodeMulti(previousMonthTotalSent, currentMonthTotalSent, totalSent);
   }
 
 

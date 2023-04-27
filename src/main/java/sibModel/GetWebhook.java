@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * GetWebhook
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetWebhook {
   @SerializedName("url")
   private String url = null;
@@ -44,13 +43,13 @@ public class GetWebhook {
   private List<String> events = new ArrayList<String>();
 
   /**
-   * Type of webhook (marketing or transac)
+   * Type of webhook (marketing or transactional)
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     MARKETING("marketing"),
     
-    TRANSAC("transac");
+    TRANSACTIONAL("transactional");
 
     private String value;
 
@@ -182,10 +181,10 @@ public class GetWebhook {
   }
 
    /**
-   * Type of webhook (marketing or transac)
+   * Type of webhook (marketing or transactional)
    * @return type
   **/
-  @ApiModelProperty(example = "marketing", required = true, value = "Type of webhook (marketing or transac)")
+  @ApiModelProperty(example = "marketing", required = true, value = "Type of webhook (marketing or transactional)")
   public TypeEnum getType() {
     return type;
   }
@@ -233,25 +232,25 @@ public class GetWebhook {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetWebhook getWebhook = (GetWebhook) o;
-    return Objects.equals(this.url, getWebhook.url) &&
-        Objects.equals(this.id, getWebhook.id) &&
-        Objects.equals(this.description, getWebhook.description) &&
-        Objects.equals(this.events, getWebhook.events) &&
-        Objects.equals(this.type, getWebhook.type) &&
-        Objects.equals(this.createdAt, getWebhook.createdAt) &&
-        Objects.equals(this.modifiedAt, getWebhook.modifiedAt);
+    return ObjectUtils.equals(this.url, getWebhook.url) &&
+    ObjectUtils.equals(this.id, getWebhook.id) &&
+    ObjectUtils.equals(this.description, getWebhook.description) &&
+    ObjectUtils.equals(this.events, getWebhook.events) &&
+    ObjectUtils.equals(this.type, getWebhook.type) &&
+    ObjectUtils.equals(this.createdAt, getWebhook.createdAt) &&
+    ObjectUtils.equals(this.modifiedAt, getWebhook.modifiedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, id, description, events, type, createdAt, modifiedAt);
+    return ObjectUtils.hashCodeMulti(url, id, description, events, type, createdAt, modifiedAt);
   }
 
 

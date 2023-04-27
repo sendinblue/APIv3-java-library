@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,7 +26,7 @@ import java.io.IOException;
 /**
  * GetSmsEventReportEvents
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetSmsEventReportEvents {
   @SerializedName("phoneNumber")
   private String phoneNumber = null;
@@ -59,7 +58,9 @@ public class GetSmsEventReportEvents {
     
     REPLIES("replies"),
     
-    BLOCKED("blocked");
+    BLOCKED("blocked"),
+    
+    REJECTED("rejected");
 
     private String value;
 
@@ -240,25 +241,25 @@ public class GetSmsEventReportEvents {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetSmsEventReportEvents getSmsEventReportEvents = (GetSmsEventReportEvents) o;
-    return Objects.equals(this.phoneNumber, getSmsEventReportEvents.phoneNumber) &&
-        Objects.equals(this.date, getSmsEventReportEvents.date) &&
-        Objects.equals(this.messageId, getSmsEventReportEvents.messageId) &&
-        Objects.equals(this.event, getSmsEventReportEvents.event) &&
-        Objects.equals(this.reason, getSmsEventReportEvents.reason) &&
-        Objects.equals(this.reply, getSmsEventReportEvents.reply) &&
-        Objects.equals(this.tag, getSmsEventReportEvents.tag);
+    return ObjectUtils.equals(this.phoneNumber, getSmsEventReportEvents.phoneNumber) &&
+    ObjectUtils.equals(this.date, getSmsEventReportEvents.date) &&
+    ObjectUtils.equals(this.messageId, getSmsEventReportEvents.messageId) &&
+    ObjectUtils.equals(this.event, getSmsEventReportEvents.event) &&
+    ObjectUtils.equals(this.reason, getSmsEventReportEvents.reason) &&
+    ObjectUtils.equals(this.reply, getSmsEventReportEvents.reply) &&
+    ObjectUtils.equals(this.tag, getSmsEventReportEvents.tag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(phoneNumber, date, messageId, event, reason, reply, tag);
+    return ObjectUtils.hashCodeMulti(phoneNumber, date, messageId, event, reason, reply, tag);
   }
 
 

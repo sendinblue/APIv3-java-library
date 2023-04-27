@@ -13,8 +13,7 @@
 
 package sibModel;
 
-import java.util.Objects;
-import java.util.Arrays;
+import org.apache.commons.lang3.ObjectUtils;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,7 +31,7 @@ import sibModel.GetInboundEmailEventsByUuidLogs;
 /**
  * GetInboundEmailEventsByUuid
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-03-02T23:12:13.151+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-02-28T15:16:18.937+05:30")
 public class GetInboundEmailEventsByUuid {
   @SerializedName("receivedAt")
   private OffsetDateTime receivedAt = null;
@@ -221,26 +220,26 @@ public class GetInboundEmailEventsByUuid {
 
   @Override
   public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
     GetInboundEmailEventsByUuid getInboundEmailEventsByUuid = (GetInboundEmailEventsByUuid) o;
-    return Objects.equals(this.receivedAt, getInboundEmailEventsByUuid.receivedAt) &&
-        Objects.equals(this.deliveredAt, getInboundEmailEventsByUuid.deliveredAt) &&
-        Objects.equals(this.recipient, getInboundEmailEventsByUuid.recipient) &&
-        Objects.equals(this.sender, getInboundEmailEventsByUuid.sender) &&
-        Objects.equals(this.messageId, getInboundEmailEventsByUuid.messageId) &&
-        Objects.equals(this.subject, getInboundEmailEventsByUuid.subject) &&
-        Objects.equals(this.attachments, getInboundEmailEventsByUuid.attachments) &&
-        Objects.equals(this.logs, getInboundEmailEventsByUuid.logs);
+    return ObjectUtils.equals(this.receivedAt, getInboundEmailEventsByUuid.receivedAt) &&
+    ObjectUtils.equals(this.deliveredAt, getInboundEmailEventsByUuid.deliveredAt) &&
+    ObjectUtils.equals(this.recipient, getInboundEmailEventsByUuid.recipient) &&
+    ObjectUtils.equals(this.sender, getInboundEmailEventsByUuid.sender) &&
+    ObjectUtils.equals(this.messageId, getInboundEmailEventsByUuid.messageId) &&
+    ObjectUtils.equals(this.subject, getInboundEmailEventsByUuid.subject) &&
+    ObjectUtils.equals(this.attachments, getInboundEmailEventsByUuid.attachments) &&
+    ObjectUtils.equals(this.logs, getInboundEmailEventsByUuid.logs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(receivedAt, deliveredAt, recipient, sender, messageId, subject, attachments, logs);
+    return ObjectUtils.hashCodeMulti(receivedAt, deliveredAt, recipient, sender, messageId, subject, attachments, logs);
   }
 
 
