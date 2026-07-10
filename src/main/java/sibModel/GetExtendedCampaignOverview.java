@@ -103,8 +103,14 @@ public class GetExtendedCampaignOverview {
     QUEUED("queued"),
     
     SUSPENDED("suspended"),
-    
-    IN_PROCESS("in_process");
+
+    IN_PROCESS("in_process"),
+
+    IN_REVIEW("in_review"),
+
+    CANCELLING("cancelling"),
+
+    CANCELLED("cancelled");
 
     private String value;
 
